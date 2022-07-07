@@ -1,14 +1,27 @@
 ---
+import AuthorLink from "./AuthorLink.astro";
+import GitHub from "./GitHub.astro";
+import GitLab from "./GitLab.astro";
+import Twitter from "./Twitter.astro";
+
 export interface Props {
 	name: string;
-	href: string;
+	twitter?: string;
+	github?: string;
+	gitlab?: string;
+	href?: string;
 }
 
-const { name, href } = Astro.props;
+const { name, href, github, gitlab, twitter } = Astro.props;
 ---
 
 <div class="author">
-	<p><a {href}>{name}</a></p>
+	<p>
+		<AuthorLink {name} {href} />
+		<GitHub nick={github} />
+		<GitLab nick={gitlab} />
+		<Twitter nick={twitter} />
+	</p>
 </div>
 
 <style>
