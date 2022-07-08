@@ -2,23 +2,42 @@
 setup: |
   import Layout from '../../layouts/BlogPost.astro'
 title: Hello world!
-
 publishDate: 2022-07-08
 value: 128
 description: Just a Hello World Post!
 ---
 
-This is so cool!
+This is mainly a short post to see whether or not the infrastructure is working
+as intended.
 
-Do variables work {frontmatter.value * 2}?
+Withing this blog, we will probably see some languages used, I am not happy with
+all of them, though this is the world we are living in 😅.
 
 ```nix
-{ alpa = 2; }
-# Example JavaScript
+# nix
+{ hello, runCommandNoCC }:
+runCommandNoCC "hello-world" {} ''
+  ${hello}/bin/hello > $out
+''
+```
 
-const x = 7;
-function returnSeven() {
-  return x;
+```elixir
+# elixir
+defmodule HelloWorld do
+  def hello, do: "Hello, World"
+end
+```
+
+```erlang
+%% erlang
+-module(hello).
+hello() -> "Hello, World".
+```
+
+```js
+// javascript
+function hello() {
+  return "Hello, World";
 }
 
 ```

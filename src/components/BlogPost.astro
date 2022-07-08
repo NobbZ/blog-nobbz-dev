@@ -1,21 +1,27 @@
 ---
+import { DateTime } from 'luxon';
+
 import Author from './Author.astro';
 
 export interface Props {
 	title: string;
-	author: { name?: string; twitter?: string; github?: string; gitlab?: string; href?: string };
+	author: { name?: string; nick?: string; twitter?: string; github?: string; gitlab?: string; href?: string };
 	publishDate: string;
 	heroImage: string;
 	alt: string;
 }
 
 const { title, author, publishDate, heroImage, alt } = Astro.props;
-const { name, twitter, github, gitlab, href } = author || { name: "Norbert Melzer" };
+const { name, nick, twitter, github, gitlab, href } = author || { name: "Norbert Melzer" };
 
+const nk = author ? nick : "NobbZ"
 const tw = author ? twitter : "NobbZ1981"
 const gh = author ? github : "NobbZ"
 const gl = author ? gitlab : "NobbZ"
-const hp = author ? href : "https://nobbz.dev"
+const hp = author ? href : "https://nobbz.dev/"
+
+const published = DateTime.fromISO(publishDate).toISODate();
+const relPublished = DateTime.fromISO(publishDate).setLocale('en').toRelativeCalendar();
 ---
 
 <div class="layout">
@@ -25,11 +31,12 @@ const hp = author ? href : "https://nobbz.dev"
 				<div style="flex-grow: 4;">
 					{heroImage && <img width="720" height="420" class="hero-image" loading="lazy" src={heroImage}
 						alt={alt} />}
-					<p class="publish-date">{publishDate}</p>
 					<h1 class="title">{title}</h1>
-					<Author {name} href={hp} github={gh} twitter={tw} gitlab={gl} />
+					<Author {name} nick={nk} href={hp} github={gh} twitter={tw} gitlab={gl} />
 				</div>
-				<div>asd</div>
+				<div>
+					<abbr class="publish-date" title={published}>{relPublished}</abbr>
+				</div>
 			</header>
 			<main>
 				<slot />

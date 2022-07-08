@@ -13,6 +13,7 @@
     "astro": "^1.0.0-beta.63"
   },
   "dependencies": {
+    "luxon": "^2.4.0",
     "preact": "^10.7.3"
   }
 }
