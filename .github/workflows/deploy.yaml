@@ -16,9 +16,10 @@ jobs:
           access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
           experimental-features = nix-command flakes
     - run: nix build .#blog
-    - run: |
-      nix develop . -c yarn run wrangler publish \
-        ./result \
-        --project-name blog-nobbz-dev \
-        --commit-hash $GITHUB_SHA \
-        --branch $GITHUB_REF
+    - uses: cloudflare/pages-action@1
+      with:
+        apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        projectName: blog-nobbz-dev
+        directory: ./result
+        gitHubToken: ${{ secrets.GITHUB_TOKEN }}
