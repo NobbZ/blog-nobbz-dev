@@ -1,0 +1,24 @@
+name: Deploy the blog
+
+on:
+  push:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-20.04
+    steps:
+    - uses: actions/checkout@v3
+      with: {token: '${{ secrets.GITHUB_TOKEN }}'}
+    - uses: cachix/install-nix-action@v17
+      with:
+        install_url: https://releases.nixos.org/nix/nix-2.9.1/install
+        extra_nix_config: |
+          access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
+          experimental-features = nix-command flakes
+    - run: nix build .#blog
+    - run: |
+      nix develop . -c yarn run wrangler publish \
+        ./result \
+        --project-name blog-nobbz-dev \
+        --commit-hash $GITHUB_SHA \
+        --branch $GITHUB_REF
