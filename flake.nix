@@ -11,6 +11,36 @@
     nixpkgs,
     ...
   } @ inputs: {
+    packages.x86_64-linux.blog = let
+      pkgs = nixpkgs.legacyPackages.x86_64-linux;
+      inherit (pkgs) mkYarnPackage;
+    in
+      mkYarnPackage {
+        name = "blog-nobbz-dev";
+        version = self.lastModifiedDate;
+        src = self;
+        packageJSON = "${self}/package.json";
+        yarnLock = "${self}/yarn.lock";
+
+        postConfigure = ''
+          mkdir -p yarnHome
+          export HOME=$(pwd)/yarnHome
+          export BLOG_COMMIT=${self.shortRev or "dirty"}
+        '';
+
+        buildPhase = ''
+          yarn --offline build
+        '';
+
+        installPhase = ''
+          mkdir -p $out
+          find . -name index.html
+          cp -rv ./deps/@example/blog/dist/* $out
+        '';
+
+        distPhase = "true";
+      };
+
     devShells.x86_64-linux.default = let
       pkgs = nixpkgs.legacyPackages.x86_64-linux;
     in
