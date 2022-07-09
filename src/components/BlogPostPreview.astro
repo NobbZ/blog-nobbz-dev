@@ -1,5 +1,5 @@
 ---
-import { DateTime } from "luxon";
+import Date from "./Date.astro";
 
 export interface Props {
 	post: any;
@@ -7,15 +7,17 @@ export interface Props {
 
 const { post } = Astro.props;
 
-let publishDate = post.frontmatter.publishDate;
-publishDate = DateTime.fromISO(publishDate).toISODate();
+// let publishDate = post.frontmatter.publishDate;
+// publishDate = DateTime.fromISO(publishDate).toISODate();
 
-const publishRel = DateTime.fromISO(publishDate).setLocale('en').toRelativeCalendar();
+// const publishRel = DateTime.fromISO(publishDate).setLocale('en').toRelativeCalendar();
 ---
 
 <article class="post-preview">
 	<header>
-		<p class="publish-date"><abbr title={publishDate}>{publishRel}</abbr></p>
+		<p class="publish-date">
+			<Date date={post.frontmatter.publishDate} />
+		</p>
 		<a href={post.url}>
 			<h1 class="title">{post.frontmatter.title}</h1>
 		</a>

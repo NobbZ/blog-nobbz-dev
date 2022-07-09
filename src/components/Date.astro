@@ -1,0 +1,13 @@
+---
+import { DateTime } from 'luxon';
+
+export interface Props {
+    date: string | DateTime;
+    lang?: string;
+}
+
+const date: DateTime = Astro.props.date instanceof DateTime ? Astro.props.date : DateTime.fromISO(Astro.props.date);
+const rel: string = date.setLocale(Astro.props.lang || 'en').toRelativeCalendar();
+---
+
+<abbr title={date.toISODate()}>{rel}</abbr>
