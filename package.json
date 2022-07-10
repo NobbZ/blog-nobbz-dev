@@ -12,7 +12,7 @@
     "@astrojs/preact": "^0.3.1",
     "@typescript-eslint/eslint-plugin": "^5.30.5",
     "@typescript-eslint/parser": "^5.30.5",
-    "astro": "^1.0.0-beta.63",
+    "astro": "^1.0.0-beta.64",
     "eslint": "^8.0.1",
     "eslint-config-standard": "^17.0.0",
     "eslint-plugin-astro": "^0.15.0",
