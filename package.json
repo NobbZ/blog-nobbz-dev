@@ -21,7 +21,7 @@
     "eslint-plugin-promise": "^6.0.0"
   },
   "dependencies": {
-    "luxon": "^2.4.0",
+    "luxon": "^3.0.1",
     "preact": "^10.7.3"
   }
 }

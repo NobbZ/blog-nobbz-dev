@@ -6,8 +6,26 @@ export interface Props {
     lang?: string;
 }
 
-const date: DateTime = Astro.props.date instanceof DateTime ? Astro.props.date : DateTime.fromISO(Astro.props.date);
-const rel: string = date.setLocale(Astro.props.lang || 'en').toRelativeCalendar();
+let { date, lang } = Astro.props;
+
+lang = lang || 'en';
+
+const datetime: string = date instanceof DateTime ? date.toISODate() : DateTime.fromISO(date).toISODate();
+
 ---
 
-<abbr title={date.toISODate()}>{rel}</abbr>
+<time data-relative {lang} {datetime}>{datetime}</time>
+
+<script>
+    import { DateTime } from 'luxon';
+
+    const dateElemets = document.querySelectorAll<HTMLTimeElement>("[data-relative]");
+
+    dateElemets.forEach((element) => {
+        const date: DateTime = DateTime.fromISO(element.dateTime);
+
+        const relative = date.setLocale(element.lang).toRelativeCalendar();
+
+        element.innerHTML = `<abbr title=${element.dateTime}>${relative}</abbr>`
+    });
+</script>
