@@ -12,9 +12,10 @@ let title = 'NobbZ\' Blog';
 let description = 'This, that, and other things.';
 let permalink = 'https://blog.nobbz.dev/';
 
-// Data Fetching: List all Markdown posts in the repo.
+// Data Fetching: List all Markdown and Astro posts in the repo.
 
-let allPosts = await Astro.glob('./posts/*.md');
+let allPosts = await Astro.glob('./posts/*.{md,astro}');
+
 allPosts = allPosts.sort((a, b) => new Date(b.frontmatter.publishDate).valueOf() - new Date(a.frontmatter.publishDate).valueOf());
 
 // Full Astro Component Syntax:

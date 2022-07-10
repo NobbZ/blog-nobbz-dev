@@ -1,4 +1,5 @@
 ---
+import Author from "./Author.astro";
 import Date from "./Date.astro";
 
 export interface Props {
@@ -15,12 +16,13 @@ const { post } = Astro.props;
 
 <article class="post-preview">
 	<header>
-		<p class="publish-date">
-			<Date date={post.frontmatter.publishDate} />
-		</p>
 		<a href={post.url}>
 			<h1 class="title">{post.frontmatter.title}</h1>
 		</a>
+		<div class="post-meta">
+			<Date date={post.frontmatter.publishDate} />
+			<Author name={(post.frontmatter.author && post.frontmatter.author.name) || "Norbert Melzer" } />
+		</div>
 	</header>
 	<p>{post.frontmatter.description}</p>
 	<a href={post.url}>Read more</a>
@@ -38,12 +40,18 @@ const { post } = Astro.props;
 	}
 
 	header {
-		align-items: flex-start;
+		align-items: stretch;
 		display: flex;
-		flex-direction: column;
-		justify-content: center;
+		flex-direction: row;
+		justify-content: space-between;
 		padding-bottom: 2rem;
 		text-align: left;
+	}
+
+	.post-meta {
+		display: flex;
+		flex-flow: column;
+		text-align: right;
 	}
 
 	.title,
