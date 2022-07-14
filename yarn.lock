@@ -15,10 +15,10 @@
   resolved "https://registry.yarnpkg.com/@astrojs/compiler/-/compiler-0.18.0.tgz#e69dbf22935b5097d258621f6675320c38bb2f99"
   integrity sha512-iBX4Fm5FwAnDLJcnH6DII41lla6iLX3gSabZ884P5TuG+CxL3fEew9gZ6AhTUnpyNXuyuYb6+xWQPQdNA9KsXA==
 
-"@astrojs/compiler@^0.18.2":
-  version "0.18.2"
-  resolved "https://registry.yarnpkg.com/@astrojs/compiler/-/compiler-0.18.2.tgz#4a4d98233a69671eb95eef4f24e3b1e0fe2ebaf6"
-  integrity sha512-R2lOpaif3hDju2/sE6OrKvnTMgrcLRJw+jAVih9pLA2ATgy2EnhYMhflRk1vQ6+YwuhyL6Lj/dRJFXgB7r70eg==
+"@astrojs/compiler@^0.19.0":
+  version "0.19.0"
+  resolved "https://registry.yarnpkg.com/@astrojs/compiler/-/compiler-0.19.0.tgz#ea25fea3ba59ce7734c2bcc65a5fd1e372329943"
+  integrity sha512-8nvyxZTfCXLyRmYfTttpJT6EPhfBRg0/q4J/Jj3/pNPLzp+vs05ZdktsY6QxAREaOMAnNEtSqcrB4S5DsXOfRg==
 
 "@astrojs/language-server@^0.13.4":
   version "0.13.4"
@@ -38,10 +38,10 @@
     vscode-languageserver-types "^3.16.0"
     vscode-uri "^3.0.2"
 
-"@astrojs/markdown-remark@^0.11.6":
-  version "0.11.6"
-  resolved "https://registry.yarnpkg.com/@astrojs/markdown-remark/-/markdown-remark-0.11.6.tgz#cfec8334664a7b6dea9865e5b32227161c78199b"
-  integrity sha512-UOhUWCn7ODUq+W9w6dPASzLQHBvuQuo0ZirC10Rhh3T34b2pOlrFhFKgUnlLnFEN8BQaR3P4oassk+OQwLGrKg==
+"@astrojs/markdown-remark@^0.11.7":
+  version "0.11.7"
+  resolved "https://registry.yarnpkg.com/@astrojs/markdown-remark/-/markdown-remark-0.11.7.tgz#7d28c296e080e45f548a72830c066cfc676410eb"
+  integrity sha512-kiGQzE0X7NJOZhluyCvOKWaZomB+efx7MhESf5cLJsuTI4dvGxEZmL7kZVnuDO5d2gvyeIBkZiD64bndKyxSkw==
   dependencies:
     "@astrojs/micromark-extension-mdx-jsx" "^1.0.3"
     "@astrojs/prism" "^0.6.0"
@@ -789,14 +789,14 @@ astro-eslint-parser@^0.4.0:
     synckit "^0.7.1"
     yaml "^2.1.1"
 
-astro@1.0.0-beta.70:
-  version "1.0.0-beta.70"
-  resolved "https://registry.yarnpkg.com/astro/-/astro-1.0.0-beta.70.tgz#f6d7d8071d07d16b4a4002f946d6c7481c14c9e7"
-  integrity sha512-P3fgn6bv5lEcLj3LZ3b+5z6TC5eni93q4m5Y2Mn45/gKIr0Bb/1le3eqGcRfjp0bpKpaDomBufiOPWZjWnIBUg==
+astro@1.0.0-beta.72:
+  version "1.0.0-beta.72"
+  resolved "https://registry.yarnpkg.com/astro/-/astro-1.0.0-beta.72.tgz#e1ac870fc4fb91032b611ad574629b23a7257fba"
+  integrity sha512-OUuASTz+3OifE7tIESdJ4RO6yDZoZ7pDiQ9lsEIwhciBKXB9ezEvpbrYmHQr1dxBdwFUwvMFcOqR/H9b2KykQQ==
   dependencies:
-    "@astrojs/compiler" "^0.18.2"
+    "@astrojs/compiler" "^0.19.0"
     "@astrojs/language-server" "^0.13.4"
-    "@astrojs/markdown-remark" "^0.11.6"
+    "@astrojs/markdown-remark" "^0.11.7"
     "@astrojs/prism" "0.6.0"
     "@astrojs/telemetry" "^0.4.0"
     "@astrojs/webapi" "^0.12.0"
