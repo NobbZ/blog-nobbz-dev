@@ -2,7 +2,7 @@
 import BaseHead from '../components/BaseHead.astro';
 import BlogHeader from '../components/BlogHeader.astro';
 import BlogPost from '../components/BlogPost.astro';
-
+import BuiltWith from '../components/BuiltWith.astro';
 
 const { content } = Astro.props;
 const { title, description, publishDate, author, heroImage, permalink, alt } = content;
@@ -21,6 +21,9 @@ const { title, description, publishDate, author, heroImage, permalink, alt } = c
 		<BlogPost {title} {author} {heroImage} {publishDate} {alt}>
 			<slot />
 		</BlogPost>
+	</div>
+	<div style="text-align: right">
+		<BuiltWith />
 	</div>
 </body>
 
