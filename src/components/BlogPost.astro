@@ -1,24 +1,32 @@
 ---
-import Author from './Author.astro';
-import Date from './Date.astro';
+import Author from "./Author.astro";
+import Date from "./Date.astro";
 
 export interface Props {
 	title: string;
-	author?: { name?: string; nick?: string; twitter?: string; github?: string; gitlab?: string; href?: string };
+	author?: {
+		name?: string;
+		nick?: string;
+		twitter?: string;
+		github?: string;
+		gitlab?: string;
+		href?: string;
+	};
 	publishDate: string;
 	heroImage: string;
 	alt: string;
 }
 
 const { title, author, publishDate, heroImage, alt } = Astro.props;
-const { name, nick, twitter, github, gitlab, href } = author || { name: "Norbert Melzer" };
+const { name, nick, twitter, github, gitlab, href } = author || {
+	name: "Norbert Melzer",
+};
 
-const nk = author ? nick : "NobbZ"
-const tw = author ? twitter : "NobbZ1981"
-const gh = author ? github : "NobbZ"
-const gl = author ? gitlab : "NobbZ"
-const hp = author ? href : "https://nobbz.dev/"
-
+const nk = author ? nick : "NobbZ";
+const tw = author ? twitter : "NobbZ1981";
+const gh = author ? github : "NobbZ";
+const gl = author ? gitlab : "NobbZ";
+const hp = author ? href : "https://nobbz.dev/";
 ---
 
 <div class="layout">
@@ -26,10 +34,27 @@ const hp = author ? href : "https://nobbz.dev/"
 		<div>
 			<header>
 				<div style="flex-grow: 4;">
-					{heroImage && <img width="720" height="420" class="hero-image" loading="lazy" src={heroImage}
-						alt={alt} />}
+					{
+						heroImage && (
+							<img
+								width="720"
+								height="420"
+								class="hero-image"
+								loading="lazy"
+								src={heroImage}
+								alt={alt}
+							/>
+						)
+					}
 					<h1 class="title">{title}</h1>
-					<Author {name} nick={nk} href={hp} github={gh} twitter={tw} gitlab={gl} />
+					<Author
+						{name}
+						nick={nk}
+						href={hp}
+						github={gh}
+						twitter={tw}
+						gitlab={gl}
+					/>
 				</div>
 				<div>
 					<Date date={publishDate} />

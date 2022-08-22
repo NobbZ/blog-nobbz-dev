@@ -1,7 +1,9 @@
 ---
-const { nick } = Astro.props
+const { nick } = Astro.props;
 
 const display = nick ? "" : "display: none";
 ---
 
-<a href={`https://twitter.com/${nick}`} style={display}><i class="fa-brands fa-twitter icon-large" /></a>
+<a href={`https://twitter.com/${nick}`} style={display}
+    ><i class="fa-brands fa-twitter icon-large"></i>
+</a>
