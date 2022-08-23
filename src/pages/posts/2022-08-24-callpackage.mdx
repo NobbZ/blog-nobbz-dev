@@ -83,7 +83,7 @@ let pkgs = import <nixpkgs> { }; in
 ```
 
 Building via `nix-build -A people` will now yield a script that prints "hello,
-people" instead now.
+people" instead.
 
 We can use the very same syntax to also overwrite the automatically discovered
 arguments like `writeShellScriptBin`, though that doesn't make sense here.
@@ -160,7 +160,7 @@ Therefore we can use `lib.callPackageWith` to create our own `callPackage` versi
 # default.nix
 let
   pkgs = import <nixpkgs> { };
-  callPackage = lib.callPackageWith (pkgs // packages)
+  callPackage = lib.callPackageWith (pkgs // packages);
   packages = {
     a = callPackage ./a.nix { };
     b = callPackage ./b.nix { };
