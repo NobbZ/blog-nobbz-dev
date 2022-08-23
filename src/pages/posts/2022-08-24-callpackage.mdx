@@ -8,7 +8,7 @@ description: "How to make the most out of `callPackage`"
 import NoteBox from "../../components/NoteBox.astro"
 
 In [`nixpkgs`](https://github.com/nixos/nixpkgs), there is a massive use of the
-`callPackage` funcion, which usage provides us with a lot of benefits.
+`callPackage` function, which provides us with a lot of benefits.
 
 ## Basic examples
 
@@ -19,7 +19,7 @@ Given are these 2 files `hello.nix` and `default.nix`:
 <NoteBox>
     Usually I would prefer the usage of nix flakes, though that would introduce
     a lot of boilerplate in the examples for no reason, therefore I will use
-    diamond pathes and `import` for simplicity.
+    diamond paths and `import` for simplicity.
 </NoteBox>
 
 ```nix
@@ -88,14 +88,14 @@ people" instead.
 We can use the very same syntax to also overwrite the automatically discovered
 arguments like `writeShellScriptBin`, though that doesn't make sense here.
 
-For a go program though that expects `buildGoModule` it is common to see some
+Though, for a Go program that expects `buildGoModule` it is common to see some
 expression like `callPackage ./go-program.nix { buildGoModule = buildGo116Module; }`
-to enforce a certain go compiler version.
+to enforce a certain Go compiler version.
 
 ## 2. Benefit: overrides
 
 As a consequence from the parametrized builds, we can also change the value of
-the parameters after the fact, using the derivations `override` funcion.
+the parameters after the fact, using the derivations `override` function.
 
 Consider this new `default.nix`:
 
@@ -175,7 +175,7 @@ in
 Our modified `callPackage` now will exactly "know" how to resolve the dependencies
 through the set defined by `pkgs // packages`.
 
-Nix' lazyness does us a good favour here and makes this actually possible.
+Nix' laziness does us a good favour here and makes this actually possible.
 
 ## Summary
 
@@ -216,5 +216,5 @@ building '/nix/store/qj9hg9qiahggi4yk6qsh4wv33jl33f36-a.drv'...
 /nix/store/50llkafby4vci46qda0xlva24mlghwr0-a
 ```
 
-As you can see, 2 different pathes have been produced, due to the fact that we
+As you can see, 2 different paths have been produced, due to the fact that we
 replaced the `runCommand`.
