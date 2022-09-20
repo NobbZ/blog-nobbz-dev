@@ -24,6 +24,15 @@ const { title, description, publishDate, author, heroImage, permalink, alt } =
 			<BlogPost {title} {author} {heroImage} {publishDate} {alt}>
 				<slot />
 			</BlogPost>
+			<script
+				src="https://utteranc.es/client.js"
+				repo="NobbZ/nobbz-dev-astro"
+				issue-term="pathname"
+				label="💬 utteranc.es"
+				theme="github-light"
+				crossorigin="anonymous"
+				async
+			></script>
 		</div>
 		<div style="text-align: right">
 			<BuiltWith />
