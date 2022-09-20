@@ -3,6 +3,7 @@ import BaseHead from "../components/BaseHead.astro";
 import BlogHeader from "../components/BlogHeader.astro";
 import BlogPost from "../components/BlogPost.astro";
 import BuiltWith from "../components/BuiltWith.astro";
+import Comments from "../components/Comments.astro";
 
 const { content } = Astro.props;
 const { title, description, publishDate, author, heroImage, permalink, alt } =
@@ -24,15 +25,7 @@ const { title, description, publishDate, author, heroImage, permalink, alt } =
 			<BlogPost {title} {author} {heroImage} {publishDate} {alt}>
 				<slot />
 			</BlogPost>
-			<script
-				src="https://utteranc.es/client.js"
-				repo="NobbZ/nobbz-dev-astro"
-				issue-term="pathname"
-				label="💬 utteranc.es"
-				theme="github-light"
-				crossorigin="anonymous"
-				async
-			></script>
+			<Comments />
 		</div>
 		<div style="text-align: right">
 			<BuiltWith />
