@@ -6,7 +6,8 @@ export interface Props {
 	description: string;
 	permalink: string;
 }
-const { title, description, permalink } = Astro.props;
+const { description, permalink } = Astro.props;
+const title = Astro.props.title.replaceAll(/<[^>]*>?/gm, "");
 ---
 
 <!-- Global Metadata -->

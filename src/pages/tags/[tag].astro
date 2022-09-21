@@ -1,0 +1,18 @@
+---
+import BlogPostPreview from "../../components/BlogPostPreview.astro";
+import { tagList, tagMap } from "../../scripts/tags";
+
+export async function getStaticPaths() {
+    return tagList.map(({ name }) => {
+        return { params: { tag: name } };
+    });
+}
+
+const { tag } = Astro.params;
+
+const posts = tagMap[tag];
+---
+
+<p>Posts tagged "{tag}":</p>
+
+{posts.map((p) => <BlogPostPreview post={p} />)}

@@ -46,7 +46,7 @@ const hp = author ? href : "https://nobbz.dev/";
 							/>
 						)
 					}
-					<h1 class="title">{title}</h1>
+					<h1 class="title" set:html={title}></h1>
 					<Author
 						{name}
 						nick={nk}
