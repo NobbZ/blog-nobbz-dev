@@ -1,0 +1,16 @@
+---
+import { tagList, tagCount } from "../../scripts/tags";
+---
+
+<p>There are the following {tagCount} tags used in this blog:</p>
+
+<ul>
+    {
+        tagList.map(({ name, posts }) => (
+            <li>
+                <a href={new URL(`/tags/${name}`, Astro.url)}>{name}</a>:{" "}
+                {posts.length}
+            </li>
+        ))
+    }
+</ul>
