@@ -4,6 +4,5 @@ import mdx from '@astrojs/mdx';
 
 // https://astro.build/config
 export default defineConfig({
-	integrations: [preact(), mdx()],
-	site: 'https://blog.nobbz.dev/'
+	integrations: [preact(), mdx()]
 });
