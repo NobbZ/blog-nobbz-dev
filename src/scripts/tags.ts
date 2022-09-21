@@ -1,4 +1,4 @@
-import { MarkdownInstance } from "astro";
+import { Post, allPosts } from "./posts";
 
 export type TagName = string;
 export interface TagInfo {
@@ -6,19 +6,7 @@ export interface TagInfo {
     posts: Post[];
 };
 
-interface PostFrontmatter {
-    title: string;
-    description?: string;
-    tags?: string[];
-};
-
-export type Post = MarkdownInstance<PostFrontmatter>;
-
 export type TagMap = Record<TagName, Post[]>;
-
-export const allPosts: Post[] = Object.values(
-    import.meta.glob("/src/pages/posts/*.{mdx,astro}", { eager: true })
-).map((p) => p as Post);
 
 export const tagMap: TagMap = allPosts.reduce<TagMap>((tagMap, post) => {
     const tags: string[] = post.frontmatter.tags || [];
