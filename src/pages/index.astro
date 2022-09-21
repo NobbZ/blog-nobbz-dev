@@ -1,4 +1,7 @@
 ---
+// TS Imports
+import { allPosts } from "../scripts/posts";
+
 // Component Imports
 import BaseHead from "../components/BaseHead.astro";
 import BlogHeader from "../components/BlogHeader.astro";
@@ -14,9 +17,7 @@ let permalink = "https://blog.nobbz.dev/";
 
 // Data Fetching: List all Markdown and Astro posts in the repo.
 
-let allPosts = await Astro.glob("./posts/*.{mdx,astro}");
-
-allPosts = allPosts.sort(
+const sortedPosts = [...allPosts].sort(
 	(a, b) =>
 		new Date(b.frontmatter.publishDate).valueOf() -
 		new Date(a.frontmatter.publishDate).valueOf()
@@ -75,7 +76,7 @@ allPosts = allPosts.sort(
 					<p>{description}</p>
 				</section>
 				<section aria-label="Blog post list">
-					{allPosts.map((p) => <BlogPostPreview post={p} />)}
+					{sortedPosts.map((p) => <BlogPostPreview post={p} />)}
 				</section>
 			</main>
 		</div>
