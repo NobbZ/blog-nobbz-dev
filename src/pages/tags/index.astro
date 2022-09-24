@@ -7,26 +7,13 @@ import TagCloud from '../../components/TagCloud.astro';
 
 <html lang="en">
 	<head>
-		<style>
-			.wrapper {
-				@apply mx-auto max-w-[65em] px-[2rem] w-full;
-			}
-
-			.content {
-				@apply mt-[4rem] mb-[8rem] mx-auto;
-			}
-
-			.intro {
-				@apply pb-[4rem] mb-[2rem];
-			}
-		</style>
 		<script src="https://kit.fontawesome.com/dea38d5462.js" crossorigin="anonymous"></script>
 	</head>
 	<body>
 		<BlogHeader />
-		<div class="wrapper">
-			<main class="content">
-				<section class="intro">
+		<div class="mx-auto max-w-[65em] px-[2rem] w-full">
+			<main class="mt-[4rem] mb-[8rem] mx-auto">
+				<section class="pb-[4rem] mb-[2rem]">
 					<h1 class="latest">NobbZ's Blog - tags</h1>
 					<p>
 						There are the following {tagCount} tags used in this blog:
