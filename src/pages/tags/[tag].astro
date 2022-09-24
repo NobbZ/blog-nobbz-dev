@@ -1,5 +1,5 @@
 ---
-import BlogPostPreview from "../../components/BlogPostPreview.astro";
+import TagLayout from "../../layouts/Tag.astro";
 import { tagList, tagMap } from "../../scripts/tags";
 
 export async function getStaticPaths() {
@@ -13,6 +13,4 @@ const { tag } = Astro.params;
 const posts = tagMap[tag];
 ---
 
-<p>Posts tagged "{tag}":</p>
-
-{posts.map((p) => <BlogPostPreview post={p} />)}
+<TagLayout frontmatter={{ tag, posts }} />
