@@ -12,19 +12,19 @@ const afterLabel = `"${count}"`;
 ---
 
 <style define:vars={{ textSize, opacity, afterLabel }}>
-    a {
-        /* Static setup */
-        @apply font-mono block px-[0.125rem] py-1 no-underline relative;
+	a {
+		/* Static setup */
+		@apply font-mono block px-[0.125rem] py-1 no-underline relative;
 
-        /* dynamic styles */
-        @apply text-[length:var(--textSize)];
-        @apply opacity-[var(--opacity)];
+		/* dynamic styles */
+		@apply text-[length:var(--textSize)];
+		@apply opacity-[var(--opacity)];
 
-        /* Additional content */
-        @apply after:content-["_("var(--afterLabel)")"];
-    }
+		/* Additional content */
+		@apply after:content-["_("var(--afterLabel)")"];
+	}
 </style>
 
 <li>
-    <a href={`/tags/${name}`}><i class="fa-solid fa-tag"></i> {name}</a>
+	<a href={`/tags/${name}`}><i class="fa-solid fa-tag"></i> {name}</a>
 </li>

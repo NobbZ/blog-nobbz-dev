@@ -1,34 +1,31 @@
 ---
-import { DateTime } from "luxon";
+import { DateTime } from 'luxon';
 
 export interface Props {
-    date: string | DateTime;
-    lang?: string;
+	date: string | DateTime;
+	lang?: string;
 }
 
 let { date, lang } = Astro.props;
 
-lang = lang || "en";
+lang = lang || 'en';
 
 const datetime: string =
-    date instanceof DateTime
-        ? date.toISODate()
-        : DateTime.fromISO(date).toISODate();
+	date instanceof DateTime ? date.toISODate() : DateTime.fromISO(date).toISODate();
 ---
 
 <time data-relative {lang} {datetime}>{datetime}</time>
 
 <script>
-    import { DateTime } from "luxon";
+	import { DateTime } from 'luxon';
 
-    const dateElemets =
-        document.querySelectorAll<HTMLTimeElement>("[data-relative]");
+	const dateElemets = document.querySelectorAll<HTMLTimeElement>('[data-relative]');
 
-    dateElemets.forEach((element) => {
-        const date: DateTime = DateTime.fromISO(element.dateTime);
+	dateElemets.forEach((element) => {
+		const date: DateTime = DateTime.fromISO(element.dateTime);
 
-        const relative = date.setLocale(element.lang).toRelativeCalendar();
+		const relative = date.setLocale(element.lang).toRelativeCalendar();
 
-        element.innerHTML = `<abbr title=${element.dateTime}>${relative}</abbr>`;
-    });
+		element.innerHTML = `<abbr title=${element.dateTime}>${relative}</abbr>`;
+	});
 </script>

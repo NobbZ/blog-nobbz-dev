@@ -1,16 +1,15 @@
 ---
-import BaseHead from "../components/BaseHead.astro";
-import BlogHeader from "../components/BlogHeader.astro";
-import BlogPost from "../components/BlogPost.astro";
-import BuiltWith from "../components/BuiltWith.astro";
-import Comments from "../components/Comments.astro";
+import BaseHead from '../components/BaseHead.astro';
+import BlogHeader from '../components/BlogHeader.astro';
+import BlogPost from '../components/BlogPost.astro';
+import BuiltWith from '../components/BuiltWith.astro';
+import Comments from '../components/Comments.astro';
 
 const { content } = Astro.props;
-const { title, description, publishDate, author, heroImage, permalink, alt } =
-	content;
+const { title, description, publishDate, author, heroImage, permalink, alt } = content;
 ---
 
-<html lang={content.lang || "en"}>
+<html lang={content.lang || 'en'}>
 	<head>
 		<link
 			rel="stylesheet"
