@@ -1,42 +1,31 @@
 ---
-import BlogPostPreview from "../components/BlogPostPreview.astro";
-import Tag from "../components/Tag.astro";
-import BlogHeader from "../components/BlogHeader.astro";
+import BlogPostPreview from '../components/BlogPostPreview.astro';
+import Tag from '../components/Tag.astro';
+import BlogHeader from '../components/BlogHeader.astro';
 
 const { frontmatter } = Astro.props;
 const { tag, posts } = frontmatter;
 ---
 
 <html>
-    <head>
-        <style>
-            .wrapper {
-                @apply mx-auto max-w-[65em] px-[2rem] w-full;
-            }
+	<head>
+		<style>
+			.wrapper {
+				@apply mx-auto max-w-[65em] px-[2rem] w-full;
+			}
+		</style>
+		<script src="https://kit.fontawesome.com/dea38d5462.js" crossorigin="anonymous"></script>
+	</head>
+	<body>
+		<BlogHeader />
+		<div class="wrapper"></div>
+		<div class="wrapper">
+			<h1>
+				The <Tag name={tag} /> tag
+			</h1>
+			<slot />
 
-            .content {
-                @apply mt-[4rem] mb-[8rem] mx-auto;
-            }
-
-            .intro {
-                @apply pb-[4rem] mb-[2rem];
-            }
-        </style>
-        <script
-            src="https://kit.fontawesome.com/dea38d5462.js"
-            crossorigin="anonymous"
-        ></script>
-    </head>
-    <body>
-        <BlogHeader />
-        <div class="wrapper"></div>
-        <div class="wrapper">
-            <h1>
-                The <Tag name={tag} /> tag
-            </h1>
-            <slot />
-
-            {posts.map((p) => <BlogPostPreview post={p} />)}
-        </div>
-    </body>
+			{posts.map((p) => <BlogPostPreview post={p} />)}
+		</div>
+	</body>
 </html>

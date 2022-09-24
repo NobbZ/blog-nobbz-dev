@@ -1,9 +1,9 @@
 ---
 const { nick } = Astro.props;
 
-const display = nick ? "" : "display: none";
+const display = nick ? '' : 'display: none';
 ---
 
-<a href={`https://github.com/${nick}`} style={display}
-    ><i class="fa-brands fa-github icon-large"></i>
+<a href={`https://github.com/${nick}`} style={display}>
+	<i class="fa-brands fa-github icon-large"></i>
 </a>

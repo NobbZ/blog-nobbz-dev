@@ -1,8 +1,8 @@
 ---
-import { MarkdownInstance } from "astro";
-import { Post } from "../scripts/posts";
-import Author from "./Author.astro";
-import Date from "./Date.astro";
+import { MarkdownInstance } from 'astro';
+import { Post } from '../scripts/posts';
+import Author from './Author.astro';
+import Date from './Date.astro';
 
 export interface Props {
 	post: Post;
@@ -19,9 +19,7 @@ const { post } = Astro.props;
 		<div class="post-meta">
 			<Date date={post.frontmatter.publishDate} />
 			<Author
-				name={(post.frontmatter.author &&
-					post.frontmatter.author.name) ||
-					"Norbert Melzer"}
+				name={(post.frontmatter.author && post.frontmatter.author.name) || 'Norbert Melzer'}
 			/>
 		</div>
 	</header>
@@ -30,10 +28,6 @@ const { post } = Astro.props;
 </article>
 
 <style>
-	.content :global(main > * + *) {
-		margin-top: 1rem;
-	}
-
 	.post-preview {
 		padding-bottom: 2rem;
 		margin-bottom: 2rem;
@@ -53,18 +47,6 @@ const { post } = Astro.props;
 		display: flex;
 		flex-flow: column;
 		text-align: right;
-	}
-
-	.title,
-	.author,
-	.publish-date {
-		margin: 0;
-	}
-
-	.publish-date,
-	.author {
-		font-size: 1.25rem;
-		color: var(--theme-text-lighter);
 	}
 
 	.title {

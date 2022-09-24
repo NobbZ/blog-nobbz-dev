@@ -1,11 +1,11 @@
 ---
-import TagLayout from "../../layouts/Tag.astro";
-import { tagList, tagMap } from "../../scripts/tags";
+import TagLayout from '../../layouts/Tag.astro';
+import { tagList, tagMap } from '../../scripts/tags';
 
 export async function getStaticPaths() {
-    return tagList.map(({ name }) => {
-        return { params: { tag: name } };
-    });
+	return tagList.map(({ name }) => {
+		return { params: { tag: name } };
+	});
 }
 
 const { tag } = Astro.params;

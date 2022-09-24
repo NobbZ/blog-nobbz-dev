@@ -1,26 +1,26 @@
 ---
-import { tagList, maxPostCount, minPostCount } from "../scripts/tags";
+import { tagList, maxPostCount, minPostCount } from '../scripts/tags';
 
-import TagCard from "./TagCard.astro";
+import TagCard from './TagCard.astro';
 ---
 
 <style>
-    ul.cloud {
-        @apply list-none pl-0 flex flex-wrap items-center justify-center;
-    }
+	ul.cloud {
+		@apply list-none pl-0 flex flex-wrap items-center justify-center;
+	}
 </style>
 
 <ul class="cloud">
-    {
-        tagList
-            .sort((a, b) => (a.name > b.name ? 1 : -1))
-            .map(({ name, posts }) => (
-                <TagCard
-                    name={name}
-                    count={posts.length}
-                    maxCount={maxPostCount}
-                    minCount={minPostCount}
-                />
-            ))
-    }
+	{
+		tagList
+			.sort((a, b) => (a.name > b.name ? 1 : -1))
+			.map(({ name, posts }) => (
+				<TagCard
+					name={name}
+					count={posts.length}
+					maxCount={maxPostCount}
+					minCount={minPostCount}
+				/>
+			))
+	}
 </ul>

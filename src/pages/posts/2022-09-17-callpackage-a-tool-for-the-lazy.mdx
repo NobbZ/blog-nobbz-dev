@@ -1,14 +1,15 @@
 ---
-title: "<tt>callPackage</tt>, a tool for the lazy"
+title: '<tt>callPackage</tt>, a tool for the lazy'
 layout: '../../layouts/BlogPost.astro'
 publishDate: 2022-09-17
-description: "How to make the most out of `callPackage`"
+description: 'How to make the most out of `callPackage`'
 tags:
-- nix
-- callPkgs
-- nixpkgs
+    - nix
+    - callPkgs
+    - nixpkgs
 ---
-import NoteBox from "../../components/NoteBox.astro"
+
+import NoteBox from '../../components/NoteBox.astro';
 
 <NoteBox>
   This post has been released in the [summer of nix blog](https://summer.nixos.org/blog/callpackage-a-tool-for-the-lazy/)
@@ -16,8 +17,9 @@ import NoteBox from "../../components/NoteBox.astro"
   editorial changes such that we decided to release it with the reviewers mentioned
   as coauthors there.
 
-  This article is the original version of that article with only minor changes,
-  mostly typofixes.
+This article is the original version of that article with only minor changes,
+mostly typofixes.
+
 </NoteBox>
 
 In [`nixpkgs`](https://github.com/nixos/nixpkgs), there is a massive use of the
@@ -30,9 +32,8 @@ Though before even discussing the benefits, lets see how it actually gets used.
 Given are these 2 files `hello.nix` and `default.nix`:
 
 <NoteBox>
-    Usually I would prefer the usage of nix flakes, though that would introduce
-    a lot of boilerplate in the examples for no reason, therefore I will use
-    diamond paths and `import` for simplicity.
+	Usually I would prefer the usage of nix flakes, though that would introduce a lot of boilerplate
+	in the examples for no reason, therefore I will use diamond paths and `import` for simplicity.
 </NoteBox>
 
 ```nix
@@ -131,7 +132,7 @@ instantiated.
 This is especially useful and often seen on packages that provide a whole lot of
 options to optimize the build.
 
-An example to mention here is the `neovim` attribute in nixpkgs, which has has 
+An example to mention here is the `neovim` attribute in nixpkgs, which has has
 some overrideable arguments like `extraLuaPackages`, `extraPythonPackages`, or
 `withRuby`.
 
@@ -144,8 +145,8 @@ handy when you have large sets where the attributes to be built depend on each
 other.
 
 <NoteBox>
-    In the next examples I will not implement or show the "called" files, as I
-    think they are not necessary to understand the point I want to make.
+	In the next examples I will not implement or show the "called" files, as I think they are not
+	necessary to understand the point I want to make.
 </NoteBox>
 
 Consider the following initial version:
@@ -202,7 +203,7 @@ in nixpkgs already, it also gives you some things for free:
 ## Further reading
 
 There is also `callPackages` and `lib.callPackages` which do a pretty similar
-thing, though they expect that the returnvalue is *not* a package, but a
+thing, though they expect that the returnvalue is _not_ a package, but a
 packageset.
 Each of the attributes in the returned set will then be overrideable as if you
 had called `callPackage` on that.

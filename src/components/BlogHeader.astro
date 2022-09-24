@@ -1,9 +1,7 @@
 ---
-const gitHub = "https://github.com/nobbz/nobbz-dev-astro";
-const commit = ["dirty", undefined, "undefined"].includes(
-	import.meta.env.BLOG_COMMIT
-)
-	? ""
+const gitHub = 'https://github.com/nobbz/nobbz-dev-astro';
+const commit = ['dirty', undefined, 'undefined'].includes(import.meta.env.BLOG_COMMIT)
+	? ''
 	: `/tree/${import.meta.env.BLOG_COMMIT}`;
 
 const ghCommit = gitHub + commit;
@@ -64,32 +62,6 @@ const ghCommit = gitHub + commit;
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-	}
-
-	.header-subitem {
-		display: flex;
-		flex-grow: 0;
-		gap: 0.5em;
-		align-items: center;
-		justify-content: center;
-		color: var(--theme-text-lighter);
-		font-size: initial;
-		padding: 0.5rem;
-	}
-
-	.header-subitem:hover {
-		color: var(--theme-accent);
-	}
-
-	.header-subitem svg {
-		width: 1.5rem;
-		height: 1.5rem;
-	}
-
-	@media (max-width: 32em) {
-		.header-subitem {
-			display: none;
-		}
 	}
 
 	h1 {
