@@ -1,0 +1,30 @@
+---
+const { name, count, minCount, maxCount } = Astro.props;
+
+const weightedBetween = (weight, min, max) => min + (max - min) * weight;
+
+const weight = (count - minCount) / (maxCount - minCount);
+
+const textSize = `${weightedBetween(weight, 1, 2)}rem`;
+const opacity = weightedBetween(weight, 0.5, 1);
+
+const afterLabel = `"${count}"`;
+---
+
+<style define:vars={{ textSize, opacity, afterLabel }}>
+    a {
+        /* Static setup */
+        @apply font-mono block px-[0.125rem] py-1 no-underline relative;
+
+        /* dynamic styles */
+        @apply text-[length:var(--textSize)];
+        @apply opacity-[var(--opacity)];
+
+        /* Additional content */
+        @apply after:content-["_("var(--afterLabel)")"];
+    }
+</style>
+
+<li>
+    <a href={`/tags/${name}`}><i class="fa-solid fa-tag"></i> {name}</a>
+</li>
