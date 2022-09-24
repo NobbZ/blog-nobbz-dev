@@ -1,0 +1,9 @@
+pre-commit:
+  parallel: true
+  commands:
+    eslint:
+      glob: '*.{js,ts,jsx,tsx,astro,md,mdx,cjs,ts}'
+      run: yarn eslint .
+    formatting:
+      glob: '*.{yaml,yml,js,ts,jsx,tsx,astro,md,mdx,cjs,ts}'
+      runt: yarn prettier --check {staged_files}
