@@ -1,5 +1,5 @@
 ---
-const { name } = Astro.props;
+const { name, style, className } = Astro.props;
 ---
 
-<a href={`/tags/${name}`}><i class="fa-solid fa-tag"></i>{name}</a>
+<a href={`/tags/${name}`} style={style} class={className}><i class="fa-solid fa-tag"></i>{name}</a>

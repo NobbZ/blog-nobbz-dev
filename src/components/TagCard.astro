@@ -1,4 +1,6 @@
 ---
+import Tag from './Tag.astro';
+
 const { name, count, minCount, maxCount } = Astro.props;
 
 const weightedBetween = (weight, min, max) => min + (max - min) * weight;
@@ -9,22 +11,15 @@ const textSize = `${weightedBetween(weight, 1, 2)}rem`;
 const opacity = weightedBetween(weight, 0.5, 1);
 
 const afterLabel = `"${count}"`;
+
+const staticCss = 'font-mono block px-[0.125rem] py-1 no-underline relative';
+const dynamicCss = 'text-[length:var(--text-size)] opacity-[var(--opacity)]';
+const afterCss = 'after:content-["_("var(--after-label)")"]';
+
+const aClass = `${staticCss} ${dynamicCss} ${afterCss}`;
+const style = `--text-size: ${textSize}; --opacity: ${opacity}; --after-label: ${afterLabel}`;
 ---
 
-<style define:vars={{ textSize, opacity, afterLabel }}>
-	a {
-		/* Static setup */
-		@apply font-mono block px-[0.125rem] py-1 no-underline relative;
-
-		/* dynamic styles */
-		@apply text-[length:var(--textSize)];
-		@apply opacity-[var(--opacity)];
-
-		/* Additional content */
-		@apply after:content-["_("var(--afterLabel)")"];
-	}
-</style>
-
 <li>
-	<a href={`/tags/${name}`}><i class="fa-solid fa-tag"></i> {name}</a>
+	<Tag style={style} className={aClass} name={name} />
 </li>
