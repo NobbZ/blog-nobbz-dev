@@ -22,6 +22,7 @@
           src = self;
           packageJSON = "${self}/package.json";
           yarnLock = "${self}/yarn.lock";
+          yarnNix = "${self}/.nix/yarn-lock.nix";
 
           postConfigure = ''
             mkdir -p yarnHome
