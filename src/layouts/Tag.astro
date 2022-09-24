@@ -9,25 +9,12 @@ const { tag, posts } = frontmatter;
 
 <html>
 	<head>
-		<style>
-			.wrapper {
-				@apply mx-auto max-w-[65em] px-[2rem] w-full;
-			}
-
-			.content {
-				@apply mt-[4rem] mb-[8rem] mx-auto;
-			}
-
-			.intro {
-				@apply pb-[4rem] mb-[2rem];
-			}
-		</style>
 		<script src="https://kit.fontawesome.com/dea38d5462.js" crossorigin="anonymous"></script>
 	</head>
 	<body>
 		<BlogHeader />
-		<div class="wrapper"></div>
-		<div class="wrapper">
+		<div class="mx-auto max-w-[65em] px-[2rem] w-full;"></div>
+		<div class="mx-auto max-w-[65em] px-[2rem] w-full;">
 			<h1>
 				The <Tag name={tag} /> tag
 			</h1>
