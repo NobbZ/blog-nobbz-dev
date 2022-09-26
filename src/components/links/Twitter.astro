@@ -1,9 +1,11 @@
 ---
+import { Icon } from 'astro-icon';
+
 const { nick } = Astro.props;
 
 const display = nick ? '' : 'display: none';
 ---
 
 <a href={`https://twitter.com/${nick}`} style={display}>
-	<i class="fa-brands fa-twitter icon-large"></i>
+	<Icon name="mdi-twitter" class="inline h-[1.1em]" />
 </a>

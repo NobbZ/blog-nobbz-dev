@@ -8,4 +8,4 @@ export interface Props {
 const { name, nick, href } = Astro.props;
 ---
 
-{href ? <a href={href}>{nick ? <abbr title={name}>{nick}</abbr> : { name }}</a> : name}
+{href ? <a href={href}>{nick ? <abbr title={name}>{nick}</abbr> : name}</a> : name}

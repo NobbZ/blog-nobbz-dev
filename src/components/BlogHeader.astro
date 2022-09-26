@@ -1,4 +1,6 @@
 ---
+import { Icon } from 'astro-icon';
+
 const gitHub = 'https://github.com/nobbz/nobbz-dev-astro';
 const commit = ['dirty', undefined, 'undefined'].includes(import.meta.env.BLOG_COMMIT)
 	? ''
@@ -47,42 +49,42 @@ const ghCommit = gitHub + commit;
 				<span>NobbZ' Blog</span>
 			</a>&nbsp;
 		</h1>
-		<a href={ghCommit}><i class="fa-solid fa-code"></i></a>
-	</article>
-</header>
+		<a href={ghCommit}><Icon name="mdi-xml" /></a>
+	</article><a href={ghCommit}> </a>
+</header><a href={ghCommit}>
+	<style>
+		header {
+			padding-top: 1rem;
+			padding-bottom: 1rem;
+			height: 5rem;
+		}
 
-<style>
-	header {
-		padding-top: 1rem;
-		padding-bottom: 1rem;
-		height: 5rem;
-	}
+		article {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+		}
 
-	article {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-	}
+		h1 {
+			margin: 0;
+			font-size: 1.5rem;
+			max-width: 100%;
+			display: flex;
+			flex-grow: 1;
+		}
 
-	h1 {
-		margin: 0;
-		font-size: 1.5rem;
-		max-width: 100%;
-		display: flex;
-		flex-grow: 1;
-	}
+		.logo {
+			transform: translateY(0.25rem);
+		}
 
-	.logo {
-		transform: translateY(0.25rem);
-	}
+		svg {
+			width: 2.5rem;
+			height: 2.5rem;
+		}
 
-	svg {
-		width: 2.5rem;
-		height: 2.5rem;
-	}
-
-	h1 a {
-		text-decoration: none;
-		display: inline-flex;
-	}
-</style>
+		h1 a {
+			text-decoration: none;
+			display: inline-flex;
+		}
+	</style>
+</a>
