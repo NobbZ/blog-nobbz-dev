@@ -32,6 +32,6 @@ function combine_variables(variables?: Variables): undefined | string {
 export function fromProps(props: Stylable): { class: string; style: string } {
 	return {
 		class: toClass(props.className),
-		style: combine(props.style, props.variables),
+		style: combine(props.style, props.variables) || undefined,
 	};
 }
