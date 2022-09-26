@@ -17,10 +17,13 @@ const alias = {
 	'@nz-styles': mkPath('styles'),
 };
 
-console.log({ alias });
+const external = ['svgo'];
 
 // https://astro.build/config
 export default defineConfig({
 	integrations: [mdx(), tailwind(tailwindConfig)],
-	vite: { resolve: { alias } },
+	vite: {
+		ssr: { external },
+		resolve: { alias },
+	},
 });
