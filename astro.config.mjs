@@ -5,6 +5,7 @@ import robotsTxt from 'astro-robots-txt';
 import path from 'path';
 
 import tailwind from '@astrojs/tailwind';
+import sitemap from '@astrojs/sitemap';
 
 const tailwindConfig = { config: { applyBaseStyles: false } };
 
@@ -22,7 +23,7 @@ const external = ['svgo'];
 
 // https://astro.build/config
 export default defineConfig({
-	integrations: [mdx(), tailwind(tailwindConfig), robotsTxt({ sitemap: false })],
+	integrations: [sitemap(), mdx(), tailwind(tailwindConfig), robotsTxt()],
 	site: 'https://blog.nobbz.dev',
 	vite: {
 		ssr: { external },
