@@ -14,12 +14,14 @@ export interface Props {
 }
 
 const { name, nick, href, github, gitlab, twitter } = Astro.props;
+
+const author = { name, nick, href };
 ---
 
 <div class="author">
 	<p>
 		by
-		<Author {name} {nick} {href} />
+		<Author {...author} />
 		<GitHub nick={github} />
 		<GitLab nick={gitlab} />
 		<Twitter nick={twitter} />

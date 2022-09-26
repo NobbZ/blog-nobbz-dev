@@ -1,5 +1,13 @@
 ---
+import Stylable, { fromProps } from '@nz-scripts/stylable';
+
+export interface Props extends Stylable {
+	name: string;
+}
+
 const { name } = Astro.props;
+
+const styles = fromProps(Astro.props);
 ---
 
-<a href={`/tags/${name}`}><i class="fa-solid fa-tag"></i>{name}</a>
+<a href={`/tags/${name}`} {...styles}><i class="fa-solid fa-tag"></i>{name}</a>

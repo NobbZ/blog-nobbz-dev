@@ -1,6 +1,6 @@
 ---
-import TagLayout from '../../layouts/Tag.astro';
-import { tagList, tagMap } from '../../scripts/tags';
+import TagLayout from '@nz-layouts/Tag.astro';
+import { tagList, tagMap } from '@nz-scripts/tags';
 
 export async function getStaticPaths() {
 	return tagList.map(({ name }) => {

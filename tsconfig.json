@@ -10,6 +10,15 @@
 		// Enable stricter transpilation for better output.
 		"isolatedModules": true,
 		// Add type definitions for our Vite runtime.
-		"types": ["vite/client"]
+		"types": ["vite/client"],
+		// Set up path mapping to be understood similar to vite aliases
+		"baseUrl": ".",
+		"paths": {
+			"@nz-components/*": ["src/components/*"],
+			"@nz-layouts/*": ["src/layouts/*"],
+			"@nz-pages/*": ["src/pages/*"],
+			"@nz-scripts/*": ["src/scripts/*"],
+			"@nz-styles/*": ["src/styles/*"]
+		}
 	}
 }

@@ -1,11 +1,11 @@
 ---
 // TS Imports
-import { allPosts } from '../scripts/posts';
+import { allPosts } from '@nz-scripts/posts';
 
 // Component Imports
-import BaseHead from '../components/BaseHead.astro';
-import BlogHeader from '../components/BlogHeader.astro';
-import BlogPostPreview from '../components/BlogPostPreview.astro';
+import BaseHead from '@nz-components/BaseHead.astro';
+import BlogHeader from '@nz-components/BlogHeader.astro';
+import BlogPostPreview from '@nz-components/BlogPostPreview.astro';
 
 // Component Script:
 // You can write any JavaScript/TypeScript that you'd like here.
@@ -25,22 +25,15 @@ const sortedPosts = [...allPosts].sort(
 
 // Full Astro Component Syntax:
 // https://docs.astro.build/core-concepts/astro-components/
+
+const headInfo = { title, description, permalink };
 ---
 
 <html lang="en">
 	<head>
-		<BaseHead {title} {description} {permalink} />
+		<BaseHead {...headInfo} />
 
 		<style>
-			header {
-				width: 100%;
-				height: 100%;
-				background-color: var(--theme-bg-offset);
-				display: flex;
-				align-items: center;
-				justify-content: center;
-			}
-
 			.content {
 				margin-top: 4rem;
 				margin-bottom: 8rem;

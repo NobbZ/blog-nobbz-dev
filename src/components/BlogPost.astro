@@ -27,6 +27,8 @@ const tw = author ? twitter : 'NobbZ1981';
 const gh = author ? github : 'NobbZ';
 const gl = author ? gitlab : 'NobbZ';
 const hp = author ? href : 'https://nobbz.dev/';
+
+const authorData = { name, nixk: nk, href: hp, github: gh, twitter: tw, gitlab: gl };
 ---
 
 <div class="layout">
@@ -47,7 +49,7 @@ const hp = author ? href : 'https://nobbz.dev/';
 						)
 					}
 					<h1 class="title" set:html={title}></h1>
-					<Author {name} nick={nk} href={hp} github={gh} twitter={tw} gitlab={gl} />
+					<Author {...authorData} />
 				</div>
 				<div>
 					<Date date={publishDate} />
@@ -102,18 +104,8 @@ const hp = author ? href : 'https://nobbz.dev/';
 		border-bottom: 4px solid var(--theme-divider);
 	}
 
-	.title,
-	.author,
-	.publish-date {
-		margin: 0;
-	}
-
-	.publish-date,
-	.author {
-		color: var(--theme-text-lighter);
-	}
-
 	.title {
+		margin: 0;
 		font-size: 2.25rem;
 		font-weight: 700;
 	}

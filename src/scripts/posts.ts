@@ -1,8 +1,13 @@
 import { MarkdownInstance } from 'astro';
 
+export interface Author {
+	name: string;
+}
+
 export interface PostFrontmatter {
 	title: string;
 	publishDate: string;
+	author: Author;
 	description?: string;
 	tags?: string[];
 }
