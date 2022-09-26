@@ -28,10 +28,6 @@ const { post } = Astro.props;
 </article>
 
 <style>
-	.content :global(main > * + *) {
-		margin-top: 1rem;
-	}
-
 	.post-preview {
 		padding-bottom: 2rem;
 		margin-bottom: 2rem;
@@ -51,18 +47,6 @@ const { post } = Astro.props;
 		display: flex;
 		flex-flow: column;
 		text-align: right;
-	}
-
-	.title,
-	.author,
-	.publish-date {
-		margin: 0;
-	}
-
-	.publish-date,
-	.author {
-		font-size: 1.25rem;
-		color: var(--theme-text-lighter);
 	}
 
 	.title {
