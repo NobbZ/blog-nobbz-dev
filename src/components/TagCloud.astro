@@ -4,13 +4,7 @@ import { tagList, maxPostCount, minPostCount } from '@nz-scripts/tags';
 import TagCard from './TagCard.astro';
 ---
 
-<style>
-	ul.cloud {
-		@apply list-none pl-0 flex flex-wrap items-center justify-center;
-	}
-</style>
-
-<ul class="cloud">
+<ul class="list-none pl-0 flex flex-wrap items-center justify-center">
 	{
 		tagList
 			.sort((a, b) => (a.name > b.name ? 1 : -1))
