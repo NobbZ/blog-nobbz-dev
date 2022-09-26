@@ -1,4 +1,6 @@
 ---
+import { Icon } from 'astro-icon';
+
 import Stylable, { fromProps } from '@nz-scripts/stylable';
 
 export interface Props extends Stylable {
@@ -10,4 +12,4 @@ const { name } = Astro.props;
 const styles = fromProps(Astro.props);
 ---
 
-<a href={`/tags/${name}`} {...styles}><i class="fa-solid fa-tag"></i>{name}</a>
+<a href={`/tags/${name}`} {...styles}><Icon class="inline h-[1em]" name="mdi-tag" />{name}</a>
