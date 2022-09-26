@@ -1,5 +1,6 @@
 import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
+import robotsTxt from 'astro-robots-txt';
 
 import path from 'path';
 
@@ -21,7 +22,8 @@ const external = ['svgo'];
 
 // https://astro.build/config
 export default defineConfig({
-	integrations: [mdx(), tailwind(tailwindConfig)],
+	integrations: [mdx(), tailwind(tailwindConfig), robotsTxt({ sitemap: false })],
+	site: 'https://blog.nobbz.dev',
 	vite: {
 		ssr: { external },
 		resolve: { alias },
