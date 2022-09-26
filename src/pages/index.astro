@@ -25,11 +25,13 @@ const sortedPosts = [...allPosts].sort(
 
 // Full Astro Component Syntax:
 // https://docs.astro.build/core-concepts/astro-components/
+
+const headInfo = { title, description, permalink };
 ---
 
 <html lang="en">
 	<head>
-		<BaseHead {title} {description} {permalink} />
+		<BaseHead {...headInfo} />
 
 		<style>
 			header {

@@ -12,9 +12,11 @@ lang = lang || 'en';
 
 const datetime: string =
 	date instanceof DateTime ? date.toISODate() : DateTime.fromISO(date).toISODate();
+
+const timeData = { lang, datetime };
 ---
 
-<time data-relative {lang} {datetime}>{datetime}</time>
+<time data-relative {...timeData}>{datetime}</time>
 
 <script>
 	import { DateTime } from 'luxon';
