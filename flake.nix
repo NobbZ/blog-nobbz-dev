@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixpkgs-unstable";
-    alejandra.url = "github:kamadorueda/alejandra?ref=1.5.0";
+    nobbz.url = "github:nobbz/nixos-config";
   };
 
   outputs = {
@@ -11,6 +11,8 @@
     nixpkgs,
     ...
   } @ inputs: {
+    formatter = inputs.nobbz.formatter;
+
     packages.x86_64-linux.blog = let
       pkgs = nixpkgs.legacyPackages.x86_64-linux;
       inherit (pkgs) callPackage;
@@ -23,7 +25,7 @@
       pkgs.mkShell {
         packages = builtins.attrValues {
           inherit (pkgs) yarn yarn2nix rnix-lsp;
-          inherit (inputs.alejandra.packages.x86_64-linux) default;
+          inherit (inputs.nobbz.packages.x86_64-linux) alejandra;
         };
       };
   };
