@@ -1,11 +1,11 @@
 ---
 // TS Imports
 import { allPosts } from '@nz-scripts/posts';
+import _ from 'lodash';
 
 // Component Imports
-import BaseHead from '@nz-components/BaseHead.astro';
-import BlogHeader from '@nz-components/BlogHeader.astro';
 import BlogPostPreview from '@nz-components/BlogPostPreview.astro';
+import NobbzDev from '@nz-layouts/NobbzDev.astro';
 
 // Component Script:
 // You can write any JavaScript/TypeScript that you'd like here.
@@ -13,7 +13,6 @@ import BlogPostPreview from '@nz-components/BlogPostPreview.astro';
 // All variables are available to use in the HTML template below.
 let title = "NobbZ' Blog";
 let description = 'This, that, and other things.';
-let permalink = 'https://blog.nobbz.dev/';
 
 // Data Fetching: List all Markdown and Astro posts in the repo.
 
@@ -23,55 +22,18 @@ const sortedPosts = [...allPosts].sort(
 		new Date(a.frontmatter.publishDate).valueOf()
 );
 
-// Full Astro Component Syntax:
-// https://docs.astro.build/core-concepts/astro-components/
-
-const headInfo = { title, description, permalink };
+const { content: oldContent } = Astro.props;
+const content = _.merge(oldContent, { title: 'Tags' });
 ---
 
-<html lang="en">
-	<head>
-		<BaseHead {...headInfo} />
-
-		<style>
-			.content {
-				margin-top: 4rem;
-				margin-bottom: 8rem;
-			}
-
-			.content :global(main > * + *) {
-				margin-top: 1rem;
-			}
-
-			.intro {
-				padding-bottom: 4rem;
-				margin-bottom: 2rem;
-				border-bottom: 4px solid var(--theme-divider);
-			}
-
-			.intro > * {
-				margin: 0;
-			}
-
-			.latest {
-				font-size: 2.5rem;
-				font-weight: 700;
-			}
-		</style>
-	</head>
-
-	<body>
-		<BlogHeader />
-		<div class="wrapper">
-			<main class="content">
-				<section class="intro">
-					<h1 class="latest">{title}</h1>
-					<p>{description}</p>
-				</section>
-				<section aria-label="Blog post list">
-					{sortedPosts.map((p) => <BlogPostPreview post={p} />)}
-				</section>
-			</main>
-		</div>
-	</body>
-</html>
+<NobbzDev {content}>
+	<main class="mt-16 mb-32">
+		<section class="pb-16 mb-8 border-solid border-b-4 border-[color:var(--theme-divider)]">
+			<h1 class="m-0 text-[2.5rem] font-bold">{title}</h1>
+			<p class="m-0">{description}</p>
+		</section>
+		<section aria-label="Blog post list">
+			{sortedPosts.map((p) => <BlogPostPreview post={p} />)}
+		</section>
+	</main>
+</NobbzDev>
