@@ -656,6 +656,14 @@
       };
     }
     {
+      name = "_types_lodash___lodash_4.14.186.tgz";
+      path = fetchurl {
+        name = "_types_lodash___lodash_4.14.186.tgz";
+        url = "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.14.186.tgz";
+        sha512 = "eHcVlLXP0c2FlMPm56ITode2AgLMSa6aJ05JTTbYbI+7EMkCEE5qk2E41d5g2lCVTqRe0GnnRFurmlCsDODrPw==";
+      };
+    }
+    {
       name = "_types_mdast___mdast_3.0.10.tgz";
       path = fetchurl {
         name = "_types_mdast___mdast_3.0.10.tgz";
@@ -733,6 +741,14 @@
         name = "_types_sax___sax_1.2.4.tgz";
         url = "https://registry.yarnpkg.com/@types/sax/-/sax-1.2.4.tgz";
         sha512 = "pSAff4IAxJjfAXUG6tFkO7dsSbTmf8CtUpfhhZ5VhkRpC4628tJhh3+V6H1E+/Gs9piSzYKT5yzHO5M4GG9jkw==";
+      };
+    }
+    {
+      name = "_types_seedrandom___seedrandom_3.0.2.tgz";
+      path = fetchurl {
+        name = "_types_seedrandom___seedrandom_3.0.2.tgz";
+        url = "https://registry.yarnpkg.com/@types/seedrandom/-/seedrandom-3.0.2.tgz";
+        sha512 = "YPLqEOo0/X8JU3rdiq+RgUKtQhQtrppE766y7vMTu8dGML7TVtZNiiiaC/hhU9Zqw9UYopXxhuWWENclMVBwKQ==";
       };
     }
     {
@@ -3336,6 +3352,14 @@
       };
     }
     {
+      name = "lodash___lodash_4.17.21.tgz";
+      path = fetchurl {
+        name = "lodash___lodash_4.17.21.tgz";
+        url = "https://registry.yarnpkg.com/lodash/-/lodash-4.17.21.tgz";
+        sha512 = "v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==";
+      };
+    }
+    {
       name = "log_symbols___log_symbols_5.1.0.tgz";
       path = fetchurl {
         name = "log_symbols___log_symbols_5.1.0.tgz";
@@ -4781,6 +4805,14 @@
         name = "section_matter___section_matter_1.0.0.tgz";
         url = "https://registry.yarnpkg.com/section-matter/-/section-matter-1.0.0.tgz";
         sha512 = "vfD3pmTzGpufjScBh50YHKzEu2lxBWhVEHsNGoEXmCmn2hKGfeNLYMzCJpe8cD7gqX7TJluOVpBkAequ6dgMmA==";
+      };
+    }
+    {
+      name = "seedrandom___seedrandom_3.0.5.tgz";
+      path = fetchurl {
+        name = "seedrandom___seedrandom_3.0.5.tgz";
+        url = "https://registry.yarnpkg.com/seedrandom/-/seedrandom-3.0.5.tgz";
+        sha512 = "8OwmbklUNzwezjGInmZ+2clQmExQPvomqjL7LFqOYqtmuxRgQYqOD3mHaU+MvZn5FLUeVxVfQjwLZW/n/JFuqg==";
       };
     }
     {
