@@ -9,4 +9,4 @@ pre-commit:
       run: yarn prettier --check {staged_files}
     formatting_nix:
       glob: '*.nix'
-      run: nix fmt -- --check .
+      run: nix fmt -- --check {staged_files}
