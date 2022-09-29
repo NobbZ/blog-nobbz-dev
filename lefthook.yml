@@ -6,4 +6,7 @@ pre-commit:
       run: yarn eslint .
     formatting:
       glob: '*.{yaml,yml,js,ts,jsx,tsx,astro,md,mdx,cjs,ts}'
-      runt: yarn prettier --check {staged_files}
+      run: yarn prettier --check {staged_files}
+    formatting_nix:
+      glob: '*.nix'
+      run: nix fmt -- --check {staged_files}
