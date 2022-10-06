@@ -3,7 +3,7 @@ pre-commit:
   commands:
     eslint:
       glob: '*.{js,ts,jsx,tsx,astro,md,mdx,cjs,ts}'
-      run: yarn eslint .
+      run: yarn eslint {staged_files}
     formatting:
       glob: '*.{yaml,yml,js,ts,jsx,tsx,astro,md,mdx,cjs,ts}'
       run: yarn prettier --check {staged_files}

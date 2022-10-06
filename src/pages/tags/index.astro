@@ -1,27 +1,29 @@
 ---
+import NobbzDev from '@nz-layouts/NobbzDev.astro';
+import type { Content } from '@nz-layouts/NobbzDev.astro';
 import { tagCount } from '@nz-scripts/tags';
 
-import BlogHeader from '@nz-components/BlogHeader.astro';
 import TagCloud from '@nz-components/TagCloud.astro';
+
+const content: Content = {
+	title: 'Taglist',
+	description: "Tags available on NobbZ' blog.",
+};
 ---
 
-<html lang="en">
-	<head></head>
-	<body>
-		<BlogHeader />
-		<div class="mx-auto max-w-[65em] px-[2rem] w-full">
-			<main class="mt-[4rem] mb-[8rem] mx-auto">
-				<section class="pb-[4rem] mb-[2rem]">
-					<h1 class="latest">NobbZ's Blog - tags</h1>
-					<p>
-						There are the following {tagCount} tags used in this blog:
-					</p>
-				</section>
+<NobbzDev {content}>
+	<div class="mx-auto max-w-[65em] px-[2rem] w-full">
+		<main class="mt-[4rem] mb-[8rem] mx-auto">
+			<section class="pb-[4rem] mb-[2rem]">
+				<h1 class="latest">NobbZ's Blog - tags</h1>
+				<p>
+					There are the following {tagCount} tags used in this blog:
+				</p>
+			</section>
 
-				<section aria-label="Tag list">
-					<TagCloud />
-				</section>
-			</main>
-		</div>
-	</body>
-</html>
+			<section aria-label="Tag list">
+				<TagCloud />
+			</section>
+		</main>
+	</div>
+</NobbzDev>

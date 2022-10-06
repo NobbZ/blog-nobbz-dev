@@ -1,20 +1,37 @@
 ---
 import { tagList, maxPostCount, minPostCount } from '@nz-scripts/tags';
 
+import SeedRandom from 'seedrandom';
+
 import TagCard from './TagCard.astro';
+
+function shuffle<T>(array: Array<T>): Array<T> {
+	// let rng = new seed.seedrandom('tags');
+	let rng = SeedRandom('tags');
+
+	let currentIndex = array.length;
+	let randomIndex = 0;
+
+	while (currentIndex != 0) {
+		randomIndex = Math.floor(rng() * currentIndex);
+		currentIndex--;
+
+		[array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
+	}
+
+	return array;
+}
 ---
 
 <ul class="list-none pl-0 flex flex-wrap items-center justify-center">
 	{
-		tagList
-			.sort((a, b) => (a.name > b.name ? 1 : -1))
-			.map(({ name, posts }) => (
-				<TagCard
-					name={name}
-					count={posts.length}
-					maxCount={maxPostCount}
-					minCount={minPostCount}
-				/>
-			))
+		shuffle(tagList).map(({ name, posts }) => (
+			<TagCard
+				name={name}
+				count={posts.length}
+				maxCount={maxPostCount}
+				minCount={minPostCount}
+			/>
+		))
 	}
 </ul>

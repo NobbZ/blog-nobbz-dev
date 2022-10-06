@@ -1,0 +1,30 @@
+---
+import BaseHead from '@nz-components/BaseHead.astro';
+import BlogHeader from '@nz-components/BlogHeader.astro';
+import BuiltWith from '@nz-components/BuiltWith.astro';
+
+export interface Content {
+	title: string;
+	description: string;
+	permalink?: string;
+}
+
+export interface Props {
+	content: Content;
+}
+
+const { content } = Astro.props;
+const { title, description, permalink } = content;
+---
+
+<html lang="en">
+	<head><slot name="head"><BaseHead {title} {description} {permalink} /></slot></head>
+
+	<body>
+		<BlogHeader />
+		<div class="mx-auto max-w-[65em] px-[2rem] w-full">
+			<slot />
+		</div>
+		<BuiltWith />
+	</body>
+</html>
