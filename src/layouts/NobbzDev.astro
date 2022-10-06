@@ -3,6 +3,16 @@ import BaseHead from '@nz-components/BaseHead.astro';
 import BlogHeader from '@nz-components/BlogHeader.astro';
 import BuiltWith from '@nz-components/BuiltWith.astro';
 
+export interface Content {
+	title: string;
+	description: string;
+	permalink?: string;
+}
+
+export interface Props {
+	content: Content;
+}
+
 const { content } = Astro.props;
 const { title, description, permalink } = content;
 ---
