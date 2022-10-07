@@ -36,14 +36,12 @@ Given are these 2 files `hello.nix` and `default.nix`:
 	in the examples for no reason, therefore I will use diamond paths and `import` for simplicity.
 </NoteBox>
 
-```nix
-# default.nix
+```nix filename="default.nix"
 let pkgs = import <nixpkgs> {}; in
 pkgs.callPackage ./hello.nix {}
 ```
 
-```nix
-# hello.nix
+```nix filename="hello.nix"
 {writeShellScriptBin}:
 writeShellScriptBin "hello" ''
   echo "hello, world!"
@@ -62,8 +60,7 @@ boilerplate, though if you continue reading, you will see, it is worth it!
 
 Now lets change the `default.nix`:
 
-```
-# default.nix
+```nix filename="default.nix"
 let pkgs = import <nixpkgs> { }; in
 {
   hello = pkgs.callPackage ./hello.nix { };
@@ -74,8 +71,7 @@ Now we build using `nix-build -A hello`, the outcome will be the same as above.
 
 Now to "parametrize" the build we also change the `hello.nix` a bit:
 
-```nix
-# hello.nix
+```nix filename="hello.nix"
 { writeShellScriptBin
 , audience ? "world"
 }:
@@ -87,8 +83,7 @@ writeShellScriptBin "hello" ''
 Building this will still yield the same output as before, though now things get
 interesting, alter your `default.nix` yet another time:
 
-```nix
-# default.nix
+```nix filename="default.nix"
 let pkgs = import <nixpkgs> { }; in
 {
   hello = pkgs.callPackage ./hello.nix { };
@@ -113,8 +108,7 @@ the parameters after the fact, using the derivations `override` function.
 
 Consider this new `default.nix`:
 
-```nix
-# default.nix
+```nix filename="default.nix"
 let pkgs = import <nixpkgs> { }; in
 rec {
   hello = pkgs.callPackage ./hello.nix { };
@@ -151,8 +145,7 @@ other.
 
 Consider the following initial version:
 
-```nix
-# default.nix
+```nix filename="default.nix"
 let pkgs = import <nixpkgs> { }; in
 rec {
   a = pkgs.callPackage ./a.nix { };
@@ -170,8 +163,7 @@ This can become quite tedious quickly, especially the larger the set becomes.
 
 Therefore we can use `lib.callPackageWith` to create our own `callPackage` version.
 
-```nix
-# default.nix
+```nix filename="default.nix"
 let
   pkgs = import <nixpkgs> { };
   callPackage = lib.callPackageWith (pkgs // packages);
@@ -208,8 +200,7 @@ packageset.
 Each of the attributes in the returned set will then be overrideable as if you
 had called `callPackage` on that.
 
-```nix
-# callpackages.nix
+```nix filename="callpackages.nix"
 { runCommand }:
 {
   a = runCommand "a" { } "echo a > $out";
