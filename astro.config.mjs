@@ -7,6 +7,8 @@ import path from 'path';
 import tailwind from '@astrojs/tailwind';
 import sitemap from '@astrojs/sitemap';
 
+import codeBlock from './src/scripts/codeBlock';
+
 const tailwindConfig = { config: { applyBaseStyles: false } };
 
 const mkPath = (name) => path.resolve(`./src/${name}`);
@@ -21,9 +23,11 @@ const alias = {
 
 const external = ['svgo'];
 
+const mdxConfig = { remarkPlugins: [[codeBlock]] };
+
 // https://astro.build/config
 export default defineConfig({
-	integrations: [sitemap(), mdx(), tailwind(tailwindConfig), robotsTxt()],
+	integrations: [sitemap(), mdx(mdxConfig), tailwind(tailwindConfig), robotsTxt()],
 	site: 'https://blog.nobbz.dev',
 	vite: {
 		ssr: { external },
