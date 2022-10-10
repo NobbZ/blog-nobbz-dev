@@ -15,7 +15,6 @@ export default function remarkCodeBlock(options = {}) {
 
 	return (tree) => {
 		visit(tree, (node) => {
-			console.log({ type: node.type, value: node.value });
 			if (node.type == 'html' && node.value.includes('class="astro-code"')) {
 				node.value = node.value.replace(
 					'"astro-code"',

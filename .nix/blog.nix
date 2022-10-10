@@ -14,6 +14,7 @@ mkYarnPackage {
   postConfigure = ''
     mkdir -p yarnHome
     export HOME=$(pwd)/yarnHome
+    export VITE_CACHE=$(pwd)/vite-cache
     export BLOG_COMMIT=${self.shortRev or "dirty"}
   '';
 

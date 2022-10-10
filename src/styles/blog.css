@@ -277,3 +277,10 @@ blockquote .source {
 	color: var(--color);
 	font-size: 1rem;
 }
+
+pre[data-filename]::before {
+	content: attr(data-filename);
+	background-color: var(--theme-code-inline-bg);
+	display: inline-block;
+	@apply top-0 right-0 absolute px-3 pt-1 rounded-bl-md;
+}

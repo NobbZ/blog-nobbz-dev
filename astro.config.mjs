@@ -25,6 +25,8 @@ const external = ['svgo'];
 
 const mdxConfig = { remarkPlugins: [[codeBlock]] };
 
+const cacheDir = process.env.VITE_CACHE ? process.env.VITE_CACHE : 'node_modules/.vite';
+
 // https://astro.build/config
 export default defineConfig({
 	integrations: [sitemap(), mdx(mdxConfig), tailwind(tailwindConfig), robotsTxt()],
