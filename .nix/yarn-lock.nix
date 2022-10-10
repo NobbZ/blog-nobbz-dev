@@ -48,11 +48,11 @@
       };
     }
     {
-      name = "_astrojs_mdx___mdx_0.10.3.tgz";
+      name = "_astrojs_mdx___mdx_0.11.4.tgz";
       path = fetchurl {
-        name = "_astrojs_mdx___mdx_0.10.3.tgz";
-        url = "https://registry.yarnpkg.com/@astrojs/mdx/-/mdx-0.10.3.tgz";
-        sha512 = "bZ74xKJ1eqH9shd4TcpgS4Rn2ycQvXwBXkgKSABvFHQhT16vufuBo0M9vmLDdHKnDupYphCj1aBilmN9VeLugA==";
+        name = "_astrojs_mdx___mdx_0.11.4.tgz";
+        url = "https://registry.yarnpkg.com/@astrojs/mdx/-/mdx-0.11.4.tgz";
+        sha512 = "b86Fzd87OCuYUGk7O59mwq0URqLdH40wUJC5UCkFmSquIrk8QNrZ7tdjriBfF+Wq3+2UT5JO4ahxIuP6N3cczQ==";
       };
     }
     {
