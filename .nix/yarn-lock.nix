@@ -24,14 +24,6 @@
       };
     }
     {
-      name = "_astrojs_compiler___compiler_0.26.1.tgz";
-      path = fetchurl {
-        name = "_astrojs_compiler___compiler_0.26.1.tgz";
-        url = "https://registry.yarnpkg.com/@astrojs/compiler/-/compiler-0.26.1.tgz";
-        sha512 = "GoRi4qB05u+bVcSlR9nu9HJfSUGFBcoUUb+WFimKSm9e/KPTy0STOMb/Q0mLIcloavF4KvEqAnd9ukX62ewoaA==";
-      };
-    }
-    {
       name = "_astrojs_compiler___compiler_0.27.1.tgz";
       path = fetchurl {
         name = "_astrojs_compiler___compiler_0.27.1.tgz";
@@ -88,11 +80,11 @@
       };
     }
     {
-      name = "_astrojs_tailwind___tailwind_2.0.2.tgz";
+      name = "_astrojs_tailwind___tailwind_2.1.0.tgz";
       path = fetchurl {
-        name = "_astrojs_tailwind___tailwind_2.0.2.tgz";
-        url = "https://registry.yarnpkg.com/@astrojs/tailwind/-/tailwind-2.0.2.tgz";
-        sha512 = "SDQYqrOLwrRdDzjoSs6Ha2YQzWJlzWnPTZM5t0aWoHukm3JPQg/omDTpiz/XqT4vupYMOsBQZ9WBuNyWVtMrVg==";
+        name = "_astrojs_tailwind___tailwind_2.1.0.tgz";
+        url = "https://registry.yarnpkg.com/@astrojs/tailwind/-/tailwind-2.1.0.tgz";
+        sha512 = "zfdprApzUJbqCNSJNEYeV7dh0ZGMdPDnROXb11ZBusu3/oVrahfP7nlmJTr05bpUdFURNIn2Z7Jkhn0nsAl8dQ==";
       };
     }
     {
@@ -1040,11 +1032,11 @@
       };
     }
     {
-      name = "astro___astro_1.4.7.tgz";
+      name = "astro___astro_1.5.0.tgz";
       path = fetchurl {
-        name = "astro___astro_1.4.7.tgz";
-        url = "https://registry.yarnpkg.com/astro/-/astro-1.4.7.tgz";
-        sha512 = "Vit4megdh1rLdET5+HwQTdiXOjWQNzPNxRbpp08qn/0xw7pxrYD34TqLl7j8lxwrF+ky9WohdQGo7fkBF6P3SQ==";
+        name = "astro___astro_1.5.0.tgz";
+        url = "https://registry.yarnpkg.com/astro/-/astro-1.5.0.tgz";
+        sha512 = "xwneXjRT4FChouSe/cj6oJVU6Ux7Fd/7rfnh3mPlB9PTbN5UwnfCI5MjR7rTc93i169Jjh93FndrxmGX45sQBw==";
       };
     }
     {
@@ -1493,6 +1485,14 @@
         name = "deep_is___deep_is_0.1.4.tgz";
         url = "https://registry.yarnpkg.com/deep-is/-/deep-is-0.1.4.tgz";
         sha512 = "oIPzksmTg4/MriiaYGO+okXDT7ztn/w3Eptv/+gSIdMdKsJo0u4CfYNFJPy+4SKMuCqGw2wxnA+URMg3t8a/bQ==";
+      };
+    }
+    {
+      name = "deepmerge_ts___deepmerge_ts_4.2.2.tgz";
+      path = fetchurl {
+        name = "deepmerge_ts___deepmerge_ts_4.2.2.tgz";
+        url = "https://registry.yarnpkg.com/deepmerge-ts/-/deepmerge-ts-4.2.2.tgz";
+        sha512 = "Ka3Kb21tiWjvQvS9U+1Dx+aqFAHsdTnMdYptLTmC2VAmDFMugWMY1e15aTODstipmCun8iNuqeSfcx6rsUUk0Q==";
       };
     }
     {
@@ -2176,11 +2176,11 @@
       };
     }
     {
-      name = "eslint_plugin_promise___eslint_plugin_promise_6.0.1.tgz";
+      name = "eslint_plugin_promise___eslint_plugin_promise_6.1.0.tgz";
       path = fetchurl {
-        name = "eslint_plugin_promise___eslint_plugin_promise_6.0.1.tgz";
-        url = "https://registry.yarnpkg.com/eslint-plugin-promise/-/eslint-plugin-promise-6.0.1.tgz";
-        sha512 = "uM4Tgo5u3UWQiroOyDEsYcVMOo7re3zmno0IZmB5auxoaQNIceAbXEkSt8RNrKtaYehARHG06pYK6K1JhtP0Zw==";
+        name = "eslint_plugin_promise___eslint_plugin_promise_6.1.0.tgz";
+        url = "https://registry.yarnpkg.com/eslint-plugin-promise/-/eslint-plugin-promise-6.1.0.tgz";
+        sha512 = "NYCfDZF/KHt27p06nFAttgWuFyIDSUMnNaJBIY1FY9GpBFhdT2vMG64HlFguSgcJeyM5by6Yr5csSOuJm60eXQ==";
       };
     }
     {
