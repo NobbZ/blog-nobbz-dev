@@ -648,6 +648,14 @@
       };
     }
     {
+      name = "_types_luxon___luxon_3.0.1.tgz";
+      path = fetchurl {
+        name = "_types_luxon___luxon_3.0.1.tgz";
+        url = "https://registry.yarnpkg.com/@types/luxon/-/luxon-3.0.1.tgz";
+        sha512 = "/LAvk1cMOJt0ghzMFrZEvByUhsiEfeeT2IF53Le+Ki3A538yEL9pRZ7a6MuCxdrYK+YNqNIDmrKU/r2nnw04zQ==";
+      };
+    }
+    {
       name = "_types_mdast___mdast_3.0.10.tgz";
       path = fetchurl {
         name = "_types_mdast___mdast_3.0.10.tgz";
