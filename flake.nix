@@ -16,9 +16,13 @@
     ...
   } @ inputs: let
     inherit (nix-filter.lib) filter inDirectory matchExt;
+    inherit (nixpkgs.lib) genAttrs;
+
+    systems = ["x86_64-linux" "aarch64-darwin"];
 
     self1 = d2n.lib.makeFlakeOutputs {
-      systems = ["x86_64-linux"];
+      inherit systems;
+
       config.projectRoot = ./.;
       source = filter {
         root = ./.;
@@ -42,21 +46,20 @@
   in {
     formatter = inputs.nobbz.formatter;
 
-    packages.x86_64-linux = let
-      pkgs = nixpkgs.legacyPackages.x86_64-linux;
-      inherit (pkgs) callPackage;
-    in {
+    packages = genAttrs systems (system: {
       blog = self1.packages.x86_64-linux.blog-nobbz-dev;
-    };
+      default = self1.packages.x86_64-linux.blog-nobbz-dev;
+    });
 
-    devShells.x86_64-linux.default = let
-      pkgs = nixpkgs.legacyPackages.x86_64-linux;
-    in
-      pkgs.mkShell {
+    devShells = genAttrs systems (system: let
+      pkgs = nixpkgs.legacyPackages.${system};
+    in {
+      default = pkgs.mkShell {
         packages = builtins.attrValues {
-          inherit (pkgs) yarn yarn2nix;
-          inherit (inputs.nobbz.packages.x86_64-linux) alejandra nil;
+          inherit (pkgs) yarn;
+          inherit (inputs.nobbz.packages.${system}) alejandra nil;
         };
       };
+    });
   };
 }
