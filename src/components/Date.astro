@@ -1,22 +1,21 @@
 ---
 import { DateTime } from 'luxon';
 
-export interface Props {
-	date: string | DateTime;
-	lang?: string;
+export interface Props extends astroHTML.JSX.TimeHTMLAttributes {
+	format: string;
 }
 
-let { date, lang } = Astro.props;
+const { datetime, format } = Astro.props;
 
+let { lang } = Astro.props;
 lang = lang || 'en';
 
-const datetime: string =
-	date instanceof DateTime ? date.toISODate() : DateTime.fromISO(date).toISODate();
+const timeData = { lang, datetime, 'data-format': format };
 
-const timeData = { lang, datetime };
+console.log({ format });
 ---
 
-<time data-relative {...timeData}>{datetime}</time>
+<time data-relative {...Astro.props} {...timeData}><slot>{datetime}</slot></time>
 
 <script>
 	import { DateTime } from 'luxon';
@@ -27,7 +26,9 @@ const timeData = { lang, datetime };
 		const date: DateTime = DateTime.fromISO(element.dateTime);
 
 		const relative = date.setLocale(element.lang).toRelativeCalendar();
+		const format = element.dataset.format || 'yyyy-MM-dd';
+		console.log({ format });
 
-		element.innerHTML = `<abbr title=${element.dateTime}>${relative}</abbr>`;
+		element.innerHTML = `<abbr title="${date.toFormat(format)}">${relative}</abbr>`;
 	});
 </script>

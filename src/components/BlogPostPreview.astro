@@ -17,7 +17,7 @@ const { post } = Astro.props;
 			<h1 class="title" set:html={post.frontmatter.title}></h1>
 		</a>
 		<div class="post-meta">
-			<Date date={post.frontmatter.publishDate} />
+			<Date datetime={post.frontmatter.publishDate} />
 			<Author
 				name={(post.frontmatter.author && post.frontmatter.author.name) || 'Norbert Melzer'}
 			/>
