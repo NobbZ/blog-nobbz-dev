@@ -4,6 +4,7 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixpkgs-unstable";
     d2n.url = "github:nix-community/dream2nix";
+    d2n.inputs.all-cabal-json.follows = "nixpkgs";
     nobbz.url = "github:nobbz/nixos-config";
     nix-filter.url = "github:numtide/nix-filter";
   };
