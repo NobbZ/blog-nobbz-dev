@@ -13,7 +13,7 @@ tags:
 
 import NoteBox from '@nz-components/NoteBox.astro';
 
-There is a frequently re-occuring scenario in the various community chats and
+There is a frequently recuring scenario in the various community chats and
 forums, which at the end boils down to the question "How to get this input into
 my configuration?"
 
@@ -22,7 +22,7 @@ There are basically 4 ways to achieve this goal:
 1. Create a function over inputs to modules and pass the inputs to the function
 2. Use `specialArgs` in the `nixosSystem` or `extraSpecialArgs` in the `homeManagerConfiguration` call
 3. Use the `_module.args` option in an "inline module"
-4. create an overlay providing the inputs in `pkgs`
+4. Create an overlay providing the inputs in `pkgs`
 
 I will give some short examples, without much of discussing their pros and cons,
 as I have not yet really went through the different versions.
@@ -145,14 +145,14 @@ into the module, and the same 2 variants exists.
 
 ## The overlay
 
-Personally I am an offender of overlays, and use them only when there isn't
+Personally I dislike overlays, and use them only when there isn't
 some other way to achieve a similar goal at least.
 
 Still, I mention it here for the following reasons:
 
--   in the beginning it was perceived as the only solution to the problem
--   some people still want to use overlays for everything
--   this technique is used under the hood by at least one flake-framework
+-   In the beginning it was perceived as the only solution to the problem
+-   Some people still want to use overlays for everything
+-   This technique is used under the hood by at least one flake-framework
 
 ```nix filename=flake.nix
 {
