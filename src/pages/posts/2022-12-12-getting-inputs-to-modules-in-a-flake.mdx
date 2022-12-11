@@ -59,7 +59,7 @@ The idea is that you pass all your inputs when importing the module or configura
 {example, ...}:
 {config, pkgs, ...}:
 {
-  environmentPackages = [
+  system.environmentPackages = [
     pkgs.vim example.packages.${pkgs.system}.hello
   ];
 }
@@ -98,7 +98,7 @@ transformation between this and the other variant as an exercise to the reader.
 ```nix filename=configuration.nix
 {config, pkgs, inputs, ...}:
 {
-  environmentPackages = [
+  system.environmentPackages = [
     pkgs.vim inputs.example.packages.${pkgs.system}.hello
   ];
 }
@@ -134,7 +134,7 @@ into the module, and the same 2 variants exists.
 ```nix filename=configuration.nix
 {config, pkgs, inputs, ...}:
 {
-  environmentPackages = [
+  system.environmentPackages = [
     pkgs.vim inputs.example.packages.${pkgs.system}.hello
   ];
 }
@@ -171,7 +171,7 @@ Still, I mention it here for the following reasons:
 ```nix filename=configuration.nix
 {config, pkgs, ...}:
 {
-  environmentPackages = [
+  system.environmentPackages = [
     pkgs.vim pkgs.inputs.example.packages.${pkgs.system}.hello
   ];
 }
