@@ -164,7 +164,7 @@ Still, I mention it here for the following reasons:
       system = "x86_64-linux";
       modules = [
         ./configuration.nix
-        {nixpkgs.overlays = [(final: prev: {inherit inputs})];}
+        {nixpkgs.overlays = [(final: prev: {inherit inputs;})];}
       ];
     };
   };
