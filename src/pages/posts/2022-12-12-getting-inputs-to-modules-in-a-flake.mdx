@@ -36,7 +36,7 @@ these. I assume that in the case of a framework you know how it works there or
 how you translate vanilla flake approaches to that framework.
 
 The flake will show how to get the package `hello` from the imaginary `github:nobbz/example`
-installed via the `system.environmentPackages`.
+installed via the `environment.systemPackages`.
 
 ## Function over inputs
 
@@ -62,7 +62,7 @@ The idea is that you pass all your inputs when importing the module or configura
 {example, ...}:
 {config, pkgs, ...}:
 {
-  system.environmentPackages = [
+  environment.systemPackages = [
     pkgs.vim example.packages.${pkgs.system}.hello
   ];
 }
@@ -101,7 +101,7 @@ transformation between this and the other variant as an exercise to the reader.
 ```nix filename=configuration.nix
 {config, pkgs, inputs, ...}:
 {
-  system.environmentPackages = [
+  environment.systemPackages = [
     pkgs.vim inputs.example.packages.${pkgs.system}.hello
   ];
 }
@@ -137,7 +137,7 @@ into the module, and the same 2 variants exists.
 ```nix filename=configuration.nix
 {config, pkgs, inputs, ...}:
 {
-  system.environmentPackages = [
+  environment.systemPackages = [
     pkgs.vim inputs.example.packages.${pkgs.system}.hello
   ];
 }
@@ -174,7 +174,7 @@ Still, I mention it here for the following reasons:
 ```nix filename=configuration.nix
 {config, pkgs, ...}:
 {
-  system.environmentPackages = [
+  environment.systemPackages = [
     pkgs.vim pkgs.inputs.example.packages.${pkgs.system}.hello
   ];
 }
