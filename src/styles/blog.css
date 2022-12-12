@@ -278,9 +278,19 @@ blockquote .source {
 	font-size: 1rem;
 }
 
+/* My custom styles */
+
 pre[data-filename]::before {
 	content: attr(data-filename);
 	background-color: var(--theme-code-inline-bg);
 	display: inline-block;
 	@apply top-0 right-0 absolute px-3 pt-1 rounded-bl-md;
+}
+
+ol {
+	@apply list-decimal ml-8;
+}
+
+ul {
+	@apply list-disc ml-8;
 }
