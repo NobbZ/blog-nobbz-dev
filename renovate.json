@@ -1,9 +1,7 @@
 {
-  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "config:base"
-  ],
-  "nix": {
-    "enabled": true
-  }
+	"$schema": "https://docs.renovatebot.com/renovate-schema.json",
+	"extends": ["config:base"],
+	"assignees": ["Nobbz"],
+	"nix": { "enabled": true },
+	"rangeStrategy": "update-lockfile"
 }
