@@ -11,9 +11,9 @@
     "@jridgewell/trace-mapping" "^0.3.9"
 
 "@astrojs/compiler@^0.27.0 || ^0.28.0 || ^0.29.0 || ^0.30.0 || ^0.31.0":
-  version "0.31.0"
-  resolved "https://registry.yarnpkg.com/@astrojs/compiler/-/compiler-0.31.0.tgz#b026ec0e5ffa0eb4a99713530c74e05f50f9c29b"
-  integrity sha512-V8/Re/wXgXTZzpfWs4KZBLU5dRhnO6kSd4e3vObGuj+HFGHjaD11wws1zvaC9cXLQyQsM5CSrGagFGYlRZKvVQ==
+  version "0.31.1"
+  resolved "https://registry.yarnpkg.com/@astrojs/compiler/-/compiler-0.31.1.tgz#d6bcc1677f42f0f7d0dc43a178996de3b7cd581a"
+  integrity sha512-HgjKVwFZ3LwKnGv8gI0J6MhIniUyKwSmGwo7pTDTn14iwfqovfgzVPeJ0+KFpuKBbB4z1lsFNbD/c1WXZyKz6A==
 
 "@astrojs/compiler@^0.29.3":
   version "0.29.16"
@@ -462,7 +462,7 @@
   resolved "https://registry.yarnpkg.com/@jridgewell/set-array/-/set-array-1.1.2.tgz#7c6cf998d6d20b914c0a55a91ae928ff25965e72"
   integrity sha512-xnkseuNADM0gt2bs+BvhO0p78Mk762YnZdsuzFV018NoG1Sj1SCQvpSqa7XUaTam5vAGasABV9qXASMKnFMwMw==
 
-"@jridgewell/sourcemap-codec@1.4.14", "@jridgewell/sourcemap-codec@^1.4.10":
+"@jridgewell/sourcemap-codec@1.4.14", "@jridgewell/sourcemap-codec@^1.4.10", "@jridgewell/sourcemap-codec@^1.4.14":
   version "1.4.14"
   resolved "https://registry.yarnpkg.com/@jridgewell/sourcemap-codec/-/sourcemap-codec-1.4.14.tgz#add4c98d341472a289190b424efbdb096991bb24"
   integrity sha512-XPSJHWmi394fuUuzDnGz1wiKqWfo1yXecHQMRf2l6hztTO+nPru658AyDngaBe7isIxEkRsPR3FZh+s7iVa4Uw==
@@ -807,9 +807,9 @@
   integrity sha512-wHWgQHFB+qh6bu0IAPAJCdeCdI0wwzZnnWThlmHNY01XJ9Z97oKqKOzWYpR2I83QmshhQJl6LDM9TqMiMwJBTw==
 
 "@typescript-eslint/types@^5.25.0":
-  version "5.43.0"
-  resolved "https://registry.yarnpkg.com/@typescript-eslint/types/-/types-5.43.0.tgz#e4ddd7846fcbc074325293515fa98e844d8d2578"
-  integrity sha512-jpsbcD0x6AUvV7tyOlyvon0aUsQpF8W+7TpJntfCUWU1qaIKu2K34pMwQKSzQH8ORgUrGYY6pVIh1Pi8TNeteg==
+  version "5.46.1"
+  resolved "https://registry.yarnpkg.com/@typescript-eslint/types/-/types-5.46.1.tgz#4e9db2107b9a88441c4d5ecacde3bb7a5ebbd47e"
+  integrity sha512-Z5pvlCaZgU+93ryiYUwGwLl9AQVB/PQ1TsJ9NZ/gHzZjN7g9IAn6RSDkpCV8hqTwAiaj6fmCcKSQeBPlIpW28w==
 
 "@typescript-eslint/typescript-estree@5.46.0":
   version "5.46.0"
@@ -1887,16 +1887,16 @@ eslint-module-utils@^2.7.3:
     debug "^3.2.7"
 
 eslint-plugin-astro@^0.21.0:
-  version "0.21.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-astro/-/eslint-plugin-astro-0.21.0.tgz#94dbd54e47cdf1afe008b2bf52888411ebcdda10"
-  integrity sha512-7pEhTfYT+tlOMOSmQV77TNgCeuFZgqSAqJPTHh6LYlwLqYyBQLURc5RRtlQqCJkufSh4Fan4nsV3LXCT/vjpCA==
+  version "0.21.1"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-astro/-/eslint-plugin-astro-0.21.1.tgz#8978c68ac9acb17bcc4b48cb267b60cb03019855"
+  integrity sha512-gzT9R0b/Hl5sks8/WSMTlzu2VC7vdd99MnBYkq61Mk1zBWQ+C9MAuHeTcU72sFmR5XJX56NNURY6H+cN2StRcA==
   dependencies:
+    "@jridgewell/sourcemap-codec" "^1.4.14"
     "@typescript-eslint/types" "^5.25.0"
     astro-eslint-parser "^0.9.0"
     eslint-utils "^3.0.0"
     postcss "^8.4.14"
     postcss-selector-parser "^6.0.10"
-    sourcemap-codec "^1.4.8"
 
 eslint-plugin-es@^4.1.0:
   version "4.1.0"
@@ -4069,9 +4069,9 @@ postcss-nested@6.0.0:
     postcss-selector-parser "^6.0.10"
 
 postcss-selector-parser@^6.0.10:
-  version "6.0.10"
-  resolved "https://registry.yarnpkg.com/postcss-selector-parser/-/postcss-selector-parser-6.0.10.tgz#79b61e2c0d1bfc2602d549e11d0876256f8df88d"
-  integrity sha512-IQ7TZdoaqbT+LCpShg46jnZVlhWD2w6iQYAcYXfHARZ7X1t/UGhhceQDs5X0cGqKvYlHNOuv7Oa1xmb0oQuA3w==
+  version "6.0.11"
+  resolved "https://registry.yarnpkg.com/postcss-selector-parser/-/postcss-selector-parser-6.0.11.tgz#2e41dc39b7ad74046e1615185185cd0b17d0c8dc"
+  integrity sha512-zbARubNdogI9j7WY4nQJBiNqQf3sLS3wCP4WfOidu+p28LofJqDH1tcXypGrcmMHhDk2t9wGhCsYe/+szLTy1g==
   dependencies:
     cssesc "^3.0.0"
     util-deprecate "^1.0.2"
