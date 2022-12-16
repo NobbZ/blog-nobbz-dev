@@ -77,9 +77,7 @@
             inherit (pkgs) yarn;
             inherit (inputs.nobbz.packages.${system}) alejandra nil;
           };
-          shellHook = ''
-            ${config.pre-commit.installationScript}
-          '';
+          shellHook = config.pre-commit.installationScript;
         };
       };
     };
