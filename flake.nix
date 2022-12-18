@@ -20,14 +20,12 @@
     pre-commit,
     ...
   } @ inputs: let
-    inherit (nix-filter.lib) filter inDirectory matchExt;
-
     systems = ["x86_64-linux" "aarch64-darwin"];
   in
     flake-parts.lib.mkFlake {inherit inputs;} {
       inherit systems;
 
-      imports = [d2n.flakeModuleBeta pre-commit.flakeModule];
+      imports = [d2n.flakeModuleBeta pre-commit.flakeModule ./nix/blog.nix];
 
       dream2nix.config.projectRoot = ./.;
 
@@ -39,32 +37,6 @@
         system,
         ...
       }: {
-        dream2nix.inputs.self = {
-          source = filter {
-            root = ./.;
-            include = [
-              (inDirectory "src")
-              (inDirectory "public")
-              (matchExt "js")
-              (matchExt "cjs")
-              (matchExt "mjs")
-              ./package.json
-              ./yarn.lock
-            ];
-          };
-          projects.blog = {
-            name = "blog";
-            subsystem = "nodejs";
-            translator = "yarn-lock";
-          };
-          packageOverrides.blog-nobbz-dev.copyBlog = {
-            installPhase = ''
-              mkdir -p $out
-              cp -rv ./dist/* $out
-            '';
-          };
-        };
-
         formatter = inputs'.nobbz.formatter;
 
         pre-commit.check.enable = true;
