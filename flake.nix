@@ -7,6 +7,8 @@
     d2n.inputs.all-cabal-json.follows = "nixpkgs";
     nobbz.url = "github:nobbz/nixos-config";
     nix-filter.url = "github:numtide/nix-filter";
+    flake-parts.url = "github:hercules-ci/flake-parts";
+    pre-commit.url = "github:cachix/pre-commit-hooks.nix";
   };
 
   outputs = {
@@ -14,53 +16,36 @@
     d2n,
     nixpkgs,
     nix-filter,
+    flake-parts,
+    pre-commit,
     ...
   } @ inputs: let
-    inherit (nix-filter.lib) filter inDirectory matchExt;
-    inherit (nixpkgs.lib) genAttrs;
-
     systems = ["x86_64-linux" "aarch64-darwin"];
-
-    self1 = d2n.lib.makeFlakeOutputs {
+  in
+    flake-parts.lib.mkFlake {inherit inputs;} {
       inherit systems;
 
-      config.projectRoot = ./.;
-      source = filter {
-        root = ./.;
-        include = [
-          (inDirectory "src")
-          (inDirectory "public")
-          (matchExt "js")
-          (matchExt "cjs")
-          (matchExt "mjs")
-          ./package.json
-          ./yarn.lock
-        ];
-      };
-      packageOverrides.blog-nobbz-dev.copyBlog = {
-        installPhase = ''
-          mkdir -p $out
-          cp -rv ./dist/* $out
-        '';
-      };
-    };
-  in {
-    formatter = inputs.nobbz.formatter;
+      imports = [d2n.flakeModuleBeta pre-commit.flakeModule ./nix/blog.nix];
 
-    packages = genAttrs systems (system: {
-      blog = self1.packages.x86_64-linux.blog-nobbz-dev;
-      default = self1.packages.x86_64-linux.blog-nobbz-dev;
-    });
+      dream2nix.config.projectRoot = ./.;
 
-    devShells = genAttrs systems (system: let
-      pkgs = nixpkgs.legacyPackages.${system};
-    in {
-      default = pkgs.mkShell {
-        packages = builtins.attrValues {
-          inherit (pkgs) yarn;
-          inherit (inputs.nobbz.packages.${system}) alejandra nil;
+      perSystem = {
+        config,
+        pkgs,
+        self',
+        inputs',
+        system,
+        ...
+      }: {
+        formatter = inputs'.nobbz.formatter;
+
+        devShells.default = pkgs.mkShell {
+          packages = builtins.attrValues {
+            inherit (pkgs) yarn;
+            inherit (inputs.nobbz.packages.${system}) alejandra nil;
+          };
+          shellHook = config.pre-commit.installationScript;
         };
       };
-    });
-  };
+    };
 }
