@@ -31,6 +31,7 @@ const cacheDir = process.env.VITE_CACHE ? process.env.VITE_CACHE : 'node_modules
 export default defineConfig({
 	integrations: [sitemap(), mdx(mdxConfig), tailwind(tailwindConfig), robotsTxt()],
 	site: 'https://blog.nobbz.dev',
+	server: { port: 3001 },
 	experimental: {
 		contentCollections: true,
 	},

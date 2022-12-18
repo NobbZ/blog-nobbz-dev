@@ -1,4 +1,8 @@
-import { Post, allPosts } from './posts';
+import { getCollection, CollectionEntry } from 'astro:content';
+
+const allPosts = await getCollection('post');
+
+type Post = CollectionEntry<'post'>;
 
 export type TagName = string;
 export interface TagInfo {
@@ -9,7 +13,7 @@ export interface TagInfo {
 export type TagMap = Record<TagName, Post[]>;
 
 export const tagMap: TagMap = allPosts.reduce<TagMap>((tagMap, post) => {
-	const tags: string[] = post.frontmatter.tags || [];
+	const tags: string[] = post.data.tags || [];
 
 	return tags.reduce<TagMap>((tagMap, tag) => {
 		const tags = tagMap[tag] || [];
@@ -26,8 +30,7 @@ export const tagList: TagInfo[] = Object.entries(tagMap).map(([tag, posts]) => {
 		name: tag,
 		posts: posts.sort(
 			(a, b) =>
-				new Date(b.frontmatter.publishDate).valueOf() -
-				new Date(a.frontmatter.publishDate).valueOf()
+				new Date(b.data.publishDate).valueOf() - new Date(a.data.publishDate).valueOf()
 		),
 	};
 });

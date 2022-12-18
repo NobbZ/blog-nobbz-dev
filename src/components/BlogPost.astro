@@ -12,15 +12,13 @@ export interface Props {
 		gitlab?: string;
 		href?: string;
 	};
-	publishDate: string;
+	publishDate: Date;
 	heroImage: string;
 	alt: string;
 }
 
 const { title, author, publishDate, heroImage, alt } = Astro.props;
-const { name, nick, twitter, github, gitlab, href } = author || {
-	name: 'Norbert Melzer',
-};
+const { name, nick, twitter, github, gitlab, href } = { ...author, name: 'Norbert Melzer' };
 
 const nk = author ? nick : 'NobbZ';
 const tw = author ? twitter : 'NobbZ1981';
@@ -28,7 +26,7 @@ const gh = author ? github : 'NobbZ';
 const gl = author ? gitlab : 'NobbZ';
 const hp = author ? href : 'https://nobbz.dev/';
 
-const authorData = { name, nixk: nk, href: hp, github: gh, twitter: tw, gitlab: gl };
+const authorData = { name, nick: nk, href: hp, github: gh, twitter: tw, gitlab: gl };
 ---
 
 <div class="layout">
@@ -48,7 +46,7 @@ const authorData = { name, nixk: nk, href: hp, github: gh, twitter: tw, gitlab: 
 							/>
 						)
 					}
-					<h1 class="title" set:html={title}></h1>
+					<h1 class="title" set:html={title} />
 					<Author {...authorData} />
 				</div>
 				<div>
