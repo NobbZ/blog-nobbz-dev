@@ -39,11 +39,6 @@
       }: {
         formatter = inputs'.nobbz.formatter;
 
-        pre-commit.check.enable = true;
-        pre-commit.settings.hooks.nixpkgs-fmt.enable = false;
-        pre-commit.settings.hooks.alejandra.enable = true;
-        pre-commit.settings.hooks.eslint.enable = true;
-
         devShells.default = pkgs.mkShell {
           packages = builtins.attrValues {
             inherit (pkgs) yarn;
