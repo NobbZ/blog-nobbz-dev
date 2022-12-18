@@ -4,15 +4,15 @@ in {
   perSystem = {
     dream2nix.inputs.self = {
       source = filter {
-        root = ./.;
+        root = ./..;
         include = [
           (inDirectory "src")
           (inDirectory "public")
           (matchExt "js")
           (matchExt "cjs")
           (matchExt "mjs")
-          ./package.json
-          ./yarn.lock
+          ../package.json
+          ../yarn.lock
         ];
       };
       projects.blog = {
