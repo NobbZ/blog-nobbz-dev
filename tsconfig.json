@@ -19,6 +19,7 @@
 			"@nz-pages/*": ["src/pages/*"],
 			"@nz-scripts/*": ["src/scripts/*"],
 			"@nz-styles/*": ["src/styles/*"]
-		}
+		},
+		"strictNullChecks": true
 	}
 }
