@@ -2,10 +2,6 @@
 import TagLayout from '@nz-layouts/Tag.astro';
 import { getTagList, getTagMap } from '@nz-scripts/tags';
 
-export interface Params {
-	tag: string;
-}
-
 export async function getStaticPaths() {
 	return getTagList().then((tagList) =>
 		tagList.map(({ name }) => {
@@ -15,6 +11,8 @@ export async function getStaticPaths() {
 }
 
 const { tag } = Astro.params;
+
+if (!tag) throw 'unreachable';
 
 const posts = await getTagMap().then((tagMap) => tagMap[tag]);
 ---
