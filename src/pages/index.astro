@@ -24,8 +24,6 @@ const sortedPosts = [...allPosts].sort(
 
 const { content: oldContent } = Astro.props;
 const content = _.merge(oldContent, { title: 'Tags' });
-
-console.log({ content });
 ---
 
 <NobbzDev {content}>

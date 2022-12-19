@@ -10,14 +10,11 @@ const { datetime: _, ...props } = Astro.props;
 
 const { datetime, format } = Astro.props;
 const datetimeStr = datetime instanceof Date ? datetime.toISOString() : datetime;
-console.log({ type: typeof datetime, datetime, datetimeStr });
 
 let { lang } = Astro.props;
 lang = lang || 'en';
 
 const timeData = { lang, datetime: datetimeStr, 'data-format': format };
-
-console.log({ format });
 ---
 
 <time data-relative {...props} {...timeData}><slot>{datetimeStr}</slot></time>

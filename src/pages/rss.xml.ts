@@ -4,12 +4,12 @@ import { marked } from 'marked';
 
 import { getCollection } from 'astro:content';
 
-const allPosts = await getCollection('post');
-
 const site = import.meta.env.SITE;
 
-export const get = () =>
-	rss({
+export const get = async () => {
+	const allPosts = await getCollection('post');
+
+	return rss({
 		title: "NobbZ' Blog",
 		description: '',
 		site,
@@ -20,3 +20,4 @@ export const get = () =>
 			content: sanitizeHtml(marked(post.data.description ?? '')),
 		})),
 	});
+};

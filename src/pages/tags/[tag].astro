@@ -1,16 +1,22 @@
 ---
 import TagLayout from '@nz-layouts/Tag.astro';
-import { tagList, tagMap } from '@nz-scripts/tags';
+import { getTagList, getTagMap } from '@nz-scripts/tags';
+
+export interface Params {
+	tag: string;
+}
 
 export async function getStaticPaths() {
-	return tagList.map(({ name }) => {
-		return { params: { tag: name } };
-	});
+	return getTagList().then((tagList) =>
+		tagList.map(({ name }) => {
+			return { params: { tag: name } };
+		})
+	);
 }
 
 const { tag } = Astro.params;
 
-const posts = tagMap[tag];
+const posts = await getTagMap().then((tagMap) => tagMap[tag]);
 ---
 
 <TagLayout frontmatter={{ tag, posts }} />

@@ -1,7 +1,7 @@
 ---
 import NobbzDev from '@nz-layouts/NobbzDev.astro';
 import type { Content } from '@nz-layouts/NobbzDev.astro';
-import { tagCount } from '@nz-scripts/tags';
+import { getTagCount } from '@nz-scripts/tags';
 
 import TagCloud from '@nz-components/TagCloud.astro';
 
@@ -9,6 +9,8 @@ const content: Content = {
 	title: 'Taglist',
 	description: "Tags available on NobbZ' blog.",
 };
+
+const tagCount = await getTagCount();
 ---
 
 <NobbzDev {content}>
