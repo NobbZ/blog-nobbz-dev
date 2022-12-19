@@ -1,5 +1,5 @@
 ---
-import { tagList, maxPostCount, minPostCount } from '@nz-scripts/tags';
+import { getTagList, getMaxPostCount, getMinPostCount } from '@nz-scripts/tags';
 
 import SeedRandom from 'seedrandom';
 
@@ -21,6 +21,10 @@ function shuffle<T>(array: Array<T>): Array<T> {
 
 	return array;
 }
+
+const tagList = await getTagList();
+const maxPostCount = await getMaxPostCount();
+const minPostCount = await getMinPostCount();
 ---
 
 <ul class="list-none pl-0 flex flex-wrap items-center justify-center">

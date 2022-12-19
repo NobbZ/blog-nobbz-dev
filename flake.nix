@@ -25,7 +25,7 @@
     flake-parts.lib.mkFlake {inherit inputs;} {
       inherit systems;
 
-      imports = [d2n.flakeModuleBeta pre-commit.flakeModule ./nix/blog.nix];
+      imports = [d2n.flakeModuleBeta pre-commit.flakeModule ./nix/blog.nix ./nix/hooks.nix];
 
       dream2nix.config.projectRoot = ./.;
 

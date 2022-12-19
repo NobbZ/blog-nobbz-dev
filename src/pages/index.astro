@@ -1,6 +1,6 @@
 ---
 // TS Imports
-import { allPosts } from '@nz-scripts/posts';
+import { getCollection } from 'astro:content';
 import _ from 'lodash';
 
 // Component Imports
@@ -16,10 +16,10 @@ let description = 'This, that, and other things.';
 
 // Data Fetching: List all Markdown and Astro posts in the repo.
 
+const allPosts = await getCollection('post');
+
 const sortedPosts = [...allPosts].sort(
-	(a, b) =>
-		new Date(b.frontmatter.publishDate).valueOf() -
-		new Date(a.frontmatter.publishDate).valueOf()
+	(a, b) => new Date(b.data.publishDate).valueOf() - new Date(a.data.publishDate).valueOf()
 );
 
 const { content: oldContent } = Astro.props;
