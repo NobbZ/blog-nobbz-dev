@@ -20,7 +20,7 @@ in {
         subsystem = "nodejs";
         translator = "yarn-lock";
       };
-      packageOverrides.blog-nobbz-dev.copyBlog = {
+      packageOverrides.blog.copyBlog = {
         installPhase = ''
           mkdir -p $out
           cp -rv ./dist/* $out
