@@ -42,7 +42,16 @@ declare module 'astro:content' {
 	};
 
 	const entryMap: {
-		"post": {
+		"author": {
+"nobbz.mdx": {
+  id: "nobbz.mdx",
+  slug: "nobbz",
+  body: string,
+  collection: "author",
+  data: InferEntrySchema<"author">
+},
+},
+"post": {
 "2022-07-08-hello-world.mdx": {
   id: "2022-07-08-hello-world.mdx",
   slug: "2022-07-08-hello-world",

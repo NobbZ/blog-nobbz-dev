@@ -1,30 +1,31 @@
 ---
+import { getCollection, getEntry, CollectionEntry } from 'astro:content';
+
 import Author from './Author.astro';
 import Date from './Date.astro';
 
 export interface Props {
 	title: string;
-	author?: {
-		name?: string;
-		nick?: string;
-		twitter?: string;
-		github?: string;
-		gitlab?: string;
-		href?: string;
-	};
+	author: 'nobbz';
 	publishDate: Date;
-	heroImage: string;
+	heroImage?: string;
 	alt: string;
 }
 
-const { title, author, publishDate, heroImage, alt } = Astro.props;
-const { name, nick, twitter, github, gitlab, href } = { ...author, name: 'Norbert Melzer' };
+const { title, author: authorID, publishDate, heroImage, alt } = Astro.props;
+// const { name, nick, twitter, github, gitlab, href } = { ...author, name: 'Norbert Melzer' };
 
-const nk = author ? nick : 'NobbZ';
-const tw = author ? twitter : 'NobbZ1981';
-const gh = author ? github : 'NobbZ';
-const gl = author ? gitlab : 'NobbZ';
-const hp = author ? href : 'https://nobbz.dev/';
+// const author = await getEntry('author', `${authorID}.mdx`);
+const [author] = await getCollection('author', ({ slug }) => slug === authorID);
+
+if (!author) throw `author '${authorID}' is invalid`;
+
+const name = author.data.name;
+const nk = author.data.social.nick;
+const tw = author.data.social.twitter;
+const gh = author.data.social.github;
+const gl = author.data.social.gitlab;
+const hp = author.data.href;
 
 const authorData = { name, nick: nk, href: hp, github: gh, twitter: tw, gitlab: gl };
 ---
