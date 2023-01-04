@@ -20,7 +20,7 @@
     pre-commit,
     ...
   } @ inputs: let
-    systems = ["x86_64-linux" "aarch64-darwin"];
+    systems = ["x86_64-linux" "aarch64-linux" "aarch64-darwin"];
   in
     flake-parts.lib.mkFlake {inherit inputs;} {
       inherit systems;
