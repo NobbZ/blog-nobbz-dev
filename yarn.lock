@@ -10,15 +10,15 @@
     "@jridgewell/gen-mapping" "^0.1.0"
     "@jridgewell/trace-mapping" "^0.3.9"
 
-"@astrojs/compiler@^0.27.0 || ^0.28.0 || ^0.29.0 || ^0.30.0 || ^0.31.0":
-  version "0.31.1"
-  resolved "https://registry.yarnpkg.com/@astrojs/compiler/-/compiler-0.31.1.tgz#d6bcc1677f42f0f7d0dc43a178996de3b7cd581a"
-  integrity sha512-HgjKVwFZ3LwKnGv8gI0J6MhIniUyKwSmGwo7pTDTn14iwfqovfgzVPeJ0+KFpuKBbB4z1lsFNbD/c1WXZyKz6A==
-
 "@astrojs/compiler@^0.31.0", "@astrojs/compiler@^0.31.3":
   version "0.31.4"
   resolved "https://registry.yarnpkg.com/@astrojs/compiler/-/compiler-0.31.4.tgz#fa5aaeb3e6f3640f6f7625849b724a4d28d662e4"
   integrity sha512-6bBFeDTtPOn4jZaiD3p0f05MEGQL9pw2Zbfj546oFETNmjJFWO3nzHz6/m+P53calknCvyVzZ5YhoBLIvzn5iw==
+
+"@astrojs/compiler@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@astrojs/compiler/-/compiler-1.0.0.tgz#3ab4c8df72d87e32b0dd24bb55bd4f99bae3cf19"
+  integrity sha512-xfd7iqQXsmG1FJ6Ben2GlMv9hQgASHlP1QMTIpXsXyRcmPXM1VmTHmiax2wi6YyPnoEtaMbbZ07/YlZIvbWUBg==
 
 "@astrojs/language-server@^0.28.3":
   version "0.28.3"
@@ -780,7 +780,7 @@
     "@typescript-eslint/typescript-estree" "5.48.2"
     debug "^4.3.4"
 
-"@typescript-eslint/scope-manager@5.48.2":
+"@typescript-eslint/scope-manager@5.48.2", "@typescript-eslint/scope-manager@^5.48.2":
   version "5.48.2"
   resolved "https://registry.yarnpkg.com/@typescript-eslint/scope-manager/-/scope-manager-5.48.2.tgz#bb7676cb78f1e94921eaab637a4b5d596f838abc"
   integrity sha512-zEUFfonQid5KRDKoI3O+uP1GnrFd4tIHlvs+sTJXiWuypUWMuDaottkJuR612wQfOkjYbsaskSIURV9xo4f+Fw==
@@ -1012,16 +1012,16 @@ astring@^1.8.0:
   resolved "https://registry.yarnpkg.com/astring/-/astring-1.8.3.tgz#1a0ae738c7cc558f8e5ddc8e3120636f5cebcb85"
   integrity sha512-sRpyiNrx2dEYIMmUXprS8nlpRg2Drs8m9ElX9vVEXaCB4XEAJhKfs7IcX0IwShjuOAjLR6wzIrgoptz1n19i1A==
 
-astro-eslint-parser@^0.9.0:
-  version "0.9.2"
-  resolved "https://registry.yarnpkg.com/astro-eslint-parser/-/astro-eslint-parser-0.9.2.tgz#cf2d8021556c894254a9cf69035925964b11a6ff"
-  integrity sha512-Ppd1Y0PcGnR9ijwNbU7GdRR6r5mR1I38Nk7soYKWuw7WzbSK1u80nxwfDSshmAkgcBZatPboywbfXRcaYwSb3A==
+astro-eslint-parser@^0.11.0:
+  version "0.11.0"
+  resolved "https://registry.yarnpkg.com/astro-eslint-parser/-/astro-eslint-parser-0.11.0.tgz#91aea3ca3a8d6edc2d1997bb013d348cf6bd2afe"
+  integrity sha512-vcz8KBQ20WNOot6qK6w7DQtz2hwg+aLLqlUa6nAnitJLqbR12GxJN/+96U3O+VI4da5Up+FMWqNoL9mywSENtA==
   dependencies:
-    "@astrojs/compiler" "^0.27.0 || ^0.28.0 || ^0.29.0 || ^0.30.0 || ^0.31.0"
+    "@astrojs/compiler" "^1.0.0"
+    "@typescript-eslint/scope-manager" "^5.48.2"
     "@typescript-eslint/types" "^5.25.0"
     astrojs-compiler-sync "^0.3.0"
     debug "^4.3.4"
-    eslint-scope "^7.1.1"
     eslint-visitor-keys "^3.0.0"
     espree "^9.0.0"
 
@@ -1922,14 +1922,14 @@ eslint-module-utils@^2.7.4:
   dependencies:
     debug "^3.2.7"
 
-eslint-plugin-astro@^0.21.0:
-  version "0.21.1"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-astro/-/eslint-plugin-astro-0.21.1.tgz#8978c68ac9acb17bcc4b48cb267b60cb03019855"
-  integrity sha512-gzT9R0b/Hl5sks8/WSMTlzu2VC7vdd99MnBYkq61Mk1zBWQ+C9MAuHeTcU72sFmR5XJX56NNURY6H+cN2StRcA==
+eslint-plugin-astro@^0.23.0:
+  version "0.23.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-astro/-/eslint-plugin-astro-0.23.0.tgz#18d742921f78d91ac50f52ed2ebe5d3235655424"
+  integrity sha512-KsIL1sOrz40qf/d9RP4E3sH6+p6nrIBBXB6rPuE9EWb5de+m9BWfvURuoECXfiXCmQh8UlHJUxgSWxn1bLsD8g==
   dependencies:
     "@jridgewell/sourcemap-codec" "^1.4.14"
     "@typescript-eslint/types" "^5.25.0"
-    astro-eslint-parser "^0.9.0"
+    astro-eslint-parser "^0.11.0"
     eslint-utils "^3.0.0"
     postcss "^8.4.14"
     postcss-selector-parser "^6.0.10"
