@@ -33,7 +33,7 @@
 		"luxon": "^3.0.4",
 		"marked": "^4.2.4",
 		"prettier": "^2.8.1",
-		"prettier-plugin-astro": "^0.7.0",
+		"prettier-plugin-astro": "^0.8.0",
 		"sanitize-html": "^2.8.0",
 		"seedrandom": "^3.0.5",
 		"tailwindcss": "^3.0.24"
