@@ -10,7 +10,7 @@
 		"sync": "astro sync"
 	},
 	"devDependencies": {
-		"@astrojs/mdx": "^0.14.0",
+		"@astrojs/mdx": "^0.16.0",
 		"@astrojs/rss": "^2.0.0",
 		"@astrojs/sitemap": "^1.0.0",
 		"@astrojs/tailwind": "^3.0.0",
