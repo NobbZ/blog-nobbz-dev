@@ -19,6 +19,7 @@ in {
         name = "blog";
         subsystem = "nodejs";
         translator = "yarn-lock";
+        subsystemInfo.nodejs = 18;
       };
       packageOverrides.blog.copyBlog = {
         installPhase = ''
