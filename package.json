@@ -20,7 +20,7 @@
 		"@types/seedrandom": "^3.0.2",
 		"@typescript-eslint/eslint-plugin": "^5.46.0",
 		"@typescript-eslint/parser": "^5.46.0",
-		"astro": "^1.7.0",
+		"astro": "^2.0.0",
 		"astro-icon": "^0.8.0",
 		"astro-robots-txt": "^0.3.10",
 		"eslint": "^8.29.0",
