@@ -1069,13 +1069,13 @@ astro-icon@^0.8.0:
     svgo "^2.8.0"
 
 astro-robots-txt@^0.3.10:
-  version "0.3.11"
-  resolved "https://registry.yarnpkg.com/astro-robots-txt/-/astro-robots-txt-0.3.11.tgz#eb5a78667c03bb86efc39f0a82e178350d771c7d"
-  integrity sha512-UmIOU6zLusFSPBQjl8vozlfE1fkxLuXDhaT7ZOalsE8Ee4c/ua8OWexcx9Z4d2rZZ8/pywuL28LeG0Sjaq5m3w==
+  version "0.3.12"
+  resolved "https://registry.yarnpkg.com/astro-robots-txt/-/astro-robots-txt-0.3.12.tgz#c18df5e91d2243e39012e1b4457b6441d52d7bd3"
+  integrity sha512-ydVbhyzxhoCzVCn0eqUdqCMaADG+GOBYE2YGk2unQ4EpqNlvy4HIGOy/XiAHu/n46suXUkYuxHFIOVd3r1zJvA==
   dependencies:
-    deepmerge "^4.2.2"
+    deepmerge "^4.3.0"
     valid-filename "^4.0.0"
-    zod "^3.20.2"
+    zod "^3.20.6"
 
 astro@^1.7.0:
   version "1.9.2"
@@ -1525,7 +1525,7 @@ deepmerge-ts@^4.2.2:
   resolved "https://registry.yarnpkg.com/deepmerge-ts/-/deepmerge-ts-4.2.2.tgz#582bf34a37592dc8274b137617b539f871aaf11a"
   integrity sha512-Ka3Kb21tiWjvQvS9U+1Dx+aqFAHsdTnMdYptLTmC2VAmDFMugWMY1e15aTODstipmCun8iNuqeSfcx6rsUUk0Q==
 
-deepmerge@^4.2.2:
+deepmerge@^4.2.2, deepmerge@^4.3.0:
   version "4.3.0"
   resolved "https://registry.yarnpkg.com/deepmerge/-/deepmerge-4.3.0.tgz#65491893ec47756d44719ae520e0e2609233b59b"
   integrity sha512-z2wJZXrmeHdvYJp/Ux55wIjqo81G5Bp4c+oELTW+7ar6SogWHajt5a9gO3s3IDaGSAXjDk0vlQKN3rms8ab3og==
@@ -5435,15 +5435,10 @@ yocto-queue@^0.1.0:
   resolved "https://registry.yarnpkg.com/yocto-queue/-/yocto-queue-0.1.0.tgz#0294eb3dee05028d31ee1a5fa2c556a6aaf10a1b"
   integrity sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==
 
-zod@^3.17.3:
+zod@^3.17.3, zod@^3.20.6:
   version "3.20.6"
   resolved "https://registry.yarnpkg.com/zod/-/zod-3.20.6.tgz#2f2f08ff81291d47d99e86140fedb4e0db08361a"
   integrity sha512-oyu0m54SGCtzh6EClBVqDDlAYRz4jrVtKwQ7ZnsEmMI9HnzuZFj8QFwAY1M5uniIYACdGvv0PBWPF2kO0aNofA==
-
-zod@^3.20.2:
-  version "3.20.2"
-  resolved "https://registry.yarnpkg.com/zod/-/zod-3.20.2.tgz#068606642c8f51b3333981f91c0a8ab37dfc2807"
-  integrity sha512-1MzNQdAvO+54H+EaK5YpyEy0T+Ejo/7YLHS93G3RnYWh5gaotGHwGeN/ZO687qEDU2y4CdStQYXVHIgrUl5UVQ==
 
 zwitch@^2.0.0, zwitch@^2.0.4:
   version "2.0.4"
