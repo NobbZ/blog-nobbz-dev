@@ -39,6 +39,8 @@
       }: {
         formatter = inputs'.nobbz.formatter;
 
+        apps.serve.program = "${pkgs.writeShellScript "serve" "nix run nixpkgs#miniserve -- -p 3001 --index index.html result"}";
+
         devShells.default = pkgs.mkShell {
           packages = builtins.attrValues {
             inherit (pkgs) yarn;
