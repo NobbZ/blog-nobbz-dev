@@ -39,7 +39,10 @@
       }: {
         formatter = inputs'.nobbz.formatter;
 
-        apps.serve.program = "${pkgs.writeShellScript "serve" "nix run nixpkgs#miniserve -- -p 3001 --index index.html result"}";
+        apps.serve.program = "${pkgs.writeShellScript "serve" ''
+          nom build .#blog
+          ${pkgs.miniserve}/bin/miniserve -p 3001 --index index.html ${self'.packages.default}
+        ''}";
 
         devShells.default = pkgs.mkShell {
           packages = builtins.attrValues {

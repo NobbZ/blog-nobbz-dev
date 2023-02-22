@@ -2,7 +2,7 @@
 dist/
 
 # generated type files
-src/content/types.generated.d.ts
+.astro/
 
 # dependencies
 node_modules/
@@ -17,6 +17,7 @@ pnpm-debug.log*
 # environment variables
 .env
 .env.production
+src/env.d.ts
 
 # macOS-specific files
 .DS_Store
