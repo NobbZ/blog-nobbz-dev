@@ -1,7 +1,7 @@
 {inputs, ...}: let
   inherit (inputs.nix-filter.lib) filter inDirectory matchExt;
 in {
-  perSystem = {
+  perSystem = {config, ...}: {
     dream2nix.inputs.self = {
       source = filter {
         root = ./..;
@@ -21,6 +21,7 @@ in {
         translator = "yarn-lock";
         subsystemInfo.nodejs = 18;
       };
+
       packageOverrides.blog.copyBlog = {
         installPhase = ''
           mkdir -p $out
@@ -28,5 +29,7 @@ in {
         '';
       };
     };
+
+    packages.blog = config.dream2nix.outputs.self.packages.blog;
   };
 }
