@@ -63,16 +63,16 @@
     vfile "^5.3.2"
 
 "@astrojs/mdx@^0.17.0":
-  version "0.17.0"
-  resolved "https://registry.yarnpkg.com/@astrojs/mdx/-/mdx-0.17.0.tgz#0f4ba5c84a6c96c2623ba5321420d7a90584cef5"
-  integrity sha512-vy4m/mwzdfDK4jC9wraFLMVwx13eXBPC8r7nkO5s8YlcFX6IDcl2LKPurP3+/ibpTei9IPQLIZOufXRDO96SYg==
+  version "0.17.2"
+  resolved "https://registry.yarnpkg.com/@astrojs/mdx/-/mdx-0.17.2.tgz#ad8ab05c5d61159b62df04b3ed4c912710746bb2"
+  integrity sha512-mol57cw1jJMcQgKMRGn7p6cewajq6JTNtqj5aAZgROWam/phVDSOCbXj/WU3O9+3qFnyKtpczoufQKwJTQltAw==
   dependencies:
     "@astrojs/markdown-remark" "^2.0.1"
     "@astrojs/prism" "^2.0.0"
     "@mdx-js/mdx" "^2.3.0"
     "@mdx-js/rollup" "^2.3.0"
     acorn "^8.8.0"
-    es-module-lexer "^0.10.5"
+    es-module-lexer "^1.1.1"
     estree-util-visit "^1.2.0"
     github-slugger "^1.4.0"
     gray-matter "^4.0.3"
@@ -1785,15 +1785,15 @@ es-abstract@^1.19.0, es-abstract@^1.20.4:
     unbox-primitive "^1.0.2"
     which-typed-array "^1.1.9"
 
-es-module-lexer@^0.10.5:
-  version "0.10.5"
-  resolved "https://registry.yarnpkg.com/es-module-lexer/-/es-module-lexer-0.10.5.tgz#06f76d51fa53b1f78e3bd8bb36dd275eda2fdd53"
-  integrity sha512-+7IwY/kiGAacQfY+YBhKMvEmyAJnw5grTUgjG85Pe7vcUI/6b7pZjZG8nQ7+48YhzEAEqrEgD2dCz/JIK+AYvw==
-
 es-module-lexer@^1.1.0:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/es-module-lexer/-/es-module-lexer-1.1.1.tgz#d4fed363dcd94bf12586266f7b80bbee6d80ce6e"
   integrity sha512-n3ruqU8Te7I5prBd6d0darM8ajFuVNhLWvgo04hN7goWSaSrxe7ENOZitac7akN0A2o+8fMomBDsNPvW/eE3CQ==
+
+es-module-lexer@^1.1.1:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/es-module-lexer/-/es-module-lexer-1.2.0.tgz#812264973b613195ba214f69a84e05b0f4241a67"
+  integrity sha512-2BMfqBDeVCcOlLaL1ZAfp+D868SczNpKArrTM3dhpd7dK/OVlogzY15qpUngt+LMTq5UC/csb9vVQAgupucSbA==
 
 es-set-tostringtag@^2.0.1:
   version "2.0.1"
