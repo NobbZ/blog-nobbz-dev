@@ -44,6 +44,8 @@
           ${pkgs.miniserve}/bin/miniserve -p 3001 --index index.html ${self'.packages.default}
         ''}";
 
+        packages.default = self'.packages.blog;
+
         devShells.default = pkgs.mkShell {
           packages = builtins.attrValues {
             inherit (pkgs) yarn;
