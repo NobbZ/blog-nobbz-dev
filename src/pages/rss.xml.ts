@@ -14,7 +14,7 @@ export const get = async () => {
 		description: '',
 		site,
 		items: allPosts.map((post) => ({
-			link: site + 'posts/' + post.slug,
+			link: site + '/posts/' + post.slug,
 			title: post.data.title,
 			pubDate: post.data.publishDate,
 			content: sanitizeHtml(marked(post.data.description ?? '')),
