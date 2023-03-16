@@ -94,9 +94,9 @@
     prismjs "^1.28.0"
 
 "@astrojs/rss@^2.0.0":
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/@astrojs/rss/-/rss-2.2.0.tgz#b60015abbedff73eaea95af477241601e6952920"
-  integrity sha512-U/OdXpUT4wWJ+fKEoyzUlniOR99P6TyIAsk6nYxLf472vcW8Md6XSdNb6B6kmdqytgiJ9khChYkm1hY+JgMGCw==
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/@astrojs/rss/-/rss-2.3.0.tgz#22fcd9dbc4017e9ce7b12346a4af9b2549be9400"
+  integrity sha512-80K92r68sGeyvP7Nq4yvIo1yb31M3pDz6U+e5dujknHJIiIsvMvXA1S+1DHPQ7cVcpD4+rY3EiQs2DgRNhgNPA==
   dependencies:
     fast-xml-parser "^4.0.8"
     kleur "^4.1.5"
