@@ -40,8 +40,8 @@
         formatter = inputs'.nobbz.formatter;
 
         apps.serve.program = "${pkgs.writeShellScript "serve" ''
-          nom build .#blog
-          ${pkgs.miniserve}/bin/miniserve -p 3001 --index index.html ${self'.packages.default}
+          result=$(nom build .#blog --print-out-paths)
+          ${pkgs.miniserve}/bin/miniserve -p 3001 --index index.html ''${result}
         ''}";
 
         packages.default = self'.packages.blog;
