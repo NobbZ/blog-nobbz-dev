@@ -42,7 +42,7 @@ installed via the `environment.systemPackages`.
 
 The idea is that you pass all your inputs when importing the module or configuration.
 
-```nix filename=flake.nix
+```nix data-filename="flake.nix"
 {
   inputs.nixpkgs.url = "github:nixos/nixpkgs?ref=nixpkgs-unstable";
   inputs.example.url = "github:nobbz/example";
@@ -58,7 +58,7 @@ The idea is that you pass all your inputs when importing the module or configura
 }
 ```
 
-```nix filename=configuration.nix
+```nix data-filename="configuration.nix"
 {example, ...}:
 {config, pkgs, ...}:
 {
@@ -81,7 +81,7 @@ transformation between this and the other variant as an exercise to the reader.
 	For home-manager it is done the same way, though the argument name is `extraSpecialArgs`.
 </NoteBox>
 
-```nix filename=flake.nix
+```nix data-filename="flake.nix"
 {
   inputs.nixpkgs.url = "github:nixos/nixpkgs?ref=nixpkgs-unstable";
   inputs.example.url = "github:nobbz/example";
@@ -98,7 +98,7 @@ transformation between this and the other variant as an exercise to the reader.
 }
 ```
 
-```nix filename=configuration.nix
+```nix data-filename="configuration.nix"
 {config, pkgs, inputs, ...}:
 {
   environment.systemPackages = [
@@ -117,7 +117,7 @@ into the module, and the same 2 variants exists.
 	error.
 </NoteBox>
 
-```nix filename=flake.nix
+```nix data-filename="flake.nix"
 {
   inputs.nixpkgs.url = "github:nixos/nixpkgs?ref=nixpkgs-unstable";
   inputs.example.url = "github:nobbz/example";
@@ -134,7 +134,7 @@ into the module, and the same 2 variants exists.
 }
 ```
 
-```nix filename=configuration.nix
+```nix data-filename="configuration.nix"
 {config, pkgs, inputs, ...}:
 {
   environment.systemPackages = [
@@ -154,7 +154,7 @@ Still, I mention it here for the following reasons:
 -   Some people still want to use overlays for everything
 -   This technique is used under the hood by at least one flake-framework
 
-```nix filename=flake.nix
+```nix data-filename="flake.nix"
 {
   inputs.nixpkgs.url = "github:nixos/nixpkgs?ref=nixpkgs-unstable";
   inputs.example.url = "github:nobbz/example";
@@ -171,7 +171,7 @@ Still, I mention it here for the following reasons:
 }
 ```
 
-```nix filename=configuration.nix
+```nix data-filename="configuration.nix"
 {config, pkgs, ...}:
 {
   environment.systemPackages = [
