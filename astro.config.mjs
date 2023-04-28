@@ -7,7 +7,7 @@ import path from 'path';
 import tailwind from '@astrojs/tailwind';
 import sitemap from '@astrojs/sitemap';
 
-import codeBlock from './src/scripts/codeBlock';
+import remarkMdxCodeMeta from 'remark-mdx-code-meta';
 
 const tailwindConfig = { config: { applyBaseStyles: false } };
 
@@ -23,7 +23,7 @@ const alias = {
 
 const external = ['svgo'];
 
-const mdxConfig = { remarkPlugins: [[codeBlock]] };
+const mdxConfig = { remarkPlugins: [remarkMdxCodeMeta] };
 
 const cacheDir = process.env.VITE_CACHE ? process.env.VITE_CACHE : 'node_modules/.vite';
 

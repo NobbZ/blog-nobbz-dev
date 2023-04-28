@@ -29,7 +29,7 @@ You won't find missing programs anymore.
 
 If you still want to do it, it is as easy as:
 
-```nix filename="configuration.nix"
+```nix data-filename="configuration.nix"
 programs.command-not-found.enable = false;
 ```
 
@@ -51,11 +51,11 @@ In theory you can use the pregenerated database directly as a flake input and se
 
 It would roughly look like this:
 
-```nix filename=flake.nix
+```nix data-filename="flake.nix"
 inputs.programs-db.url = "https://channels.nixos.org/nixos-22.05/nixexprs.tar.xz";
 ```
 
-```nix filename=configuration.nix
+```nix data-filename="configuration.nix"
 programs.command-not-found.dbPath = "${inputs.programs-db}/programs.sqlite";
 ```
 
@@ -69,12 +69,12 @@ There is a user who maintains a mapping from `nixpkgs`-commits to exact database
 
 Its set up is quite easy:
 
-```nix filename=flake.nix
+```nix data-filename="flake.nix"
 programsdb.url = "github:wamserma/flake-programs-sqlite";
 programsdb.inputs.nixpkgs.follows = "nixpkgs";
 ```
 
-```nix filename=configuration.nix
+```nix data-filename="configuration.nix"
 programs.command-not-found.dbPath = inputs.programsdb.packages.${pkgs.system}.programs-sqlite;
 ```
 
@@ -87,7 +87,7 @@ location is hardcoded in the generated `command-not-found` script.
 
 A way to easily mitigate is to use a redirection via `environment.etc`.
 
-```nix filename=configuration.nix
+```nix data-filename="configuration.nix"
 # Adjust the value for the nixexpr.tar.xz if necessary
 environment.etc."programs.sqlite".source = inputs.programsdb.packages.${pkgs.system}.programs-sqlite;
 programs.command-not-found.dbPath = "/etc/programs.sqlite";
