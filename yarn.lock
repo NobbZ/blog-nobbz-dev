@@ -1093,10 +1093,10 @@ astring@^1.8.0:
   resolved "https://registry.yarnpkg.com/astring/-/astring-1.8.4.tgz#6d4c5d8de7be2ead9e4a3cc0e2efb8d759378904"
   integrity sha512-97a+l2LBU3Op3bBQEff79i/E4jMD2ZLFD8rHx9B6mXyB2uQwhJQYfiDqUwtfjF4QA1F2qs//N6Cw8LetMbQjcw==
 
-astro-eslint-parser@^0.13.1:
-  version "0.13.2"
-  resolved "https://registry.yarnpkg.com/astro-eslint-parser/-/astro-eslint-parser-0.13.2.tgz#41833a0128bec4b22f250504df2ac252eb4ca02a"
-  integrity sha512-hLCfc4IfeR550tCxEQDOnoDbf+B7CtU3he0foNQ+XxfYyx+8qKwcEIvigrU1PzfwAfAvT83RFA1Q6TWHDj82GA==
+astro-eslint-parser@^0.14.0:
+  version "0.14.0"
+  resolved "https://registry.yarnpkg.com/astro-eslint-parser/-/astro-eslint-parser-0.14.0.tgz#a8ce2f62ce683def4b975acbf9388be99c732680"
+  integrity sha512-3F8l1h7+5MNxzDg1cSQxEloalG7fj64K6vOERChUVG7RLnAzSoafADnPQlU8DpMM3WRNfRHSC4NwUCORk/aPrA==
   dependencies:
     "@astrojs/compiler" "^1.0.0"
     "@typescript-eslint/scope-manager" "^5.48.2"
@@ -1908,15 +1908,15 @@ eslint-module-utils@^2.7.4:
   dependencies:
     debug "^3.2.7"
 
-eslint-plugin-astro@^0.26.0:
-  version "0.26.1"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-astro/-/eslint-plugin-astro-0.26.1.tgz#149ac1452e54313789aa3b3dbbd0d06ab3c991c4"
-  integrity sha512-FEZOrOQ5ahenbwjKz5LYJpeOZUggDM54idrq5bTJdL4GsXy1xx2eyKy5UjGhh8NwddowCCPqfDHFfDz9oNj/ew==
+eslint-plugin-astro@^0.27.0:
+  version "0.27.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-astro/-/eslint-plugin-astro-0.27.0.tgz#fb9fd4769caa4d74052f8ec9183a9942da7e7799"
+  integrity sha512-r3PizFY+xwQMRWcEvRKCWQkfHNl2Q+7ANN1ZIpnvJZP97KUX8F2WUnTvPuk2jJGqnRa+zQ5NgoJ9aenFKcGP9A==
   dependencies:
     "@eslint-community/eslint-utils" "^4.2.0"
     "@jridgewell/sourcemap-codec" "^1.4.14"
     "@typescript-eslint/types" "^5.25.0"
-    astro-eslint-parser "^0.13.1"
+    astro-eslint-parser "^0.14.0"
     postcss "^8.4.14"
     postcss-selector-parser "^6.0.10"
 
