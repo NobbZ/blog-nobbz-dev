@@ -32,9 +32,7 @@ export default defineConfig({
 	integrations: [sitemap(), mdx(mdxConfig), tailwind(tailwindConfig), robotsTxt()],
 	site: 'https://blog.nobbz.dev',
 	server: { port: 3001 },
-	experimental: {
-		contentCollections: true,
-	},
+	experimental: {},
 	vite: {
 		ssr: { external },
 		resolve: { alias },
