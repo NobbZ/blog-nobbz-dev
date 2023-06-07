@@ -34,7 +34,6 @@
 		"marked": "^5.0.0",
 		"prettier": "^2.8.1",
 		"prettier-plugin-astro": "^0.8.0",
-		"remark-mdx-code-meta": "^2.0.0",
 		"sanitize-html": "^2.8.0",
 		"seedrandom": "^3.0.5",
 		"tailwindcss": "^3.0.24"
