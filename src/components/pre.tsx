@@ -10,7 +10,7 @@ require("prismjs/components/prism-nix");
 type ChildFunProps = {
   className: string;
   style: React.CSSProperties;
-  tokens: Token[];
+  tokens: Token[][];
   getLineProps: CallableFunction; // TODO: properly type this
   getTokenProps: CallableFunction; // TODO: properly type this
 };
@@ -18,6 +18,7 @@ type ChildFunProps = {
 type Token = {
   types: string[];
   content: string;
+  empty?: boolean;
 };
 
 type PreProps = React.PropsWithChildren<Record<string, never>>;
@@ -51,11 +52,10 @@ const childFun = ({
         ...style,
       }}
     >
-      {tokens.map((line, i) =>
+      {tokens.map((line: Token[], i: number) =>
         line.length === 1 && line[0].empty === true ? null : (
           <div {...getLineProps({ line, key: i })}>
             {line.map((token: Token, key: number) => {
-              console.log("token", token);
               return <span {...getTokenProps({ token, key })} />;
             })}
           </div>
@@ -65,7 +65,8 @@ const childFun = ({
   );
 };
 
-const Pre = ({ children }: PreProps): React.ReactElement => {
+const Pre = (props: PreProps): React.ReactElement => {
+  const children = props.children;
   const childProps =
     typeof children === "object" && children !== null && "props" in children
       ? children.props
@@ -76,6 +77,8 @@ const Pre = ({ children }: PreProps): React.ReactElement => {
     className.match(/language-(?<lang>.*)/);
 
   const language: string = matches?.groups?.lang || "";
+
+  console.log("props", props);
 
   return (
     <Highlight code={childProps.children} language={language}>
