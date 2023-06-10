@@ -27,8 +27,6 @@
 
       imports = [d2n.flakeModuleBeta pre-commit.flakeModule ./nix/blog.nix ./nix/hooks.nix];
 
-      dream2nix.config.projectRoot = ./.;
-
       perSystem = {
         config,
         pkgs,

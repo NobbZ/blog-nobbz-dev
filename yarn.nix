@@ -1064,6 +1064,22 @@
       };
     }
     {
+      name = "_eslint_eslintrc___eslintrc_2.0.3.tgz";
+      path = fetchurl {
+        name = "_eslint_eslintrc___eslintrc_2.0.3.tgz";
+        url = "https://registry.yarnpkg.com/@eslint/eslintrc/-/eslintrc-2.0.3.tgz";
+        sha512 = "+5gy6OQfk+xx3q0d6jGZZC3f3KzAkXc/IanVxd1is/VIIziRqqt3ongQz0FiTUXqTk0c7aDB3OaFuKnuSoJicQ==";
+      };
+    }
+    {
+      name = "_eslint_js___js_8.42.0.tgz";
+      path = fetchurl {
+        name = "_eslint_js___js_8.42.0.tgz";
+        url = "https://registry.yarnpkg.com/@eslint/js/-/js-8.42.0.tgz";
+        sha512 = "6SWlXpWU5AvId8Ac7zjzmIOqMOba/JWY8XZ4A7q7Gn1Vlfg/SFFIlrtHXt9nPn4op9ZPAkl91Jao+QQv3r/ukw==";
+      };
+    }
+    {
       name = "_gatsbyjs_parcel_namer_relative_to_cwd___parcel_namer_relative_to_cwd_2.10.0.tgz";
       path = fetchurl {
         name = "_gatsbyjs_parcel_namer_relative_to_cwd___parcel_namer_relative_to_cwd_2.10.0.tgz";
@@ -1248,11 +1264,27 @@
       };
     }
     {
+      name = "_humanwhocodes_config_array___config_array_0.11.10.tgz";
+      path = fetchurl {
+        name = "_humanwhocodes_config_array___config_array_0.11.10.tgz";
+        url = "https://registry.yarnpkg.com/@humanwhocodes/config-array/-/config-array-0.11.10.tgz";
+        sha512 = "KVVjQmNUepDVGXNuoRRdmmEjruj0KfiGSbS8LVc12LMsWDQzRXJ0qdhN8L8uUigKpfEHRhlaQFY0ib1tnUbNeQ==";
+      };
+    }
+    {
       name = "_humanwhocodes_config_array___config_array_0.5.0.tgz";
       path = fetchurl {
         name = "_humanwhocodes_config_array___config_array_0.5.0.tgz";
         url = "https://registry.yarnpkg.com/@humanwhocodes/config-array/-/config-array-0.5.0.tgz";
         sha512 = "FagtKFz74XrTl7y6HCzQpwDfXP0yhxe9lHLD1UZxjvZIcbyRz8zTFF/yYNfSfzU414eDwZ1SrO0Qvtyf+wFMQg==";
+      };
+    }
+    {
+      name = "_humanwhocodes_module_importer___module_importer_1.0.1.tgz";
+      path = fetchurl {
+        name = "_humanwhocodes_module_importer___module_importer_1.0.1.tgz";
+        url = "https://registry.yarnpkg.com/@humanwhocodes/module-importer/-/module-importer-1.0.1.tgz";
+        sha512 = "bxveV4V8v5Yb4ncFTT3rPSgZBOpCkjfK0y4oVVVJwIuDVBRMDXrPyXRL988i5ap9m9bnyEEjWfm5WkBmtffLfA==";
       };
     }
     {
@@ -2000,11 +2032,11 @@
       };
     }
     {
-      name = "_types_eslint___eslint_8.40.0.tgz";
+      name = "_types_eslint___eslint_8.40.1.tgz";
       path = fetchurl {
-        name = "_types_eslint___eslint_8.40.0.tgz";
-        url = "https://registry.yarnpkg.com/@types/eslint/-/eslint-8.40.0.tgz";
-        sha512 = "nbq2mvc/tBrK9zQQuItvjJl++GTN5j06DaPtp3hZCpngmG6Q3xoyEmd0TwZI0gAy/G1X0zhGBbr2imsGFdFV0g==";
+        name = "_types_eslint___eslint_8.40.1.tgz";
+        url = "https://registry.yarnpkg.com/@types/eslint/-/eslint-8.40.1.tgz";
+        sha512 = "vRb792M4mF1FBT+eoLecmkpLXwxsBHvWWRGJjzbYANBM6DtiJc6yETyv4rqDA6QNjF1pkj1U7LMA6dGb3VYlHw==";
       };
     }
     {
@@ -2168,11 +2200,11 @@
       };
     }
     {
-      name = "_types_node___node_20.2.5.tgz";
+      name = "_types_node___node_20.2.6.tgz";
       path = fetchurl {
-        name = "_types_node___node_20.2.5.tgz";
-        url = "https://registry.yarnpkg.com/@types/node/-/node-20.2.5.tgz";
-        sha512 = "JJulVEQXmiY9Px5axXHeYGLSjhkZEnD+MDPDGbCbIAbMslkKwmygtZFy1X6s/075Yo94sf8GuSlFfPzysQrWZQ==";
+        name = "_types_node___node_20.2.6.tgz";
+        url = "https://registry.yarnpkg.com/@types/node/-/node-20.2.6.tgz";
+        sha512 = "GQBWUtGoefMEOx/vu+emHEHU5aw6JdDoEtZhoBrHFPZbA/YNRFfN996XbBASEWdvmLSLyv9FKYppYGyZjCaq/g==";
       };
     }
     {
@@ -2224,11 +2256,11 @@
       };
     }
     {
-      name = "_types_react___react_18.2.9.tgz";
+      name = "_types_react___react_18.2.10.tgz";
       path = fetchurl {
-        name = "_types_react___react_18.2.9.tgz";
-        url = "https://registry.yarnpkg.com/@types/react/-/react-18.2.9.tgz";
-        sha512 = "pL3JAesUkF7PEQGxh5XOwdXGV907te6m1/Qe1ERJLgomojS6Ne790QiA7GUl434JEkFA2aAaB6qJ5z4e1zJn/w==";
+        name = "_types_react___react_18.2.10.tgz";
+        url = "https://registry.yarnpkg.com/@types/react/-/react-18.2.10.tgz";
+        sha512 = "5UTpmDa5L+PgTLXhLPNolv7/Qh+1YQuy4fsh/IahJbvtaLz2g9qX0CKsE0rBQCvn9ymt9NpvZENZwclbLKc3EQ==";
       };
     }
     {
@@ -2744,6 +2776,14 @@
       };
     }
     {
+      name = "argparse___argparse_2.0.1.tgz";
+      path = fetchurl {
+        name = "argparse___argparse_2.0.1.tgz";
+        url = "https://registry.yarnpkg.com/argparse/-/argparse-2.0.1.tgz";
+        sha512 = "8+9WqebbFzpX9OR+Wa6O29asIogeRMzcGtAINdpMHHyAg10f05aSFVBbcEqGf/PXw1EjAZ+q2/bEBg3DvurK3Q==";
+      };
+    }
+    {
       name = "aria_query___aria_query_5.1.3.tgz";
       path = fetchurl {
         name = "aria_query___aria_query_5.1.3.tgz";
@@ -2853,6 +2893,14 @@
         name = "async___async_1.5.2.tgz";
         url = "https://registry.yarnpkg.com/async/-/async-1.5.2.tgz";
         sha512 = "nSVgobk4rv61R9PUSDtYt7mPVB2olxNR5RWJcAsH676/ef11bUZwvu7+RGYrYauVdDPcO519v68wRhXQtxsV9w==";
+      };
+    }
+    {
+      name = "async___async_3.2.4.tgz";
+      path = fetchurl {
+        name = "async___async_3.2.4.tgz";
+        url = "https://registry.yarnpkg.com/async/-/async-3.2.4.tgz";
+        sha512 = "iAB+JbDEGXhyIUavoDl9WP/Jj106Kz9DEn1DPgYw5ruDn0e3Wgi3sKFm55sASdGBNOQB8F59d9qQ7deqrHA8wQ==";
       };
     }
     {
@@ -3304,11 +3352,11 @@
       };
     }
     {
-      name = "caniuse_lite___caniuse_lite_1.0.30001495.tgz";
+      name = "caniuse_lite___caniuse_lite_1.0.30001498.tgz";
       path = fetchurl {
-        name = "caniuse_lite___caniuse_lite_1.0.30001495.tgz";
-        url = "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001495.tgz";
-        sha512 = "F6x5IEuigtUfU5ZMQK2jsy5JqUUlEFRVZq8bO2a+ysq5K7jD6PPc9YXZj78xDNS3uNchesp1Jw47YXEqr+Viyg==";
+        name = "caniuse_lite___caniuse_lite_1.0.30001498.tgz";
+        url = "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001498.tgz";
+        sha512 = "LFInN2zAwx3ANrGCDZ5AKKJroHqNKyjXitdV5zRIVIaQlXKj3GmxUKagoKsjqUfckpAObPCEWnk5EeMlyMWcgw==";
       };
     }
     {
@@ -4144,6 +4192,14 @@
       };
     }
     {
+      name = "detect_libc___detect_libc_2.0.0.tgz";
+      path = fetchurl {
+        name = "detect_libc___detect_libc_2.0.0.tgz";
+        url = "https://registry.yarnpkg.com/detect-libc/-/detect-libc-2.0.0.tgz";
+        sha512 = "S55LzUl8HUav8l9E2PBTlC5PAJrHK7tkM+XXFGD+fbsbkTzhCpG6K05LxJcUOEWzMa4v6ptcMZ9s3fOdJDu0Zw==";
+      };
+    }
+    {
       name = "detect_libc___detect_libc_1.0.3.tgz";
       path = fetchurl {
         name = "detect_libc___detect_libc_1.0.3.tgz";
@@ -4320,11 +4376,11 @@
       };
     }
     {
-      name = "electron_to_chromium___electron_to_chromium_1.4.425.tgz";
+      name = "electron_to_chromium___electron_to_chromium_1.4.427.tgz";
       path = fetchurl {
-        name = "electron_to_chromium___electron_to_chromium_1.4.425.tgz";
-        url = "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.425.tgz";
-        sha512 = "wv1NufHxu11zfDbY4fglYQApMswleE9FL/DSeyOyauVXDZ+Kco96JK/tPfBUaDqfRarYp2WH2hJ/5UnVywp9Jg==";
+        name = "electron_to_chromium___electron_to_chromium_1.4.427.tgz";
+        url = "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.427.tgz";
+        sha512 = "HK3r9l+Jm8dYAm1ctXEWIC+hV60zfcjS9UA5BDlYvnI5S7PU/yytjpvSrTNrSSRRkuu3tDyZhdkwIczh+0DWaw==";
       };
     }
     {
@@ -4576,6 +4632,14 @@
       };
     }
     {
+      name = "eslint_config_prettier___eslint_config_prettier_8.8.0.tgz";
+      path = fetchurl {
+        name = "eslint_config_prettier___eslint_config_prettier_8.8.0.tgz";
+        url = "https://registry.yarnpkg.com/eslint-config-prettier/-/eslint-config-prettier-8.8.0.tgz";
+        sha512 = "wLbQiFre3tdGgpDv67NQKnJuTlcUVYHas3k+DZCc2U2BadthoEY4B7hLPvAxaqdyOGCzuLfii2fqGph10va7oA==";
+      };
+    }
+    {
       name = "eslint_config_react_app___eslint_config_react_app_6.0.0.tgz";
       path = fetchurl {
         name = "eslint_config_react_app___eslint_config_react_app_6.0.0.tgz";
@@ -4624,6 +4688,14 @@
       };
     }
     {
+      name = "eslint_plugin_prettier___eslint_plugin_prettier_4.2.1.tgz";
+      path = fetchurl {
+        name = "eslint_plugin_prettier___eslint_plugin_prettier_4.2.1.tgz";
+        url = "https://registry.yarnpkg.com/eslint-plugin-prettier/-/eslint-plugin-prettier-4.2.1.tgz";
+        sha512 = "f/0rXLXUt0oFYs8ra4w49wYZBG5GKZpAYsJSm6rnYL5uVDjd+zowwMwVZHnAjf4edNrKpCDYfXDgmRE/Ak7QyQ==";
+      };
+    }
+    {
       name = "eslint_plugin_react_hooks___eslint_plugin_react_hooks_4.6.0.tgz";
       path = fetchurl {
         name = "eslint_plugin_react_hooks___eslint_plugin_react_hooks_4.6.0.tgz";
@@ -4645,6 +4717,14 @@
         name = "eslint_scope___eslint_scope_5.1.1.tgz";
         url = "https://registry.yarnpkg.com/eslint-scope/-/eslint-scope-5.1.1.tgz";
         sha512 = "2NxwbF/hZ0KpepYN0cNbo+FN6XoK7GaHlQhgx/hIZl6Va0bF45RQOOwhLIy8lQDbuCiadSLCBnH2CFYquit5bw==";
+      };
+    }
+    {
+      name = "eslint_scope___eslint_scope_7.2.0.tgz";
+      path = fetchurl {
+        name = "eslint_scope___eslint_scope_7.2.0.tgz";
+        url = "https://registry.yarnpkg.com/eslint-scope/-/eslint-scope-7.2.0.tgz";
+        sha512 = "DYj5deGlHBfMt15J7rdtyKNq/Nqlv5KfU4iodrQ019XESsRnwXH9KAE0y3cwtUHDo2ob7CypAnCqefh6vioWRw==";
       };
     }
     {
@@ -4696,11 +4776,27 @@
       };
     }
     {
+      name = "eslint___eslint_8.42.0.tgz";
+      path = fetchurl {
+        name = "eslint___eslint_8.42.0.tgz";
+        url = "https://registry.yarnpkg.com/eslint/-/eslint-8.42.0.tgz";
+        sha512 = "ulg9Ms6E1WPf67PHaEY4/6E2tEn5/f7FXGzr3t9cBMugOmf1INYvuUwwh1aXQN4MfJ6a5K2iNwP3w4AColvI9A==";
+      };
+    }
+    {
       name = "espree___espree_7.3.1.tgz";
       path = fetchurl {
         name = "espree___espree_7.3.1.tgz";
         url = "https://registry.yarnpkg.com/espree/-/espree-7.3.1.tgz";
         sha512 = "v3JCNCE64umkFpmkFGqzVKsOT0tN1Zr+ueqLZfpV1Ob8e+CEgPWa+OxCoGH3tnhimMKIaBm4m/vaRpJ/krRz2g==";
+      };
+    }
+    {
+      name = "espree___espree_9.5.2.tgz";
+      path = fetchurl {
+        name = "espree___espree_9.5.2.tgz";
+        url = "https://registry.yarnpkg.com/espree/-/espree-9.5.2.tgz";
+        sha512 = "7OASN1Wma5fum5SrNhFMAMJxOUAbhyfQ8dQ//PJaJbNw0URTPWqIghHWt1MmAANKhHZIYOHruW4Kw4ruUWOdGw==";
       };
     }
     {
@@ -4912,6 +5008,14 @@
       };
     }
     {
+      name = "fast_diff___fast_diff_1.3.0.tgz";
+      path = fetchurl {
+        name = "fast_diff___fast_diff_1.3.0.tgz";
+        url = "https://registry.yarnpkg.com/fast-diff/-/fast-diff-1.3.0.tgz";
+        sha512 = "VxPP4NqbUjj6MaAOafWeUn2cXWLcCtljklUtZf0Ind4XQ+QPtmA0b18zZy0jIQx+ExRVCR/ZQpBmik5lXshNsw==";
+      };
+    }
+    {
       name = "fast_glob___fast_glob_3.2.12.tgz";
       path = fetchurl {
         name = "fast_glob___fast_glob_3.2.12.tgz";
@@ -5005,6 +5109,22 @@
         name = "file_type___file_type_16.5.4.tgz";
         url = "https://registry.yarnpkg.com/file-type/-/file-type-16.5.4.tgz";
         sha512 = "/yFHK0aGjFEgDJjEKP0pWCplsPFPhwyfwevf/pVxiN0tmE4L9LmwWxWukdJSHdoCli4VgQLehjJtwQBnqmsKcw==";
+      };
+    }
+    {
+      name = "filename_reserved_regex___filename_reserved_regex_2.0.0.tgz";
+      path = fetchurl {
+        name = "filename_reserved_regex___filename_reserved_regex_2.0.0.tgz";
+        url = "https://registry.yarnpkg.com/filename-reserved-regex/-/filename-reserved-regex-2.0.0.tgz";
+        sha512 = "lc1bnsSr4L4Bdif8Xb/qrtokGbq5zlsms/CYH8PP+WtCkGNF65DPiQY8vG3SakEdRn8Dlnm+gW/qWKKjS5sZzQ==";
+      };
+    }
+    {
+      name = "filenamify___filenamify_4.3.0.tgz";
+      path = fetchurl {
+        name = "filenamify___filenamify_4.3.0.tgz";
+        url = "https://registry.yarnpkg.com/filenamify/-/filenamify-4.3.0.tgz";
+        sha512 = "hcFKyUG57yWGAzu1CMt/dPzYZuv+jAJUT85bL8mrXvNe6hWj6yEHEc4EdcgiA6Z3oi1/9wXJdZPXF2dZNgwgOg==";
       };
     }
     {
@@ -5296,6 +5416,14 @@
       };
     }
     {
+      name = "gatsby_plugin_image___gatsby_plugin_image_3.10.0.tgz";
+      path = fetchurl {
+        name = "gatsby_plugin_image___gatsby_plugin_image_3.10.0.tgz";
+        url = "https://registry.yarnpkg.com/gatsby-plugin-image/-/gatsby-plugin-image-3.10.0.tgz";
+        sha512 = "6m8RsgA9+01zo5yow1LcA+zph5gjf1S9+zwWASo2d8jfGyHa0KFy3iiHoWKrwYIBOODUFWU/r8NPyVvu1YSyPw==";
+      };
+    }
+    {
       name = "gatsby_plugin_mdx___gatsby_plugin_mdx_5.10.0.tgz";
       path = fetchurl {
         name = "gatsby_plugin_mdx___gatsby_plugin_mdx_5.10.0.tgz";
@@ -5309,6 +5437,14 @@
         name = "gatsby_plugin_page_creator___gatsby_plugin_page_creator_5.10.0.tgz";
         url = "https://registry.yarnpkg.com/gatsby-plugin-page-creator/-/gatsby-plugin-page-creator-5.10.0.tgz";
         sha512 = "Vji1iC9CabZExrJZkWvDNPbqJ8nwLJ1kE1u04HN+IopA+hheJ8natBucNf8Xol/40R/xk62peJXlkuV/s5jM1g==";
+      };
+    }
+    {
+      name = "gatsby_plugin_sharp___gatsby_plugin_sharp_5.10.0.tgz";
+      path = fetchurl {
+        name = "gatsby_plugin_sharp___gatsby_plugin_sharp_5.10.0.tgz";
+        url = "https://registry.yarnpkg.com/gatsby-plugin-sharp/-/gatsby-plugin-sharp-5.10.0.tgz";
+        sha512 = "hG95JQrpByH8w7Ey25zlFsvgyi99NFmk1+0hmKjMkfh43BxNsTuvhcB2kcbcO2FaZdO9OK89pilRGbLaeA0gew==";
       };
     }
     {
@@ -5373,6 +5509,14 @@
         name = "gatsby_telemetry___gatsby_telemetry_4.10.0.tgz";
         url = "https://registry.yarnpkg.com/gatsby-telemetry/-/gatsby-telemetry-4.10.0.tgz";
         sha512 = "t3QRGZdRWIxMQ3yHtdON8KgihkMgq1VROjRb+fqzJtHRFIQu8wsrpXCrYmaYv2oWoWH9fWymMu5PhrSywjGuGQ==";
+      };
+    }
+    {
+      name = "gatsby_transformer_sharp___gatsby_transformer_sharp_5.10.0.tgz";
+      path = fetchurl {
+        name = "gatsby_transformer_sharp___gatsby_transformer_sharp_5.10.0.tgz";
+        url = "https://registry.yarnpkg.com/gatsby-transformer-sharp/-/gatsby-transformer-sharp-5.10.0.tgz";
+        sha512 = "skV7QGP8LTVgItZFNHq+JH1YP5F39XKeDHfTWg5QMcV/qnwH9aGzhQxT/LY9liVzYi/XbAn51/pB1v0FSLoyOA==";
       };
     }
     {
@@ -5488,6 +5632,14 @@
       };
     }
     {
+      name = "glob_parent___glob_parent_6.0.2.tgz";
+      path = fetchurl {
+        name = "glob_parent___glob_parent_6.0.2.tgz";
+        url = "https://registry.yarnpkg.com/glob-parent/-/glob-parent-6.0.2.tgz";
+        sha512 = "XxwI8EOhVQgWp6iDL+3b0r86f4d6AX6zSU55HfB4ydCEuXLXc5FcYeOu+nnGftS4TEju/11rt4KJPTMgbfmv4A==";
+      };
+    }
+    {
       name = "glob_to_regexp___glob_to_regexp_0.4.1.tgz";
       path = fetchurl {
         name = "glob_to_regexp___glob_to_regexp_0.4.1.tgz";
@@ -5597,6 +5749,14 @@
         name = "grapheme_splitter___grapheme_splitter_1.0.4.tgz";
         url = "https://registry.yarnpkg.com/grapheme-splitter/-/grapheme-splitter-1.0.4.tgz";
         sha512 = "bzh50DW9kTPM00T8y4o8vQg89Di9oLJVLW/KaOGIXJWP/iqCN6WKYkbNOF04vFLJhwcpYUh9ydh/+5vpOqV4YQ==";
+      };
+    }
+    {
+      name = "graphemer___graphemer_1.4.0.tgz";
+      path = fetchurl {
+        name = "graphemer___graphemer_1.4.0.tgz";
+        url = "https://registry.yarnpkg.com/graphemer/-/graphemer-1.4.0.tgz";
+        sha512 = "EtKwoO6kxCL9WO5xipiHTZlSzBm7WLT627TqC/uVRd0HKmq8NXyebnNYxDoBi7wt8eTWrUrKXCOVaFq9x1kgag==";
       };
     }
     {
@@ -6288,6 +6448,14 @@
       };
     }
     {
+      name = "is_path_inside___is_path_inside_3.0.3.tgz";
+      path = fetchurl {
+        name = "is_path_inside___is_path_inside_3.0.3.tgz";
+        url = "https://registry.yarnpkg.com/is-path-inside/-/is-path-inside-3.0.3.tgz";
+        sha512 = "Fd4gABb+ycGAmKou8eMftCupSir5lRxqf4aD/vd0cD2qc4HL07OjCeuHMr8Ro4CoMaeCKDB0/ECBOVWjTwUvPQ==";
+      };
+    }
+    {
       name = "is_plain_obj___is_plain_obj_4.1.0.tgz";
       path = fetchurl {
         name = "is_plain_obj___is_plain_obj_4.1.0.tgz";
@@ -6573,6 +6741,14 @@
         name = "js_yaml___js_yaml_3.14.1.tgz";
         url = "https://registry.yarnpkg.com/js-yaml/-/js-yaml-3.14.1.tgz";
         sha512 = "okMH7OXXJ7YrN9Ok3/SXrnu4iX9yOk+25nqX4imS2npuvTYDmo/QEZoqwZkYaIDk3jVvBOTOIEgEhaLOynBS9g==";
+      };
+    }
+    {
+      name = "js_yaml___js_yaml_4.1.0.tgz";
+      path = fetchurl {
+        name = "js_yaml___js_yaml_4.1.0.tgz";
+        url = "https://registry.yarnpkg.com/js-yaml/-/js-yaml-4.1.0.tgz";
+        sha512 = "wpxZs9NoxZaJESJGIZTyDEaYpl0FKSA+FB9aJiyemKhMwkxQg63h4T1KJgUGHpTqPDNRcmmYLugrRjJlBtWvRA==";
       };
     }
     {
@@ -7696,6 +7872,14 @@
       };
     }
     {
+      name = "needle___needle_2.9.1.tgz";
+      path = fetchurl {
+        name = "needle___needle_2.9.1.tgz";
+        url = "https://registry.yarnpkg.com/needle/-/needle-2.9.1.tgz";
+        sha512 = "6R9fqJ5Zcmf+uYaFgdIHmLwNldn5HbK8L5ybn7Uz+ylX/rnOsSp1AHcvQSrCaFN+qNM1wpymHqD7mVasEOlHGQ==";
+      };
+    }
+    {
       name = "negotiator___negotiator_0.6.3.tgz";
       path = fetchurl {
         name = "negotiator___negotiator_0.6.3.tgz";
@@ -7736,11 +7920,11 @@
       };
     }
     {
-      name = "node_abi___node_abi_3.44.0.tgz";
+      name = "node_abi___node_abi_3.45.0.tgz";
       path = fetchurl {
-        name = "node_abi___node_abi_3.44.0.tgz";
-        url = "https://registry.yarnpkg.com/node-abi/-/node-abi-3.44.0.tgz";
-        sha512 = "MYjZTiAETGG28/7fBH1RjuY7vzDwYC5q5U4whCgM4jNEQcC0gAvN339LxXukmL2T2tGpzYTfp+LZ5RN7E5DwEg==";
+        name = "node_abi___node_abi_3.45.0.tgz";
+        url = "https://registry.yarnpkg.com/node-abi/-/node-abi-3.45.0.tgz";
+        sha512 = "iwXuFrMAcFVi/ZoZiqq8BzAdsLw9kxDfTC0HMyjXfSL/6CSDAGD5UmR7azrAgWV1zKYq7dUUMj4owusBWKLsiQ==";
       };
     }
     {
@@ -7989,6 +8173,14 @@
         name = "object.values___object.values_1.1.6.tgz";
         url = "https://registry.yarnpkg.com/object.values/-/object.values-1.1.6.tgz";
         sha512 = "FVVTkD1vENCsAcwNs9k6jea2uHC/X0+JcjG8YA60FN5CMaJmG95wT9jek/xX9nornqGRrBkKtzuAu2wuHpKqvw==";
+      };
+    }
+    {
+      name = "objectFitPolyfill___objectFitPolyfill_2.3.5.tgz";
+      path = fetchurl {
+        name = "objectFitPolyfill___objectFitPolyfill_2.3.5.tgz";
+        url = "https://registry.yarnpkg.com/objectFitPolyfill/-/objectFitPolyfill-2.3.5.tgz";
+        sha512 = "8Quz071ZmGi0QWEG4xB3Bv5Lpw6K0Uca87FLoLMKMWjB6qIq9IyBegP3b/VLNxv2WYvIMGoeUQ+c6ibUkNa8TA==";
       };
     }
     {
@@ -8704,6 +8896,22 @@
       };
     }
     {
+      name = "prettier_linter_helpers___prettier_linter_helpers_1.0.0.tgz";
+      path = fetchurl {
+        name = "prettier_linter_helpers___prettier_linter_helpers_1.0.0.tgz";
+        url = "https://registry.yarnpkg.com/prettier-linter-helpers/-/prettier-linter-helpers-1.0.0.tgz";
+        sha512 = "GbK2cP9nraSSUF9N2XwUwqfzlAFlMNYYl+ShE/V+H8a9uNl/oUqB1w2EL54Jh0OlyRSd8RfWYJ3coVS4TROP2w==";
+      };
+    }
+    {
+      name = "prettier___prettier_2.8.8.tgz";
+      path = fetchurl {
+        name = "prettier___prettier_2.8.8.tgz";
+        url = "https://registry.yarnpkg.com/prettier/-/prettier-2.8.8.tgz";
+        sha512 = "tdN8qQGvNjw4CHbY+XXk0JgCXn9QiF21a55rBe5LJAU+kDyC4WQn4+awm2Xfk2lQMk5fKup9XgzTZtGkjBdP9Q==";
+      };
+    }
+    {
       name = "pretty_bytes___pretty_bytes_5.6.0.tgz";
       path = fetchurl {
         name = "pretty_bytes___pretty_bytes_5.6.0.tgz";
@@ -8717,6 +8925,14 @@
         name = "pretty_error___pretty_error_2.1.2.tgz";
         url = "https://registry.yarnpkg.com/pretty-error/-/pretty-error-2.1.2.tgz";
         sha512 = "EY5oDzmsX5wvuynAByrmY0P0hcp+QpnAKbJng2A2MPjVKXCxrDSUkzghVJ4ZGPIv+JC4gX8fPUWscC0RtjsWGw==";
+      };
+    }
+    {
+      name = "probe_image_size___probe_image_size_7.2.3.tgz";
+      path = fetchurl {
+        name = "probe_image_size___probe_image_size_7.2.3.tgz";
+        url = "https://registry.yarnpkg.com/probe-image-size/-/probe-image-size-7.2.3.tgz";
+        sha512 = "HubhG4Rb2UH8YtV4ba0Vp5bQ7L78RTONYu/ujmCu5nBI8wGv24s4E9xSKBi0N1MowRpxk76pFCpJtW0KPzOK0w==";
       };
     }
     {
@@ -9808,6 +10024,14 @@
       };
     }
     {
+      name = "stream_parser___stream_parser_0.3.1.tgz";
+      path = fetchurl {
+        name = "stream_parser___stream_parser_0.3.1.tgz";
+        url = "https://registry.yarnpkg.com/stream-parser/-/stream-parser-0.3.1.tgz";
+        sha512 = "bJ/HgKq41nlKvlhccD5kaCr/P+Hu0wPNKPJOH7en+YrJu/9EgqUF+88w5Jb6KNcjOFMhfX4B2asfeAtIGuHObQ==";
+      };
+    }
+    {
       name = "streamsearch___streamsearch_1.1.0.tgz";
       path = fetchurl {
         name = "streamsearch___streamsearch_1.1.0.tgz";
@@ -9973,6 +10197,14 @@
         name = "strip_json_comments___strip_json_comments_2.0.1.tgz";
         url = "https://registry.yarnpkg.com/strip-json-comments/-/strip-json-comments-2.0.1.tgz";
         sha512 = "4gB8na07fecVVkOI6Rs4e7T6NOTki5EmL7TUduTs6bu3EdnSycntVJ4re8kgZA+wx9IueI2Y11bfbgwtzuE0KQ==";
+      };
+    }
+    {
+      name = "strip_outer___strip_outer_1.0.1.tgz";
+      path = fetchurl {
+        name = "strip_outer___strip_outer_1.0.1.tgz";
+        url = "https://registry.yarnpkg.com/strip-outer/-/strip-outer-1.0.1.tgz";
+        sha512 = "k55yxKHwaXnpYGsOzg4Vl8+tDrWylxDEpknGjhTiZB8dFRU5rTo9CAzeycivxV3s+zlTKwrs6WxMxR95n26kwg==";
       };
     }
     {
@@ -10213,6 +10445,14 @@
         name = "trim_lines___trim_lines_3.0.1.tgz";
         url = "https://registry.yarnpkg.com/trim-lines/-/trim-lines-3.0.1.tgz";
         sha512 = "kRj8B+YHZCc9kQYdWfJB2/oUl9rA99qbowYYBtr4ui4mZyAQ2JpvVBd/6U2YloATfqBhBTSMhTpgBHtU0Mf3Rg==";
+      };
+    }
+    {
+      name = "trim_repeated___trim_repeated_1.0.0.tgz";
+      path = fetchurl {
+        name = "trim_repeated___trim_repeated_1.0.0.tgz";
+        url = "https://registry.yarnpkg.com/trim-repeated/-/trim-repeated-1.0.0.tgz";
+        sha512 = "pkonvlKk8/ZuR0D5tLW8ljt5I8kmxp2XKymhepUeOdCEfKpZaktSArkLHZt76OB1ZvO9bssUsDty4SWhLvZpLg==";
       };
     }
     {
