@@ -1,8 +1,10 @@
 import * as React from "react";
 import { graphql } from "gatsby";
 import { GatsbyImage, ImageDataLike, getImage } from "gatsby-plugin-image";
-import Layout from "../../components/layout";
-import Seo from "../../components/seo";
+import Layout from "../components/layout";
+import Seo from "../components/seo";
+import Pre from "../components/pre";
+import { MDXProvider } from "@mdx-js/react";
 
 type BlogPostByIdData = {
   mdx: {
@@ -24,17 +26,20 @@ type BlogPostProps = {
 
 type BlogPostHeadProps = Pick<BlogPostProps, "data">;
 
+// const components = {
+//   code: console.log,
+//   pre: console.log,
+// };
+const components = {
+  pre: Pre,
+};
+
 const BlogPost = ({ data, children }: BlogPostProps) => {
   const image = getImage(data.mdx.frontmatter.hero_image);
 
-  if (!image) {
-    // TODO: Replace with a default image or not render the image at all
-    throw new Error("Hero image is missing");
-  }
-
-  return (
-    <Layout pageTitle={data.mdx.frontmatter.title}>
-      <p>Posted: {data.mdx.frontmatter.date}</p>
+  // TODO: Make this a component
+  const hero = image ? (
+    <>
       <GatsbyImage image={image} alt={data.mdx.frontmatter.hero_image_alt} />
       <p>
         Photo Credit:{" "}
@@ -42,7 +47,14 @@ const BlogPost = ({ data, children }: BlogPostProps) => {
           {data.mdx.frontmatter.hero_image_credit_text}
         </a>
       </p>
-      {children}
+    </>
+  ) : null;
+
+  return (
+    <Layout pageTitle={data.mdx.frontmatter.title}>
+      <p>Posted: {data.mdx.frontmatter.date}</p>
+      {hero}
+      <MDXProvider components={components}>{children}</MDXProvider>
     </Layout>
   );
 };

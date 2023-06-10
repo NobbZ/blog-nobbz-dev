@@ -1,19 +1,64 @@
 import * as React from "react";
+import { Link, graphql } from "gatsby";
 import Layout from "../components/layout";
 import Seo from "../components/seo";
-import { StaticImage } from "gatsby-plugin-image";
+import { defineCustomElements as deckDeckGoHighlightElement } from "@deckdeckgo/highlight-code/dist/loader";
+deckDeckGoHighlightElement();
 
-const IndexPage = () => (
-  <Layout pageTitle="Home Page">
-    <p>I'm making this by following the Gatsby Tutorial.</p>
+type BlogPostNode = {
+  frontmatter: {
+    date: string;
+    title: string;
+    slug: string;
+  };
+  id: string;
+  excerpt: string;
+};
 
-    <StaticImage
-      alt="Clifford, a reddish-brown pitbull, posing on a couch and looking stoically at the camera"
-      src="../images/clifford.jpg"
-    />
-  </Layout>
-);
+type BlogPostsData = {
+  allMdx: {
+    nodes: BlogPostNode[];
+  };
+};
 
-export const Head = () => <Seo title="Home Page" />;
+type BlogPageProps = {
+  data: BlogPostsData;
+};
 
-export default IndexPage;
+const BlogPage = ({ data }: BlogPageProps) => {
+  return (
+    <Layout pageTitle="My Blog Posts">
+      {data.allMdx.nodes.map((node) => (
+        <article key={node.id}>
+          <h2>
+            <Link to={`${node.frontmatter.date}-${node.frontmatter.slug}`}>
+              {node.frontmatter.title}
+            </Link>
+          </h2>
+          <p>Posted: {node.frontmatter.date}</p>
+          <p>{node.excerpt}</p>
+        </article>
+      ))}
+    </Layout>
+  );
+};
+
+export const query = graphql`
+  query BlogPosts {
+    allMdx(sort: { frontmatter: { date: DESC } }) {
+      nodes {
+        frontmatter {
+          date
+          title
+          slug
+        }
+        id
+        excerpt
+      }
+    }
+  }
+`;
+
+export const Head = () => <Seo title="My Blog Posts" />;
+
+export default BlogPage;
