@@ -8,18 +8,26 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v3
-        with: { token: '${{ secrets.GITHUB_TOKEN }}' }
-      - uses: cachix/install-nix-action@v20
+        with: { token: "${{ secrets.GITHUB_TOKEN }}" }
+      # - uses: cachix/install-nix-action@v20
+      #   with:
+      #     install_url: https://releases.nixos.org/nix/nix-2.9.1/install
+      #     extra_nix_config: |
+      #       access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
+      #       experimental-features = nix-command flakes
+      # - run: nix build .#blog
+      - uses: actions/setup-node@v3
         with:
-          install_url: https://releases.nixos.org/nix/nix-2.9.1/install
-          extra_nix_config: |
-            access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
-            experimental-features = nix-command flakes
-      - run: nix build .#blog
+          node-version-file: ".tool-versions"
+          cache: "yarn"
+          cache-dependency-path: "yarn.lock"
+      - run: yarn install
+      - run: yarn build
       - uses: cloudflare/pages-action@1
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           projectName: blog-nobbz-dev
-          directory: ./result
+          # directory: ./result
+          directory: ./public
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
