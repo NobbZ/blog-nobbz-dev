@@ -14,8 +14,9 @@ type BlogPostByIdData = {
       date: string;
       hero_image: ImageDataLike;
       hero_image_alt: string;
-      hero_image_credit_url: string;
-      hero_image_credit_text: string;
+      hero_image_link: string;
+      hero_image_credit_link: string;
+      hero_image_credit: string;
     };
   };
 };
@@ -73,15 +74,15 @@ const BlogPost = ({ data, children }: BlogPostProps) => {
 
   // TODO: Make this a component
   const hero = image ? (
-    <>
+    <div style={{ position: "relative", width: "800px", left: "-100px" }}>
       <GatsbyImage image={image} alt={data.mdx.frontmatter.hero_image_alt} />
       <p>
         Photo Credit:{" "}
-        <a href={data.mdx.frontmatter.hero_image_credit_url}>
-          {data.mdx.frontmatter.hero_image_credit_text}
+        <a href={data.mdx.frontmatter.hero_image_link}>
+          {data.mdx.frontmatter.hero_image_credit}
         </a>
       </p>
-    </>
+    </div>
   ) : null;
 
   return (
@@ -98,10 +99,11 @@ export const query = graphql`
     mdx(id: { eq: $id }) {
       frontmatter {
         title
-        date(formatString: "MMMM DD, YYYY")
+        date
         hero_image_alt
-        hero_image_credit_url
-        hero_image_credit_text
+        hero_image_credit_link
+        hero_image_credit
+        hero_image_link
         hero_image {
           childImageSharp {
             gatsbyImageData
