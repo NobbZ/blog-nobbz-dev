@@ -1,42 +1,48 @@
 {
-	"name": "blog-nobbz-dev",
-	"version": "0.0.1",
-	"private": true,
-	"scripts": {
-		"build": "astro build",
-		"dev": "astro dev",
-		"preview": "astro preview",
-		"start": "astro dev",
-		"sync": "astro sync"
-	},
-	"devDependencies": {
-		"@astrojs/mdx": "^0.19.0",
-		"@astrojs/rss": "^2.0.0",
-		"@astrojs/sitemap": "^1.0.0",
-		"@astrojs/tailwind": "^3.0.0",
-		"@types/lodash": "^4.14.186",
-		"@types/luxon": "^3.0.1",
-		"@types/marked": "^4.0.8",
-		"@types/seedrandom": "^3.0.2",
-		"@typescript-eslint/eslint-plugin": "^5.46.0",
-		"@typescript-eslint/parser": "^5.46.0",
-		"astro": "^2.0.0",
-		"astro-icon": "^0.8.0",
-		"astro-robots-txt": "^0.5.0",
-		"eslint": "^8.29.0",
-		"eslint-config-standard": "^17.0.0",
-		"eslint-plugin-astro": "^0.27.0",
-		"eslint-plugin-import": "^2.25.2",
-		"eslint-plugin-n": "^16.0.0",
-		"eslint-plugin-promise": "^6.1.0",
-		"lodash": "^4.17.21",
-		"luxon": "^3.0.4",
-		"marked": "^5.0.0",
-		"prettier": "^2.8.1",
-		"prettier-plugin-astro": "^0.8.0",
-		"sanitize-html": "^2.8.0",
-		"seedrandom": "^3.0.5",
-		"tailwindcss": "^3.0.24"
-	},
-	"dependencies": {}
+  "name": "blog",
+  "version": "1.0.0",
+  "private": true,
+  "description": "nobb-z-blog",
+  "author": "Norbert Melzer",
+  "keywords": [
+    "gatsby"
+  ],
+  "scripts": {
+    "develop": "gatsby develop",
+    "start": "gatsby develop",
+    "build": "gatsby build",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint src"
+  },
+  "dependencies": {
+    "@mdx-js/react": "^2.3.0",
+    "detect-libc": "2.0.0",
+    "gatsby": "^5.10.0",
+    "gatsby-plugin-image": "^3.10.0",
+    "gatsby-plugin-mdx": "^5.10.0",
+    "gatsby-plugin-sharp": "^5.10.0",
+    "gatsby-plugin-sitemap": "^6.10.0",
+    "gatsby-remark-highlight-code": "^3.3.0",
+    "gatsby-source-filesystem": "^5.10.0",
+    "gatsby-transformer-sharp": "^5.10.0",
+    "prism-react-renderer": "^2.0.5",
+    "prismjs": "^1.29.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.2.5",
+    "@types/react": "^18.2.8",
+    "@types/react-dom": "^18.2.4",
+    "@typescript-eslint/eslint-plugin": "^5.59.9",
+    "@typescript-eslint/parser": "^5.59.9",
+    "eslint": "^8.42.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-config-react-app": "^7.0.1",
+    "eslint-plugin-prettier": "^4.2.1",
+    "prettier": "^2.8.8",
+    "typescript": "^5.1.3"
+  }
 }

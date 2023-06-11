@@ -27,8 +27,6 @@
 
       imports = [d2n.flakeModuleBeta pre-commit.flakeModule ./nix/blog.nix ./nix/hooks.nix];
 
-      dream2nix.config.projectRoot = ./.;
-
       perSystem = {
         config,
         pkgs,
@@ -40,6 +38,7 @@
         formatter = inputs'.nobbz.formatter;
 
         apps.serve.program = "${pkgs.writeShellScript "serve" ''
+          set -e
           result=$(nom build .#blog --print-out-paths)
           ${pkgs.miniserve}/bin/miniserve -p 3001 --index index.html ''${result}
         ''}";
@@ -48,7 +47,8 @@
 
         devShells.default = pkgs.mkShell {
           packages = builtins.attrValues {
-            inherit (pkgs) yarn;
+            inherit (pkgs) yarn nodejs yarn2nix;
+            inherit (pkgs.nodePackages) gatsby-cli;
             inherit (inputs.nobbz.packages.${system}) alejandra nil;
           };
           shellHook = config.pre-commit.installationScript;
