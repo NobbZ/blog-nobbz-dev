@@ -1,3 +1,4 @@
 builds:
   exclude:
-    - 'checks.*.pre-commit'
+    - "checks.*.pre-commit"
+    - "packages.*.*"
