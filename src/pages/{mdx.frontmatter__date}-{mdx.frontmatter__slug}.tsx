@@ -106,7 +106,7 @@ export const query = graphql`
         hero_image_link
         hero_image {
           childImageSharp {
-            gatsbyImageData
+            gatsbyImageData(width: 800)
           }
         }
       }
