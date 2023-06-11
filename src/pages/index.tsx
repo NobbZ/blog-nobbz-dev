@@ -2,8 +2,7 @@ import * as React from "react";
 import { Link, graphql } from "gatsby";
 import Layout from "../components/layout";
 import Seo from "../components/seo";
-import { defineCustomElements as deckDeckGoHighlightElement } from "@deckdeckgo/highlight-code/dist/loader";
-deckDeckGoHighlightElement();
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 type BlogPostNode = {
   frontmatter: {
@@ -25,19 +24,44 @@ type BlogPageProps = {
   data: BlogPostsData;
 };
 
+const Preview = ({ node }) => {
+  const image = getImage(node.frontmatter.hero_image);
+
+  const style: React.CSSProperties = {
+    width: "150px",
+    flexShrink: 0,
+    marginRight: "1rem",
+  };
+
+  const teaser = image ? (
+    <div style={style}>
+      <GatsbyImage image={image} alt={node.frontmatter.hero_image_alt} />
+    </div>
+  ) : (
+    <div style={style}></div>
+  );
+
+  return (
+    <article style={{ display: "flex", alignItems: "center" }}>
+      {teaser}
+      <div>
+        <h2>
+          <Link to={`${node.frontmatter.date}-${node.frontmatter.slug}`}>
+            {node.frontmatter.title}
+          </Link>
+        </h2>
+        <p>Posted: {node.frontmatter.date}</p>
+        <p>{node.excerpt}</p>
+      </div>
+    </article>
+  );
+};
+
 const BlogPage = ({ data }: BlogPageProps) => {
   return (
     <Layout pageTitle="My Blog Posts">
       {data.allMdx.nodes.map((node) => (
-        <article key={node.id}>
-          <h2>
-            <Link to={`${node.frontmatter.date}-${node.frontmatter.slug}`}>
-              {node.frontmatter.title}
-            </Link>
-          </h2>
-          <p>Posted: {node.frontmatter.date}</p>
-          <p>{node.excerpt}</p>
-        </article>
+        <Preview node={node} key={node.id} />
       ))}
     </Layout>
   );
@@ -51,6 +75,12 @@ export const query = graphql`
           date
           title
           slug
+          hero_image_alt
+          hero_image {
+            childImageSharp {
+              gatsbyImageData
+            }
+          }
         }
         id
         excerpt
