@@ -21,7 +21,10 @@ type Token = {
   empty?: boolean;
 };
 
-type PreProps = React.PropsWithChildren<Record<string, never>>;
+type PreProps = React.DetailedHTMLProps<
+  React.HTMLAttributes<HTMLPreElement>,
+  HTMLPreElement
+>;
 
 const childFun = ({
   className,

@@ -5,6 +5,7 @@ import Layout from "../components/layout";
 import Seo from "../components/seo";
 import Pre from "../components/pre";
 import { MDXProvider } from "@mdx-js/react";
+import { Components } from "@mdx-js/react/lib";
 
 type BlogPostByIdData = {
   mdx: {
@@ -30,7 +31,7 @@ type BlogPostHeadProps = Pick<BlogPostProps, "data">;
 //   code: console.log,
 //   pre: console.log,
 // };
-const components = {
+const components: Components = {
   pre: Pre,
 };
 

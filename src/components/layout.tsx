@@ -46,7 +46,7 @@ const Layout = ({ pageTitle, children }: LayoutProps) => {
           </li>
         </ul>
       </nav>
-      <main>
+      <main style={{ textAlign: "justify" }}>
         <h1 className={heading}>{pageTitle}</h1>
         {children}
       </main>
