@@ -6,6 +6,7 @@ import Seo from "../components/seo";
 import Pre from "../components/pre";
 import { MDXProvider } from "@mdx-js/react";
 import { Components } from "@mdx-js/react/lib";
+import { Comments } from "../components/comments";
 
 type BlogPostByIdData = {
   mdx: {
@@ -90,6 +91,7 @@ const BlogPost = ({ data, children }: BlogPostProps) => {
       <p>Posted: {data.mdx.frontmatter.date}</p>
       {hero}
       <MDXProvider components={components}>{children}</MDXProvider>
+      <Comments />
     </Layout>
   );
 };
