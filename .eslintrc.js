@@ -1,8 +1,10 @@
 module.exports = {
+  globals: { __PATH_PREFIX__: true },
   env: {
     browser: true,
     es2021: true,
   },
+  extends: [`react-app`],
   parser: "@typescript-eslint/parser",
   parserOptions: {
     ecmaVersion: "latest",
@@ -19,6 +21,7 @@ module.exports = {
         "plugin:@typescript-eslint/eslint-recommended",
         "plugin:@typescript-eslint/recommended",
         "plugin:prettier/recommended",
+        `react-app`,
       ],
       parser: "@typescript-eslint/parser",
       plugins: ["@typescript-eslint"],
