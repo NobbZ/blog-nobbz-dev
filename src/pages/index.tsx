@@ -2,13 +2,15 @@ import * as React from "react";
 import { Link, graphql } from "gatsby";
 import Layout from "../components/layout";
 import Seo from "../components/seo";
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import { GatsbyImage, ImageDataLike, getImage } from "gatsby-plugin-image";
 
 type BlogPostNode = {
   frontmatter: {
     date: string;
     title: string;
     slug: string;
+    hero_image: ImageDataLike;
+    hero_image_alt: string;
   };
   id: string;
   excerpt: string;
@@ -24,7 +26,7 @@ type BlogPageProps = {
   data: BlogPostsData;
 };
 
-const Preview = ({ node }) => {
+const Preview = ({ node }: { node: BlogPostNode }) => {
   const image = getImage(node.frontmatter.hero_image);
 
   const style: React.CSSProperties = {
