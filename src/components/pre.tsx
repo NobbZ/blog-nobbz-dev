@@ -81,8 +81,6 @@ const Pre = (props: PreProps): React.ReactElement => {
 
   const language: string = matches?.groups?.lang || "";
 
-  console.log("props", props);
-
   return (
     <Highlight code={childProps.children} language={language}>
       {childFun}
