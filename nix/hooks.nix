@@ -1,4 +1,4 @@
-{self, ...}: {
+{...}: {
   perSystem = {pkgs, ...}: {
     pre-commit.check.enable = true;
     pre-commit.settings.hooks.nixpkgs-fmt.enable = false;
