@@ -1,0 +1,98 @@
+:root {
+  --article-padding: 5px;
+}
+
+.article {
+  width: var(--content-width);
+  font-size: 14px;
+}
+
+.article h1 {
+  width: var(--box-width);
+  position: relative;
+  left: calc((var(--content-width) - var(--box-width)) / 2);
+  font-weight: bold;
+  font-size: 300%;
+  @apply text-center;
+}
+
+.article h2 {
+  width: var(--box-width);
+  position: relative;
+  left: calc(
+    (var(--content-width) - var(--box-width)) / 2 - var(--article-padding)
+  );
+  font-weight: bold;
+  font-size: 200%;
+  margin-top: 1em;
+  @apply text-center;
+}
+
+.hero {
+  position: relative;
+  width: var(--box-width);
+  left: calc((var(--content-width) - var(--box-width)) / 2);
+  margin-bottom: -200px;
+  z-index: -1;
+}
+
+.hero img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-med) var(--radius-med) 0 0;
+}
+
+.hero p {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(5px);
+  padding: 5px;
+  border-radius: 0 var(--radius-med) 0 var(--radius-sml);
+}
+
+.article article {
+  background-color: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(5px);
+  padding: var(--article-padding);
+  border-radius: var(--radius-sml);
+}
+
+.article article pre {
+  --padding: 10px;
+  width: var(--box-width);
+  position: relative;
+  padding: var(--padding);
+  left: calc(
+    (var(--content-width) - var(--box-width)) / 2 - var(--article-padding)
+  );
+  border-radius: var(--radius-med);
+  margin: var(--padding) 0;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
+    rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+
+blockquote.quote {
+  --img-size: 2.25em;
+  --bg-offset: 9px;
+  --vert-padding: calc(var(--img-size) + var(--bg-offset) * 2);
+  background-image: url('data:image/svg+xml,%3Csvg xmlns="http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg" width="2.25em" height="2.25em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"%3E%3Cpath fill="rgb(52, 152, 219)" d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z"%2F%3E%3C%2Fsvg%3E');
+  position: relative;
+  width: var(--box-width);
+  left: calc(
+    (var(--content-width) - var(--box-width)) / 2 - var(--article-padding)
+  );
+  padding-left: var(--vert-padding);
+  padding-right: var(--vert-padding);
+  background-repeat: no-repeat;
+  background-position: left var(--bg-offset) top var(--bg-offset);
+  background-color: #f0f7fb;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
+    rgba(0, 0, 0, 0.22) 0px 10px 10px;
+  margin: 1rem 0;
+  border-radius: var(--radius-sml);
+  padding-top: calc(var(--vert-padding) / 4);
+  padding-bottom: calc(var(--vert-padding) / 4);
+  min-height: calc(var(--vert-padding) + var(--bg-offset));
+}
