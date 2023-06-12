@@ -9,12 +9,12 @@ import {
   siteTitle,
 } from "./layout.module.css";
 
-type LayoutProps = {
+type LayoutProps = React.PropsWithChildren<{
   pageTitle: string;
-  children: React.ReactNode;
-};
+  className?: string | string[];
+}>;
 
-const Layout = ({ pageTitle, children }: LayoutProps) => {
+const Layout = ({ className, pageTitle, children }: LayoutProps) => {
   const data = useStaticQuery(graphql`
     query FetchTitle {
       site {
@@ -24,8 +24,25 @@ const Layout = ({ pageTitle, children }: LayoutProps) => {
       }
     }
   `);
+
+  const normalizeClassName = Array.isArray(className)
+    ? className
+    : className !== undefined
+    ? [className]
+    : [];
+
+  const joinedClassName = (otherNames?: string | string[]) => {
+    const normalizedOtherNames = Array.isArray(otherNames)
+      ? otherNames
+      : otherNames !== undefined
+      ? [otherNames]
+      : [];
+
+    return [...normalizeClassName, ...normalizedOtherNames].join(" ");
+  };
+
   return (
-    <div className={container}>
+    <div className={joinedClassName(container)}>
       <header className={siteTitle}>{data.site.siteMetadata.title}</header>
       <nav>
         <ul className={navLinks}>
@@ -41,7 +58,7 @@ const Layout = ({ pageTitle, children }: LayoutProps) => {
           </li>
         </ul>
       </nav>
-      <main style={{ textAlign: "justify" }}>
+      <main className="text-justify">
         <h1 className={heading}>{pageTitle}</h1>
         {children}
       </main>

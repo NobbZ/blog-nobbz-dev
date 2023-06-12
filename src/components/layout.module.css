@@ -1,3 +1,9 @@
+:root {
+  --article-padding: 5px;
+  --radius-med: 15px;
+  --radius-sml: calc(var(--radius-med) / 2);
+}
+
 .container {
   margin: auto;
   width: 600px;
