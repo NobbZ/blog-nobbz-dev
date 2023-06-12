@@ -14,7 +14,8 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "typecheck": "tsc --noEmit",
-    "lint": "eslint src"
+    "lint": "eslint src",
+    "css": "tcm -c src"
   },
   "dependencies": {
     "@mdx-js/react": "^2.3.0",
@@ -47,6 +48,7 @@
     "postcss": "^8.4.24",
     "prettier": "^2.8.8",
     "tailwindcss": "^3.3.2",
+    "typed-css-modules": "^0.7.2",
     "typescript": "^5.1.3"
   }
 }
