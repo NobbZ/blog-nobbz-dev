@@ -33,28 +33,8 @@ const childFun = ({
   getLineProps,
   getTokenProps,
 }: ChildFunProps) => {
-  // TODO: get this work via CSS
-  const width = 700;
-  const padding = 10;
-  const left = (600 - width) / 2 - padding;
-  const radius = padding * 1.5;
-
-  const boxShadow =
-    "rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px";
-
   return (
-    <pre
-      className={className}
-      style={{
-        padding: `${padding}px`,
-        width: `${width}px`,
-        position: "relative",
-        left: `${left}px`,
-        borderRadius: `${radius}px`,
-        boxShadow: `${boxShadow}`,
-        ...style,
-      }}
-    >
+    <pre className={className} style={style}>
       {tokens.map((line: Token[], i: number) =>
         line.length === 1 && line[0].empty === true ? null : (
           <div {...getLineProps({ line, key: i })}>
