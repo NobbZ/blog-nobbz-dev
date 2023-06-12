@@ -96,3 +96,27 @@ blockquote.quote {
   padding-bottom: calc(var(--vert-padding) / 4);
   min-height: calc(var(--vert-padding) + var(--bg-offset));
 }
+
+.article code {
+  background-color: rgb(220, 220, 220);
+  padding: 2px;
+  border-radius: var(--radius-sml);
+}
+
+.article ol {
+  list-style-type: decimal;
+  margin-left: 1.75rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  column-count: 2;
+  column-gap: 2rem;
+}
+
+.article ul {
+  list-style-type: decimal;
+  margin-left: 1.75rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  column-count: 2;
+  column-gap: 2rem;
+}
