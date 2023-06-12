@@ -18,7 +18,7 @@
   },
   "dependencies": {
     "@mdx-js/react": "^2.3.0",
-    "detect-libc": "2.0.0",
+    "detect-libc": "2.0.1",
     "gatsby": "^5.10.0",
     "gatsby-plugin-image": "^3.10.0",
     "gatsby-plugin-mdx": "^5.10.0",
