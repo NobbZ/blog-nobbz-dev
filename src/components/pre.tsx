@@ -1,4 +1,5 @@
 import * as React from "react";
+import * as R from "ramda";
 import { Highlight, Prism } from "prism-react-renderer";
 
 (typeof global !== "undefined" ? global : window).Prism = Prism;
@@ -28,11 +29,16 @@ type PreProps = React.DetailedHTMLProps<
 
 const childFun = ({
   className,
-  style,
+  style: passedStyle,
   tokens,
   getLineProps,
   getTokenProps,
 }: ChildFunProps) => {
+  const style: React.CSSProperties = R.mergeLeft(
+    { overflow: "auto" },
+    passedStyle
+  );
+
   return (
     <pre className={className} style={style}>
       {tokens.map((line: Token[], i: number) =>
