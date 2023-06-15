@@ -1,5 +1,5 @@
 import * as React from "react";
-import { graphql } from "gatsby";
+import { PageProps, graphql } from "gatsby";
 import { GatsbyImage, ImageDataLike, getImage } from "gatsby-plugin-image";
 import Layout from "../../components/layout";
 import Seo from "../../components/seo";
@@ -10,26 +10,9 @@ import { Comments } from "../../components/comments";
 
 import { article, hero as heroClass, quote } from "./article.module.css";
 
-type BlogPostByIdData = {
-  mdx: {
-    frontmatter: {
-      title: string;
-      date: string;
-      hero_image: ImageDataLike;
-      hero_image_alt: string;
-      hero_image_link: string;
-      hero_image_credit_link: string;
-      hero_image_credit: string;
-    };
-  };
-};
-
-type BlogPostProps = {
-  data: BlogPostByIdData;
-  children: React.ReactNode;
-};
-
-type BlogPostHeadProps = Pick<BlogPostProps, "data">;
+type BlogPostProps = React.PropsWithChildren<
+  PageProps<Queries.BlogPostByIdQuery>
+>;
 
 const components: Components = {
   pre: Pre,
@@ -46,7 +29,11 @@ const components: Components = {
 };
 
 const BlogPost = ({ data, children }: BlogPostProps) => {
-  const image = getImage(data.mdx.frontmatter.hero_image);
+  if (!data.mdx) {
+    throw new Error("No MDX data");
+  }
+
+  const image = getImage(data.mdx.frontmatter.hero_image as ImageDataLike);
 
   // TODO: Make this a component
   const hero = image ? (
@@ -92,8 +79,8 @@ export const query = graphql`
   }
 `;
 
-export const Head = ({ data }: BlogPostHeadProps) => (
-  <Seo title={data.mdx.frontmatter.title} />
+export const Head = ({ data }: BlogPostProps) => (
+  <Seo title={data.mdx!.frontmatter.title} />
 );
 
 export default BlogPost;

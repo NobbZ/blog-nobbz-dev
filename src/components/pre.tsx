@@ -8,19 +8,19 @@ require("prismjs/components/prism-elixir");
 require("prismjs/components/prism-erlang");
 require("prismjs/components/prism-nix");
 
-type ChildFunProps = {
+interface ChildFunProps {
   className: string;
   style: React.CSSProperties;
   tokens: Token[][];
   getLineProps: CallableFunction; // TODO: properly type this
   getTokenProps: CallableFunction; // TODO: properly type this
-};
+}
 
-type Token = {
+interface Token {
   types: string[];
   content: string;
   empty?: boolean;
-};
+}
 
 type PreProps = React.DetailedHTMLProps<
   React.HTMLAttributes<HTMLPreElement>,
