@@ -9,6 +9,7 @@ import { Components } from "@mdx-js/react/lib";
 import { Comments } from "../../components/comments";
 
 import { article, hero as heroClass, quote } from "./article.module.css";
+import MDXWrapper from "../../components/mdxwrapper";
 
 type BlogPostProps = React.PropsWithChildren<
   PageProps<Queries.BlogPostByIdQuery>
@@ -37,9 +38,16 @@ const BlogPost = ({ data, children }: BlogPostProps) => {
 
   // TODO: Make this a component
   const hero = image ? (
-    <div className={heroClass}>
-      <GatsbyImage image={image} alt={data.mdx.frontmatter.hero_image_alt} />
-      <p>
+    <div className="relative z-[-1] max-w-100% mb-[-200px] md:w-[var(--box-width)] m-auto md:left-[calc((var(--content-width)-var(--box-width))/2)]">
+      <GatsbyImage
+        image={image}
+        className="rounded-t-lg"
+        alt={data.mdx.frontmatter.hero_image_alt}
+      />
+      <p className="absolute top-0 left-0 bg-[rgba(255,255,255,0.25)] backdrop-blur p-2 rounded-tl-lg rounded-br-md">
+        {data.mdx.frontmatter.date}
+      </p>
+      <p className="absolute top-0 right-0 bg-[rgba(255,255,255,0.25)] backdrop-blur p-2 rounded-tr-lg rounded-bl-md">
         <a href={data.mdx.frontmatter.hero_image_link}>
           {data.mdx.frontmatter.hero_image_credit}
         </a>
@@ -49,10 +57,9 @@ const BlogPost = ({ data, children }: BlogPostProps) => {
 
   return (
     <Layout pageTitle={data.mdx.frontmatter.title}>
-      <p>Posted: {data.mdx.frontmatter.date}</p>
       {hero}
-      <article className={article}>
-        <MDXProvider components={components}>{children}</MDXProvider>
+      <article className="z-10 rounded-t-md bg-[rgba(255,255,255,0.25)] backdrop-blur p-2 text-justify">
+        <MDXWrapper>{children}</MDXWrapper>
       </article>
       <Comments />
     </Layout>

@@ -1,45 +1,45 @@
 :root {
-  --article-padding: 5px;
+  /* --article-padding: 5px;
   --radius-med: 15px;
-  --radius-sml: calc(var(--radius-med) / 2);
+  --radius-sml: calc(var(--radius-med) / 2); */
 }
 
 .container {
-  margin: auto;
-  width: 600px;
-  font-family: sans-serif;
+  /* margin: auto; */
+  /* width: 600px; */
+  /* font-family: sans-serif; */
 }
 
 .heading {
-  color: rebeccapurple;
+  /* color: rebeccapurple; */
 }
 
 .nav-links {
-  display: flex;
+  /* display: flex;
   list-style: none;
-  padding-left: 0;
+  padding-left: 0; */
 }
 
 .nav-link-item {
-  padding-right: 2rem;
+  /* padding-right: 2rem; */
 }
 
 .nav-link-text {
-  color: black;
+  /* color: black; */
 }
 
 .site-title {
-  font-size: 3rem;
+  /* font-size: 3rem;
   font-weight: 700;
   margin: 3rem 0;
-  color: gray;
+  color: gray; */
 }
 
 h1 {
-  width: var(--box-width);
+  /* width: var(--box-width);
   position: relative;
   left: calc((var(--content-width) - var(--box-width)) / 2);
   font-weight: bold;
   font-size: 300%;
-  @apply text-center;
+  @apply text-center; */
 }

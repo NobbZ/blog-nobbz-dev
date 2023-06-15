@@ -3,9 +3,7 @@
 @tailwind utilities;
 
 :root {
-  --content-width: 650px;
-  --box-width: calc(var(--content-width) * 1.2);
+  --content-width: calc(var(--box-width) / 1.2);
+  --box-width: 768px;
   --root-box-width: var(--box-width);
-  --radius-med: 15px;
-  --radius-sml: calc(var(--article-radius-med) / 2);
 }
