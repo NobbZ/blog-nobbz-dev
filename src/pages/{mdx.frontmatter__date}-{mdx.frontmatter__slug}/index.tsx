@@ -61,10 +61,10 @@ const BlogPost = ({ data, children }: BlogPostProps) => {
   ) : null;
 
   return (
-    <Layout pageTitle={data.mdx.frontmatter.title} className={article}>
+    <Layout pageTitle={data.mdx.frontmatter.title}>
       <p>Posted: {data.mdx.frontmatter.date}</p>
       {hero}
-      <article>
+      <article className={article}>
         <MDXProvider components={components}>{children}</MDXProvider>
       </article>
       <Comments />

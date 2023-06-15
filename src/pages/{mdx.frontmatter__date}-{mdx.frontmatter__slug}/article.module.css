@@ -3,6 +3,7 @@
 }
 
 .article {
+  --box-width: calc(var(--root-box-width) - 3rem);
   width: var(--content-width);
   font-size: 14px;
 }
@@ -52,14 +53,14 @@
   border-radius: 0 var(--radius-med) 0 var(--radius-sml);
 }
 
-.article article {
+article.article {
   background-color: rgba(255, 255, 255, 0.5);
   backdrop-filter: blur(5px);
   padding: var(--article-padding);
   border-radius: var(--radius-sml);
 }
 
-.article article pre {
+article.article pre {
   --padding: 10px;
   width: var(--box-width);
   position: relative;

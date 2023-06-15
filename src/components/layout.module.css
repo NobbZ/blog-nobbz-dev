@@ -34,3 +34,12 @@
   margin: 3rem 0;
   color: gray;
 }
+
+h1 {
+  width: var(--box-width);
+  position: relative;
+  left: calc((var(--content-width) - var(--box-width)) / 2);
+  font-weight: bold;
+  font-size: 300%;
+  @apply text-center;
+}
