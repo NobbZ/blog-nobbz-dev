@@ -27,8 +27,8 @@ const H2 = (props: React.HTMLAttributes<HTMLHeadingElement>) => {
     "md:relative",
     "md:left-[calc((var(--content-width)-var(--box-width))/2-var(--article-padding))]",
     // md:left-[calc((var(--content-width)-var(--box-width))/2)]
-    "nd:w-[--box-width]",
-    "nd:text-3xl",
+    "md:w-[--box-width]",
+    "md:text-3xl",
     classes
   );
 
@@ -45,6 +45,64 @@ const Code = (props: React.HTMLAttributes<HTMLElement>) => {
   );
 
   return <code className={className} {...newProps} />;
+};
+
+const A = (props: React.HTMLAttributes<HTMLElement>) => {
+  const { className: classes, ...newProps } = props;
+  const className = combineClasses("underline", "text-blue-700", classes);
+
+  return <a className={className} {...newProps} />;
+};
+
+const BlockQuote = (props: React.HTMLAttributes<HTMLElement>) => {
+  const { className: classes, ...newProps } = props;
+
+  const className = combineClasses(
+    "max-w-[calc(var(--box-width)*95%)]",
+    "md:relative",
+    "md:left-[calc((var(--content-width)-(var(--box-width)*0.95))/2)]",
+    "md:w-[calc(var(--box-width)*0.95)]",
+    "bg-quote",
+    "bg-box",
+    "bg-[#f0f7fb]",
+    "px-[calc(2.25em+9px*2)]",
+    "py-[calc((2.25em+9px*2)/4)]",
+    "bg-no-repeat",
+    "shadow-xl",
+    "my-5",
+    "rounded-md",
+    classes
+  );
+
+  return <blockquote className={className} {...newProps} />;
+};
+
+const Ol = (props: React.HTMLAttributes<HTMLElement>) => {
+  const { className: classes, ...newProps } = props;
+  const className = combineClasses(classes); // TODO: add more classes
+
+  return <ol className={className} {...newProps} />;
+};
+
+const Ul = (props: React.HTMLAttributes<HTMLElement>) => {
+  const { className: classes, ...newProps } = props;
+  const className = combineClasses(classes); // TODO: add more classes
+
+  return <ul className={className} {...newProps} />;
+};
+
+const Li = (props: React.HTMLAttributes<HTMLElement>) => {
+  const { className: classes, ...newProps } = props;
+  const className = combineClasses(classes); // TODO: add more classes
+
+  return <li className={className} {...newProps} />;
+};
+
+const Em = (props: React.HTMLAttributes<HTMLElement>) => {
+  const { className: classes, ...newProps } = props;
+  const className = combineClasses(classes); // TODO: add more classes
+
+  return <em className={className} {...newProps} />;
 };
 
 const dontUse = (name: string) => {
@@ -68,22 +126,22 @@ const components: Components = {
   h5: implement("h5"),
   h6: implement("h6"),
   thematicBreak: implement("thematicBreak"),
-  blockquote: implement("blockquote"),
-  ul: implement("ul"),
-  ol: implement("ol"),
-  li: implement("li"),
+  blockquote: BlockQuote,
+  ul: Ul,
+  ol: Ol,
+  li: Li,
   table: implement("table"),
   tr: implement("tr"),
   td: implement("td"),
   th: implement("th"),
   pre: Pre,
-  em: implement("em"),
+  em: Em,
   strong: implement("strong"),
   delete: implement("delete"),
   code: Code,
   inlineCode: implement("inlineCode"),
   hr: implement("hr"),
-  a: implement("a"),
+  a: A,
   img: implement("img"),
 };
 
