@@ -6,7 +6,7 @@ type LayoutProps = React.PropsWithChildren<{
   className?: string | string[];
 }>;
 
-const Layout = ({ className, pageTitle, children }: LayoutProps) => {
+export const Layout = ({ className, pageTitle, children }: LayoutProps) => {
   const data = useStaticQuery(graphql`
     query FetchTitle {
       site {
@@ -16,22 +16,6 @@ const Layout = ({ className, pageTitle, children }: LayoutProps) => {
       }
     }
   `);
-
-  const normalizeClassName = Array.isArray(className)
-    ? className
-    : className !== undefined
-    ? [className]
-    : [];
-
-  const joinedClassName = (otherNames?: string | string[]) => {
-    const normalizedOtherNames = Array.isArray(otherNames)
-      ? otherNames
-      : otherNames !== undefined
-      ? [otherNames]
-      : [];
-
-    return [...normalizeClassName, ...normalizedOtherNames].join(" ");
-  };
 
   return (
     <div className="w-100% max-w-[var(--content-width)] md:w-[var(--content-width)] m-auto">
@@ -55,5 +39,3 @@ const Layout = ({ className, pageTitle, children }: LayoutProps) => {
     </div>
   );
 };
-
-export default Layout;

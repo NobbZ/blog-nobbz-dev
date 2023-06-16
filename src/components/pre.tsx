@@ -40,16 +40,17 @@ const childFun = ({
     passedStyle
   );
 
-  const className: string = combineClasses(
-    "w-full",
-    "md:relative",
-    "md:left-[calc((var(--content-width)-(var(--box-width)*0.95))/2-theme(padding.2))]",
-    "md:w-[calc(var(--box-width)*0.95)]",
-    "p-2",
-    "overflow-auto",
-    "rounded-md",
-    langClass
-  );
+  const className: string =
+    combineClasses(
+      "w-full",
+      "md:relative",
+      "md:left-[calc((var(--content-width)-(var(--box-width)*0.95))/2-theme(padding.2))]",
+      "md:w-[calc(var(--box-width)*0.95)]",
+      "p-2",
+      "overflow-auto",
+      "rounded-md",
+      langClass
+    ) || "";
 
   return (
     <pre className={className} style={style}>
@@ -66,7 +67,7 @@ const childFun = ({
   );
 };
 
-const Pre = (props: PreProps): React.ReactElement => {
+export const Pre = (props: PreProps): React.ReactElement => {
   const children = props.children;
   const childProps =
     typeof children === "object" && children !== null && "props" in children
@@ -85,5 +86,3 @@ const Pre = (props: PreProps): React.ReactElement => {
     </Highlight>
   );
 };
-
-export default Pre;

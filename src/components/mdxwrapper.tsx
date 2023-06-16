@@ -1,7 +1,8 @@
 import * as React from "react";
 import { MDXProvider } from "@mdx-js/react";
 import type { Components, Props as MDXProviderProps } from "@mdx-js/react/lib";
-import Pre from "./pre";
+
+import { Pre } from "~components";
 
 type MDXWrapperProps = Omit<MDXProviderProps, "components">;
 
@@ -21,8 +22,11 @@ const P = (props: React.HTMLAttributes<HTMLParagraphElement>) => {
   return <p className={className} {...newProps} />;
 };
 
-const H2 = (props: React.HTMLAttributes<HTMLHeadingElement>) => {
-  const { className: classes, ...newProps } = props;
+const H2 = ({
+  className: classes,
+  children,
+  ...props
+}: React.HTMLAttributes<HTMLHeadingElement>) => {
   const className = combineClasses(
     "w-full",
     "font-bold",
@@ -37,7 +41,11 @@ const H2 = (props: React.HTMLAttributes<HTMLHeadingElement>) => {
     classes
   );
 
-  return <h2 className={className} {...newProps} />;
+  return (
+    <h2 className={className} {...props}>
+      {children}
+    </h2>
+  );
 };
 
 const Code = (props: React.HTMLAttributes<HTMLElement>) => {
@@ -52,11 +60,18 @@ const Code = (props: React.HTMLAttributes<HTMLElement>) => {
   return <code className={className} {...newProps} />;
 };
 
-const A = (props: React.HTMLAttributes<HTMLElement>) => {
-  const { className: classes, ...newProps } = props;
+const A = ({
+  className: classes,
+  children,
+  ...props
+}: React.HTMLAttributes<HTMLAnchorElement>) => {
   const className = combineClasses("underline", "text-blue-700", classes);
 
-  return <a className={className} {...newProps} />;
+  return (
+    <a className={className} {...props}>
+      {children}
+    </a>
+  );
 };
 
 const BlockQuote = (props: React.HTMLAttributes<HTMLElement>) => {
@@ -150,7 +165,7 @@ const components: Components = {
   img: implement("img"),
 };
 
-const MDXWrapper = (props: MDXWrapperProps) => {
+export const MDXWrapper = (props: MDXWrapperProps) => {
   const { children, ...newProps } = props;
 
   return (
@@ -159,5 +174,3 @@ const MDXWrapper = (props: MDXWrapperProps) => {
     </MDXProvider>
   );
 };
-
-export default MDXWrapper;

@@ -6,7 +6,11 @@ type NoteBoxProps = React.PropsWithChildren<
   React.HTMLAttributes<HTMLDivElement>
 >;
 
-const NoteBox = ({ children, className: classes, ...props }: NoteBoxProps) => {
+export const NoteBox = ({
+  children,
+  className: classes,
+  ...props
+}: NoteBoxProps) => {
   const className = combineClasses(
     "max-w-[calc(var(--box-width)*95%)]",
     "md:relative",
@@ -33,5 +37,3 @@ const NoteBox = ({ children, className: classes, ...props }: NoteBoxProps) => {
     </div>
   );
 };
-
-export default NoteBox;

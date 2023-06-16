@@ -28,22 +28,17 @@ export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] 
     `);
   };
 
-// type BlogPostsQuery = {
-//   readonly allMdx: {
-//     readonly nodes: ReadonlyArray<{
-//       readonly id: string;
-//       readonly excerpt: string | null;
-//       readonly frontmatter: {
-//         readonly date: string | null;
-//         readonly title: string | null;
-//         readonly slug: string | null;
-//         readonly hero_image_alt: string | null;
-//         readonly hero_image: {
-//           readonly childImageSharp: {
-//             readonly gatsbyImageData: import("gatsby-plugin-image").IGatsbyImageData;
-//           } | null;
-//         } | null;
-//       } | null;
-//     }>;
-//   };
-// };
+export const onCreateWebpackConfig: GatsbyNode["onCreateWebpackConfig"] = ({
+  stage,
+  actions,
+}) => {
+  actions.setWebpackConfig({
+    resolve: {
+      alias: {
+        "~components": `${__dirname}/src/components`,
+        "~pages": `${__dirname}/src/pages`,
+      },
+      extensions: [".ts", ".tsx", ".js", ".jsx"],
+    },
+  });
+};

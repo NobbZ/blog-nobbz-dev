@@ -1,8 +1,9 @@
 import * as React from "react";
+
 import { Link, PageProps, graphql } from "gatsby";
-import Layout from "../components/layout";
-import Seo from "../components/seo";
 import { GatsbyImage, ImageDataLike, getImage } from "gatsby-plugin-image";
+
+import { Layout, Seo } from "~components";
 
 type BlogPageProps = PageProps<Queries.BlogPostsQuery>;
 interface PreviewProps {

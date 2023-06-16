@@ -2,11 +2,8 @@ import * as React from "react";
 
 import { PageProps, graphql } from "gatsby";
 import { GatsbyImage, ImageDataLike, getImage } from "gatsby-plugin-image";
-import Layout from "../../components/layout";
-import Seo from "../../components/seo";
-import { Comments } from "../../components/comments";
 
-import MDXWrapper from "../../components/mdxwrapper";
+import { Layout, Comments, MDXWrapper, Seo } from "~components";
 
 type BlogPostProps = React.PropsWithChildren<
   PageProps<Queries.BlogPostByIdQuery>
@@ -69,8 +66,12 @@ export const query = graphql`
   }
 `;
 
-export const Head = ({ data }: BlogPostProps) => (
-  <Seo title={data.mdx!.frontmatter.title} />
-);
+export const Head = ({ data }: BlogPostProps) => {
+  if (!data.mdx) {
+    throw new Error("No MDX data");
+  }
+
+  return <Seo title={data.mdx.frontmatter.title} />;
+};
 
 export default BlogPost;
