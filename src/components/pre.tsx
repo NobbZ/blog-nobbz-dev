@@ -1,6 +1,7 @@
 import * as React from "react";
 import * as R from "ramda";
 import { Highlight, Prism } from "prism-react-renderer";
+import { combineClasses } from "./mdxwrapper";
 
 (typeof global !== "undefined" ? global : window).Prism = Prism;
 
@@ -28,7 +29,7 @@ type PreProps = React.DetailedHTMLProps<
 >;
 
 const childFun = ({
-  className,
+  className: langClass,
   style: passedStyle,
   tokens,
   getLineProps,
@@ -37,6 +38,17 @@ const childFun = ({
   const style: React.CSSProperties = R.mergeLeft(
     { overflow: "auto" },
     passedStyle
+  );
+
+  const className: string = combineClasses(
+    "w-full",
+    "md:relative",
+    "md:left-[calc((var(--content-width)-(var(--box-width)*0.95))/2-theme(padding.2))]",
+    "md:w-[calc(var(--box-width)*0.95)]",
+    "p-2",
+    "overflow-auto",
+    "rounded-md",
+    langClass
   );
 
   return (

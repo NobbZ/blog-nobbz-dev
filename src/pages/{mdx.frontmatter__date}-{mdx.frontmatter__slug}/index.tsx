@@ -1,33 +1,16 @@
 import * as React from "react";
+
 import { PageProps, graphql } from "gatsby";
 import { GatsbyImage, ImageDataLike, getImage } from "gatsby-plugin-image";
 import Layout from "../../components/layout";
 import Seo from "../../components/seo";
-import Pre from "../../components/pre";
-import { MDXProvider } from "@mdx-js/react";
-import { Components } from "@mdx-js/react/lib";
 import { Comments } from "../../components/comments";
 
-import { article, hero as heroClass, quote } from "./article.module.css";
 import MDXWrapper from "../../components/mdxwrapper";
 
 type BlogPostProps = React.PropsWithChildren<
   PageProps<Queries.BlogPostByIdQuery>
 >;
-
-const components: Components = {
-  pre: Pre,
-  blockquote: ({
-    children,
-    ...props
-  }: React.BlockquoteHTMLAttributes<HTMLElement>) => {
-    return (
-      <blockquote className={quote} {...props}>
-        {children}
-      </blockquote>
-    );
-  },
-};
 
 const BlogPost = ({ data, children }: BlogPostProps) => {
   if (!data.mdx) {

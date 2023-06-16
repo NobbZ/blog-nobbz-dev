@@ -5,8 +5,13 @@ import Pre from "./pre";
 
 type MDXWrapperProps = Omit<MDXProviderProps, "components">;
 
-const combineClasses = (...classes: (string | undefined)[]) => {
-  return classes.filter((e) => e !== undefined).join(" ");
+// TODO: move into proper module
+export const combineClasses = (...classes: (string | undefined)[]) => {
+  const classNamesList = classes.filter(
+    (e: string | undefined): e is string => e !== undefined
+  );
+
+  return classNamesList.length > 0 ? classNamesList.join(" ") : undefined;
 };
 
 const P = (props: React.HTMLAttributes<HTMLParagraphElement>) => {
@@ -25,7 +30,7 @@ const H2 = (props: React.HTMLAttributes<HTMLHeadingElement>) => {
     "text-xl",
     "text-center",
     "md:relative",
-    "md:left-[calc((var(--content-width)-var(--box-width))/2-var(--article-padding))]",
+    "md:left-[calc((var(--content-width)-var(--box-width))/2-theme(padding.2))]",
     // md:left-[calc((var(--content-width)-var(--box-width))/2)]
     "md:w-[--box-width]",
     "md:text-3xl",
@@ -60,13 +65,13 @@ const BlockQuote = (props: React.HTMLAttributes<HTMLElement>) => {
   const className = combineClasses(
     "max-w-[calc(var(--box-width)*95%)]",
     "md:relative",
-    "md:left-[calc((var(--content-width)-(var(--box-width)*0.95))/2)]",
+    "md:left-[calc((var(--content-width)-(var(--box-width)*0.95))/2-theme(padding.2))]",
     "md:w-[calc(var(--box-width)*0.95)]",
     "bg-quote",
     "bg-box",
     "bg-[#f0f7fb]",
-    "px-[calc(2.25em+9px*2)]",
-    "py-[calc((2.25em+9px*2)/4)]",
+    "px-[calc(2.25em+theme(padding.2)*2)]",
+    "py-[calc((2.25em+theme(padding.2)*2)/4)]",
     "bg-no-repeat",
     "shadow-xl",
     "my-5",
@@ -79,14 +84,14 @@ const BlockQuote = (props: React.HTMLAttributes<HTMLElement>) => {
 
 const Ol = (props: React.HTMLAttributes<HTMLElement>) => {
   const { className: classes, ...newProps } = props;
-  const className = combineClasses(classes); // TODO: add more classes
+  const className = combineClasses("list-decimal", "ps-10", classes); // TODO: add more classes
 
   return <ol className={className} {...newProps} />;
 };
 
 const Ul = (props: React.HTMLAttributes<HTMLElement>) => {
   const { className: classes, ...newProps } = props;
-  const className = combineClasses(classes); // TODO: add more classes
+  const className = combineClasses("list-decimal", "ps-10", classes); // TODO: add more classes
 
   return <ul className={className} {...newProps} />;
 };
