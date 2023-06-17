@@ -15,31 +15,29 @@ type BlogPostNode = Queries.BlogPostsQuery["allMdx"]["nodes"][0];
 const Preview = ({ node }: PreviewProps) => {
   const image = getImage(node.frontmatter.hero_image as ImageDataLike);
 
-  const style: React.CSSProperties = {
-    width: "150px",
-    flexShrink: 0,
-    marginRight: "1rem",
-  };
-
   const teaser = image ? (
-    <div style={style}>
-      <GatsbyImage image={image} alt={node.frontmatter.hero_image_alt} />
+    <div className="w-[140px] p-[5px] shrink-0">
+      <GatsbyImage
+        imgClassName="rounded-md"
+        image={image}
+        alt={node.frontmatter.hero_image_alt}
+      />
     </div>
   ) : (
-    <div style={style}></div>
+    <div className="w-[140px] p-[5px] shrink-0"></div>
   );
 
   return (
     <article style={{ display: "flex", alignItems: "center" }}>
       {teaser}
       <div>
-        <h2>
+        <h2 className="text-base sm:text-lg md:text-xl">
           <Link to={`${node.frontmatter.date}-${node.frontmatter.slug}`}>
             {node.frontmatter.title}
           </Link>
         </h2>
-        <p>Posted: {node.frontmatter.date}</p>
-        <p>{node.excerpt}</p>
+        <p className="text-xs md:text-sm">Posted: {node.frontmatter.date}</p>
+        <p className="hidden md:block md:text-sm">{node.excerpt}</p>
       </div>
     </article>
   );
