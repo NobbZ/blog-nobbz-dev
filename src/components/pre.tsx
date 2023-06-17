@@ -44,6 +44,7 @@ const childFun = ({
       "md:left-[calc((var(--content-width)-(var(--box-width)*0.95))/2-theme(padding.2))]",
       "md:w-[calc(var(--box-width)*0.95)]",
       "p-2",
+      "my-4",
       "overflow-auto",
       "rounded-md",
       langClass
