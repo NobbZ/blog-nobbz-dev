@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --content-width: calc(var(--box-width) / 1.2);
+  --box-width: 768px;
+  --root-box-width: var(--box-width);
+}

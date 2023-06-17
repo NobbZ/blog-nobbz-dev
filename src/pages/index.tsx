@@ -1,33 +1,19 @@
 import * as React from "react";
-import { Link, graphql } from "gatsby";
-import Layout from "../components/layout";
-import Seo from "../components/seo";
+
+import { Link, PageProps, graphql } from "gatsby";
 import { GatsbyImage, ImageDataLike, getImage } from "gatsby-plugin-image";
 
-type BlogPostNode = {
-  frontmatter: {
-    date: string;
-    title: string;
-    slug: string;
-    hero_image: ImageDataLike;
-    hero_image_alt: string;
-  };
-  id: string;
-  excerpt: string;
-};
+import { Layout, Seo } from "~components";
 
-type BlogPostsData = {
-  allMdx: {
-    nodes: BlogPostNode[];
-  };
-};
+type BlogPageProps = PageProps<Queries.BlogPostsQuery>;
+interface PreviewProps {
+  node: BlogPostNode;
+}
 
-type BlogPageProps = {
-  data: BlogPostsData;
-};
+type BlogPostNode = Queries.BlogPostsQuery["allMdx"]["nodes"][0];
 
-const Preview = ({ node }: { node: BlogPostNode }) => {
-  const image = getImage(node.frontmatter.hero_image);
+const Preview = ({ node }: PreviewProps) => {
+  const image = getImage(node.frontmatter.hero_image as ImageDataLike);
 
   const style: React.CSSProperties = {
     width: "150px",
@@ -62,7 +48,7 @@ const Preview = ({ node }: { node: BlogPostNode }) => {
 const BlogPage = ({ data }: BlogPageProps) => {
   return (
     <Layout pageTitle="My Blog Posts">
-      {data.allMdx.nodes.map((node) => (
+      {data.allMdx.nodes.map((node: BlogPostNode) => (
         <Preview node={node} key={node.id} />
       ))}
     </Layout>

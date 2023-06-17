@@ -1,5 +1,7 @@
 import * as React from "react";
+import * as R from "ramda";
 import { Highlight, Prism } from "prism-react-renderer";
+import { combineClasses } from "./mdxwrapper";
 
 (typeof global !== "undefined" ? global : window).Prism = Prism;
 
@@ -7,54 +9,48 @@ require("prismjs/components/prism-elixir");
 require("prismjs/components/prism-erlang");
 require("prismjs/components/prism-nix");
 
-type ChildFunProps = {
+interface ChildFunProps {
   className: string;
   style: React.CSSProperties;
   tokens: Token[][];
   getLineProps: CallableFunction; // TODO: properly type this
   getTokenProps: CallableFunction; // TODO: properly type this
-};
+}
 
-type Token = {
+interface Token {
   types: string[];
   content: string;
   empty?: boolean;
-};
+}
 
-type PreProps = React.DetailedHTMLProps<
-  React.HTMLAttributes<HTMLPreElement>,
-  HTMLPreElement
->;
+type PreProps = React.HTMLAttributes<HTMLPreElement>;
 
 const childFun = ({
-  className,
-  style,
+  className: langClass,
+  style: passedStyle,
   tokens,
   getLineProps,
   getTokenProps,
 }: ChildFunProps) => {
-  // TODO: get this work via CSS
-  const width = 700;
-  const padding = 10;
-  const left = (600 - width) / 2 - padding;
-  const radius = padding * 1.5;
+  const style: React.CSSProperties = R.mergeLeft(
+    { overflow: "auto" },
+    passedStyle
+  );
 
-  const boxShadow =
-    "rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px";
+  const className: string =
+    combineClasses(
+      "w-full",
+      "md:relative",
+      "md:left-[calc((var(--content-width)-(var(--box-width)*0.95))/2-theme(padding.2))]",
+      "md:w-[calc(var(--box-width)*0.95)]",
+      "p-2",
+      "overflow-auto",
+      "rounded-md",
+      langClass
+    ) || "";
 
   return (
-    <pre
-      className={className}
-      style={{
-        padding: `${padding}px`,
-        width: `${width}px`,
-        position: "relative",
-        left: `${left}px`,
-        borderRadius: `${radius}px`,
-        boxShadow: `${boxShadow}`,
-        ...style,
-      }}
-    >
+    <pre className={className} style={style}>
       {tokens.map((line: Token[], i: number) =>
         line.length === 1 && line[0].empty === true ? null : (
           <div {...getLineProps({ line, key: i })}>
@@ -68,8 +64,7 @@ const childFun = ({
   );
 };
 
-const Pre = (props: PreProps): React.ReactElement => {
-  const children = props.children;
+export const Pre = ({ children }: PreProps) => {
   const childProps =
     typeof children === "object" && children !== null && "props" in children
       ? children.props
@@ -87,5 +82,3 @@ const Pre = (props: PreProps): React.ReactElement => {
     </Highlight>
   );
 };
-
-export default Pre;

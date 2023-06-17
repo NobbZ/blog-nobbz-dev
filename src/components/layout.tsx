@@ -1,20 +1,12 @@
 import * as React from "react";
 import { Link, useStaticQuery, graphql } from "gatsby";
-import {
-  container,
-  heading,
-  navLinks,
-  navLinkItem,
-  navLinkText,
-  siteTitle,
-} from "./layout.module.css";
 
-type LayoutProps = {
+type LayoutProps = React.PropsWithChildren<{
   pageTitle: string;
-  children: React.ReactNode;
-};
+  className?: string | string[];
+}>;
 
-const Layout = ({ pageTitle, children }: LayoutProps) => {
+export const Layout = ({ className, pageTitle, children }: LayoutProps) => {
   const data = useStaticQuery(graphql`
     query FetchTitle {
       site {
@@ -24,29 +16,26 @@ const Layout = ({ pageTitle, children }: LayoutProps) => {
       }
     }
   `);
+
   return (
-    <div className={container}>
-      <header className={siteTitle}>{data.site.siteMetadata.title}</header>
+    <div className="w-100% max-w-[var(--content-width)] md:w-[var(--content-width)] m-auto">
+      <header className="text-center text-4xl">
+        {data.site.siteMetadata.title}
+      </header>
       <nav>
-        <ul className={navLinks}>
-          <li className={navLinkItem}>
-            <Link to="/" className={navLinkText}>
-              Index
-            </Link>
+        <ul className="flex flex-row justify-between p-2 md:w-[var(--content-width)]">
+          <li>
+            <Link to="/">Blog</Link>
           </li>
-          <li className={navLinkItem}>
-            <Link to="/about" className={navLinkText}>
-              About
-            </Link>
+          <li>
+            <Link to="/about">About</Link>
           </li>
         </ul>
       </nav>
-      <main style={{ textAlign: "justify" }}>
-        <h1 className={heading}>{pageTitle}</h1>
+      <main className="max-w-[var(--content-width)] md:w-[var(--content-width)]">
+        <h1 className="text-3xl text-center">{pageTitle}</h1>
         {children}
       </main>
     </div>
   );
 };
-
-export default Layout;

@@ -14,7 +14,8 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "typecheck": "tsc --noEmit",
-    "lint": "eslint src"
+    "lint": "eslint src",
+    "css": "tcm -c src"
   },
   "dependencies": {
     "@mdx-js/react": "^2.3.0",
@@ -29,20 +30,27 @@
     "gatsby-transformer-sharp": "^5.10.0",
     "prism-react-renderer": "^2.0.5",
     "prismjs": "^1.29.0",
+    "ramda": "^0.29.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@types/node": "^20.2.5",
+    "@types/ramda": "^0.29.2",
     "@types/react": "^18.2.8",
     "@types/react-dom": "^18.2.4",
     "@typescript-eslint/eslint-plugin": "^5.59.9",
     "@typescript-eslint/parser": "^5.59.9",
+    "autoprefixer": "^10.4.14",
     "eslint": "^8.42.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-config-react-app": "^7.0.1",
     "eslint-plugin-prettier": "^4.2.1",
+    "gatsby-plugin-postcss": "^6.10.0",
+    "postcss": "^8.4.24",
     "prettier": "^2.8.8",
+    "tailwindcss": "^3.3.2",
+    "typed-css-modules": "^0.7.2",
     "typescript": "^5.1.3"
   }
 }
