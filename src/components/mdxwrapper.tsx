@@ -2,7 +2,7 @@ import * as React from "react";
 import { MDXProvider } from "@mdx-js/react";
 import type { Components, Props as MDXProviderProps } from "@mdx-js/react/lib";
 
-import { Pre } from "~components";
+import { Pre } from "~components/pre";
 
 type MDXWrapperProps = Omit<MDXProviderProps, "components">;
 

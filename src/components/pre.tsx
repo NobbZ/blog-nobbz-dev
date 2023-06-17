@@ -23,10 +23,7 @@ interface Token {
   empty?: boolean;
 }
 
-type PreProps = React.DetailedHTMLProps<
-  React.HTMLAttributes<HTMLPreElement>,
-  HTMLPreElement
->;
+type PreProps = React.HTMLAttributes<HTMLPreElement>;
 
 const childFun = ({
   className: langClass,
@@ -67,8 +64,7 @@ const childFun = ({
   );
 };
 
-export const Pre = (props: PreProps): React.ReactElement => {
-  const children = props.children;
+export const Pre = ({ children }: PreProps) => {
   const childProps =
     typeof children === "object" && children !== null && "props" in children
       ? children.props
