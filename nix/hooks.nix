@@ -8,7 +8,16 @@
     pre-commit.settings.hooks.eslint.enable = true;
     pre-commit.settings.hooks.eslint.pass_filenames = false;
     pre-commit.settings.settings.eslint.binPath = "${pkgs.nodePackages.eslint}/bin/eslint src";
-    pre-commit.settings.settings.eslint.extensions = "\\.(js|ts|jsx|tsx|astro|md|mdx|cjs|ts)$";
+    pre-commit.settings.settings.eslint.extensions = "\\.(js|ts|jsx|tsx|md|mdx|cjs|ts)$";
+
+    pre-commit.settings.hooks.tsc = {
+      enable = true;
+      pass_filenames = false;
+      name = "typescript typecheck";
+      description = "Do a typecheck using TypeScript";
+      files = ".*\\.tsx?$";
+      entry = "yarn typecheck";
+    };
 
     pre-commit.settings.hooks.typedCssModules = {
       enable = true;
