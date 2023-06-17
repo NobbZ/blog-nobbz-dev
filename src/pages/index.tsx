@@ -17,11 +17,13 @@ const Preview = ({ node }: PreviewProps) => {
 
   const teaser = image ? (
     <div className="w-[140px] p-[5px] shrink-0">
-      <GatsbyImage
-        imgClassName="rounded-md"
-        image={image}
-        alt={node.frontmatter.hero_image_alt}
-      />
+      <Link to={`${node.frontmatter.date}-${node.frontmatter.slug}`}>
+        <GatsbyImage
+          imgClassName="rounded-md"
+          image={image}
+          alt={node.frontmatter.hero_image_alt}
+        />
+      </Link>
     </div>
   ) : (
     <div className="w-[140px] p-[5px] shrink-0"></div>
