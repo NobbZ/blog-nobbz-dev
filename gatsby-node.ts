@@ -1,5 +1,7 @@
 import { GatsbyNode } from "gatsby";
 
+import path from "path";
+
 export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] =
   ({ actions }) => {
     actions.createTypes(`
@@ -14,6 +16,7 @@ export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] 
       type MdxFrontmatter {
         date: Date! @dateformat
         title: String!
+        slug: String!
         hero_image_alt: String!
         hero_image_link: String!
       }
@@ -40,5 +43,44 @@ export const onCreateWebpackConfig: GatsbyNode["onCreateWebpackConfig"] = ({
       },
       extensions: [".ts", ".tsx", ".js", ".jsx"],
     },
+  });
+};
+
+export const createPages: GatsbyNode["createPages"] = async ({
+  actions,
+  graphql,
+  reporter,
+}) => {
+  const { createPage } = actions;
+
+  const tagTemplate = path.resolve("src/templates/tags.tsx");
+
+  const result: { errors?: unknown; data?: Queries.TagListQuery } =
+    await graphql(`
+      query TagList {
+        allMdx {
+          group(field: { frontmatter: { tags: SELECT } }) {
+            name: fieldValue
+            totalCount
+          }
+        }
+      }
+    `);
+
+  if (result.errors || !result.data) {
+    reporter.panicOnBuild('🚨  ERROR: Loading "createPages" query');
+    return;
+  }
+
+  const tags = result.data.allMdx.group;
+
+  tags.forEach((tag: Queries.TagListQuery["allMdx"]["group"][0]) => {
+    createPage({
+      path: `/tags/${tag.name}/`,
+      component: tagTemplate,
+      context: {
+        tag: tag.name,
+      },
+    });
   });
 };

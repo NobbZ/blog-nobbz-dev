@@ -1353,7 +1353,7 @@ type MdxFrontmatter = {
   readonly hero_image_credit: Maybe<Scalars['String']>;
   readonly hero_image_credit_link: Maybe<Scalars['String']>;
   readonly hero_image_link: Scalars['String'];
-  readonly slug: Maybe<Scalars['String']>;
+  readonly slug: Scalars['String'];
   readonly tags: Maybe<ReadonlyArray<Maybe<Scalars['String']>>>;
   readonly title: Scalars['String'];
 };
@@ -2595,7 +2595,7 @@ type BlogPostByIdQuery = { readonly mdx: { readonly frontmatter: { readonly titl
 type BlogPostsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type BlogPostsQuery = { readonly allMdx: { readonly nodes: ReadonlyArray<{ readonly id: string, readonly excerpt: string | null, readonly frontmatter: { readonly date: string, readonly title: string, readonly slug: string | null, readonly hero_image_alt: string, readonly hero_image: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null } }> } };
+type BlogPostsQuery = { readonly allMdx: { readonly nodes: ReadonlyArray<{ readonly id: string, readonly excerpt: string | null, readonly frontmatter: { readonly date: string, readonly title: string, readonly slug: string, readonly hero_image_alt: string, readonly hero_image: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null } }> } };
 
 type FetchTitleQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -2632,6 +2632,23 @@ type SiteTitleQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 type SiteTitleQuery = { readonly site: { readonly siteMetadata: { readonly title: string } } | null };
+
+type TagIndexQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type TagIndexQuery = { readonly allMdx: { readonly group: ReadonlyArray<{ readonly totalCount: number, readonly name: string | null }> } };
+
+type TagInfoQueryVariables = Exact<{
+  tag: InputMaybe<Scalars['String']>;
+}>;
+
+
+type TagInfoQuery = { readonly allMdx: { readonly totalCount: number, readonly edges: ReadonlyArray<{ readonly node: { readonly id: string, readonly excerpt: string | null, readonly frontmatter: { readonly hero_image_alt: string, readonly title: string, readonly slug: string, readonly date: string, readonly hero_image: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null } } }> } };
+
+type TagListQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type TagListQuery = { readonly allMdx: { readonly group: ReadonlyArray<{ readonly totalCount: number, readonly name: string | null }> } };
 
 
 }

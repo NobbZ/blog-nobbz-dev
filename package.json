@@ -19,6 +19,7 @@
   },
   "dependencies": {
     "@mdx-js/react": "^2.3.0",
+    "crypto-js": "^4.1.1",
     "detect-libc": "2.0.1",
     "gatsby": "^5.10.0",
     "gatsby-plugin-image": "^3.10.0",
@@ -35,6 +36,8 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@iconify/react": "^4.1.0",
+    "@types/crypto-js": "^4.1.1",
     "@types/node": "^20.2.5",
     "@types/ramda": "^0.29.2",
     "@types/react": "^18.2.8",
