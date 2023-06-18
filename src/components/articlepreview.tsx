@@ -11,7 +11,7 @@ interface PreviewProps {
 export const Preview = ({ node }: PreviewProps) => {
   const image = getImage(node.frontmatter.hero_image as ImageDataLike);
 
-  const to = `${node.frontmatter.date}-${node.frontmatter.slug}`;
+  const to = `/${node.frontmatter.date}-${node.frontmatter.slug}`;
 
   const teaser = image ? (
     <div className="w-[140px] p-[5px] shrink-0">
