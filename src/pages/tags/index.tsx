@@ -47,22 +47,19 @@ const TagCard: React.FC<{
   const textSize = `${weightedBetween(weight, 0.75, 2.25)}rem`;
   const opacity = weightedBetween(weight, 0.3, 1);
 
-  const afterLabel = `${count}`;
-
   const staticCss = "font-mono block px-[0.125rem] py-1 no-underline relative";
   const dynamicCss = "text-[length:var(--text-size)] opacity-[var(--opacity)]";
-  const afterCss = 'after:content-["_("var(--after-label)")"]';
 
-  const className = `${staticCss} ${dynamicCss} ${afterCss}`;
+  const className = `${staticCss} ${dynamicCss}`;
   const style = {
     "--text-size": textSize,
     "--opacity": opacity.toString(),
-    "--after-label": afterLabel.toString(),
   } as unknown as React.CSSProperties;
 
   return (
     <li style={style} className={className}>
       <Tag name={name} />
+      &#8239;({count})
     </li>
   );
 };

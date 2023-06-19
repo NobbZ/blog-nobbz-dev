@@ -46,7 +46,7 @@ export const Tag: TagComponent = ({ name, ...props }) => {
       {...props}
     >
       <Link to={`/tags/${name}`}>
-        {name}{" "}
+        {name}
         <Icon
           style={{ display: "inline" }}
           icon="mdi:tag"
