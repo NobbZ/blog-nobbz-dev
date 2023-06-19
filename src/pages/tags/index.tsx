@@ -1,39 +1,106 @@
 import * as React from "react";
+import * as R from "ramda";
 
-import { Link, PageProps, graphql } from "gatsby";
+import { PageProps, graphql } from "gatsby";
+import SeedRandom from "seedrandom";
 
 import { Layout } from "~components";
 import { Tag } from "../../templates/tags";
 
 type TagIndexProps = PageProps<Queries.TagIndexQuery>;
-type Tag = TagIndexProps["data"]["allMdx"]["group"][0];
+type TagGroupProps = TagIndexProps["data"]["allMdx"]["group"][0];
 type TagIndexComponent = React.FC<TagIndexProps>;
+
+function shuffle<T>(array: readonly T[]): readonly T[] {
+  const rng = SeedRandom("tag-cloud");
+
+  // We start at the end of the array and swap each element with a random one
+  let currentIndex = array.length;
+  let randomIndex = 0;
+
+  const result = array.slice() as T[];
+
+  while (currentIndex !== 0) {
+    randomIndex = Math.floor(rng() * currentIndex);
+    currentIndex--;
+
+    [result[currentIndex], result[randomIndex]] = [
+      result[randomIndex],
+      result[currentIndex],
+    ];
+  }
+
+  return result;
+}
+
+const TagCard: React.FC<{
+  name: string;
+  count: number;
+  min: number;
+  max: number;
+}> = ({ name, count, min, max }) => {
+  const weightedBetween = (weight: number, min: number, max: number) =>
+    min + (max - min) * weight;
+
+  const weight = (count - min) / (max - min);
+
+  const textSize = `${weightedBetween(weight, 0.75, 2.25)}rem`;
+  const opacity = weightedBetween(weight, 0.3, 1);
+
+  const afterLabel = `${count}`;
+
+  const staticCss = "font-mono block px-[0.125rem] py-1 no-underline relative";
+  const dynamicCss = "text-[length:var(--text-size)] opacity-[var(--opacity)]";
+  const afterCss = 'after:content-["_("var(--after-label)")"]';
+
+  const className = `${staticCss} ${dynamicCss} ${afterCss}`;
+  const style = {
+    "--text-size": textSize,
+    "--opacity": opacity.toString(),
+    "--after-label": afterLabel.toString(),
+  } as unknown as React.CSSProperties;
+
+  return (
+    <li style={style} className={className}>
+      <Tag name={name} />
+    </li>
+  );
+};
+
+const TagCloud: React.FC<{ data: Queries.TagIndexQuery }> = ({ data }) => {
+  const shuffledList = shuffle(data.allMdx.group);
+  const sortedByCount = R.sortBy(R.prop("totalCount"), shuffledList);
+  const [minPostCount, maxPostCount] = R.juxt([Math.min, Math.max])(
+    ...R.map(R.prop("totalCount"), sortedByCount)
+  );
+
+  const nameGuard = <T extends TagGroupProps>(
+    args: T
+  ): args is T & { name: string } => args.name !== null;
+
+  const cardGen = ({ name, totalCount }: TagGroupProps & { name: string }) => (
+    <TagCard
+      name={name}
+      count={totalCount}
+      min={minPostCount}
+      max={maxPostCount}
+    />
+  );
+
+  return (
+    <ul className="list-none pl-0 flex flex-wrap items-center justify-center">
+      {shuffledList.filter(nameGuard).map(cardGen)}
+    </ul>
+  );
+};
 
 const TagIndex: TagIndexComponent = ({ data }) => {
   const count = data.allMdx.group.length;
 
-  const TagEntry = ({ name, totalCount }: Tag) => {
-    if (!name) {
-      throw new Error("Tag name is NULL");
-    }
-    return (
-      <li key={name}>
-        <Link to={`/tags/${name}`}>
-          <Tag name={name} />
-        </Link>{" "}
-        ({totalCount})
-      </li>
-    );
-  };
-
   return (
     <Layout pageTitle="Tags">
       <p>There are the follogwing {count} tags:</p>
-      <ul>
-        {data.allMdx.group.map((tag: Tag) =>
-          tag.name ? <TagEntry {...tag} /> : undefined
-        )}
-      </ul>
+      <TagCloud data={data} />
     </Layout>
   );
 };

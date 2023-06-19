@@ -1,4 +1,5 @@
 import * as React from "react";
+import * as R from "ramda";
 
 import { Link, graphql } from "gatsby";
 import sha256 from "crypto-js/sha256";
@@ -7,6 +8,7 @@ import { Icon } from "@iconify/react";
 
 import { Layout } from "~components/layout";
 import { ArticlePreview } from "~components/index";
+import { combineClasses } from "~components/mdxwrapper";
 
 interface PageContext {
   tag: string;
@@ -34,16 +36,25 @@ export const Tag: TagComponent = ({ name, ...props }) => {
     borderStyle: "solid",
   };
 
+  const mergedStyle = R.mergeLeft(style, props.style || {});
+  console.log("style", mergedStyle);
+
   return (
-    <span className="rounded-md" style={style} {...props}>
-      {name}{" "}
-      <Icon
-        style={{ display: "inline" }}
-        icon="mdi:tag"
-        color={color}
-        hFlip
-        inline
-      />
+    <span
+      className={combineClasses("rounded-md", props.className)}
+      style={mergedStyle}
+      {...props}
+    >
+      <Link to={`/tags/${name}`}>
+        {name}{" "}
+        <Icon
+          style={{ display: "inline" }}
+          icon="mdi:tag"
+          color={color}
+          hFlip
+          inline
+        />
+      </Link>
     </span>
   );
 };
@@ -52,12 +63,15 @@ export const Tags = ({ pageContext, data }: TagsProps) => {
   const { tag } = pageContext;
   const { edges, totalCount } = data.allMdx;
 
-  const post_or_posts = totalCount === 1 ? "post" : "posts";
+  const isSingular = totalCount === 1;
+  const isOrAre = isSingular ? "is" : "are";
+  const postOrPosts = isSingular ? "post" : "posts";
 
   return (
     <Layout pageTitle={<Tag name={tag} />}>
       <p>
-        There are {totalCount} {post_or_posts} with the tag <Tag name={tag} />.
+        There {isOrAre} {totalCount} {postOrPosts} with the tag{" "}
+        <Tag name={tag} />.
       </p>
 
       {edges.map(({ node }) => {
