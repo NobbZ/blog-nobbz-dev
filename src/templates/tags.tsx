@@ -108,6 +108,7 @@ export const pageQuery = graphql`
             title
             slug
             date
+            tags
           }
         }
       }

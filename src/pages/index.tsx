@@ -26,6 +26,7 @@ export const query = graphql`
           date
           title
           slug
+          tags
           hero_image_alt
           hero_image {
             childImageSharp {
