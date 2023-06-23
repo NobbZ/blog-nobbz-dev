@@ -2,9 +2,6 @@
 public/
 .cache/
 
-# generated type files
-src/gatsby-types.d.ts
-
 # dependencies
 node_modules/
 
