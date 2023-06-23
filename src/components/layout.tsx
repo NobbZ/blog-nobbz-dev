@@ -2,7 +2,7 @@ import * as React from "react";
 import { Link, useStaticQuery, graphql } from "gatsby";
 
 type LayoutProps = React.PropsWithChildren<{
-  pageTitle: string;
+  pageTitle: string | React.ReactNode;
   className?: string | string[];
 }>;
 
@@ -26,6 +26,9 @@ export const Layout = ({ className, pageTitle, children }: LayoutProps) => {
         <ul className="flex flex-row justify-between p-2 md:w-[var(--content-width)]">
           <li>
             <Link to="/">Blog</Link>
+          </li>
+          <li>
+            <Link to="/tags">Tags</Link>
           </li>
           <li>
             <Link to="/about">About</Link>
