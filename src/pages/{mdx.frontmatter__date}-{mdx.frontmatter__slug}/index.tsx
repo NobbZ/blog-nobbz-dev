@@ -4,6 +4,7 @@ import { PageProps, graphql } from "gatsby";
 import { GatsbyImage, ImageDataLike, getImage } from "gatsby-plugin-image";
 
 import { Layout, Comments, MDXWrapper, Seo } from "~components";
+import { Tag } from "../../templates/tags";
 
 type BlogPostProps = React.PropsWithChildren<
   PageProps<Queries.BlogPostByIdQuery>
@@ -61,9 +62,16 @@ const BlogPost = ({ data, children }: BlogPostProps) => {
     </div>
   ) : null;
 
+  const tags = data.mdx.frontmatter.tags.map((tag) => (
+    <Tag key={tag} name={tag} />
+  ));
+
   return (
     <Layout pageTitle={data.mdx.frontmatter.title}>
       {hero}
+      <div className="flex justify-around bg-[rgba(255,255,255,0.20)] backdrop-blur p-2 my-2 rounded-md">
+        {tags}
+      </div>
       <article className="z-10 rounded-t-md bg-[rgba(255,255,255,0.25)] backdrop-blur p-2 text-justify">
         <MDXWrapper>{children}</MDXWrapper>
       </article>
@@ -78,6 +86,7 @@ export const query = graphql`
       frontmatter {
         title
         date
+        tags
         hero_image_alt
         hero_image_credit_link
         hero_image_credit

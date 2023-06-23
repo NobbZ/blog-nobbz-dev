@@ -17,6 +17,7 @@ export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] 
         date: Date! @dateformat
         title: String!
         slug: String!
+        tags: [String!]!
         hero_image_alt: String!
         hero_image_link: String!
       }
