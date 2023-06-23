@@ -31,7 +31,7 @@ export const Preview = ({ node }: PreviewProps) => {
 
   const tags = node.frontmatter.tags?.map((tag) =>
     tag ? (
-      <li>
+      <li key={`li-${tag}`}>
         <Tag key={tag} name={tag} />
       </li>
     ) : undefined
