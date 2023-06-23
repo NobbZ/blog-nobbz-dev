@@ -37,7 +37,6 @@ export const Tag: TagComponent = ({ name, ...props }) => {
   };
 
   const mergedStyle = R.mergeLeft(style, props.style || {});
-  console.log("style", mergedStyle);
 
   return (
     <span
