@@ -3,7 +3,9 @@
     pre-commit.check.enable = true;
     pre-commit.settings.hooks.nixpkgs-fmt.enable = false;
     pre-commit.settings.hooks.alejandra.enable = true;
+
     pre-commit.settings.hooks.prettier.enable = true;
+    pre-commit.settings.settings.prettier.binPath = "${pkgs.yarn}/bin/yarn run prettier --ignore-path src/gatsby-types.d.ts";
 
     pre-commit.settings.hooks.eslint.enable = true;
     pre-commit.settings.hooks.eslint.pass_filenames = false;
