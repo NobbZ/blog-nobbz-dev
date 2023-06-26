@@ -18,6 +18,7 @@ const config: GatsbyConfig = {
     "gatsby-plugin-sitemap",
     "gatsby-plugin-mdx",
     "gatsby-plugin-postcss",
+    "gatsby-plugin-readtime-nz",
     {
       resolve: "gatsby-source-filesystem",
       options: {
