@@ -4,7 +4,7 @@ import * as R from "ramda";
 import { Link, graphql } from "gatsby";
 import sha256 from "crypto-js/sha256";
 import Base16 from "crypto-js/enc-hex";
-import { Icon } from "@iconify/react";
+import { Icon } from "@iconify-icon/react";
 
 import { Layout } from "~components/layout";
 import { ArticlePreview } from "~components/index";
@@ -37,7 +37,6 @@ export const Tag: TagComponent = ({ name, ...props }) => {
   };
 
   const mergedStyle = R.mergeLeft(style, props.style || {});
-  console.log("style", mergedStyle);
 
   return (
     <span
@@ -47,13 +46,7 @@ export const Tag: TagComponent = ({ name, ...props }) => {
     >
       <Link to={`/tags/${name}`}>
         {name}
-        <Icon
-          style={{ display: "inline" }}
-          icon="mdi:tag"
-          color={color}
-          hFlip
-          inline
-        />
+        <Icon style={{ color }} icon="mdi:tag" flip="horizontal" inline />
       </Link>
     </span>
   );
