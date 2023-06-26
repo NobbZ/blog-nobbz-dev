@@ -91,6 +91,11 @@ export const pageQuery = graphql`
         node {
           id
           excerpt
+          fields {
+            readingTime {
+              text
+            }
+          }
           frontmatter {
             hero_image_alt
             hero_image {

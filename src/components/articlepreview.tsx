@@ -37,6 +37,12 @@ export const Preview = ({ node }: PreviewProps) => {
     ) : undefined
   );
 
+  const text =
+    node.fields && node.fields.readingTime && node.fields.readingTime.text
+      ? node.fields.readingTime.text
+      : undefined;
+  const readingTime = text ? `; ${text}` : undefined;
+
   return (
     <article style={{ display: "flex", alignItems: "center" }}>
       {teaser}
@@ -44,7 +50,10 @@ export const Preview = ({ node }: PreviewProps) => {
         <h2 className="text-base sm:text-lg md:text-xl">
           <Link to={to}>{node.frontmatter.title}</Link>
         </h2>
-        <p className="text-xs md:text-sm">Posted: {node.frontmatter.date}</p>
+        <p className="text-xs md:text-sm">
+          Posted: {node.frontmatter.date}
+          {readingTime}
+        </p>
         <p className="hidden md:block md:text-sm">{node.excerpt}</p>
       </div>
       <div className="w-[100px] shrink-0 text-right">

@@ -22,6 +22,11 @@ export const query = graphql`
   query BlogPosts {
     allMdx(sort: { frontmatter: { date: DESC } }) {
       nodes {
+        fields {
+          readingTime {
+            text
+          }
+        }
         frontmatter {
           date
           title
