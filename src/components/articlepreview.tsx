@@ -1,11 +1,11 @@
 import * as React from "react";
 
-import { Link } from "gatsby";
+import { Link, graphql } from "gatsby";
 import { GatsbyImage, ImageDataLike, getImage } from "gatsby-plugin-image";
 
 import { Tag } from "../templates/tags";
 
-type BlogPostNode = Queries.BlogPostsQuery["allMdx"]["nodes"][0];
+type BlogPostNode = Queries.PreviewDataFragment;
 interface PreviewProps {
   node: BlogPostNode;
 }
@@ -37,6 +37,12 @@ export const Preview = ({ node }: PreviewProps) => {
     ) : undefined
   );
 
+  const text =
+    node.fields && node.fields.readingTime && node.fields.readingTime.text
+      ? node.fields.readingTime.text
+      : undefined;
+  const readingTime = text ? `; ${text}` : undefined;
+
   return (
     <article style={{ display: "flex", alignItems: "center" }}>
       {teaser}
@@ -44,7 +50,10 @@ export const Preview = ({ node }: PreviewProps) => {
         <h2 className="text-base sm:text-lg md:text-xl">
           <Link to={to}>{node.frontmatter.title}</Link>
         </h2>
-        <p className="text-xs md:text-sm">Posted: {node.frontmatter.date}</p>
+        <p className="text-xs md:text-sm">
+          Posted: {node.frontmatter.date}
+          {readingTime}
+        </p>
         <p className="hidden md:block md:text-sm">{node.excerpt}</p>
       </div>
       <div className="w-[100px] shrink-0 text-right">
@@ -53,3 +62,26 @@ export const Preview = ({ node }: PreviewProps) => {
     </article>
   );
 };
+
+export const query = graphql`
+  fragment PreviewData on Mdx {
+    excerpt
+    fields {
+      readingTime {
+        text
+      }
+    }
+    frontmatter {
+      date
+      title
+      slug
+      tags
+      hero_image_alt
+      hero_image {
+        childImageSharp {
+          gatsbyImageData(width: 200)
+        }
+      }
+    }
+  }
+`;

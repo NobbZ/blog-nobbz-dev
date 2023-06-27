@@ -22,20 +22,8 @@ export const query = graphql`
   query BlogPosts {
     allMdx(sort: { frontmatter: { date: DESC } }) {
       nodes {
-        frontmatter {
-          date
-          title
-          slug
-          tags
-          hero_image_alt
-          hero_image {
-            childImageSharp {
-              gatsbyImageData(width: 200)
-            }
-          }
-        }
         id
-        excerpt
+        ...PreviewData
       }
     }
   }

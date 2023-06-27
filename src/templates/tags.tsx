@@ -90,19 +90,7 @@ export const pageQuery = graphql`
       edges {
         node {
           id
-          excerpt
-          frontmatter {
-            hero_image_alt
-            hero_image {
-              childImageSharp {
-                gatsbyImageData(width: 200)
-              }
-            }
-            title
-            slug
-            date
-            tags
-          }
+          ...PreviewData
         }
       }
     }
