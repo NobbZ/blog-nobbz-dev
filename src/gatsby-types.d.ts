@@ -2683,6 +2683,8 @@ type GatsbyImageSharpFluid_withWebp_tracedSVGFragment = { readonly tracedSVG: st
 
 type GatsbyImageSharpFluidLimitPresentationSizeFragment = { readonly maxHeight: number, readonly maxWidth: number };
 
+type PreviewDataFragment = { readonly excerpt: string | null, readonly fields: { readonly readingTime: { readonly text: string | null } | null } | null, readonly frontmatter: { readonly date: string, readonly title: string, readonly slug: string, readonly tags: ReadonlyArray<string>, readonly hero_image_alt: string, readonly hero_image: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null } };
+
 type SiteTitleQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -2698,7 +2700,7 @@ type TagInfoQueryVariables = Exact<{
 }>;
 
 
-type TagInfoQuery = { readonly allMdx: { readonly totalCount: number, readonly edges: ReadonlyArray<{ readonly node: { readonly id: string, readonly excerpt: string | null, readonly fields: { readonly readingTime: { readonly text: string | null } | null } | null, readonly frontmatter: { readonly hero_image_alt: string, readonly title: string, readonly slug: string, readonly date: string, readonly tags: ReadonlyArray<string>, readonly hero_image: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null } } }> } };
+type TagInfoQuery = { readonly allMdx: { readonly totalCount: number, readonly edges: ReadonlyArray<{ readonly node: { readonly id: string, readonly excerpt: string | null, readonly fields: { readonly readingTime: { readonly text: string | null } | null } | null, readonly frontmatter: { readonly date: string, readonly title: string, readonly slug: string, readonly tags: ReadonlyArray<string>, readonly hero_image_alt: string, readonly hero_image: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null } } }> } };
 
 type TagListQueryVariables = Exact<{ [key: string]: never; }>;
 

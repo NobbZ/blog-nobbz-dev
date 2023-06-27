@@ -1,11 +1,11 @@
 import * as React from "react";
 
-import { Link } from "gatsby";
+import { Link, graphql } from "gatsby";
 import { GatsbyImage, ImageDataLike, getImage } from "gatsby-plugin-image";
 
 import { Tag } from "../templates/tags";
 
-type BlogPostNode = Queries.BlogPostsQuery["allMdx"]["nodes"][0];
+type BlogPostNode = Queries.PreviewDataFragment;
 interface PreviewProps {
   node: BlogPostNode;
 }
@@ -62,3 +62,26 @@ export const Preview = ({ node }: PreviewProps) => {
     </article>
   );
 };
+
+export const query = graphql`
+  fragment PreviewData on Mdx {
+    excerpt
+    fields {
+      readingTime {
+        text
+      }
+    }
+    frontmatter {
+      date
+      title
+      slug
+      tags
+      hero_image_alt
+      hero_image {
+        childImageSharp {
+          gatsbyImageData(width: 200)
+        }
+      }
+    }
+  }
+`;
