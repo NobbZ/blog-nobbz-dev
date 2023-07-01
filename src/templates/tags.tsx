@@ -54,7 +54,7 @@ export const Tag: TagComponent = ({ name, ...props }) => {
 
 export const Tags = ({ pageContext, data }: TagsProps) => {
   const { tag } = pageContext;
-  const { edges, totalCount } = data.allMdx;
+  const { edges, totalCount } = data.allBlog;
 
   const isSingular = totalCount === 1;
   const isOrAre = isSingular ? "is" : "are";
@@ -81,11 +81,7 @@ export const Tags = ({ pageContext, data }: TagsProps) => {
 
 export const pageQuery = graphql`
   query TagInfo($tag: String) {
-    allMdx(
-      limit: 2000
-      sort: { frontmatter: { date: DESC } }
-      filter: { frontmatter: { tags: { in: [$tag] } } }
-    ) {
+    allBlog(filter: { tags: { in: [$tag] } }, sort: { date: DESC }) {
       totalCount
       edges {
         node {

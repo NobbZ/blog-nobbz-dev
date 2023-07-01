@@ -5,14 +5,12 @@ import { ArticlePreview as Preview } from "../../src/components";
 
 describe("Preview component", () => {
   const node = {
-    frontmatter: {
-      title: "Test Post",
-      date: "2020-01-01",
-      slug: "test-post",
-      tags: ["test-tag"],
-      hero_image_alt: "Test image",
-    },
+    date: "2020-01-01",
     excerpt: "This is a test excerpt",
+    heroImage: { alt: "Test image" },
+    slug: "test-post",
+    tags: ["test-tag"],
+    title: "Test Post",
   };
 
   it("renders the post title", () => {
