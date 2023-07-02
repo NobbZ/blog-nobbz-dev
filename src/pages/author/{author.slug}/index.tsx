@@ -44,6 +44,16 @@ const getSocialLink = (
           <Icon icon="mdi:gitlab" /> {data}
         </a>
       );
+    case "ko-fi":
+      if (typeof data !== "string") {
+        throw new Error("Ko-fi handle is not a string");
+      }
+
+      return (
+        <a href={`https://ko-fi.com/${data}`} key={platform}>
+          <Icon icon="simple-icons:kofi" /> {data}
+        </a>
+      );
     case "linkedin":
       if (typeof data !== "string") {
         throw new Error("LinkedIn handle is not a string");
