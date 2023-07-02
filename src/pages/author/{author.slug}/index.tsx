@@ -24,16 +24,6 @@ const getSocialLink = (
           <Icon icon="simple-icons:amazon" /> Wishlist
         </a>
       );
-    case "twitter":
-      if (typeof data !== "string") {
-        throw new Error("Twitter handle is not a string");
-      }
-
-      return (
-        <a href={`https://twitter.com/${data}`} key={platform}>
-          <Icon icon="mdi:twitter" /> {data}
-        </a>
-      );
     case "github":
       if (typeof data !== "string") {
         throw new Error("GitHub handle is not a string");
@@ -72,6 +62,16 @@ const getSocialLink = (
       return (
         <a href={`https://linkedin.com/in/${data}`} key={platform}>
           <Icon icon="mdi:linkedin" /> {data}
+        </a>
+      );
+    case "twitter":
+      if (typeof data !== "string") {
+        throw new Error("Twitter handle is not a string");
+      }
+
+      return (
+        <a href={`https://twitter.com/${data}`} key={platform}>
+          <Icon icon="mdi:twitter" /> {data}
         </a>
       );
     case "web":
