@@ -65,7 +65,7 @@ describe("Layout component", () => {
   const navLinks = {
     Blog: "/",
     Tags: "/tags",
-    About: "/about",
+    About: "/author/nobbz",
   };
 
   for (const [name, path] of Object.entries(navLinks)) {

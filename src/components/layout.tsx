@@ -31,7 +31,7 @@ export const Layout = ({ className, pageTitle, children }: LayoutProps) => {
             <Link to="/tags">Tags</Link>
           </li>
           <li>
-            <Link to="/about">About</Link>
+            <Link to="/author/nobbz">About</Link>
           </li>
         </ul>
       </nav>
