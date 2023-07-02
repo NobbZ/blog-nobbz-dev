@@ -44,6 +44,16 @@ const getSocialLink = (
           <Icon icon="mdi:gitlab" /> {data}
         </a>
       );
+    case "linkedin":
+      if (typeof data !== "string") {
+        throw new Error("LinkedIn handle is not a string");
+      }
+
+      return (
+        <a href={`https://linkedin.com/in/${data}`} key={platform}>
+          <Icon icon="mdi:linkedin" /> {data}
+        </a>
+      );
     case "web":
       if (typeof data === "string") {
         throw new Error("Web data is not an object");
@@ -80,7 +90,7 @@ const AuthorPage = ({ data, children }: AuthorPageProps) => {
       : undefined;
 
   const socialBox = socialLinks ? (
-    <div className="flex justify-around bg-[rgba(255,255,255,0.20)] backdrop-blur p-2 my-2 rounded-md">
+    <div className="flex flex-wrap justify-around bg-[rgba(255,255,255,0.20)] backdrop-blur p-2 my-2 rounded-md">
       {socialLinks}
     </div>
   ) : undefined;
