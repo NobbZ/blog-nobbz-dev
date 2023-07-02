@@ -14,6 +14,16 @@ const getSocialLink = (
   data: string | Record<string, string>
 ) => {
   switch (platform) {
+    case "amazon":
+      if (typeof data !== "string") {
+        throw new Error("Amazon link is not a string");
+      }
+
+      return (
+        <a href={data} key={platform}>
+          <Icon icon="simple-icons:amazon" /> Wishlist
+        </a>
+      );
     case "twitter":
       if (typeof data !== "string") {
         throw new Error("Twitter handle is not a string");

@@ -1829,6 +1829,7 @@ type MdxFrontmatterFilterInput = {
 };
 
 type MdxFrontmatterSocial = {
+  readonly amazon: Maybe<Scalars['String']>;
   readonly github: Maybe<Scalars['String']>;
   readonly gitlab: Maybe<Scalars['String']>;
   readonly ko_fi: Maybe<Scalars['String']>;
@@ -1838,6 +1839,7 @@ type MdxFrontmatterSocial = {
 };
 
 type MdxFrontmatterSocialFieldSelector = {
+  readonly amazon: InputMaybe<FieldSelectorEnum>;
   readonly github: InputMaybe<FieldSelectorEnum>;
   readonly gitlab: InputMaybe<FieldSelectorEnum>;
   readonly ko_fi: InputMaybe<FieldSelectorEnum>;
@@ -1847,6 +1849,7 @@ type MdxFrontmatterSocialFieldSelector = {
 };
 
 type MdxFrontmatterSocialFilterInput = {
+  readonly amazon: InputMaybe<StringQueryOperatorInput>;
   readonly github: InputMaybe<StringQueryOperatorInput>;
   readonly gitlab: InputMaybe<StringQueryOperatorInput>;
   readonly ko_fi: InputMaybe<StringQueryOperatorInput>;
@@ -1856,6 +1859,7 @@ type MdxFrontmatterSocialFilterInput = {
 };
 
 type MdxFrontmatterSocialSortInput = {
+  readonly amazon: InputMaybe<SortOrderEnum>;
   readonly github: InputMaybe<SortOrderEnum>;
   readonly gitlab: InputMaybe<SortOrderEnum>;
   readonly ko_fi: InputMaybe<SortOrderEnum>;
