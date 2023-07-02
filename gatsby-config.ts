@@ -28,6 +28,13 @@ const config: GatsbyConfig = {
         path: `${__dirname}/blog`,
       },
     },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "author",
+        path: `${__dirname}/author`,
+      },
+    },
   ],
 };
 

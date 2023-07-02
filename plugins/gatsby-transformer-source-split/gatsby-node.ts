@@ -16,6 +16,14 @@ interface BlogFrontmatter {
   hero_image: FileSystemNode;
 }
 
+interface AuthorFrontmatter {
+  slug: string;
+  first_name?: string;
+  last_name?: string;
+  nick_name?: string;
+  social?: Record<string, string | Record<string, unknown>>;
+}
+
 interface MdxNodeWithSource<T> extends IMdxNode {
   fields: { source: SourceTypes; readingTime: unknown };
   frontmatter: T;
@@ -41,7 +49,15 @@ export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] 
         heroImage: HeroImageData!
         excerpt: String
       }
-      `;
+
+      type Author implements Node {
+        slug: String!
+        firstName: String!
+        lastName: String!
+        nickName: String
+        social: JSON
+      }
+    `;
 
     createTypes(typeDefs);
   };
@@ -88,6 +104,24 @@ export const onCreateNode: GatsbyNode<IMdxNode>["onCreateNode"] = async ({
     };
   };
 
+  const createAuthorNode = async (
+    node: MdxNodeWithSource<AuthorFrontmatter>
+  ): Promise<NodeInput> => {
+    return {
+      id: createNodeId(`${node.id} >>> author`),
+      internal: {
+        type: "Author",
+        contentDigest: node.internal.contentDigest,
+        contentFilePath: node.internal.contentFilePath,
+      },
+      slug: node.frontmatter.slug,
+      firstName: node.frontmatter.first_name,
+      lastName: node.frontmatter.last_name,
+      nickName: node.frontmatter.nick_name,
+      social: node.frontmatter.social,
+    };
+  };
+
   const nodeCreator: (
     sourceType: SourceTypes,
     node: IMdxNode
@@ -95,6 +129,9 @@ export const onCreateNode: GatsbyNode<IMdxNode>["onCreateNode"] = async ({
     switch (sourceType) {
       case "blog":
         return createBlogNode(node as MdxNodeWithSource<BlogFrontmatter>);
+
+      case "author":
+        return createAuthorNode(node as MdxNodeWithSource<AuthorFrontmatter>);
 
       default:
         throw new Error(`Unknown source type ${sourceType}`);
