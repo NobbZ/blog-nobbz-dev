@@ -3,7 +3,8 @@ import * as React from "react";
 import { PageProps, graphql } from "gatsby";
 import { Icon } from "@iconify-icon/react";
 
-import { Layout, MDXWrapper } from "~components";
+import { ArticlePreview, Layout, MDXWrapper } from "~components";
+import type { BlogPostNode } from "~components/articlepreview";
 
 type AuthorPageProps = PageProps<Queries.AuthorInfoByIdQuery>;
 
@@ -84,10 +85,16 @@ const AuthorPage = ({ data, children }: AuthorPageProps) => {
     </div>
   ) : undefined;
 
+  const previews = (data.author.articles ? data.author.articles : [])
+    .filter((article): article is BlogPostNode => article !== null)
+    .sort((a, b) => (a.date > b.date ? -1 : 1))
+    .map((article) => <ArticlePreview node={article} key={article.slug} />);
+
   return (
     <Layout pageTitle={title}>
       {socialBox}
       <MDXWrapper>{children}</MDXWrapper>
+      {previews}
     </Layout>
   );
 };
@@ -99,6 +106,9 @@ export const query = graphql`
       lastName
       nickName
       social
+      articles {
+        ...PreviewData
+      }
     }
   }
 `;

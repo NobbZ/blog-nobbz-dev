@@ -35,6 +35,7 @@ type AVIFOptions = {
 };
 
 type Author = Node & {
+  readonly articles: Maybe<ReadonlyArray<Maybe<Blog>>>;
   readonly children: ReadonlyArray<Node>;
   readonly firstName: Scalars['String'];
   readonly gatsbyPath: Maybe<Scalars['String']>;
@@ -98,6 +99,7 @@ type AuthorEdge = {
 };
 
 type AuthorFieldSelector = {
+  readonly articles: InputMaybe<BlogFieldSelector>;
   readonly children: InputMaybe<NodeFieldSelector>;
   readonly firstName: InputMaybe<FieldSelectorEnum>;
   readonly gatsbyPath: InputMaybe<FieldSelectorEnum>;
@@ -111,6 +113,7 @@ type AuthorFieldSelector = {
 };
 
 type AuthorFilterInput = {
+  readonly articles: InputMaybe<BlogFilterListInput>;
   readonly children: InputMaybe<NodeFilterListInput>;
   readonly firstName: InputMaybe<StringQueryOperatorInput>;
   readonly gatsbyPath: InputMaybe<StringQueryOperatorInput>;
@@ -169,6 +172,7 @@ type AuthorGroupConnection_sumArgs = {
 };
 
 type AuthorSortInput = {
+  readonly articles: InputMaybe<BlogSortInput>;
   readonly children: InputMaybe<NodeSortInput>;
   readonly firstName: InputMaybe<SortOrderEnum>;
   readonly gatsbyPath: InputMaybe<SortOrderEnum>;
@@ -2130,6 +2134,7 @@ type Query_allSitePluginArgs = {
 
 
 type Query_authorArgs = {
+  articles: InputMaybe<BlogFilterListInput>;
   children: InputMaybe<NodeFilterListInput>;
   firstName: InputMaybe<StringQueryOperatorInput>;
   gatsbyPath: InputMaybe<StringQueryOperatorInput>;
@@ -3134,7 +3139,7 @@ type AuthorInfoByIdQueryVariables = Exact<{
 }>;
 
 
-type AuthorInfoByIdQuery = { readonly author: { readonly firstName: string, readonly lastName: string, readonly nickName: string | null, readonly social: Record<string, unknown> | null } | null };
+type AuthorInfoByIdQuery = { readonly author: { readonly firstName: string, readonly lastName: string, readonly nickName: string | null, readonly social: Record<string, unknown> | null, readonly articles: ReadonlyArray<{ readonly date: string, readonly excerpt: string | null, readonly slug: string, readonly tags: ReadonlyArray<string>, readonly title: string, readonly heroImage: { readonly alt: string, readonly image: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null }, readonly readingTime: { readonly text: string | null } | null } | null> | null } | null };
 
 type BlogPostByIdQueryVariables = Exact<{
   id: InputMaybe<Scalars['String']>;

@@ -5,7 +5,7 @@ import { GatsbyImage, ImageDataLike, getImage } from "gatsby-plugin-image";
 
 import { Tag } from "../templates/tags";
 
-type BlogPostNode = Queries.PreviewDataFragment;
+export type BlogPostNode = Queries.PreviewDataFragment;
 interface PreviewProps {
   node: BlogPostNode;
 }

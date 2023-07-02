@@ -25,6 +25,7 @@ export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] 
         lastName: String!
         nickName: String
         social: JSON
+        articles: [Blog] @link(by: "author.slug", from: "slug")
       }
     `);
   };
