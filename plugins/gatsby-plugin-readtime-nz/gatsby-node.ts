@@ -24,8 +24,6 @@ export const onCreateNode: GatsbyNode<IMdxNode>["onCreateNode"] = (
 
   const { wordsPerMinute = 200, language = "en" } = options;
 
-  console.log("node", node);
-
   createNodeField({
     node,
     name: "readingTime",

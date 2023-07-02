@@ -20,7 +20,8 @@ const config: GatsbyConfig = {
     "gatsby-plugin-postcss",
     "gatsby-plugin-readtime-nz",
     "gatsby-plugin-mdx-source-name",
-    "gatsby-transformer-source-split",
+    "gatsby-transformer-nz-author",
+    "gatsby-transformer-nz-blog",
     {
       resolve: "gatsby-source-filesystem",
       options: {
