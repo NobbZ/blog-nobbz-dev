@@ -182,6 +182,7 @@ type AuthorSortInput = {
 };
 
 type Blog = Node & {
+  readonly author: Maybe<Author>;
   readonly children: ReadonlyArray<Node>;
   readonly date: Scalars['Date'];
   readonly excerpt: Maybe<Scalars['String']>;
@@ -247,6 +248,7 @@ type BlogEdge = {
 };
 
 type BlogFieldSelector = {
+  readonly author: InputMaybe<AuthorFieldSelector>;
   readonly children: InputMaybe<NodeFieldSelector>;
   readonly date: InputMaybe<FieldSelectorEnum>;
   readonly excerpt: InputMaybe<FieldSelectorEnum>;
@@ -262,6 +264,7 @@ type BlogFieldSelector = {
 };
 
 type BlogFilterInput = {
+  readonly author: InputMaybe<AuthorFilterInput>;
   readonly children: InputMaybe<NodeFilterListInput>;
   readonly date: InputMaybe<DateQueryOperatorInput>;
   readonly excerpt: InputMaybe<StringQueryOperatorInput>;
@@ -346,6 +349,7 @@ type BlogReadingTimeSortInput = {
 };
 
 type BlogSortInput = {
+  readonly author: InputMaybe<AuthorSortInput>;
   readonly children: InputMaybe<NodeSortInput>;
   readonly date: InputMaybe<SortOrderEnum>;
   readonly excerpt: InputMaybe<SortOrderEnum>;
@@ -1759,6 +1763,7 @@ type MdxFilterListInput = {
 };
 
 type MdxFrontmatter = {
+  readonly author: Maybe<Scalars['String']>;
   readonly date: Scalars['Date'];
   readonly description: Maybe<Scalars['String']>;
   readonly first_name: Maybe<Scalars['String']>;
@@ -1784,6 +1789,7 @@ type MdxFrontmatter_dateArgs = {
 };
 
 type MdxFrontmatterFieldSelector = {
+  readonly author: InputMaybe<FieldSelectorEnum>;
   readonly date: InputMaybe<FieldSelectorEnum>;
   readonly description: InputMaybe<FieldSelectorEnum>;
   readonly first_name: InputMaybe<FieldSelectorEnum>;
@@ -1801,6 +1807,7 @@ type MdxFrontmatterFieldSelector = {
 };
 
 type MdxFrontmatterFilterInput = {
+  readonly author: InputMaybe<StringQueryOperatorInput>;
   readonly date: InputMaybe<DateQueryOperatorInput>;
   readonly description: InputMaybe<StringQueryOperatorInput>;
   readonly first_name: InputMaybe<StringQueryOperatorInput>;
@@ -1866,6 +1873,7 @@ type MdxFrontmatterSocialWebSortInput = {
 };
 
 type MdxFrontmatterSortInput = {
+  readonly author: InputMaybe<SortOrderEnum>;
   readonly date: InputMaybe<SortOrderEnum>;
   readonly description: InputMaybe<SortOrderEnum>;
   readonly first_name: InputMaybe<SortOrderEnum>;
@@ -2136,6 +2144,7 @@ type Query_authorArgs = {
 
 
 type Query_blogArgs = {
+  author: InputMaybe<AuthorFilterInput>;
   children: InputMaybe<NodeFilterListInput>;
   date: InputMaybe<DateQueryOperatorInput>;
   excerpt: InputMaybe<StringQueryOperatorInput>;
@@ -3132,7 +3141,7 @@ type BlogPostByIdQueryVariables = Exact<{
 }>;
 
 
-type BlogPostByIdQuery = { readonly blog: { readonly tags: ReadonlyArray<string>, readonly date: string, readonly title: string, readonly heroImage: { readonly link: string, readonly credit: string, readonly alt: string, readonly image: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null } } | null };
+type BlogPostByIdQuery = { readonly blog: { readonly tags: ReadonlyArray<string>, readonly date: string, readonly title: string, readonly author: { readonly slug: string, readonly firstName: string, readonly lastName: string } | null, readonly heroImage: { readonly link: string, readonly credit: string, readonly alt: string, readonly image: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null } } | null };
 
 type BlogPostsQueryVariables = Exact<{ [key: string]: never; }>;
 

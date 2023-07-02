@@ -7,6 +7,7 @@ interface BlogParentNode extends IMdxNode {
   parent: string;
   fields: { readingTime: unknown };
   frontmatter: {
+    author: string;
     title: string;
     slug: string;
     date: Date;
@@ -33,6 +34,7 @@ export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] 
 
       type Blog implements Node {
         title: String!
+        author: Author @link(by: "slug")
         slug: String!
         date: Date!
         tags: [String!]!
@@ -73,6 +75,7 @@ export const onCreateNode: GatsbyNode<BlogParentNode>["onCreateNode"] = async ({
     slug: node.frontmatter.slug,
     date: node.frontmatter.date,
     tags: node.frontmatter.tags,
+    author: node.frontmatter.author,
     // TODO: Excerpt seems to be generated lazily on query time, so we need to re-map a resolver later
     excerpt: "",
     readingTime: node.fields.readingTime,

@@ -1,7 +1,8 @@
 import * as React from "react";
 
-import { PageProps, graphql } from "gatsby";
+import { Link, PageProps, graphql } from "gatsby";
 import { GatsbyImage, ImageDataLike, getImage } from "gatsby-plugin-image";
+import { Icon } from "@iconify-icon/react";
 
 import { Layout, Comments, MDXWrapper, Seo } from "~components";
 import { Tag } from "../../templates/tags";
@@ -25,22 +26,14 @@ const BlogPost = ({ data, children }: BlogPostProps) => {
         className="rounded-t-lg"
         alt={data.blog.heroImage.alt}
       />
-      <p className="absolute top-0 left-0 bg-[rgba(255,255,255,0.25)] backdrop-blur p-2 rounded-tl-lg rounded-br-md">
-        <svg
-          className="inline-block pr-1"
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-        >
-          <title>Posted at</title>
-          <path
-            fill="currentColor"
-            d="M19 3h-1V1h-2v2H8V1H6v2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h5v-2H5V8h14v1h2V5a2 2 0 0 0-2-2m2.7 10.35l-1 1l-2.05-2l1-1c.2-.21.54-.22.77 0l1.28 1.28c.19.2.19.52 0 .72M12 18.94l6.07-6.06l2.05 2L14.06 21H12v-2.06Z"
-          />
-        </svg>
-        {data.blog.date}
-      </p>
+      <div className="absolute top-0 left-0 bg-[rgba(255,255,255,0.25)] backdrop-blur p-2 rounded-tl-lg rounded-br-md">
+        <Icon icon="mdi:calendar-edit" inline />
+        {data.blog.date};{" "}
+        <Link to={`/author/${data.blog.author?.slug}`}>
+          <Icon icon="mdi:account-edit" inline />
+          {data.blog.author?.firstName} {data.blog.author?.lastName}
+        </Link>
+      </div>
       <p className="absolute top-0 right-0 bg-[rgba(255,255,255,0.25)] backdrop-blur p-2 rounded-tr-lg rounded-bl-md">
         <a href={data.blog.heroImage.link}>
           <svg
@@ -86,6 +79,11 @@ export const query = graphql`
       tags
       date
       title
+      author {
+        slug
+        firstName
+        lastName
+      }
       heroImage {
         link
         credit
