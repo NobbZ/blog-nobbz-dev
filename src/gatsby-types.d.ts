@@ -34,6 +34,340 @@ type AVIFOptions = {
   readonly speed: InputMaybe<Scalars['Int']>;
 };
 
+type Author = Node & {
+  readonly articles: Maybe<ReadonlyArray<Maybe<Blog>>>;
+  readonly children: ReadonlyArray<Node>;
+  readonly firstName: Scalars['String'];
+  readonly gatsbyPath: Maybe<Scalars['String']>;
+  readonly id: Scalars['ID'];
+  readonly internal: Internal;
+  readonly lastName: Scalars['String'];
+  readonly nickName: Maybe<Scalars['String']>;
+  readonly parent: Maybe<Node>;
+  readonly slug: Scalars['String'];
+  readonly social: Maybe<Scalars['JSON']>;
+};
+
+
+type Author_gatsbyPathArgs = {
+  filePath: InputMaybe<Scalars['String']>;
+};
+
+type AuthorConnection = {
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<AuthorEdge>;
+  readonly group: ReadonlyArray<AuthorGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<Author>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
+};
+
+
+type AuthorConnection_distinctArgs = {
+  field: AuthorFieldSelector;
+};
+
+
+type AuthorConnection_groupArgs = {
+  field: AuthorFieldSelector;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+};
+
+
+type AuthorConnection_maxArgs = {
+  field: AuthorFieldSelector;
+};
+
+
+type AuthorConnection_minArgs = {
+  field: AuthorFieldSelector;
+};
+
+
+type AuthorConnection_sumArgs = {
+  field: AuthorFieldSelector;
+};
+
+type AuthorEdge = {
+  readonly next: Maybe<Author>;
+  readonly node: Author;
+  readonly previous: Maybe<Author>;
+};
+
+type AuthorFieldSelector = {
+  readonly articles: InputMaybe<BlogFieldSelector>;
+  readonly children: InputMaybe<NodeFieldSelector>;
+  readonly firstName: InputMaybe<FieldSelectorEnum>;
+  readonly gatsbyPath: InputMaybe<FieldSelectorEnum>;
+  readonly id: InputMaybe<FieldSelectorEnum>;
+  readonly internal: InputMaybe<InternalFieldSelector>;
+  readonly lastName: InputMaybe<FieldSelectorEnum>;
+  readonly nickName: InputMaybe<FieldSelectorEnum>;
+  readonly parent: InputMaybe<NodeFieldSelector>;
+  readonly slug: InputMaybe<FieldSelectorEnum>;
+  readonly social: InputMaybe<FieldSelectorEnum>;
+};
+
+type AuthorFilterInput = {
+  readonly articles: InputMaybe<BlogFilterListInput>;
+  readonly children: InputMaybe<NodeFilterListInput>;
+  readonly firstName: InputMaybe<StringQueryOperatorInput>;
+  readonly gatsbyPath: InputMaybe<StringQueryOperatorInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly internal: InputMaybe<InternalFilterInput>;
+  readonly lastName: InputMaybe<StringQueryOperatorInput>;
+  readonly nickName: InputMaybe<StringQueryOperatorInput>;
+  readonly parent: InputMaybe<NodeFilterInput>;
+  readonly slug: InputMaybe<StringQueryOperatorInput>;
+  readonly social: InputMaybe<JSONQueryOperatorInput>;
+};
+
+type AuthorFilterListInput = {
+  readonly elemMatch: InputMaybe<AuthorFilterInput>;
+};
+
+type AuthorGroupConnection = {
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<AuthorEdge>;
+  readonly field: Scalars['String'];
+  readonly fieldValue: Maybe<Scalars['String']>;
+  readonly group: ReadonlyArray<AuthorGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<Author>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
+};
+
+
+type AuthorGroupConnection_distinctArgs = {
+  field: AuthorFieldSelector;
+};
+
+
+type AuthorGroupConnection_groupArgs = {
+  field: AuthorFieldSelector;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+};
+
+
+type AuthorGroupConnection_maxArgs = {
+  field: AuthorFieldSelector;
+};
+
+
+type AuthorGroupConnection_minArgs = {
+  field: AuthorFieldSelector;
+};
+
+
+type AuthorGroupConnection_sumArgs = {
+  field: AuthorFieldSelector;
+};
+
+type AuthorSortInput = {
+  readonly articles: InputMaybe<BlogSortInput>;
+  readonly children: InputMaybe<NodeSortInput>;
+  readonly firstName: InputMaybe<SortOrderEnum>;
+  readonly gatsbyPath: InputMaybe<SortOrderEnum>;
+  readonly id: InputMaybe<SortOrderEnum>;
+  readonly internal: InputMaybe<InternalSortInput>;
+  readonly lastName: InputMaybe<SortOrderEnum>;
+  readonly nickName: InputMaybe<SortOrderEnum>;
+  readonly parent: InputMaybe<NodeSortInput>;
+  readonly slug: InputMaybe<SortOrderEnum>;
+  readonly social: InputMaybe<SortOrderEnum>;
+};
+
+type Blog = Node & {
+  readonly author: Maybe<Author>;
+  readonly children: ReadonlyArray<Node>;
+  readonly date: Scalars['Date'];
+  readonly excerpt: Maybe<Scalars['String']>;
+  readonly gatsbyPath: Maybe<Scalars['String']>;
+  readonly heroImage: HeroImageData;
+  readonly id: Scalars['ID'];
+  readonly internal: Internal;
+  readonly parent: Maybe<Node>;
+  readonly readingTime: Maybe<BlogReadingTime>;
+  readonly slug: Scalars['String'];
+  readonly tags: ReadonlyArray<Scalars['String']>;
+  readonly title: Scalars['String'];
+};
+
+
+type Blog_gatsbyPathArgs = {
+  filePath: InputMaybe<Scalars['String']>;
+};
+
+type BlogConnection = {
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<BlogEdge>;
+  readonly group: ReadonlyArray<BlogGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<Blog>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
+};
+
+
+type BlogConnection_distinctArgs = {
+  field: BlogFieldSelector;
+};
+
+
+type BlogConnection_groupArgs = {
+  field: BlogFieldSelector;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+};
+
+
+type BlogConnection_maxArgs = {
+  field: BlogFieldSelector;
+};
+
+
+type BlogConnection_minArgs = {
+  field: BlogFieldSelector;
+};
+
+
+type BlogConnection_sumArgs = {
+  field: BlogFieldSelector;
+};
+
+type BlogEdge = {
+  readonly next: Maybe<Blog>;
+  readonly node: Blog;
+  readonly previous: Maybe<Blog>;
+};
+
+type BlogFieldSelector = {
+  readonly author: InputMaybe<AuthorFieldSelector>;
+  readonly children: InputMaybe<NodeFieldSelector>;
+  readonly date: InputMaybe<FieldSelectorEnum>;
+  readonly excerpt: InputMaybe<FieldSelectorEnum>;
+  readonly gatsbyPath: InputMaybe<FieldSelectorEnum>;
+  readonly heroImage: InputMaybe<HeroImageDataFieldSelector>;
+  readonly id: InputMaybe<FieldSelectorEnum>;
+  readonly internal: InputMaybe<InternalFieldSelector>;
+  readonly parent: InputMaybe<NodeFieldSelector>;
+  readonly readingTime: InputMaybe<BlogReadingTimeFieldSelector>;
+  readonly slug: InputMaybe<FieldSelectorEnum>;
+  readonly tags: InputMaybe<FieldSelectorEnum>;
+  readonly title: InputMaybe<FieldSelectorEnum>;
+};
+
+type BlogFilterInput = {
+  readonly author: InputMaybe<AuthorFilterInput>;
+  readonly children: InputMaybe<NodeFilterListInput>;
+  readonly date: InputMaybe<DateQueryOperatorInput>;
+  readonly excerpt: InputMaybe<StringQueryOperatorInput>;
+  readonly gatsbyPath: InputMaybe<StringQueryOperatorInput>;
+  readonly heroImage: InputMaybe<HeroImageDataFilterInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly internal: InputMaybe<InternalFilterInput>;
+  readonly parent: InputMaybe<NodeFilterInput>;
+  readonly readingTime: InputMaybe<BlogReadingTimeFilterInput>;
+  readonly slug: InputMaybe<StringQueryOperatorInput>;
+  readonly tags: InputMaybe<StringQueryOperatorInput>;
+  readonly title: InputMaybe<StringQueryOperatorInput>;
+};
+
+type BlogFilterListInput = {
+  readonly elemMatch: InputMaybe<BlogFilterInput>;
+};
+
+type BlogGroupConnection = {
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<BlogEdge>;
+  readonly field: Scalars['String'];
+  readonly fieldValue: Maybe<Scalars['String']>;
+  readonly group: ReadonlyArray<BlogGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<Blog>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
+};
+
+
+type BlogGroupConnection_distinctArgs = {
+  field: BlogFieldSelector;
+};
+
+
+type BlogGroupConnection_groupArgs = {
+  field: BlogFieldSelector;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+};
+
+
+type BlogGroupConnection_maxArgs = {
+  field: BlogFieldSelector;
+};
+
+
+type BlogGroupConnection_minArgs = {
+  field: BlogFieldSelector;
+};
+
+
+type BlogGroupConnection_sumArgs = {
+  field: BlogFieldSelector;
+};
+
+type BlogReadingTime = {
+  readonly minutes: Maybe<Scalars['Int']>;
+  readonly text: Maybe<Scalars['String']>;
+  readonly words: Maybe<Scalars['Int']>;
+};
+
+type BlogReadingTimeFieldSelector = {
+  readonly minutes: InputMaybe<FieldSelectorEnum>;
+  readonly text: InputMaybe<FieldSelectorEnum>;
+  readonly words: InputMaybe<FieldSelectorEnum>;
+};
+
+type BlogReadingTimeFilterInput = {
+  readonly minutes: InputMaybe<IntQueryOperatorInput>;
+  readonly text: InputMaybe<StringQueryOperatorInput>;
+  readonly words: InputMaybe<IntQueryOperatorInput>;
+};
+
+type BlogReadingTimeSortInput = {
+  readonly minutes: InputMaybe<SortOrderEnum>;
+  readonly text: InputMaybe<SortOrderEnum>;
+  readonly words: InputMaybe<SortOrderEnum>;
+};
+
+type BlogSortInput = {
+  readonly author: InputMaybe<AuthorSortInput>;
+  readonly children: InputMaybe<NodeSortInput>;
+  readonly date: InputMaybe<SortOrderEnum>;
+  readonly excerpt: InputMaybe<SortOrderEnum>;
+  readonly gatsbyPath: InputMaybe<SortOrderEnum>;
+  readonly heroImage: InputMaybe<HeroImageDataSortInput>;
+  readonly id: InputMaybe<SortOrderEnum>;
+  readonly internal: InputMaybe<InternalSortInput>;
+  readonly parent: InputMaybe<NodeSortInput>;
+  readonly readingTime: InputMaybe<BlogReadingTimeSortInput>;
+  readonly slug: InputMaybe<SortOrderEnum>;
+  readonly tags: InputMaybe<SortOrderEnum>;
+  readonly title: InputMaybe<SortOrderEnum>;
+};
+
 type BlurredOptions = {
   /** Force the output format for the low-res preview. Default is to use the same format as the input. You should rarely need to change this */
   readonly toFormat: InputMaybe<ImageFormat>;
@@ -730,6 +1064,38 @@ type GatsbyImagePlaceholder =
   | 'none'
   | 'tracedSVG';
 
+type HeroImageData = {
+  readonly alt: Scalars['String'];
+  readonly credit: Scalars['String'];
+  readonly creditLink: Scalars['String'];
+  readonly image: Maybe<File>;
+  readonly link: Scalars['String'];
+};
+
+type HeroImageDataFieldSelector = {
+  readonly alt: InputMaybe<FieldSelectorEnum>;
+  readonly credit: InputMaybe<FieldSelectorEnum>;
+  readonly creditLink: InputMaybe<FieldSelectorEnum>;
+  readonly image: InputMaybe<FileFieldSelector>;
+  readonly link: InputMaybe<FieldSelectorEnum>;
+};
+
+type HeroImageDataFilterInput = {
+  readonly alt: InputMaybe<StringQueryOperatorInput>;
+  readonly credit: InputMaybe<StringQueryOperatorInput>;
+  readonly creditLink: InputMaybe<StringQueryOperatorInput>;
+  readonly image: InputMaybe<FileFilterInput>;
+  readonly link: InputMaybe<StringQueryOperatorInput>;
+};
+
+type HeroImageDataSortInput = {
+  readonly alt: InputMaybe<SortOrderEnum>;
+  readonly credit: InputMaybe<SortOrderEnum>;
+  readonly creditLink: InputMaybe<SortOrderEnum>;
+  readonly image: InputMaybe<FileSortInput>;
+  readonly link: InputMaybe<SortOrderEnum>;
+};
+
 type ImageCropFocus =
   | 17
   | 0
@@ -1247,11 +1613,18 @@ type JSONQueryOperatorInput = {
 
 type Mdx = Node & {
   readonly body: Maybe<Scalars['String']>;
+  /** Returns the first child node of type Author or null if there are no children of given type on this node */
+  readonly childAuthor: Maybe<Author>;
+  /** Returns the first child node of type Blog or null if there are no children of given type on this node */
+  readonly childBlog: Maybe<Blog>;
   readonly children: ReadonlyArray<Node>;
+  /** Returns all children nodes filtered by type Author */
+  readonly childrenAuthor: Maybe<ReadonlyArray<Maybe<Author>>>;
+  /** Returns all children nodes filtered by type Blog */
+  readonly childrenBlog: Maybe<ReadonlyArray<Maybe<Blog>>>;
   readonly excerpt: Maybe<Scalars['String']>;
   readonly fields: Maybe<MdxFields>;
   readonly frontmatter: MdxFrontmatter;
-  readonly gatsbyPath: Maybe<Scalars['String']>;
   readonly id: Scalars['ID'];
   readonly internal: Internal;
   readonly parent: Maybe<Node>;
@@ -1261,11 +1634,6 @@ type Mdx = Node & {
 
 type Mdx_excerptArgs = {
   pruneLength?: InputMaybe<Scalars['Int']>;
-};
-
-
-type Mdx_gatsbyPathArgs = {
-  filePath: InputMaybe<Scalars['String']>;
 };
 
 
@@ -1320,11 +1688,14 @@ type MdxEdge = {
 
 type MdxFieldSelector = {
   readonly body: InputMaybe<FieldSelectorEnum>;
+  readonly childAuthor: InputMaybe<AuthorFieldSelector>;
+  readonly childBlog: InputMaybe<BlogFieldSelector>;
   readonly children: InputMaybe<NodeFieldSelector>;
+  readonly childrenAuthor: InputMaybe<AuthorFieldSelector>;
+  readonly childrenBlog: InputMaybe<BlogFieldSelector>;
   readonly excerpt: InputMaybe<FieldSelectorEnum>;
   readonly fields: InputMaybe<MdxFieldsFieldSelector>;
   readonly frontmatter: InputMaybe<MdxFrontmatterFieldSelector>;
-  readonly gatsbyPath: InputMaybe<FieldSelectorEnum>;
   readonly id: InputMaybe<FieldSelectorEnum>;
   readonly internal: InputMaybe<InternalFieldSelector>;
   readonly parent: InputMaybe<NodeFieldSelector>;
@@ -1333,14 +1704,17 @@ type MdxFieldSelector = {
 
 type MdxFields = {
   readonly readingTime: Maybe<MdxFieldsReadingTime>;
+  readonly source: Maybe<Scalars['String']>;
 };
 
 type MdxFieldsFieldSelector = {
   readonly readingTime: InputMaybe<MdxFieldsReadingTimeFieldSelector>;
+  readonly source: InputMaybe<FieldSelectorEnum>;
 };
 
 type MdxFieldsFilterInput = {
   readonly readingTime: InputMaybe<MdxFieldsReadingTimeFilterInput>;
+  readonly source: InputMaybe<StringQueryOperatorInput>;
 };
 
 type MdxFieldsReadingTime = {
@@ -1369,15 +1743,19 @@ type MdxFieldsReadingTimeSortInput = {
 
 type MdxFieldsSortInput = {
   readonly readingTime: InputMaybe<MdxFieldsReadingTimeSortInput>;
+  readonly source: InputMaybe<SortOrderEnum>;
 };
 
 type MdxFilterInput = {
   readonly body: InputMaybe<StringQueryOperatorInput>;
+  readonly childAuthor: InputMaybe<AuthorFilterInput>;
+  readonly childBlog: InputMaybe<BlogFilterInput>;
   readonly children: InputMaybe<NodeFilterListInput>;
+  readonly childrenAuthor: InputMaybe<AuthorFilterListInput>;
+  readonly childrenBlog: InputMaybe<BlogFilterListInput>;
   readonly excerpt: InputMaybe<StringQueryOperatorInput>;
   readonly fields: InputMaybe<MdxFieldsFilterInput>;
   readonly frontmatter: InputMaybe<MdxFrontmatterFilterInput>;
-  readonly gatsbyPath: InputMaybe<StringQueryOperatorInput>;
   readonly id: InputMaybe<StringQueryOperatorInput>;
   readonly internal: InputMaybe<InternalFilterInput>;
   readonly parent: InputMaybe<NodeFilterInput>;
@@ -1389,14 +1767,19 @@ type MdxFilterListInput = {
 };
 
 type MdxFrontmatter = {
+  readonly author: Maybe<Scalars['String']>;
   readonly date: Scalars['Date'];
   readonly description: Maybe<Scalars['String']>;
+  readonly first_name: Maybe<Scalars['String']>;
   readonly hero_image: Maybe<File>;
   readonly hero_image_alt: Scalars['String'];
   readonly hero_image_credit: Maybe<Scalars['String']>;
   readonly hero_image_credit_link: Maybe<Scalars['String']>;
   readonly hero_image_link: Scalars['String'];
+  readonly last_name: Maybe<Scalars['String']>;
+  readonly nick_name: Maybe<Scalars['String']>;
   readonly slug: Scalars['String'];
+  readonly social: Maybe<MdxFrontmatterSocial>;
   readonly tags: ReadonlyArray<Scalars['String']>;
   readonly title: Scalars['String'];
 };
@@ -1410,40 +1793,115 @@ type MdxFrontmatter_dateArgs = {
 };
 
 type MdxFrontmatterFieldSelector = {
+  readonly author: InputMaybe<FieldSelectorEnum>;
   readonly date: InputMaybe<FieldSelectorEnum>;
   readonly description: InputMaybe<FieldSelectorEnum>;
+  readonly first_name: InputMaybe<FieldSelectorEnum>;
   readonly hero_image: InputMaybe<FileFieldSelector>;
   readonly hero_image_alt: InputMaybe<FieldSelectorEnum>;
   readonly hero_image_credit: InputMaybe<FieldSelectorEnum>;
   readonly hero_image_credit_link: InputMaybe<FieldSelectorEnum>;
   readonly hero_image_link: InputMaybe<FieldSelectorEnum>;
+  readonly last_name: InputMaybe<FieldSelectorEnum>;
+  readonly nick_name: InputMaybe<FieldSelectorEnum>;
   readonly slug: InputMaybe<FieldSelectorEnum>;
+  readonly social: InputMaybe<MdxFrontmatterSocialFieldSelector>;
   readonly tags: InputMaybe<FieldSelectorEnum>;
   readonly title: InputMaybe<FieldSelectorEnum>;
 };
 
 type MdxFrontmatterFilterInput = {
+  readonly author: InputMaybe<StringQueryOperatorInput>;
   readonly date: InputMaybe<DateQueryOperatorInput>;
   readonly description: InputMaybe<StringQueryOperatorInput>;
+  readonly first_name: InputMaybe<StringQueryOperatorInput>;
   readonly hero_image: InputMaybe<FileFilterInput>;
   readonly hero_image_alt: InputMaybe<StringQueryOperatorInput>;
   readonly hero_image_credit: InputMaybe<StringQueryOperatorInput>;
   readonly hero_image_credit_link: InputMaybe<StringQueryOperatorInput>;
   readonly hero_image_link: InputMaybe<StringQueryOperatorInput>;
+  readonly last_name: InputMaybe<StringQueryOperatorInput>;
+  readonly nick_name: InputMaybe<StringQueryOperatorInput>;
   readonly slug: InputMaybe<StringQueryOperatorInput>;
+  readonly social: InputMaybe<MdxFrontmatterSocialFilterInput>;
   readonly tags: InputMaybe<StringQueryOperatorInput>;
   readonly title: InputMaybe<StringQueryOperatorInput>;
 };
 
+type MdxFrontmatterSocial = {
+  readonly amazon: Maybe<Scalars['String']>;
+  readonly github: Maybe<Scalars['String']>;
+  readonly gitlab: Maybe<Scalars['String']>;
+  readonly ko_fi: Maybe<Scalars['String']>;
+  readonly linkedin: Maybe<Scalars['String']>;
+  readonly twitter: Maybe<Scalars['String']>;
+  readonly web: Maybe<MdxFrontmatterSocialWeb>;
+};
+
+type MdxFrontmatterSocialFieldSelector = {
+  readonly amazon: InputMaybe<FieldSelectorEnum>;
+  readonly github: InputMaybe<FieldSelectorEnum>;
+  readonly gitlab: InputMaybe<FieldSelectorEnum>;
+  readonly ko_fi: InputMaybe<FieldSelectorEnum>;
+  readonly linkedin: InputMaybe<FieldSelectorEnum>;
+  readonly twitter: InputMaybe<FieldSelectorEnum>;
+  readonly web: InputMaybe<MdxFrontmatterSocialWebFieldSelector>;
+};
+
+type MdxFrontmatterSocialFilterInput = {
+  readonly amazon: InputMaybe<StringQueryOperatorInput>;
+  readonly github: InputMaybe<StringQueryOperatorInput>;
+  readonly gitlab: InputMaybe<StringQueryOperatorInput>;
+  readonly ko_fi: InputMaybe<StringQueryOperatorInput>;
+  readonly linkedin: InputMaybe<StringQueryOperatorInput>;
+  readonly twitter: InputMaybe<StringQueryOperatorInput>;
+  readonly web: InputMaybe<MdxFrontmatterSocialWebFilterInput>;
+};
+
+type MdxFrontmatterSocialSortInput = {
+  readonly amazon: InputMaybe<SortOrderEnum>;
+  readonly github: InputMaybe<SortOrderEnum>;
+  readonly gitlab: InputMaybe<SortOrderEnum>;
+  readonly ko_fi: InputMaybe<SortOrderEnum>;
+  readonly linkedin: InputMaybe<SortOrderEnum>;
+  readonly twitter: InputMaybe<SortOrderEnum>;
+  readonly web: InputMaybe<MdxFrontmatterSocialWebSortInput>;
+};
+
+type MdxFrontmatterSocialWeb = {
+  readonly name: Maybe<Scalars['String']>;
+  readonly url: Maybe<Scalars['String']>;
+};
+
+type MdxFrontmatterSocialWebFieldSelector = {
+  readonly name: InputMaybe<FieldSelectorEnum>;
+  readonly url: InputMaybe<FieldSelectorEnum>;
+};
+
+type MdxFrontmatterSocialWebFilterInput = {
+  readonly name: InputMaybe<StringQueryOperatorInput>;
+  readonly url: InputMaybe<StringQueryOperatorInput>;
+};
+
+type MdxFrontmatterSocialWebSortInput = {
+  readonly name: InputMaybe<SortOrderEnum>;
+  readonly url: InputMaybe<SortOrderEnum>;
+};
+
 type MdxFrontmatterSortInput = {
+  readonly author: InputMaybe<SortOrderEnum>;
   readonly date: InputMaybe<SortOrderEnum>;
   readonly description: InputMaybe<SortOrderEnum>;
+  readonly first_name: InputMaybe<SortOrderEnum>;
   readonly hero_image: InputMaybe<FileSortInput>;
   readonly hero_image_alt: InputMaybe<SortOrderEnum>;
   readonly hero_image_credit: InputMaybe<SortOrderEnum>;
   readonly hero_image_credit_link: InputMaybe<SortOrderEnum>;
   readonly hero_image_link: InputMaybe<SortOrderEnum>;
+  readonly last_name: InputMaybe<SortOrderEnum>;
+  readonly nick_name: InputMaybe<SortOrderEnum>;
   readonly slug: InputMaybe<SortOrderEnum>;
+  readonly social: InputMaybe<MdxFrontmatterSocialSortInput>;
   readonly tags: InputMaybe<SortOrderEnum>;
   readonly title: InputMaybe<SortOrderEnum>;
 };
@@ -1491,11 +1949,14 @@ type MdxGroupConnection_sumArgs = {
 
 type MdxSortInput = {
   readonly body: InputMaybe<SortOrderEnum>;
+  readonly childAuthor: InputMaybe<AuthorSortInput>;
+  readonly childBlog: InputMaybe<BlogSortInput>;
   readonly children: InputMaybe<NodeSortInput>;
+  readonly childrenAuthor: InputMaybe<AuthorSortInput>;
+  readonly childrenBlog: InputMaybe<BlogSortInput>;
   readonly excerpt: InputMaybe<SortOrderEnum>;
   readonly fields: InputMaybe<MdxFieldsSortInput>;
   readonly frontmatter: InputMaybe<MdxFrontmatterSortInput>;
-  readonly gatsbyPath: InputMaybe<SortOrderEnum>;
   readonly id: InputMaybe<SortOrderEnum>;
   readonly internal: InputMaybe<InternalSortInput>;
   readonly parent: InputMaybe<NodeSortInput>;
@@ -1571,6 +2032,8 @@ type PotraceTurnPolicy =
   | 'white';
 
 type Query = {
+  readonly allAuthor: AuthorConnection;
+  readonly allBlog: BlogConnection;
   readonly allDirectory: DirectoryConnection;
   readonly allFile: FileConnection;
   readonly allImageSharp: ImageSharpConnection;
@@ -1580,6 +2043,8 @@ type Query = {
   readonly allSiteFunction: SiteFunctionConnection;
   readonly allSitePage: SitePageConnection;
   readonly allSitePlugin: SitePluginConnection;
+  readonly author: Maybe<Author>;
+  readonly blog: Maybe<Blog>;
   readonly directory: Maybe<Directory>;
   readonly file: Maybe<File>;
   readonly imageSharp: Maybe<ImageSharp>;
@@ -1589,6 +2054,22 @@ type Query = {
   readonly siteFunction: Maybe<SiteFunction>;
   readonly sitePage: Maybe<SitePage>;
   readonly sitePlugin: Maybe<SitePlugin>;
+};
+
+
+type Query_allAuthorArgs = {
+  filter: InputMaybe<AuthorFilterInput>;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<AuthorSortInput>>>;
+};
+
+
+type Query_allBlogArgs = {
+  filter: InputMaybe<BlogFilterInput>;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<BlogSortInput>>>;
 };
 
 
@@ -1661,6 +2142,38 @@ type Query_allSitePluginArgs = {
   limit: InputMaybe<Scalars['Int']>;
   skip: InputMaybe<Scalars['Int']>;
   sort: InputMaybe<ReadonlyArray<InputMaybe<SitePluginSortInput>>>;
+};
+
+
+type Query_authorArgs = {
+  articles: InputMaybe<BlogFilterListInput>;
+  children: InputMaybe<NodeFilterListInput>;
+  firstName: InputMaybe<StringQueryOperatorInput>;
+  gatsbyPath: InputMaybe<StringQueryOperatorInput>;
+  id: InputMaybe<StringQueryOperatorInput>;
+  internal: InputMaybe<InternalFilterInput>;
+  lastName: InputMaybe<StringQueryOperatorInput>;
+  nickName: InputMaybe<StringQueryOperatorInput>;
+  parent: InputMaybe<NodeFilterInput>;
+  slug: InputMaybe<StringQueryOperatorInput>;
+  social: InputMaybe<JSONQueryOperatorInput>;
+};
+
+
+type Query_blogArgs = {
+  author: InputMaybe<AuthorFilterInput>;
+  children: InputMaybe<NodeFilterListInput>;
+  date: InputMaybe<DateQueryOperatorInput>;
+  excerpt: InputMaybe<StringQueryOperatorInput>;
+  gatsbyPath: InputMaybe<StringQueryOperatorInput>;
+  heroImage: InputMaybe<HeroImageDataFilterInput>;
+  id: InputMaybe<StringQueryOperatorInput>;
+  internal: InputMaybe<InternalFilterInput>;
+  parent: InputMaybe<NodeFilterInput>;
+  readingTime: InputMaybe<BlogReadingTimeFilterInput>;
+  slug: InputMaybe<StringQueryOperatorInput>;
+  tags: InputMaybe<StringQueryOperatorInput>;
+  title: InputMaybe<StringQueryOperatorInput>;
 };
 
 
@@ -1764,11 +2277,14 @@ type Query_imageSharpArgs = {
 
 type Query_mdxArgs = {
   body: InputMaybe<StringQueryOperatorInput>;
+  childAuthor: InputMaybe<AuthorFilterInput>;
+  childBlog: InputMaybe<BlogFilterInput>;
   children: InputMaybe<NodeFilterListInput>;
+  childrenAuthor: InputMaybe<AuthorFilterListInput>;
+  childrenBlog: InputMaybe<BlogFilterListInput>;
   excerpt: InputMaybe<StringQueryOperatorInput>;
   fields: InputMaybe<MdxFieldsFilterInput>;
   frontmatter: InputMaybe<MdxFrontmatterFilterInput>;
-  gatsbyPath: InputMaybe<StringQueryOperatorInput>;
   id: InputMaybe<StringQueryOperatorInput>;
   internal: InputMaybe<InternalFilterInput>;
   parent: InputMaybe<NodeFilterInput>;
@@ -1780,14 +2296,12 @@ type Query_siteArgs = {
   buildTime: InputMaybe<DateQueryOperatorInput>;
   children: InputMaybe<NodeFilterListInput>;
   graphqlTypegen: InputMaybe<SiteGraphqlTypegenFilterInput>;
-  host: InputMaybe<StringQueryOperatorInput>;
   id: InputMaybe<StringQueryOperatorInput>;
   internal: InputMaybe<InternalFilterInput>;
   jsxRuntime: InputMaybe<StringQueryOperatorInput>;
   parent: InputMaybe<NodeFilterInput>;
   pathPrefix: InputMaybe<StringQueryOperatorInput>;
   polyfill: InputMaybe<BooleanQueryOperatorInput>;
-  port: InputMaybe<IntQueryOperatorInput>;
   siteMetadata: InputMaybe<SiteSiteMetadataFilterInput>;
   trailingSlash: InputMaybe<StringQueryOperatorInput>;
 };
@@ -1852,14 +2366,12 @@ type Site = Node & {
   readonly buildTime: Maybe<Scalars['Date']>;
   readonly children: ReadonlyArray<Node>;
   readonly graphqlTypegen: Maybe<SiteGraphqlTypegen>;
-  readonly host: Maybe<Scalars['String']>;
   readonly id: Scalars['ID'];
   readonly internal: Internal;
   readonly jsxRuntime: Maybe<Scalars['String']>;
   readonly parent: Maybe<Node>;
   readonly pathPrefix: Maybe<Scalars['String']>;
   readonly polyfill: Maybe<Scalars['Boolean']>;
-  readonly port: Maybe<Scalars['Int']>;
   readonly siteMetadata: SiteSiteMetadata;
   readonly trailingSlash: Maybe<Scalars['String']>;
 };
@@ -2047,14 +2559,12 @@ type SiteFieldSelector = {
   readonly buildTime: InputMaybe<FieldSelectorEnum>;
   readonly children: InputMaybe<NodeFieldSelector>;
   readonly graphqlTypegen: InputMaybe<SiteGraphqlTypegenFieldSelector>;
-  readonly host: InputMaybe<FieldSelectorEnum>;
   readonly id: InputMaybe<FieldSelectorEnum>;
   readonly internal: InputMaybe<InternalFieldSelector>;
   readonly jsxRuntime: InputMaybe<FieldSelectorEnum>;
   readonly parent: InputMaybe<NodeFieldSelector>;
   readonly pathPrefix: InputMaybe<FieldSelectorEnum>;
   readonly polyfill: InputMaybe<FieldSelectorEnum>;
-  readonly port: InputMaybe<FieldSelectorEnum>;
   readonly siteMetadata: InputMaybe<SiteSiteMetadataFieldSelector>;
   readonly trailingSlash: InputMaybe<FieldSelectorEnum>;
 };
@@ -2063,14 +2573,12 @@ type SiteFilterInput = {
   readonly buildTime: InputMaybe<DateQueryOperatorInput>;
   readonly children: InputMaybe<NodeFilterListInput>;
   readonly graphqlTypegen: InputMaybe<SiteGraphqlTypegenFilterInput>;
-  readonly host: InputMaybe<StringQueryOperatorInput>;
   readonly id: InputMaybe<StringQueryOperatorInput>;
   readonly internal: InputMaybe<InternalFilterInput>;
   readonly jsxRuntime: InputMaybe<StringQueryOperatorInput>;
   readonly parent: InputMaybe<NodeFilterInput>;
   readonly pathPrefix: InputMaybe<StringQueryOperatorInput>;
   readonly polyfill: InputMaybe<BooleanQueryOperatorInput>;
-  readonly port: InputMaybe<IntQueryOperatorInput>;
   readonly siteMetadata: InputMaybe<SiteSiteMetadataFilterInput>;
   readonly trailingSlash: InputMaybe<StringQueryOperatorInput>;
 };
@@ -2602,14 +3110,12 @@ type SiteSortInput = {
   readonly buildTime: InputMaybe<SortOrderEnum>;
   readonly children: InputMaybe<NodeSortInput>;
   readonly graphqlTypegen: InputMaybe<SiteGraphqlTypegenSortInput>;
-  readonly host: InputMaybe<SortOrderEnum>;
   readonly id: InputMaybe<SortOrderEnum>;
   readonly internal: InputMaybe<InternalSortInput>;
   readonly jsxRuntime: InputMaybe<SortOrderEnum>;
   readonly parent: InputMaybe<NodeSortInput>;
   readonly pathPrefix: InputMaybe<SortOrderEnum>;
   readonly polyfill: InputMaybe<SortOrderEnum>;
-  readonly port: InputMaybe<SortOrderEnum>;
   readonly siteMetadata: InputMaybe<SiteSiteMetadataSortInput>;
   readonly trailingSlash: InputMaybe<SortOrderEnum>;
 };
@@ -2640,17 +3146,24 @@ type WebPOptions = {
   readonly quality: InputMaybe<Scalars['Int']>;
 };
 
+type AuthorInfoByIdQueryVariables = Exact<{
+  id: InputMaybe<Scalars['String']>;
+}>;
+
+
+type AuthorInfoByIdQuery = { readonly author: { readonly firstName: string, readonly lastName: string, readonly nickName: string | null, readonly social: Record<string, unknown> | null, readonly articles: ReadonlyArray<{ readonly date: string, readonly excerpt: string | null, readonly slug: string, readonly tags: ReadonlyArray<string>, readonly title: string, readonly heroImage: { readonly alt: string, readonly image: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null }, readonly readingTime: { readonly text: string | null } | null } | null> | null } | null };
+
 type BlogPostByIdQueryVariables = Exact<{
   id: InputMaybe<Scalars['String']>;
 }>;
 
 
-type BlogPostByIdQuery = { readonly mdx: { readonly frontmatter: { readonly title: string, readonly date: string, readonly tags: ReadonlyArray<string>, readonly hero_image_alt: string, readonly hero_image_credit_link: string | null, readonly hero_image_credit: string | null, readonly hero_image_link: string, readonly hero_image: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null } } | null };
+type BlogPostByIdQuery = { readonly blog: { readonly tags: ReadonlyArray<string>, readonly date: string, readonly title: string, readonly author: { readonly slug: string, readonly firstName: string, readonly lastName: string } | null, readonly heroImage: { readonly link: string, readonly credit: string, readonly alt: string, readonly image: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null } } | null };
 
 type BlogPostsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type BlogPostsQuery = { readonly allMdx: { readonly nodes: ReadonlyArray<{ readonly id: string, readonly excerpt: string | null, readonly fields: { readonly readingTime: { readonly text: string | null } | null } | null, readonly frontmatter: { readonly date: string, readonly title: string, readonly slug: string, readonly tags: ReadonlyArray<string>, readonly hero_image_alt: string, readonly hero_image: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null } }> } };
+type BlogPostsQuery = { readonly allBlog: { readonly nodes: ReadonlyArray<{ readonly id: string, readonly date: string, readonly excerpt: string | null, readonly slug: string, readonly tags: ReadonlyArray<string>, readonly title: string, readonly heroImage: { readonly alt: string, readonly image: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null }, readonly readingTime: { readonly text: string | null } | null }> } };
 
 type FetchTitleQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -2683,7 +3196,7 @@ type GatsbyImageSharpFluid_withWebp_tracedSVGFragment = { readonly tracedSVG: st
 
 type GatsbyImageSharpFluidLimitPresentationSizeFragment = { readonly maxHeight: number, readonly maxWidth: number };
 
-type PreviewDataFragment = { readonly excerpt: string | null, readonly fields: { readonly readingTime: { readonly text: string | null } | null } | null, readonly frontmatter: { readonly date: string, readonly title: string, readonly slug: string, readonly tags: ReadonlyArray<string>, readonly hero_image_alt: string, readonly hero_image: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null } };
+type PreviewDataFragment = { readonly date: string, readonly excerpt: string | null, readonly slug: string, readonly tags: ReadonlyArray<string>, readonly title: string, readonly heroImage: { readonly alt: string, readonly image: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null }, readonly readingTime: { readonly text: string | null } | null };
 
 type SiteTitleQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -2700,7 +3213,7 @@ type TagInfoQueryVariables = Exact<{
 }>;
 
 
-type TagInfoQuery = { readonly allMdx: { readonly totalCount: number, readonly edges: ReadonlyArray<{ readonly node: { readonly id: string, readonly excerpt: string | null, readonly fields: { readonly readingTime: { readonly text: string | null } | null } | null, readonly frontmatter: { readonly date: string, readonly title: string, readonly slug: string, readonly tags: ReadonlyArray<string>, readonly hero_image_alt: string, readonly hero_image: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null } } }> } };
+type TagInfoQuery = { readonly allBlog: { readonly totalCount: number, readonly edges: ReadonlyArray<{ readonly node: { readonly id: string, readonly date: string, readonly excerpt: string | null, readonly slug: string, readonly tags: ReadonlyArray<string>, readonly title: string, readonly heroImage: { readonly alt: string, readonly image: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null }, readonly readingTime: { readonly text: string | null } | null } }> } };
 
 type TagListQueryVariables = Exact<{ [key: string]: never; }>;
 

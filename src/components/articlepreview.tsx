@@ -5,15 +5,15 @@ import { GatsbyImage, ImageDataLike, getImage } from "gatsby-plugin-image";
 
 import { Tag } from "../templates/tags";
 
-type BlogPostNode = Queries.PreviewDataFragment;
+export type BlogPostNode = Queries.PreviewDataFragment;
 interface PreviewProps {
   node: BlogPostNode;
 }
 
 export const Preview = ({ node }: PreviewProps) => {
-  const image = getImage(node.frontmatter.hero_image as ImageDataLike);
+  const image = getImage(node.heroImage.image as ImageDataLike);
 
-  const to = `/${node.frontmatter.date}-${node.frontmatter.slug}`;
+  const to = `/${node.date}-${node.slug}`;
 
   const teaser = image ? (
     <div className="w-[140px] p-[5px] shrink-0">
@@ -21,7 +21,7 @@ export const Preview = ({ node }: PreviewProps) => {
         <GatsbyImage
           imgClassName="rounded-md"
           image={image}
-          alt={node.frontmatter.hero_image_alt}
+          alt={node.heroImage.alt}
         />
       </Link>
     </div>
@@ -29,7 +29,7 @@ export const Preview = ({ node }: PreviewProps) => {
     <div className="w-[140px] p-[5px] shrink-0"></div>
   );
 
-  const tags = node.frontmatter.tags?.map((tag) =>
+  const tags = node.tags.map((tag) =>
     tag ? (
       <li key={`li-${tag}`}>
         <Tag key={tag} name={tag} />
@@ -38,8 +38,8 @@ export const Preview = ({ node }: PreviewProps) => {
   );
 
   const text =
-    node.fields && node.fields.readingTime && node.fields.readingTime.text
-      ? node.fields.readingTime.text
+    node.readingTime && node.readingTime.text
+      ? node.readingTime.text
       : undefined;
   const readingTime = text ? `; ${text}` : undefined;
 
@@ -48,10 +48,10 @@ export const Preview = ({ node }: PreviewProps) => {
       {teaser}
       <div className="grow-1 w-full">
         <h2 className="text-base sm:text-lg md:text-xl">
-          <Link to={to}>{node.frontmatter.title}</Link>
+          <Link to={to}>{node.title}</Link>
         </h2>
         <p className="text-xs md:text-sm">
-          Posted: {node.frontmatter.date}
+          Posted: {node.date}
           {readingTime}
         </p>
         <p className="hidden md:block md:text-sm">{node.excerpt}</p>
@@ -64,24 +64,22 @@ export const Preview = ({ node }: PreviewProps) => {
 };
 
 export const query = graphql`
-  fragment PreviewData on Mdx {
+  fragment PreviewData on Blog {
+    date
     excerpt
-    fields {
-      readingTime {
-        text
-      }
-    }
-    frontmatter {
-      date
-      title
-      slug
-      tags
-      hero_image_alt
-      hero_image {
+    slug
+    tags
+    title
+    heroImage {
+      alt
+      image {
         childImageSharp {
           gatsbyImageData(width: 200)
         }
       }
+    }
+    readingTime {
+      text
     }
   }
 `;

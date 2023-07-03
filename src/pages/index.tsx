@@ -6,12 +6,12 @@ import { ArticlePreview, Layout, Seo } from "~components";
 
 type BlogPageProps = PageProps<Queries.BlogPostsQuery>;
 
-type BlogPostNode = Queries.BlogPostsQuery["allMdx"]["nodes"][0];
+type BlogPostNode = Queries.BlogPostsQuery["allBlog"]["nodes"][0];
 
 const BlogPage = ({ data }: BlogPageProps) => {
   return (
     <Layout pageTitle="My Blog Posts">
-      {data.allMdx.nodes.map((node: BlogPostNode) => (
+      {data.allBlog.nodes.map((node: BlogPostNode) => (
         <ArticlePreview node={node} key={node.id} />
       ))}
     </Layout>
@@ -20,7 +20,7 @@ const BlogPage = ({ data }: BlogPageProps) => {
 
 export const query = graphql`
   query BlogPosts {
-    allMdx(sort: { frontmatter: { date: DESC } }) {
+    allBlog(sort: { date: DESC }) {
       nodes {
         id
         ...PreviewData
