@@ -1,4 +1,4 @@
-import { GatsbyNode, NodeInput } from "gatsby";
+import { GatsbyNode, Node, NodeInput } from "gatsby";
 
 import { IMdxNode } from "gatsby-plugin-mdx/dist/types";
 import { FileSystemNode } from "gatsby-source-filesystem";
@@ -90,4 +90,40 @@ export const onCreateNode: GatsbyNode<BlogParentNode>["onCreateNode"] = async ({
 
   createNode(blogNode);
   createParentChildLink({ parent: node, child: blogNode });
+};
+
+export const createResolvers: GatsbyNode["createResolvers"] = ({
+  createResolvers,
+}) => {
+  const resolvers = {
+    Blog: {
+      excerpt: {
+        type: "String",
+        resolve: async (
+          source: { parent: string },
+          _args: unknown,
+          context: {
+            nodeModel: {
+              getNodeById: (args: { id: string }) => Promise<Node>;
+              getFieldValue: (node: Node, field: string) => Promise<string>;
+            };
+            node: Node;
+          },
+          _info: unknown
+        ) => {
+          const node: Node = await context.nodeModel.getNodeById({
+            id: source.parent,
+          });
+
+          const excerpt: string = await context.nodeModel.getFieldValue(
+            node,
+            "excerpt"
+          );
+
+          return excerpt;
+        },
+      },
+    },
+  };
+  createResolvers(resolvers);
 };
