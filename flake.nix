@@ -47,7 +47,7 @@
 
         devShells.default = pkgs.mkShell {
           packages = builtins.attrValues {
-            inherit (pkgs) yarn nodejs yarn2nix;
+            inherit (pkgs) yarn nodejs_20 yarn2nix;
             inherit (pkgs.nodePackages) gatsby-cli;
             inherit (inputs.nobbz.packages.${system}) alejandra nil;
           };
