@@ -1363,12 +1363,7 @@
   dependencies:
     eslint-visitor-keys "^3.3.0"
 
-"@eslint-community/regexpp@^4.4.0":
-  version "4.8.0"
-  resolved "https://registry.yarnpkg.com/@eslint-community/regexpp/-/regexpp-4.8.0.tgz#11195513186f68d42fbf449f9a7136b2c0c92005"
-  integrity sha512-JylOEEzDiOryeUnFbQz+oViCXS0KsvR1mvHkoMiu5+UiBvy+RYX7tzlIIIEstF/gVa2tj9AQXk3dgnxv6KxhFg==
-
-"@eslint-community/regexpp@^4.6.1":
+"@eslint-community/regexpp@^4.4.0", "@eslint-community/regexpp@^4.6.1":
   version "4.8.0"
   resolved "https://registry.yarnpkg.com/@eslint-community/regexpp/-/regexpp-4.8.0.tgz#11195513186f68d42fbf449f9a7136b2c0c92005"
   integrity sha512-JylOEEzDiOryeUnFbQz+oViCXS0KsvR1mvHkoMiu5+UiBvy+RYX7tzlIIIEstF/gVa2tj9AQXk3dgnxv6KxhFg==
@@ -2741,14 +2736,14 @@
     "@types/node" "*"
 
 "@types/crypto-js@^4.1.1":
-  version "4.1.1"
-  resolved "https://registry.yarnpkg.com/@types/crypto-js/-/crypto-js-4.1.1.tgz#602859584cecc91894eb23a4892f38cfa927890d"
-  integrity sha512-BG7fQKZ689HIoc5h+6D2Dgq1fABRa0RbBWKBd9SP/MVRVXROflpm5fhwyATX5duFmbStzyzyycPB8qUYKDH3NA==
+  version "4.1.2"
+  resolved "https://registry.yarnpkg.com/@types/crypto-js/-/crypto-js-4.1.2.tgz#fb56b34f397d9ae2335611e416f15e7d65e276e6"
+  integrity sha512-t33RNmTu5ufG/sorROIafiCVJMx3jz95bXUMoPAZcUD14fxMXnuTzqzXZoxpR0tNx2xpw11Dlmem9vGCsrSOfA==
 
 "@types/css-modules-loader-core@^1.1.0":
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@types/css-modules-loader-core/-/css-modules-loader-core-1.1.0.tgz#67af15aa16603ac2ffc1d3a7f08547ac809c3005"
-  integrity sha512-LMbyf7THPqLCPHIXAj79v9Pa193MeOHgp1fBFRR6s6VvEVHUFIcM5bc/WttslOf+lao4TURNN1X1zfW5wr2CHQ==
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/@types/css-modules-loader-core/-/css-modules-loader-core-1.1.1.tgz#1e94899b3e48ed3640d467a70c02df638cfb3146"
+  integrity sha512-pBIl7dxnnavSRoVUa/rT11L6LKkhHsz459SoBQ8RmCjEZQrQVmJxqLYOf3d+dC9mD0mwpVTxDrWJZKKbVbjhvg==
   dependencies:
     postcss "7.x.x"
 
@@ -8852,13 +8847,6 @@ jsonfile@^6.0.1:
     object.values "^1.1.6"
 
 keyv@^4.0.0, keyv@^4.5.3:
-  version "4.5.3"
-  resolved "https://registry.yarnpkg.com/keyv/-/keyv-4.5.3.tgz#00873d2b046df737963157bd04f294ca818c9c25"
-  integrity sha512-QCiSav9WaX1PgETJ+SpNnx2PRRapJ/oRSXM4VO5OGYGSjrxbKPVFVhB3l2OCbLCk329N8qyAtsJjSjvVBWzEug==
-  dependencies:
-    json-buffer "3.0.1"
-
-keyv@^4.5.3:
   version "4.5.3"
   resolved "https://registry.yarnpkg.com/keyv/-/keyv-4.5.3.tgz#00873d2b046df737963157bd04f294ca818c9c25"
   integrity sha512-QCiSav9WaX1PgETJ+SpNnx2PRRapJ/oRSXM4VO5OGYGSjrxbKPVFVhB3l2OCbLCk329N8qyAtsJjSjvVBWzEug==
