@@ -3258,14 +3258,14 @@
   integrity sha512-s/FPdYRmZR8SjLWGMCuax7r3qCWQw9QKHzXVukAuuIJkXkDRwp+Pu5LMIVFi0Fxbav35WURicYr8u1QsoybnQw==
 
 "@types/seedrandom@^3.0.5":
-  version "3.0.5"
-  resolved "https://registry.yarnpkg.com/@types/seedrandom/-/seedrandom-3.0.5.tgz#31fb257427742a9cc33fcf0c25dacca92e8f45a1"
-  integrity sha512-kopEpYpFQvQdYsZkZVwht/0THHmTFFYXDaqV/lM45eweJ8kcGVDgZHs0RVTolSq55UPZNmjhKc9r7UvLu/mQQg==
+  version "3.0.7"
+  resolved "https://registry.yarnpkg.com/@types/seedrandom/-/seedrandom-3.0.7.tgz#679f6bc26bb59245662398a3770bcbf9d29c5af4"
+  integrity sha512-2kwVU6ijXQblfsC8uqhBxslJC2wJfgTE1hINNkj29TL37fc8Uli5Ew43xTv2tShH3FeoKv8jkH2WgeVLd5QWzA==
 
 "@types/semver@^7.3.12":
-  version "7.5.2"
-  resolved "https://registry.yarnpkg.com/@types/semver/-/semver-7.5.2.tgz#31f6eec1ed7ec23f4f05608d3a2d381df041f564"
-  integrity sha512-7aqorHYgdNO4DM36stTiGO3DvKoex9TQRwsJU6vMaFGyqpBA1MNZkz+PG3gaNUPpTAOYhT1WR7M1JyA3fbS9Cw==
+  version "7.5.3"
+  resolved "https://registry.yarnpkg.com/@types/semver/-/semver-7.5.3.tgz#9a726e116beb26c24f1ccd6850201e1246122e04"
+  integrity sha512-OxepLK9EuNEIPxWNME+C6WwbRAOOI2o2BaQEGzz5Lu2e4Z5eDnEo+/aVEDMIXywoJitJ7xWd641wrGLZdtwRyw==
 
 "@types/stack-utils@^2.0.0":
   version "2.0.1"
@@ -3288,14 +3288,14 @@
   integrity sha512-d0XxK3YTObnWVp6rZuev3c49+j4Lo8g4L1ZRm9z5L0xpoZycUPshHgczK5gsUMaZOstjVYYi09p5gYvUtfChYw==
 
 "@types/yargs-parser@*":
-  version "21.0.0"
-  resolved "https://registry.yarnpkg.com/@types/yargs-parser/-/yargs-parser-21.0.0.tgz#0c60e537fa790f5f9472ed2776c2b71ec117351b"
-  integrity sha512-iO9ZQHkZxHn4mSakYV0vFHAVDyEOIJQrV2uZ06HxEPcx+mt8swXoZHIbaaJ2crJYFfErySgktuTZ3BeLz+XmFA==
+  version "21.0.1"
+  resolved "https://registry.yarnpkg.com/@types/yargs-parser/-/yargs-parser-21.0.1.tgz#07773d7160494d56aa882d7531aac7319ea67c3b"
+  integrity sha512-axdPBuLuEJt0c4yI5OZssC19K2Mq1uKdrfZBzuxLvaztgqUtFYZUNw7lETExPYJR9jdEoIg4mb7RQKRQzOkeGQ==
 
 "@types/yargs@^17.0.8":
-  version "17.0.24"
-  resolved "https://registry.yarnpkg.com/@types/yargs/-/yargs-17.0.24.tgz#b3ef8d50ad4aa6aecf6ddc97c580a00f5aa11902"
-  integrity sha512-6i0aC7jV6QzQB8ne1joVZ0eSFIstHsCrobmOtghM11yGlH0j43FKL2UhWdELkyps0zuf7qVTUVCCR+tgSlyLLw==
+  version "17.0.28"
+  resolved "https://registry.yarnpkg.com/@types/yargs/-/yargs-17.0.28.tgz#d106e4301fbacde3d1796ab27374dd16588ec851"
+  integrity sha512-N3e3fkS86hNhtk6BEnc0rj3zcehaxx8QWhCROJkqpl5Zaoi7nAic3jH8q94jVD3zu5LGk+PUB6KAiDmimYOEQw==
   dependencies:
     "@types/yargs-parser" "*"
 
