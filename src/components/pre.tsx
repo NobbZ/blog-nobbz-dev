@@ -54,8 +54,12 @@ const childFun = ({
     <pre className={className} style={style}>
       {tokens.map((line: Token[], i: number) =>
         line.length === 1 && line[0].empty === true ? null : (
+          // TODO: Remove this ignore
+          // eslint-disable-next-line react/jsx-key
           <div {...getLineProps({ line, key: i })}>
             {line.map((token: Token, key: number) => {
+              // TODO: Remove this ignore
+              // eslint-disable-next-line react/jsx-key
               return <span {...getTokenProps({ token, key })} />;
             })}
           </div>

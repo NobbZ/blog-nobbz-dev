@@ -1,3 +1,5 @@
+// TODO: remove `{className?: string}` from all components when https://github.com/jsx-eslint/eslint-plugin-react/issues/3284 got fixed
+
 import * as React from "react";
 import { MDXProvider } from "@mdx-js/react";
 import type { Components, Props as MDXProviderProps } from "@mdx-js/react/lib";
@@ -15,7 +17,9 @@ export const combineClasses = (...classes: (string | undefined)[]) => {
   return classNamesList.length > 0 ? classNamesList.join(" ") : undefined;
 };
 
-const P = (props: React.HTMLAttributes<HTMLParagraphElement>) => {
+const P = (
+  props: React.HTMLAttributes<HTMLParagraphElement> & { className?: string }
+) => {
   const { className: classes, ...newProps } = props;
   const className = combineClasses("lg:m-1.5", "m-1", classes);
 
@@ -26,7 +30,7 @@ const H2 = ({
   className: classes,
   children,
   ...props
-}: React.HTMLAttributes<HTMLHeadingElement>) => {
+}: React.HTMLAttributes<HTMLHeadingElement> & { className?: string }) => {
   const className = combineClasses(
     "w-full",
     "font-bold",
@@ -48,7 +52,9 @@ const H2 = ({
   );
 };
 
-const Code = (props: React.HTMLAttributes<HTMLElement>) => {
+const Code = (
+  props: React.HTMLAttributes<HTMLElement> & { className?: string }
+) => {
   const { className: classes, ...newProps } = props;
   const className = combineClasses(
     "bg-[rgb(220,220,220)]",
@@ -64,7 +70,7 @@ const A = ({
   className: classes,
   children,
   ...props
-}: React.HTMLAttributes<HTMLAnchorElement>) => {
+}: React.HTMLAttributes<HTMLAnchorElement> & { className?: string }) => {
   const className = combineClasses("underline", "text-blue-700", classes);
 
   return (
@@ -74,7 +80,9 @@ const A = ({
   );
 };
 
-const BlockQuote = (props: React.HTMLAttributes<HTMLElement>) => {
+const BlockQuote = (
+  props: React.HTMLAttributes<HTMLElement> & { className?: string }
+) => {
   const { className: classes, ...newProps } = props;
 
   const className = combineClasses(
@@ -97,28 +105,36 @@ const BlockQuote = (props: React.HTMLAttributes<HTMLElement>) => {
   return <blockquote className={className} {...newProps} />;
 };
 
-const Ol = (props: React.HTMLAttributes<HTMLElement>) => {
+const Ol = (
+  props: React.HTMLAttributes<HTMLElement> & { className?: string }
+) => {
   const { className: classes, ...newProps } = props;
   const className = combineClasses("list-decimal", "ps-10", classes); // TODO: add more classes
 
   return <ol className={className} {...newProps} />;
 };
 
-const Ul = (props: React.HTMLAttributes<HTMLElement>) => {
+const Ul = (
+  props: React.HTMLAttributes<HTMLElement> & { className?: string }
+) => {
   const { className: classes, ...newProps } = props;
   const className = combineClasses("list-decimal", "ps-10", classes); // TODO: add more classes
 
   return <ul className={className} {...newProps} />;
 };
 
-const Li = (props: React.HTMLAttributes<HTMLElement>) => {
+const Li = (
+  props: React.HTMLAttributes<HTMLElement> & { className?: string }
+) => {
   const { className: classes, ...newProps } = props;
   const className = combineClasses(classes); // TODO: add more classes
 
   return <li className={className} {...newProps} />;
 };
 
-const Em = (props: React.HTMLAttributes<HTMLElement>) => {
+const Em = (
+  props: React.HTMLAttributes<HTMLElement> & { className?: string }
+) => {
   const { className: classes, ...newProps } = props;
   const className = combineClasses(classes); // TODO: add more classes
 

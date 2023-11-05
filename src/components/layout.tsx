@@ -6,7 +6,7 @@ type LayoutProps = React.PropsWithChildren<{
   className?: string | string[];
 }>;
 
-export const Layout = ({ className, pageTitle, children }: LayoutProps) => {
+export const Layout = ({ pageTitle, children }: LayoutProps) => {
   const data = useStaticQuery(graphql`
     query FetchTitle {
       site {

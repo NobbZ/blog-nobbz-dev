@@ -91,7 +91,9 @@ const TagCloud: React.FC<{ data: Queries.TagIndexQuery }> = ({ data }) => {
   );
 };
 
+// eslint-disable-next-line react/prop-types
 const TagIndex: TagIndexComponent = ({ data }) => {
+  // eslint-disable-next-line react/prop-types
   const count = data.allMdx.group.length;
 
   return (
