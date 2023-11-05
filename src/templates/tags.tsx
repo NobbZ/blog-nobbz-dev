@@ -25,6 +25,7 @@ interface TagProps extends React.HTMLAttributes<HTMLSpanElement> {
 type TagComponent = React.FunctionComponent<TagProps>;
 
 // TODO: Move this to a component file
+// eslint-disable-next-line react/prop-types
 export const Tag: TagComponent = ({ name, ...props }) => {
   const color = `#${sha256(name).toString(Base16).slice(0, 6)}`;
   const colorWithAlpha = `${color}80`;
@@ -36,10 +37,12 @@ export const Tag: TagComponent = ({ name, ...props }) => {
     borderStyle: "solid",
   };
 
+  // eslint-disable-next-line react/prop-types
   const mergedStyle = R.mergeLeft(style, props.style || {});
 
   return (
     <span
+      // eslint-disable-next-line react/prop-types
       className={combineClasses("rounded-md", props.className)}
       style={mergedStyle}
       {...props}

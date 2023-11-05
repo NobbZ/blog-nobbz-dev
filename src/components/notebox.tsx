@@ -4,7 +4,7 @@ import { combineClasses } from "./mdxwrapper";
 
 type NoteBoxProps = React.PropsWithChildren<
   React.HTMLAttributes<HTMLDivElement>
->;
+> & { className?: string };
 
 export const NoteBox = ({
   children,
