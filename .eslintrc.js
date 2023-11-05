@@ -4,7 +4,7 @@ module.exports = {
     browser: true,
     es2021: true,
   },
-  extends: [`react-app`],
+  extends: ["plugin:react/recommended"],
   parser: "@typescript-eslint/parser",
   parserOptions: {
     ecmaVersion: "latest",
@@ -15,6 +15,11 @@ module.exports = {
   rules: {
     // "react/jsx-filename-extension": [1, { extensions: [".tsx", ".ts"] }],
   },
+  settings: {
+    react: {
+      version: "detect",
+    },
+  },
   overrides: [
     {
       files: ["*.ts", "*.tsx"],
@@ -22,7 +27,7 @@ module.exports = {
         "plugin:@typescript-eslint/eslint-recommended",
         "plugin:@typescript-eslint/recommended",
         "plugin:prettier/recommended",
-        `react-app`,
+        "plugin:react/recommended",
       ],
       parser: "@typescript-eslint/parser",
       plugins: ["@typescript-eslint"],
