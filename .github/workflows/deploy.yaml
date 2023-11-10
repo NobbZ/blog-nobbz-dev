@@ -15,7 +15,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with: { token: "${{ secrets.GITHUB_TOKEN }}" }
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
           node-version-file: ".tool-versions"
           cache: "yarn"
@@ -37,7 +37,7 @@ jobs:
       #       access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
       #       experimental-features = nix-command flakes
       # - run: nix build .#blog
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
           node-version-file: ".tool-versions"
           cache: "yarn"
