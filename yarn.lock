@@ -11309,9 +11309,9 @@ readdirp@~3.6.0:
     picomatch "^2.2.1"
 
 reading-time-estimator@^1.8.1:
-  version "1.9.0"
-  resolved "https://registry.yarnpkg.com/reading-time-estimator/-/reading-time-estimator-1.9.0.tgz#d9cc403618da5f7adc7883989b51fe30a98ffc4f"
-  integrity sha512-fVuTlAfcYXE9A4KrTOq0Ao4vn9vJxYVFpATjS6KFA5xCK5RTmq6q74ICrO7ykF3Mg2XTgL9mBrwADgXQgEolIw==
+  version "1.9.2"
+  resolved "https://registry.yarnpkg.com/reading-time-estimator/-/reading-time-estimator-1.9.2.tgz#7bc6b614a1caa8b532a3211a345ad2d1347e0529"
+  integrity sha512-wlukUwso5TTp5w/SNSMJ7X94/nKTelhhn3tpQt9TqJ6lzF38t+hdy6osnqIG8CqJ2ifInXNmYQIGD4z0PYwETg==
 
 recursive-readdir@^2.2.2:
   version "2.2.3"
