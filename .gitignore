@@ -1,9 +1,10 @@
 # Build output
+/public
 
 # dependencies
 
 # logs
 
 # environment variables
-.env
-.env.production
+/.env
+/.env.production
