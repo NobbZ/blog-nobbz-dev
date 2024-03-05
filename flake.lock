@@ -138,7 +138,6 @@
         "owner": "hercules-ci",
         "repo": "flake-parts",
         "rev": "f7b3c975cf067e56e7cda6cb098ebe3fb4d74ca2",
-        "treeHash": "716c92c247cf33e4bbf3d4405f2e6b1205f1442b",
         "type": "github"
       },
       "original": {
@@ -372,7 +371,6 @@
         "owner": "numtide",
         "repo": "nix-filter",
         "rev": "3449dc925982ad46246cfc36469baf66e1b64f17",
-        "treeHash": "8f252416e27da8c7c4cb2d8e72fe6ffc79d7b496",
         "type": "github"
       },
       "original": {
@@ -407,7 +405,6 @@
         "owner": "nixos",
         "repo": "nixpkgs",
         "rev": "311a4be96d940a0c673e88bd5bc83ea4f005cc02",
-        "treeHash": "97534978cd27620a87180562c830ffe38fad5213",
         "type": "github"
       },
       "original": {
@@ -679,7 +676,6 @@
         "owner": "nobbz",
         "repo": "nixos-config",
         "rev": "91ec68ef40daf5fe8f373d17944c289ebc5fcba5",
-        "treeHash": "d4e5b250069003da6306abab9058f9a016c45843",
         "type": "github"
       },
       "original": {
