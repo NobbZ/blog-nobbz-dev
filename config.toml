@@ -1,11 +1,15 @@
+title = "NobbZ' Blog"
+
 # The URL the site will be built for
 base_url = "https://blog.nobbz.dev"
 
 # Whether to automatically compile all Sass files in the sass directory
-compile_sass = true
+compile_sass = false
 
 # Whether to build a search index to be used later on by a JavaScript library
 build_search_index = true
+
+taxonomies = [{ name = "tags" }]
 
 [markdown]
 # Whether to do syntax highlighting
@@ -14,3 +18,6 @@ highlight_code = true
 
 [extra]
 # Put all your custom variables here
+
+[slugify]
+paths_keep_dates = true

@@ -24,7 +24,7 @@
 
         devShells.default = mkMiniShell {
           packages = builtins.attrValues {
-            inherit (pkgs) zola alejandra nil;
+            inherit (pkgs) zola alejandra nil yarn;
           };
         };
       };

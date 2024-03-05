@@ -3,15 +3,31 @@
 
 <head>
   <meta charset="utf-8">
-  <title>MyBlog</title>
+  <title>{%block title%}{%endblock%}{% if page.title %}{{page.title}} | {% endif %}{{config.title}}</title>
+  <link rel="stylesheet" href="{{config.base_url}}/styles/styles.css">
 </head>
 
-<body>
-  <section class="section">
-    <div class="container">
-      {% block content %} {% endblock %}
+<body class="bg-slate-700 text-slate-300">
+  <div class="bg-slate-800 mx-auto max-w-screen-lg">
+    <header class="sticky top-0 z-50">
+      <h1 class="text-4xl">{{config.title}}</h1>
+    </header>
+    <div class="grid grid-cols-4">
+      <nav class="col-span-1">
+        <ul>
+          <li class="text-center m-2 border-2 border-slate-950 bg-slate-900 hover:bg-yellow-900"><a href="{{get_url(path="")}}">Home</a></li>
+          <li class="text-center m-2 border-2 border-slate-950 bg-slate-900 hover:bg-yellow-900"><a href="{{get_url(path="@/posts/_index.md")}}">Blog</a></li>
+          <li class="text-center m-2 border-2 border-slate-950 bg-slate-900 hover:bg-yellow-900"><a href="{{get_url(path="@/authors/_index.md")}}">Authors</a></li>
+          <li class="text-center m-2 border-2 border-slate-950 bg-slate-900 hover:bg-yellow-900"><a href="{{get_url(path="@/imprint.md")}}">Imprint</a></li>
+        </ul>
+      </nav>
+      <section class="col-span-3">
+        {% block content %} {% endblock %}
+      </section>
+
     </div>
-  </section>
+    <pre>{{ __tera_context }}</pre>
+  </div>
 </body>
 
 </html>

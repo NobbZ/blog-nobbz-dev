@@ -1,7 +1,9 @@
 # Build output
 /public
+/static/styles/styles.css
 
 # dependencies
+/node_modules
 
 # logs
 
