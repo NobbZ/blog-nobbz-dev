@@ -8,35 +8,52 @@ in {
     ...
   }: {
     packages.blog = let
-      vendored = pkgs.runCommand "deno-deps" { hash = pkgs.lib.fakeHash; } '' 
+      vendorArgs = {
+        outputHash = "sha256-63K/aEX+f1xinzbBYFgo9dwQdAGP09NfyCzEn9/+oJo="; 
+        outputHashMode = "recursive";
+      };
+      vendored = pkgs.runCommand "deno-deps" vendorArgs ''
         export DENO_DIR=$out/_vendor
         mkdir -p $DENO_DIR
-        ${pkgs.deno}/bin/deno cache ${../deno.lock}
-        cp ${../deno.json} ${../deno.lock} $out
+        cp ${../deno.lock} deno.lock
+        cp ${../deno.json} deno.json
+        cp ${../_config.ts} _config.ts
+        ${pkgs.deno}/bin/deno cache --lock deno.lock deno.json
+        ${pkgs.deno}/bin/deno cache --lock deno.lock https://deno.land/x/lume/cli.ts
+        ${pkgs.deno}/bin/deno cache --lock deno.lock _config.ts
+        cp deno.json deno.lock $out
       '';
     in
       pkgs.stdenv.mkDerivation {
-        name = "blog-nobbz-dev";
+        pname = "blog-nobbz-dev";
         version = "0-unstable-${inputs.self.lastModifiedDate}-${inputs.self.rev or inputs.self.dirtyRev or "unknown"}";
 
         src = filter {
           root = ./..;
           include = [
             (inDirectory "src")
+            (matchExt "ts")
             ../deno.json
             ../deno.lock
           ];
         };
 
+        nativeBuildInputs = [
+          pkgs.deno
+          pkgs.gawk
+        ];
+
         configurePhase = ''
           runHook preConfigure
 
-          if diff <(sha256 ${vendored}/deno.lock) <(sha256 ${../deno.lock}) then
+          if ! diff <(sha256sum ${vendored}/deno.lock | awk '{print $1}') <(sha256sum ${../deno.lock} | awk '{print $1}'); then
             echo "mismatch in lockfiles, please update the deno hash"
-            exit 1;
+            exit 1
           fi
 
-          export DENO_DIR=${vendored}/_vendor
+          export DENO_DIR=$(pwd)/_vendor
+          mkdir -p $DENO_DIR
+          cp -r ${vendored}/_vendor/* _vendor
 
           runHook postConfigure
         '';
@@ -47,6 +64,15 @@ in {
           deno task build
 
           runHook postBuild
+        '';
+
+        installPhase = ''
+          runHook preInstall
+
+          mkdir -p $out
+          cp -r _site/* $out
+
+          runHook postInstall
         '';
       };
   };
