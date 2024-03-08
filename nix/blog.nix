@@ -8,50 +8,46 @@ in {
     ...
   }: {
     packages.blog = let
-      nodeHeaders = builtins.fetchTarball {
-        name = "node-headers-${pkgs.nodejs.version}";
-        url = "https://nodejs.org/download/release/v${pkgs.nodejs.version}/node-v${pkgs.nodejs.version}-headers.tar.gz";
-        sha256 = "sha256:02n3z0116lmprc2960r640v5w9lnngpx3rpz65lmnzymrhxc0qv9";
-      };
+      vendored = pkgs.runCommand "deno-deps" { hash = pkgs.lib.fakeHash; } '' 
+        export DENO_DIR=$out/_vendor
+        mkdir -p $DENO_DIR
+        ${pkgs.deno}/bin/deno cache ${../deno.lock}
+        cp ${../deno.json} ${../deno.lock} $out
+      '';
     in
-      pkgs.mkYarnPackage {
-        name = "blog";
+      pkgs.stdenv.mkDerivation {
+        name = "blog-nobbz-dev";
+        version = "0-unstable-${inputs.self.lastModifiedDate}-${inputs.self.rev or inputs.self.dirtyRev or "unknown"}";
+
         src = filter {
           root = ./..;
           include = [
             (inDirectory "src")
-            # (inDirectory "blog")
-            (matchExt "js")
-            (matchExt "cjs")
-            (matchExt "mjs")
-            (matchExt "json")
-            (matchExt "ts")
-            ../package.json
-            ../yarn.lock
-            ../yarn.nix
+            ../deno.json
+            ../deno.lock
           ];
         };
-        yarnLock = ../yarn.lock;
-        packageJSON = ../package.json;
-        yarnNix = ../yarn.nix;
 
-        CI = "true";
+        configurePhase = ''
+          runHook preConfigure
 
-        pkgConfig = {
-          sharp = {
-            nativeBuildInputs = builtins.attrValues {
-              inherit (pkgs.nodePackages) node-gyp;
-              inherit (pkgs) python3 pkg-config;
-            };
-            buildInputs = [pkgs.vips.dev];
-            postInstall = "node-gyp --node-dir=${nodeHeaders} rebuild";
-          };
-        };
+          if diff <(sha256 ${vendored}/deno.lock) <(sha256 ${../deno.lock}) then
+            echo "mismatch in lockfiles, please update the deno hash"
+            exit 1;
+          fi
 
-        postConfigure = "export HOME=$(mktemp -d)";
-        buildPhase = "yarn --offline build";
-        installPhase = "mv -v deps/blog/public \${out}";
-        distPhase = "true";
+          export DENO_DIR=${vendored}/_vendor
+
+          runHook postConfigure
+        '';
+
+        buildPhase = ''
+          runHook preBuild
+
+          deno task build
+
+          runHook postBuild
+        '';
       };
   };
 }
