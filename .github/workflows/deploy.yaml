@@ -14,12 +14,13 @@ jobs:
           extra_nix_config: |
             access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
             experimental-features = nix-command flakes
-      - run: nix build .#blog
+      # - run: nix build .#blog
+      - run: nix develop . -c deno task build
       - uses: cloudflare/pages-action@1
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           projectName: blog-nobbz-dev
-          directory: ./result
-          # directory: ./public
+          # directory: ./result
+          directory: ./_site
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
