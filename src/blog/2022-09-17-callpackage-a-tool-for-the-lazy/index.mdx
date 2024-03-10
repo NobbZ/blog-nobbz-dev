@@ -1,6 +1,5 @@
 ---
 title: "<tt>callPackage</tt>, a tool for the lazy"
-date: "2022-09-17"
 slug: callpackage-a-tool-for-the-lazy
 description: "How to make the most out of `callPackage`"
 hero_image: ./lazy.jpg
@@ -15,9 +14,7 @@ tags:
   - nixpkgs
 ---
 
-import { NoteBox } from "~components";
-
-<NoteBox>
+```notebox
   This post has been released in the [summer of nix blog](https://summer.nixos.org/blog/callpackage-a-tool-for-the-lazy/)
   on 2022-09-08. There the article has gone through thorough reviews and a lot of
   editorial changes such that we decided to release it with the reviewers mentioned
@@ -25,8 +22,7 @@ import { NoteBox } from "~components";
 
 This article is the original version of that article with only minor changes,
 mostly typofixes.
-
-</NoteBox>
+```
 
 In [`nixpkgs`](https://github.com/nixos/nixpkgs), there is a massive use of the
 `callPackage` function, which provides us with a lot of benefits.
@@ -37,11 +33,11 @@ Though before even discussing the benefits, lets see how it actually gets used.
 
 Given are these 2 files `hello.nix` and `default.nix`:
 
-<NoteBox>
+```notebox
   Usually I would prefer the usage of nix flakes, though that would introduce a
   lot of boilerplate in the examples for no reason, therefore I will use diamond
   paths and `import` for simplicity.
-</NoteBox>
+```
 
 ```nix data-filename="default.nix"
 let pkgs = import <nixpkgs> {}; in
@@ -145,10 +141,10 @@ You can actually create your own version of `callPackage`, which comes in quite
 handy when you have large sets where the attributes to be built depend on each
 other.
 
-<NoteBox>
+```notebox
   In the next examples I will not implement or show the "called" files, as I
   think they are not necessary to understand the point I want to make.
-</NoteBox>
+```
 
 Consider the following initial version:
 

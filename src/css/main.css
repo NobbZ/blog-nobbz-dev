@@ -13,7 +13,7 @@ body {
   color: var(--text-color);
 }
 
-article {
+#main {
   h1 {
     @apply text-4xl;
     @apply font-extrabold;

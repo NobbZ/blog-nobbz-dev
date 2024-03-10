@@ -1,6 +1,5 @@
 ---
 title: "Getting inputs to modules in a nix-flake"
-date: "2022-12-12"
 slug: getting-inputs-to-modules-in-a-flake
 description: |
   Accessing a flakes input from another file is a lot less easy as accessing a
@@ -16,8 +15,6 @@ tags:
   - nix
   - flake
 ---
-
-import { NoteBox } from "~components";
 
 There is a frequently recuring scenario in the various community chats and
 forums, which at the end boils down to the question "How to get this input into
@@ -83,10 +80,10 @@ transformation between this and the other variant as an exercise to the reader.
 1. Pass all inputs as a single set
 2. Pass all inputs individually
 
-<NoteBox>
+```notebox
   For home-manager it is done the same way, though the argument name is
   `extraSpecialArgs`.
-</NoteBox>
+```
 
 ```nix data-filename="flake.nix"
 {
@@ -119,10 +116,10 @@ transformation between this and the other variant as an exercise to the reader.
 Similar to the previous technique, this adds the inputs to the arguments passed
 into the module, and the same 2 variants exists.
 
-<NoteBox>
+```notebox
   You can't use modules from this in an `imports` list, that would produce an
   infinite recursion error.
-</NoteBox>
+```
 
 ```nix data-filename="flake.nix"
 {
