@@ -13,6 +13,7 @@
       "npm:postcss-import@16.0.1": "npm:postcss-import@16.0.1_postcss@8.4.35",
       "npm:postcss-nesting@12.0.4": "npm:postcss-nesting@12.0.4_postcss@8.4.35_postcss-selector-parser@6.0.15",
       "npm:postcss@8.4.35": "npm:postcss@8.4.35",
+      "npm:preact": "npm:preact@10.19.6",
       "npm:preact-render-to-string@6.4.0": "npm:preact-render-to-string@6.4.0_preact@10.19.6",
       "npm:preact@10.19.6": "npm:preact@10.19.6",
       "npm:remark-gfm@4.0.0": "npm:remark-gfm@4.0.0",

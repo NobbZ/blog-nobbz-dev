@@ -5,7 +5,9 @@
     "serve": "deno task lume -s"
   },
   "compilerOptions": {
-    "types": ["lume/types.ts"]
+    "types": ["lume/types.ts"],
+    "jsx": "react-jsx",
+    "jsxImportSource": "npm:preact"
   },
   "imports": {
     "lume/": "https://deno.land/x/lume@v2.1.1/"
