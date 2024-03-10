@@ -32,6 +32,8 @@ in {
           root = ./..;
           include = [
             (inDirectory "src")
+            (inDirectory "vendor")
+            (inDirectory "node_modules")
             (matchExt "ts")
             ../deno.json
             ../deno.lock
@@ -43,25 +45,27 @@ in {
           pkgs.gawk
         ];
 
-        configurePhase = ''
-          runHook preConfigure
+        # configurePhase = ''
+        #   runHook preConfigure
 
-          if ! diff <(sha256sum ${vendored}/deno.lock | awk '{print $1}') <(sha256sum ${../deno.lock} | awk '{print $1}'); then
-            echo "mismatch in lockfiles, please update the deno hash"
-            exit 1
-          fi
+        #   if ! diff <(sha256sum ${vendored}/deno.lock | awk '{print $1}') <(sha256sum ${../deno.lock} | awk '{print $1}'); then
+        #     echo "mismatch in lockfiles, please update the deno hash"
+        #     exit 1
+        #   fi
 
-          export DENO_DIR=$(pwd)/_vendor
-          mkdir -p $DENO_DIR
-          cp -r ${vendored}/_vendor/* _vendor
+        #   export DENO_DIR=$(pwd)/_vendor
+        #   mkdir -p $DENO_DIR
+        #   cp -r ${vendored}/_vendor/* _vendor
 
-          runHook postConfigure
-        '';
+        #   runHook postConfigure
+        # '';
 
         buildPhase = ''
           runHook preBuild
 
-          deno task build
+          ls -l node_modules
+          # deno task build
+          echo "import 'lume/cli.ts'" | deno run --no-remote -A -
 
           runHook postBuild
         '';
