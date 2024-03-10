@@ -9,7 +9,7 @@ in {
   }: {
     packages.blog = let
       vendorArgs = {
-        outputHash = "sha256-63K/aEX+f1xinzbBYFgo9dwQdAGP09NfyCzEn9/+oJo="; 
+        outputHash = "sha256-T1I8LjeIWAkx+2Z/KbXfxrc/KkqSDRX2CPPy0TwCB1Q="; 
         outputHashMode = "recursive";
       };
       vendored = pkgs.runCommand "deno-deps" vendorArgs ''
