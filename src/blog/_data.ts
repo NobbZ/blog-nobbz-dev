@@ -1,6 +1,9 @@
 import { format } from "lume/deps/date.ts";
 
-export const url = (page: Lume.Data) => {
+export const layout = "layouts/blog.vto";
+export const type = "blog";
+
+export const url = (page: Lume.Data): string => {
   const date: string = format(page.data.date, "yyyy-MM-dd");
   const url = `/blog/${date}-${page.data.slug}/`;
 
