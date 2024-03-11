@@ -19,7 +19,7 @@ export default function* ({ search, paginate }: Lume.Data) {
 }
 
 function url(n: number) {
-  return n === 1 ? "/blog/" : `/blog/${n}`;
+  return n === 1 ? "/blog/" : `/blog/${n}/`;
 }
 
 function renderPage(data: PaginateResult<Lume.Data>) {
