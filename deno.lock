@@ -5,6 +5,7 @@
       "npm:@js-temporal/polyfill@0.4.4": "npm:@js-temporal/polyfill@0.4.4",
       "npm:@mdx-js/mdx@3.0.1": "npm:@mdx-js/mdx@3.0.1",
       "npm:autoprefixer@10.4.18": "npm:autoprefixer@10.4.18_postcss@8.4.35",
+      "npm:date-fns@3.3.1": "npm:date-fns@3.3.1",
       "npm:highlight.js@11.9.0": "npm:highlight.js@11.9.0",
       "npm:markdown-it-attrs@4.1.6": "npm:markdown-it-attrs@4.1.6_markdown-it@14.0.0",
       "npm:markdown-it-deflist@3.0.0": "npm:markdown-it-deflist@3.0.0",
@@ -597,6 +598,10 @@
       },
       "cssesc@3.0.0": {
         "integrity": "sha512-/Tb/JcjK111nNScGob5MNtsntNM1aCNUDipB/TkwZFhyDrrE47SOx/18wF2bbjgc3ZzCSKW1T5nt5EbFoAz/Vg==",
+        "dependencies": {}
+      },
+      "date-fns@3.3.1": {
+        "integrity": "sha512-y8e109LYGgoQDveiEBD3DYXKba1jWf5BA8YU1FL5Tvm0BTdEfy54WLCwnuYWZNnzzvALy/QQ4Hov+Q9RVRv+Zw==",
         "dependencies": {}
       },
       "debug@4.3.4": {
@@ -2713,6 +2718,7 @@
     "https://deno.land/x/lume@v2.1.1/deps/cliffy.ts": "faff0c2ca187ec9fd1ad8660141f85b9d05b5c36bab25b40eb5038c02590a310",
     "https://deno.land/x/lume@v2.1.1/deps/colors.ts": "f338efe7e3899295465fafa8e670df9ba79e7795861a897da48fc0b3dce6b801",
     "https://deno.land/x/lume@v2.1.1/deps/crypto.ts": "48db483bdc983f98b0849dfce9fbe0a6562e438b67bcb689482a822aa1a710f2",
+    "https://deno.land/x/lume@v2.1.1/deps/date.ts": "2f6cf7ad15d415323439d5b13c129ffe484cf1c598e50c81e0c37c5f884759be",
     "https://deno.land/x/lume@v2.1.1/deps/dom.ts": "3dd675f5ecb9690d236184852081a68c0308f6f475a3b324e06e34996a201744",
     "https://deno.land/x/lume@v2.1.1/deps/front_matter.ts": "959767b2825f172df4b3a9a1716c31b0c19db3ef5c9dd184ef595a70c8513048",
     "https://deno.land/x/lume@v2.1.1/deps/fs.ts": "8f2fa8faf29f8c4c151521deadd87156b8bc9cccb22828ae9d9b2d77113db6b5",
