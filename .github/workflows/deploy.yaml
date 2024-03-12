@@ -9,11 +9,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with: { token: "${{ secrets.GITHUB_TOKEN }}" }
-      - uses: cachix/install-nix-action@v20
-        with:
-          extra_nix_config: |
-            access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
-            experimental-features = nix-command flakes
+      - uses: DeterminateSystems/nix-installer-action@v9
+        with: { github-token: "${{ github.token }}" }
       # - run: nix build .#blog
       - run: nix develop . -c deno task build
       - uses: cloudflare/pages-action@1
