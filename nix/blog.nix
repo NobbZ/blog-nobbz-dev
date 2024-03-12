@@ -8,50 +8,76 @@ in {
     ...
   }: {
     packages.blog = let
-      nodeHeaders = builtins.fetchTarball {
-        name = "node-headers-${pkgs.nodejs.version}";
-        url = "https://nodejs.org/download/release/v${pkgs.nodejs.version}/node-v${pkgs.nodejs.version}-headers.tar.gz";
-        sha256 = "sha256:02n3z0116lmprc2960r640v5w9lnngpx3rpz65lmnzymrhxc0qv9";
+      vendorArgs = {
+        outputHash = "sha256-T1I8LjeIWAkx+2Z/KbXfxrc/KkqSDRX2CPPy0TwCB1Q="; 
+        outputHashMode = "recursive";
       };
+      vendored = pkgs.runCommand "deno-deps" vendorArgs ''
+        export DENO_DIR=$out/_vendor
+        mkdir -p $DENO_DIR
+        cp ${../deno.lock} deno.lock
+        cp ${../deno.json} deno.json
+        cp ${../_config.ts} _config.ts
+        ${pkgs.deno}/bin/deno cache --lock deno.lock deno.json
+        ${pkgs.deno}/bin/deno cache --lock deno.lock https://deno.land/x/lume/cli.ts
+        ${pkgs.deno}/bin/deno cache --lock deno.lock _config.ts
+        cp deno.json deno.lock $out
+      '';
     in
-      pkgs.mkYarnPackage {
-        name = "blog";
+      pkgs.stdenv.mkDerivation {
+        pname = "blog-nobbz-dev";
+        version = "0-unstable-${inputs.self.lastModifiedDate}-${inputs.self.rev or inputs.self.dirtyRev or "unknown"}";
+
         src = filter {
           root = ./..;
           include = [
             (inDirectory "src")
-            # (inDirectory "blog")
-            (matchExt "js")
-            (matchExt "cjs")
-            (matchExt "mjs")
-            (matchExt "json")
+            (inDirectory "vendor")
+            (inDirectory "node_modules")
             (matchExt "ts")
-            ../package.json
-            ../yarn.lock
-            ../yarn.nix
+            ../deno.json
+            ../deno.lock
           ];
         };
-        yarnLock = ../yarn.lock;
-        packageJSON = ../package.json;
-        yarnNix = ../yarn.nix;
 
-        CI = "true";
+        nativeBuildInputs = [
+          pkgs.deno
+          pkgs.gawk
+        ];
 
-        pkgConfig = {
-          sharp = {
-            nativeBuildInputs = builtins.attrValues {
-              inherit (pkgs.nodePackages) node-gyp;
-              inherit (pkgs) python3 pkg-config;
-            };
-            buildInputs = [pkgs.vips.dev];
-            postInstall = "node-gyp --node-dir=${nodeHeaders} rebuild";
-          };
-        };
+        # configurePhase = ''
+        #   runHook preConfigure
 
-        postConfigure = "export HOME=$(mktemp -d)";
-        buildPhase = "yarn --offline build";
-        installPhase = "mv -v deps/blog/public \${out}";
-        distPhase = "true";
+        #   if ! diff <(sha256sum ${vendored}/deno.lock | awk '{print $1}') <(sha256sum ${../deno.lock} | awk '{print $1}'); then
+        #     echo "mismatch in lockfiles, please update the deno hash"
+        #     exit 1
+        #   fi
+
+        #   export DENO_DIR=$(pwd)/_vendor
+        #   mkdir -p $DENO_DIR
+        #   cp -r ${vendored}/_vendor/* _vendor
+
+        #   runHook postConfigure
+        # '';
+
+        buildPhase = ''
+          runHook preBuild
+
+          ls -l node_modules
+          # deno task build
+          echo "import 'lume/cli.ts'" | deno run --no-remote -A -
+
+          runHook postBuild
+        '';
+
+        installPhase = ''
+          runHook preInstall
+
+          mkdir -p $out
+          cp -r _site/* $out
+
+          runHook postInstall
+        '';
       };
   };
 }
