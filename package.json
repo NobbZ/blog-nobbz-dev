@@ -22,6 +22,7 @@
   "devDependencies": {
     "@astrojs/language-server": "^2.10.0",
     "@astrojs/ts-plugin": "^1.9.0",
+    "@catppuccin/tailwindcss": "^0.1.6",
     "@eslint/js": "^9.6.0",
     "@mdx-js/language-server": "^0.4.8",
     "@types/eslint__js": "^8.42.3",
