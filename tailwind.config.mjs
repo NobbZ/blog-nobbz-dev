@@ -13,7 +13,5 @@ export default {
       },
     },
   },
-  plugins: [
-    require("@catppuccin/tailwindcss")({defaultFlavour: "mocha"}),
-  ],
+  plugins: [require("@catppuccin/tailwindcss")({ defaultFlavour: "mocha" })],
 };

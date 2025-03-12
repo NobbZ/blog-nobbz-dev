@@ -13,20 +13,31 @@ import "../styles/base.css";
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
-  <body>
+  <body
+    class:list={[
+      "mocha",
+      "bg-gradient-to-b",
+      "from-base",
+      "to-crust",
+      "min-h-screen",
+      "bg-fixed",
+    ]}
+  >
     <div
       class:list={[
-        "w-1/1",
-        "md:w-[1024px]",
+        "flex",
+        "flex-col",
         "m-auto",
-        "md:border-4",
-        "rounded-[12px]",
+        "min-h-screen",
+        "justify-center",
+        "text-text",
       ]}
     >
-      <div class:list={["md:flex"]}>
+      <div class:list={["flex", "md:flex-row", "flex-col", "flex-none"]}>
         <div
           id="main"
           class:list={[
+            "flex-none",
             "w-1/1",
             "border-4",
             "p-1",
@@ -39,9 +50,11 @@ import "../styles/base.css";
         </div>
         <NavBox />
       </div>
+      <div class:list={["flex-auto"]}></div>
       <footer
         id="bottom"
         class:list={[
+          "flex-none",
           "w-1/1",
           "border-4",
           "mt-1",

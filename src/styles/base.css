@@ -3,14 +3,14 @@
 @tailwind utilities;
 
 * {
-  --background-color: black;
-  --text-color: aliceblue;
-  --highlight-color: aqua;
+  /* --background-color: black; */
+  /* --text-color: aliceblue; */
+  /* --highlight-color: aqua; */
 }
 
 body {
-  background-color: var(--background-color);
-  color: var(--text-color);
+  /* background-color: var(--background-color); */
+  /* color: var(--text-color); */
 }
 
 #main {
