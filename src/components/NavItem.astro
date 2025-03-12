@@ -2,14 +2,20 @@
 export interface Props {
   href: string;
   disabled?: boolean;
+  spacer?: boolean;
 }
 
-const { href, disabled } = Astro.props;
+const { href, disabled, spacer } = Astro.props;
 
 const enabled = !disabled;
+
+let classes = [];
+if (spacer) {
+  classes.push("mb-4");
+}
 ---
 
-<li class:list={["text-center", "p-2"]}>
+<li class:list={["text-center", "p-2", ...classes]}>
   {
     enabled ? (
       <a href={href}>
