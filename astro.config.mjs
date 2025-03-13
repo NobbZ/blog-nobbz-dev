@@ -10,4 +10,5 @@ const tailwindIntegration = tailwind({
 // https://astro.build/config
 export default defineConfig({
   integrations: [mdx(), tailwindIntegration],
+  legacy: { collections: true },
 });
