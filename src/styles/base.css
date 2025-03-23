@@ -101,5 +101,13 @@ body {
       @apply border-solid;
       @apply border-l-2;
     }
+
+    pre {
+      @apply [&::-webkit-scrollbar]:w-2;
+      @apply [&::-webkit-scrollbar]:h-2;
+      @apply [&::-webkit-scrollbar-track]:bg-surface2;
+      @apply [&::-webkit-scrollbar-thumb]:bg-surface0;
+
+    }
   }
 }
