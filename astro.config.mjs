@@ -12,6 +12,6 @@ export default defineConfig({
   integrations: [mdx(), tailwindIntegration],
   legacy: { collections: true },
   markdown: {
-    shikiConfig: { theme: 'catppuccin-mocha' },
+    shikiConfig: { theme: "catppuccin-mocha" },
   },
 });
