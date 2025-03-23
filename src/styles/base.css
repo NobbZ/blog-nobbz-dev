@@ -3,14 +3,11 @@
 @tailwind utilities;
 
 * {
-  /* --background-color: black; */
-  /* --text-color: aliceblue; */
-  /* --highlight-color: aqua; */
+  --text-color: rgb(var(--ctp-text));
+  --highlight-color: rgb(var(--ctp-rosewater));
 }
 
 body {
-  /* background-color: var(--background-color); */
-  /* color: var(--text-color); */
 }
 
 #main {
@@ -18,32 +15,32 @@ body {
     h1 {
       @apply text-4xl;
       @apply font-extrabold;
-      @apply text-[--highlight-color];
+      @apply text-[--text-color];
     }
     h2 {
       @apply text-3xl;
       @apply font-extrabold;
-      @apply text-[color-mix(in_srgb,var(--highlight-color),var(--text-color)_15%)];
+      @apply text-[color-mix(in_srgb,var(--text-color),var(--highlight-color)_15%)];
     }
     h3 {
       @apply text-2xl;
       @apply font-bold;
-      @apply text-[color-mix(in_srgb,var(--highlight-color),var(--text-color)_30%)];
+      @apply text-[color-mix(in_srgb,var(--text-color),var(--highlight-color)_30%)];
     }
     h4 {
       @apply text-xl;
       @apply font-bold;
-      @apply text-[color-mix(in_srgb,var(--highlight-color),var(--text-color)_45%)];
+      @apply text-[color-mix(in_srgb,var(--text-color),var(--highlight-color)_45%)];
     }
     h5 {
       @apply text-lg;
       @apply font-bold;
-      @apply text-[color-mix(in_srgb,var(--highlight-color),var(--text-color)_60%)];
+      @apply text-[color-mix(in_srgb,var(--text-color),var(--highlight-color)_60%)];
     }
     h6 {
       @apply text-base;
       @apply font-bold;
-      @apply text-[color-mix(in_srgb,var(--highlight-color),var(--text-color)_75%)];
+      @apply text-[color-mix(in_srgb,var(--text-color),var(--highlight-color)_75%)];
     }
 
     strong {
@@ -51,7 +48,7 @@ body {
     }
 
     a {
-      @apply text-[var(--highlight-color)];
+      @apply text-[rgb(var(--ctp-blue))];
     }
 
     pre {
