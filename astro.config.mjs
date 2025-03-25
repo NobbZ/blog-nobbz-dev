@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2025 Norbert Melzer
+// SPDX-FileContributor: Norbert Melzer
+//
+// SPDX-License-Identifier: MIT
+
 import { defineConfig } from "astro/config";
 import mdx from "@astrojs/mdx";
 

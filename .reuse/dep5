@@ -1,0 +1,10 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: blog-nobbz-dev
+Upstream-Contact: Norbert Melzer <nmelzer@nobbz.dev>
+Source: https://blog.nobbz.dev/
+
+# Sample paragraph, commented out:
+#
+# Files: src/*
+# Copyright: $YEAR $NAME <$CONTACT>
+# License: ...

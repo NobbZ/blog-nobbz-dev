@@ -1,3 +1,10 @@
+<!--
+SPDX-FileCopyrightText: 2025 Norbert Melzer
+SPDX-FileContributor: Norbert Melzer
+
+SPDX-License-Identifier: MIT
+-->
+
 # Astro Starter Kit: Minimal
 
 ```sh

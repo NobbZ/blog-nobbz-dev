@@ -1,3 +1,8 @@
+# SPDX-FileCopyrightText: 2025 Norbert Melzer
+# SPDX-FileContributor: Norbert Melzer
+# 
+# SPDX-License-Identifier: MIT
+
 {
   description = "nobbz.dev - Website";
 
@@ -43,7 +48,7 @@
           in
             builtins.attrValues {
               inherit (pkgs) nodejs_20 yarn2nix nil tailwindcss-language-server;
-              inherit (pkgs) pre-commit alejandra;
+              inherit (pkgs) pre-commit alejandra reuse;
               inherit (pkgs.nodejs_20.pkgs) yarn typescript-language-server;
               inherit astro-ls mdx-language-server;
             };

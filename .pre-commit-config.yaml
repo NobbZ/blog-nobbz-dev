@@ -1,3 +1,8 @@
+# SPDX-FileCopyrightText: 2025 Norbert Melzer
+# SPDX-FileContributor: Norbert Melzer
+#
+# SPDX-License-Identifier: MIT
+
 # See https://pre-commit.com for more information
 # See https://pre-commit.com/hooks.html for more hooks
 repos:
@@ -12,11 +17,11 @@ repos:
       - id: check-merge-conflict
       - id: forbid-submodules
 
-  ## Add back later when there is time to properly configure it
-  # - repo: https://github.com/fsfe/reuse-tool
-  #   rev: v1.1.2
-  #   hooks:
-  #     - id: reuse
+  # Add back later when there is time to properly configure it
+  - repo: https://github.com/fsfe/reuse-tool
+    rev: v1.1.2
+    hooks:
+      - id: reuse
 
   - repo: local
     hooks:
