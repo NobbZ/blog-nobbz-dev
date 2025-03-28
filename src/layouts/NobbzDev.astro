@@ -1,7 +1,7 @@
 ---
 // SPDX-FileCopyrightText: 2025 Norbert Melzer
 // SPDX-FileContributor: Norbert Melzer
-// 
+//
 // SPDX-License-Identifier: MIT
 
 import NavBox from "../components/NavBox.astro";
@@ -56,7 +56,17 @@ import "../styles/base.css";
           NobbZ<span class="text-xs text-overlay1">.dev</span>
         </h1>
       </div>
-      <div class:list={["flex", "md:flex-row", "flex-col", "flex-none"]}>
+      <div
+        class:list={[
+          "flex",
+          "md:flex-row",
+          "w-full",
+          "lg:w-[1024px]",
+          "m-auto",
+          "flex-col",
+          "flex-none",
+        ]}
+      >
         <div
           id="main"
           class:list={[
@@ -72,7 +82,7 @@ import "../styles/base.css";
         >
           <slot />
         </div>
-        <NavBox />
+        <NavBox class:list={["md:w-1/5"]} />
       </div>
       <div class:list={["flex-auto"]}></div>
       <footer

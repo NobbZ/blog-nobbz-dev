@@ -5,6 +5,12 @@
 // SPDX-License-Identifier: MIT
 
 import NavItem from "./NavItem.astro";
+
+export interface Props {
+  class?: string;
+}
+
+const class_ = Astro.props.class ?? ""
 ---
 
 <nav
@@ -15,7 +21,7 @@ import NavItem from "./NavItem.astro";
     "m-1",
     "p-1",
     "rounded-[12px]",
-    "md:w-1/5",
+    class_
   ]}
 >
   <ol>
