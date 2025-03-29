@@ -30,11 +30,20 @@ export type Props = {
 
 const { author } = Astro.props;
 const { Content } = await author.render();
+
+const first_name = author.data.first_name ? `${author.data.first_name} ` : "";
+const last_name = author.data.last_name ? ` ${author.data.last_name}` : "";
+const nick_name =
+  author.data.first_name || author.data.last_name
+    ? `”${author.data.nick_name}“`
+    : author.data.nick_name;
+
+const page_title = first_name + nick_name + last_name;
 ---
 
 <NobbzDev title={author.data.nick_name}>
   <article>
-    <h1 class:list={["p-1"]}>{author.data.nick_name}</h1>
+    <h1 class:list={["p-1"]}>{page_title}</h1>
 
     <Content components={components} />
   </article>
