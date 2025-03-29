@@ -11,6 +11,6 @@ export default [
   eslint.configs.recommended,
   ...tseslint.configs.recommended,
   ...astro.configs.recommended,
-  { ignores: ["dist/*", ".astro/*"] },
+  { ignores: ["dist/*", ".astro/*", ".cache/*"] },
   { languageOptions: { globals: { astroHTML: "readonly" } } },
 ];
