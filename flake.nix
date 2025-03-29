@@ -1,8 +1,7 @@
 # SPDX-FileCopyrightText: 2025 Norbert Melzer
 # SPDX-FileContributor: Norbert Melzer
-# 
+#
 # SPDX-License-Identifier: MIT
-
 {
   description = "nobbz.dev - Website";
 
@@ -33,14 +32,6 @@
           yarn prettier -w .
         '';
 
-        # apps.serve.program = "${pkgs.writeShellScript "serve" ''
-        #   set -e
-        #   result=$(nom build .#blog --print-out-paths)
-        #   ${pkgs.miniserve}/bin/miniserve -p 3001 --index index.html ''${result}
-        # ''}";
-
-        # packages.default = self'.packages.blog;
-
         devShells.default = pkgs.mkShell {
           packages = let
             astro-ls = pkgs.writeShellScriptBin "astro-ls" ''exec yarn run astro-ls "$@"'';
@@ -52,7 +43,6 @@
               inherit (pkgs.nodejs_20.pkgs) yarn typescript-language-server;
               inherit astro-ls mdx-language-server;
             };
-          # shellHook = config.pre-commit.installationScript;
         };
       };
     };
