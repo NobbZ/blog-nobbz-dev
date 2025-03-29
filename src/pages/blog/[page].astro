@@ -1,0 +1,39 @@
+---
+// SPDX-FileCopyrightText: 2025 Norbert Melzer
+// SPDX-FileContributor: Norbert Melzer
+//
+// SPDX-License-Identifier: MIT
+
+import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+import type { GetStaticPaths } from "astro";
+
+import PostPreview from "../../components/PostPreview.astro";
+import PaginateButton from "../../components/PaginateButton.astro";
+import NobbzDev from "../../layouts/NobbzDev.astro";
+
+export const getStaticPaths = (async ({ paginate }) => {
+  const blogEntries = await getCollection("blog").then(
+    (collection: CollectionEntry<"blog">[]) =>
+      collection.sort((a, b) => b.data.date.getTime() - a.data.date.getTime()),
+  );
+  return paginate(blogEntries, { pageSize: 5 });
+}) satisfies GetStaticPaths;
+
+const { page } = Astro.props;
+
+const blogEntries = page.data;
+---
+
+<NobbzDev title="Blog">
+  {blogEntries.map((post) => <PostPreview post={post} />)}
+
+  <!-- Pagination controls -->
+  <div class:list={["flex", "flex-row", "justify-around", "gap-4"]}>
+    <PaginateButton href={page.url.first}>&lt;&lt;</PaginateButton>
+    <PaginateButton href={page.url.prev}>&lt;</PaginateButton>
+    <PaginateButton href={page.url.next}>&gt;</PaginateButton>
+    <PaginateButton href={page.url.last}>&gt;&gt;</PaginateButton
+    >
+  </div>
+</NobbzDev>
