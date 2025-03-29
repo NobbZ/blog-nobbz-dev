@@ -12,10 +12,12 @@ import PostPreview from "../../components/PostPreview.astro";
 import PaginateButton from "../../components/PaginateButton.astro";
 import NobbzDev from "../../layouts/NobbzDev.astro";
 
+import {byDate} from "../../scripts/sorter";
+
 export const getStaticPaths = (async ({ paginate }) => {
   const blogEntries = await getCollection("blog").then(
     (collection: CollectionEntry<"blog">[]) =>
-      collection.sort((a, b) => b.data.date.getTime() - a.data.date.getTime()),
+      collection.sort(byDate),
   );
   return paginate(blogEntries, { pageSize: 5 });
 }) satisfies GetStaticPaths;
