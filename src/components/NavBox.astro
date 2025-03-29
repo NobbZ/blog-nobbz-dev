@@ -1,7 +1,7 @@
 ---
 // SPDX-FileCopyrightText: 2025 Norbert Melzer
 // SPDX-FileContributor: Norbert Melzer
-// 
+//
 // SPDX-License-Identifier: MIT
 
 import NavItem from "./NavItem.astro";
@@ -10,7 +10,7 @@ export interface Props {
   class?: string;
 }
 
-const class_ = Astro.props.class ?? ""
+const class_ = Astro.props.class ?? "";
 ---
 
 <nav
@@ -21,7 +21,7 @@ const class_ = Astro.props.class ?? ""
     "m-1",
     "p-1",
     "rounded-[12px]",
-    class_
+    class_,
   ]}
 >
   <ol>

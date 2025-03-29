@@ -1,6 +1,6 @@
 // SPDX-FileCopyrightText: 2025 Norbert Melzer
 // SPDX-FileContributor: Norbert Melzer
-// 
+//
 // SPDX-License-Identifier: MIT
 
 import { defineCollection, z, reference } from "astro:content";

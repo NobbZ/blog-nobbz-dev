@@ -1,7 +1,7 @@
 ---
 // SPDX-FileCopyrightText: 2025 Norbert Melzer
 // SPDX-FileContributor: Norbert Melzer
-// 
+//
 // SPDX-License-Identifier: MIT
 
 import { getEntry, type CollectionEntry } from "astro:content";
@@ -20,7 +20,14 @@ const author = await getEntry(post.data.author);
 
 <div class:list={["p-1", "min-h-[150px]", "min-h-[150px]"]}>
   <div class:list={["flex", "flex-col", "md:flex-row", "justify-between"]}>
-    <h2 class:list={["flex", "text-3xl", "font-extrabold", "text-[--highlight-color]"]}>
+    <h2
+      class:list={[
+        "flex",
+        "text-3xl",
+        "font-extrabold",
+        "text-[--highlight-color]",
+      ]}
+    >
       <a class:list={["hover:underline"]} href={postPath(post)}
         >{post.data.title}</a
       >
