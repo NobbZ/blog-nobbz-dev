@@ -1,7 +1,15 @@
-# Build output
-public/
-.cache/
+# SPDX-FileCopyrightText: 2025 Norbert Melzer
+# SPDX-FileContributor: Norbert Melzer
+# 
+# SPDX-License-Identifier: CC-BY-4.0
 
+# build output
+dist/
+public/
+
+# generated types
+.astro/
+src/env.d.ts
 # dependencies
 node_modules/
 
@@ -11,10 +19,10 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
+
 # environment variables
 .env
 .env.production
-src/env.d.ts
 
-# pre-commit
-.pre-commit-config.yaml
+# caches
+.cache/

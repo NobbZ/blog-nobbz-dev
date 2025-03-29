@@ -1,0 +1,33 @@
+---
+// SPDX-FileCopyrightText: 2025 Norbert Melzer
+// SPDX-FileContributor: Norbert Melzer
+//
+// SPDX-License-Identifier: MIT
+
+import NavItem from "./NavItem.astro";
+
+export interface Props {
+  class?: string;
+}
+
+const class_ = Astro.props.class ?? "";
+---
+
+<nav
+  id="side-nav"
+  class:list={[
+    "border-4",
+    "border-surface2",
+    "m-1",
+    "p-1",
+    "rounded-[12px]",
+    class_,
+  ]}
+>
+  <ol>
+    <NavItem href="/blog">Blog</NavItem>
+    <NavItem href="/authors" spacer>Authors</NavItem>
+    <NavItem href="/sponsors" disabled spacer>Sponsors</NavItem>
+    <NavItem href="/imprint">Imprint</NavItem>
+  </ol>
+</nav>

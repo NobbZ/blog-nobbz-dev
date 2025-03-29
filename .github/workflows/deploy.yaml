@@ -1,3 +1,8 @@
+# SPDX-FileCopyrightText: 2025 Norbert Melzer
+# SPDX-FileContributor: Norbert Melzer
+#
+# SPDX-License-Identifier: MIT
+
 name: Deploy the blog
 
 on:
@@ -9,9 +14,8 @@ jobs:
     strategy:
       matrix:
         command:
-          - test --verbose
-          - lint
-          - typecheck
+          - prettier -c .
+          - astro check
     steps:
       - uses: actions/checkout@v4
         with: { token: "${{ secrets.GITHUB_TOKEN }}" }
@@ -50,5 +54,5 @@ jobs:
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           projectName: blog-nobbz-dev
           # directory: ./result
-          directory: ./public
+          directory: ./dist
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}

@@ -1,0 +1,104 @@
+---
+// SPDX-FileCopyrightText: 2025 Norbert Melzer
+// SPDX-FileContributor: Norbert Melzer
+//
+// SPDX-License-Identifier: MIT
+
+import NavBox from "../components/NavBox.astro";
+
+const { title } = Astro.props;
+import "../styles/base.css";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body
+    class:list={[
+      "mocha",
+      "bg-gradient-to-b",
+      "from-base",
+      "to-crust",
+      "min-h-screen",
+      "bg-fixed",
+      "overflow-y-scroll",
+      "[&::-webkit-scrollbar]:w-2",
+      "[&::-webkit-scrollbar-track]:bg-surface2",
+      "[&::-webkit-scrollbar-thumb]:bg-surface0",
+    ]}
+  >
+    <div
+      class:list={[
+        "flex",
+        "flex-col",
+        "m-auto",
+        "min-h-screen",
+        "justify-center",
+        "text-text",
+      ]}
+    >
+      <div
+        class:list={[
+          "flex-none",
+          "border-4",
+          "border-surface2",
+          "rounded-[12px]",
+          "p-1",
+          "m-1",
+        ]}
+      >
+        <h1 class:list={["text-4xl", "text-text", "font-extrabold"]}>
+          NobbZ<span class="text-xs text-overlay1">.dev</span>
+        </h1>
+      </div>
+      <div
+        class:list={[
+          "flex",
+          "md:flex-row",
+          "w-full",
+          "lg:w-[1024px]",
+          "m-auto",
+          "flex-col",
+          "flex-none",
+        ]}
+      >
+        <div
+          id="main"
+          class:list={[
+            "flex-none",
+            "w-1/1",
+            "border-4",
+            "border-surface2",
+            "p-1",
+            "m-1",
+            "rounded-[12px]",
+            "md:w-4/5",
+          ]}
+        >
+          <slot />
+        </div>
+        <NavBox class:list={["md:w-1/5"]} />
+      </div>
+      <div class:list={["flex-auto"]}></div>
+      <footer
+        id="bottom"
+        class:list={[
+          "flex-none",
+          "w-1/1",
+          "border-4",
+          "border-surface2",
+          "m-1",
+          "p-1",
+          "rounded-[12px]",
+        ]}
+      >
+        © by Norbert Melzer in {new Date().getFullYear()}
+      </footer>
+    </div>
+  </body>
+</html>

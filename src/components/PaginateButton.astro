@@ -1,0 +1,29 @@
+---
+// SPDX-FileCopyrightText: 2025 Norbert Melzer
+// SPDX-FileContributor: Norbert Melzer
+//
+// SPDX-License-Identifier: MIT
+
+export type Props = {
+  href?: string;
+};
+
+const { href } = Astro.props;
+
+const active = !!href;
+---
+
+<div
+  class:list={[
+    "border-2",
+    "border-surface2",
+    "rounded-md",
+    "p-1",
+    "m-1",
+    active
+      ? "bg-crust hover:bg-surface2 hover:shadow-xl hover:shadow-base text-blue"
+      : "bg-overlay0 text-overlay2 opacity-40",
+  ]}
+>
+  <a href={href}><slot /></a>
+</div>

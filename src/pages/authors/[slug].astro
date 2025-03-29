@@ -1,0 +1,50 @@
+---
+// SPDX-FileCopyrightText: 2025 Norbert Melzer
+//
+// SPDX-FileContributor: Norbert Melzer
+//
+// SPDX-License-Identifier: MIT
+
+import type { GetStaticPaths } from "astro";
+import type { CollectionEntry } from "astro:content";
+import { getCollection } from "astro:content";
+
+import NobbzDev from "../../layouts/NobbzDev.astro";
+
+const components = {};
+
+export const getStaticPaths = (async () => {
+  const authorEntries = await getCollection("authors");
+
+  return authorEntries.map((author) => ({
+    params: {
+      slug: author.slug,
+    },
+    props: { author },
+  }));
+}) satisfies GetStaticPaths;
+
+export type Props = {
+  author: CollectionEntry<"authors">;
+};
+
+const { author } = Astro.props;
+const { Content } = await author.render();
+
+const first_name = author.data.first_name ? `${author.data.first_name} ` : "";
+const last_name = author.data.last_name ? ` ${author.data.last_name}` : "";
+const nick_name =
+  author.data.first_name || author.data.last_name
+    ? `”${author.data.nick_name}“`
+    : author.data.nick_name;
+
+const page_title = first_name + nick_name + last_name;
+---
+
+<NobbzDev title={author.data.nick_name}>
+  <article>
+    <h1 class:list={["p-1"]}>{page_title}</h1>
+
+    <Content components={components} />
+  </article>
+</NobbzDev>

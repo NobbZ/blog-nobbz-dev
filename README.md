@@ -1,49 +1,55 @@
-<p align="center">
-  <a href="https://www.gatsbyjs.com/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts">
-    <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
-  </a>
-</p>
-<h1 align="center">
-  Gatsby Minimal TypeScript Starter
-</h1>
+<!--
+SPDX-FileCopyrightText: 2025 Norbert Melzer
+SPDX-FileContributor: Norbert Melzer
 
-## 🚀 Quick start
+SPDX-License-Identifier: CC-BY-4.0
+-->
 
-1.  **Create a Gatsby site.**
+# nobbz.dev personal blog and website
 
-    Use the Gatsby CLI to create a new site, specifying the minimal TypeScript starter.
+This repository contains the source code for my personal blog and website at [blog.nobbz.dev](https://blog.nobbz.dev).
 
-    ```shell
-    # create a new Gatsby site using the minimal TypeScript starter
-    npm init gatsby -- -ts
-    ```
+## Technology Stack
 
-2.  **Start developing.**
+- [Astro](https://astro.build/) - Web framework
+- [Tailwind CSS](https://tailwindcss.com/) - CSS framework
+- [MDX](https://mdxjs.com/) - Markdown with JSX for content
+- [Cloudflare Pages](https://pages.cloudflare.com/) - Hosting
 
-    Navigate into your new site’s directory and start it up.
+## Development
 
-    ```shell
-    cd my-gatsby-site/
-    npm run develop
-    ```
+### Prerequisites
 
-3.  **Open the code and start customizing!**
+- [Node.js](https://nodejs.org/) (see `.tool-versions` for version)
+- [Yarn](https://yarnpkg.com/)
 
-    Your site is now running at http://localhost:8000!
+### Setup
 
-    Edit `src/pages/index.tsx` to see your site update in real-time!
+```bash
+# Clone the repository
+git clone https://github.com/NobbZ/blog-nobbz-dev.git
+cd blog-nobbz-dev
 
-4.  **Learn more**
+# Install dependencies
+yarn install
+```
 
-    - [Documentation](https://www.gatsbyjs.com/docs/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
-    - [Tutorials](https://www.gatsbyjs.com/docs/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
-    - [Guides](https://www.gatsbyjs.com/docs/how-to/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
-    - [API Reference](https://www.gatsbyjs.com/docs/api-reference/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
-    - [Plugin Library](https://www.gatsbyjs.com/plugins?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
-    - [Cheat Sheet](https://www.gatsbyjs.com/docs/cheat-sheet/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
+### Development Commands
 
-## 🚀 Quick start (Netlify)
+```bash
+# Start development server
+yarn dev
 
-Deploy this starter with one click on [Netlify](https://app.netlify.com/signup):
+# Build for production
+yarn build
 
-[<img src="https://www.netlify.com/img/deploy/button.svg" alt="Deploy to Netlify" />](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-minimal-ts)
+# Preview production build
+yarn preview
+```
+
+## License
+
+- Code: [MIT](./LICENSES/MIT.txt)
+- Content: [CC-BY-4.0](./LICENSES/CC-BY-4.0.txt)
+
+This project is [REUSE](https://reuse.software/) compliant.
