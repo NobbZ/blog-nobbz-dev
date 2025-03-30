@@ -565,33 +565,32 @@
     "@jridgewell/resolve-uri" "^3.1.0"
     "@jridgewell/sourcemap-codec" "^1.4.14"
 
-"@mdx-js/language-server@~0.4.8":
-  version "0.4.10"
-  resolved "https://registry.yarnpkg.com/@mdx-js/language-server/-/language-server-0.4.10.tgz#af49a375ddee235321b9951bca357c7502a2451f"
-  integrity sha512-jvi+HkdCa2FQoQl83S06mgM6/CYm+QjvSghdl/LfnULL/j5BLNrMqnaoaEU1Z4Uhz61550SVeQ3xo0pLQduMpQ==
+"@mdx-js/language-server@~0.5.0":
+  version "0.5.2"
+  resolved "https://registry.yarnpkg.com/@mdx-js/language-server/-/language-server-0.5.2.tgz#aad56680117cab86c2c6843df71337537f0c54e6"
+  integrity sha512-BqIdkVkfgm7dfVEFm1m7PB/tayf1X9cwHwSiHdhIP3WqzX8dqwIAneI9aaRdXbXQc9jvHvnWUB84/Q5xaGim8g==
   dependencies:
-    "@mdx-js/language-service" "0.5.8"
+    "@mdx-js/language-service" "0.6.2"
     "@volar/language-server" "~2.4.0"
     load-plugin "^6.0.0"
     remark-frontmatter "^5.0.0"
     remark-gfm "^4.0.0"
-    volar-service-markdown "0.0.61"
-    volar-service-typescript "0.0.61"
-    vscode-uri "^3.0.0"
+    volar-service-markdown "0.0.62"
+    volar-service-typescript "0.0.62"
 
-"@mdx-js/language-service@0.5.8":
-  version "0.5.8"
-  resolved "https://registry.yarnpkg.com/@mdx-js/language-service/-/language-service-0.5.8.tgz#b04efc54001ca26434c1a91923779327d5c1fb34"
-  integrity sha512-ZVIb06UTzfHXimVcK+Pq5Gn8PalzUVic6fHZWzpj0bgZ3jtIgZii836YWT81Lueawp3U3J7sXjuLETMFqvDEjg==
+"@mdx-js/language-service@0.6.2":
+  version "0.6.2"
+  resolved "https://registry.yarnpkg.com/@mdx-js/language-service/-/language-service-0.6.2.tgz#764123b0986e16790797377005d5eda6371cc7b5"
+  integrity sha512-OtC6TpgxEpCFl4Cdg1FbOO18ZBGjL9RdsMNYsHFh1aCX/gzm/CnCEyIXrjedSYMPZr/MBvFuf32yw/KoVQFkCg==
   dependencies:
     "@types/estree" "^1.0.0"
     "@types/mdast" "^4.0.0"
     "@types/unist" "^3.0.0"
     "@volar/language-service" "~2.4.0"
+    estree-util-scope "^1.0.0"
     estree-walker "^3.0.0"
     mdast-util-mdxjs-esm "^2.0.0"
     mdast-util-to-markdown "^2.0.0"
-    periscopic "^3.0.0"
     remark-mdx "^3.0.0"
     remark-parse "^11.0.0"
     unified "^11.0.0"
@@ -922,7 +921,7 @@
   dependencies:
     "@types/estree" "*"
 
-"@types/estree@*", "@types/estree@1.0.7", "@types/estree@^1.0.0", "@types/estree@^1.0.6":
+"@types/estree@*", "@types/estree@1.0.7", "@types/estree@^1.0.0":
   version "1.0.7"
   resolved "https://registry.yarnpkg.com/@types/estree/-/estree-1.0.7.tgz#4158d3105276773d5b7695cd4834b1722e4f37a8"
   integrity sha512-w28IoSUCJpidD/TGviZwwMJckNESJZXFu7NBZ5YJ4mEUnNraUn9Pm8HSZm/jDF1pDWYKspWE7oVphigUPRakIQ==
@@ -2572,13 +2571,6 @@ is-plain-obj@^4.0.0:
   resolved "https://registry.yarnpkg.com/is-plain-obj/-/is-plain-obj-4.1.0.tgz#d65025edec3657ce032fd7db63c97883eaed71f0"
   integrity sha512-+Pgi+vMuUNkJyExiMBt5IlFoMyKnr5zhJ4Uspz58WOhBF5QoIZkFyNHIbBAtHwzVAgk5RtndVNsDRN61/mmDqg==
 
-is-reference@^3.0.0:
-  version "3.0.3"
-  resolved "https://registry.yarnpkg.com/is-reference/-/is-reference-3.0.3.tgz#9ef7bf9029c70a67b2152da4adf57c23d718910f"
-  integrity sha512-ixkJoqQvAP88E6wLydLGGqCJsrFUnqoH6HnaczB8XmDH1oaWU+xxdptvikTgaEhtZ53Ky6YXiBuUI2WXLMCwjw==
-  dependencies:
-    "@types/estree" "^1.0.6"
-
 is-wsl@^3.1.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/is-wsl/-/is-wsl-3.1.0.tgz#e1c657e39c10090afcbedec61720f6b924c3cbd2"
@@ -3688,15 +3680,6 @@ path-scurry@^1.11.1:
   dependencies:
     lru-cache "^10.2.0"
     minipass "^5.0.0 || ^6.0.2 || ^7.0.0"
-
-periscopic@^3.0.0:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/periscopic/-/periscopic-3.1.0.tgz#7e9037bf51c5855bd33b48928828db4afa79d97a"
-  integrity sha512-vKiQ8RRtkl9P+r/+oefh25C3fhybptkHKCZSPlcXiJux2tJF55GnEj3BVn4A5gKfq9NWWXXrxkHBwVPUfH0opw==
-  dependencies:
-    "@types/estree" "^1.0.0"
-    estree-walker "^3.0.0"
-    is-reference "^3.0.0"
 
 picocolors@^1.1.1:
   version "1.1.1"
@@ -4811,10 +4794,10 @@ volar-service-html@0.0.62:
     vscode-languageserver-textdocument "^1.0.11"
     vscode-uri "^3.0.8"
 
-volar-service-markdown@0.0.61:
-  version "0.0.61"
-  resolved "https://registry.yarnpkg.com/volar-service-markdown/-/volar-service-markdown-0.0.61.tgz#57c84cc8474d182e5c4fadb285575f2b2d808716"
-  integrity sha512-UknWprla0/KcB6OBEbnveUAGPWOepq7b9fav1pNxjHk6H0PYfAMdbXnzSuRXyYQUn70Sv4nVcznqVbyRk6INlQ==
+volar-service-markdown@0.0.62:
+  version "0.0.62"
+  resolved "https://registry.yarnpkg.com/volar-service-markdown/-/volar-service-markdown-0.0.62.tgz#d10ca9b633f7243eb97e5fbd3dbc29e41dcad279"
+  integrity sha512-rtM7yP4nA8nC8ilcFJ+opnD7x2Eg6f2xiCGNcfLASBioQIRvQVkn7gZ26xsvzfoVGgEvLoK+5pjn8jF5MPcBEw==
   dependencies:
     markdown-it "^14.1.0"
     vscode-jsonrpc "^8.2.1"
@@ -4833,18 +4816,6 @@ volar-service-typescript-twoslash-queries@0.0.62:
   resolved "https://registry.yarnpkg.com/volar-service-typescript-twoslash-queries/-/volar-service-typescript-twoslash-queries-0.0.62.tgz#9bf63fcf89688fae12f492168d3b447be3bdf385"
   integrity sha512-KxFt4zydyJYYI0kFAcWPTh4u0Ha36TASPZkAnNY784GtgajerUqM80nX/W1d0wVhmcOFfAxkVsf/Ed+tiYU7ng==
   dependencies:
-    vscode-uri "^3.0.8"
-
-volar-service-typescript@0.0.61:
-  version "0.0.61"
-  resolved "https://registry.yarnpkg.com/volar-service-typescript/-/volar-service-typescript-0.0.61.tgz#5c4572e34b11f57fe7087fd7242617f21eec25c5"
-  integrity sha512-4kRHxVbW7wFBHZWRU6yWxTgiKETBDIJNwmJUAWeP0mHaKpnDGj/astdRFKqGFRYVeEYl45lcUPhdJyrzanjsdQ==
-  dependencies:
-    path-browserify "^1.0.1"
-    semver "^7.6.2"
-    typescript-auto-import-cache "^0.3.3"
-    vscode-languageserver-textdocument "^1.0.11"
-    vscode-nls "^5.2.0"
     vscode-uri "^3.0.8"
 
 volar-service-typescript@0.0.62:
