@@ -8,6 +8,8 @@ import mdx from "@astrojs/mdx";
 
 import tailwind from "@astrojs/tailwind";
 
+import { filenameTransformer } from "./src/scripts/filename-transformer";
+
 const tailwindIntegration = tailwind({
   applyBaseStyles: false,
 });
@@ -17,6 +19,9 @@ export default defineConfig({
   integrations: [mdx(), tailwindIntegration],
   legacy: { collections: true },
   markdown: {
-    shikiConfig: { theme: "catppuccin-mocha" },
+    shikiConfig: {
+      theme: "catppuccin-mocha",
+      transformers: [filenameTransformer()],
+    },
   },
 });
