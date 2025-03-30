@@ -11,7 +11,7 @@ export function filenameTransformer(): ShikiTransformer {
 
     pre(code) {
       const meta: string = this.options.meta?.__raw || "";
-      const pattern = /(?:data-)?filename="(.*)"/;
+      const pattern = /(?:data-)?filename="(.*?)"/;
 
       const filename = pattern.exec(meta)?.[1] || null;
 
