@@ -22,13 +22,16 @@ export function filenameTransformer(): ShikiTransformer {
         code.properties.class += " ";
         code.properties.class += [
           "relative",
-          "!pt-[2rem]",
+          "!pt-[2.5rem]",
           "before:content-[attr(data-filename)]",
           "before:absolute",
           "before:top-0",
           "before:left-0",
           "before:w-full",
-          "before:bg-crust",
+          "before:bg-gradient-to-b",
+          "before:from-crust",
+          "before:to-base",
+          "before:rounded-t",
           "before:border-t-2",
           "before:border-l-2",
           "before:border-r-2",
