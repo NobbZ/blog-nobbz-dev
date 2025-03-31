@@ -19,8 +19,7 @@ export function filenameTransformer(): ShikiTransformer {
       if (filename) {
         code.properties.dataFilename = filename;
 
-        code.properties.class += " ";
-        code.properties.class += [
+        const titlebar_class = [
           "relative",
           "!pt-[2.5rem]",
           "before:content-[attr(data-filename)]",
@@ -43,6 +42,11 @@ export function filenameTransformer(): ShikiTransformer {
           "before:whitespace-nowrap",
           "before:overflow-x-auto",
         ].join(" ");
+
+        code.properties.class =
+          (code.properties.class ?? false)
+            ? code.properties.class + " " + titlebar_class
+            : titlebar_class;
       }
     },
   };
