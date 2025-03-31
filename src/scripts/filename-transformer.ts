@@ -4,12 +4,13 @@
 // SPDX-License-Identifier: MIT
 
 import type { ShikiTransformer } from "shiki";
+import type { Element } from "hast";
 
 export function filenameTransformer(): ShikiTransformer {
   const transformer: ShikiTransformer = {
     name: "filenameTransformer",
 
-    pre(code) {
+    pre(code: Element) {
       const meta: string = this.options.meta?.__raw || "";
       const pattern = /(?:data-)?filename="(.*?)"/;
 
