@@ -10,7 +10,7 @@ on:
 
 jobs:
   preflight:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     strategy:
       matrix:
         command:
@@ -28,7 +28,7 @@ jobs:
       - run: yarn ${{matrix.command}}
 
   deploy:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     needs:
       - preflight
     steps:
