@@ -19,7 +19,7 @@ repos:
 
   # Add back later when there is time to properly configure it
   - repo: https://github.com/fsfe/reuse-tool
-    rev: v1.1.2
+    rev: v5.0.2
     hooks:
       - id: reuse
 
