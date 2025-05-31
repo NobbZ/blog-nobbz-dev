@@ -1,8 +1,10 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["config:base"],
+  "extends": ["config:recommended"],
   "assignees": ["Nobbz"],
   "rangeStrategy": "update-lockfile",
   "schedule": ["* 0-5 * * *"],
-  "nix": { "enabled": true }
+  "nix": {
+    "enabled": true
+  }
 }
