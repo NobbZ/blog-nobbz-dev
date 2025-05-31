@@ -6,17 +6,18 @@
 import { defineConfig } from "astro/config";
 import mdx from "@astrojs/mdx";
 
-import tailwind from "@astrojs/tailwind";
+import tailwindcss from "@tailwindcss/vite";
 
 import { filenameTransformer } from "./src/scripts/filename-transformer";
 
-const tailwindIntegration = tailwind({
+const tailwindIntegration = tailwindcss({
   applyBaseStyles: false,
 });
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [mdx(), tailwindIntegration],
+  vite: { plugins: [tailwindIntegration] },
+  integrations: [mdx()],
   legacy: { collections: true },
   markdown: {
     shikiConfig: {
