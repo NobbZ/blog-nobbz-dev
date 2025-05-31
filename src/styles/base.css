@@ -3,9 +3,8 @@
 
    SPDX-License-Identifier: MIT */
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@import "@catppuccin/tailwindcss/mocha.css";
 
 * {
   --text-color: rgb(var(--ctp-text));
@@ -43,7 +42,7 @@ body {
       @apply text-[color-mix(in_srgb,var(--text-color),var(--highlight-color)_60%)];
     }
     h6 {
-      @apply text-base;
+      @apply text-ctp-base;
       @apply font-bold;
       @apply text-[color-mix(in_srgb,var(--text-color),var(--highlight-color)_75%)];
     }
@@ -107,8 +106,8 @@ body {
     pre {
       @apply [&::-webkit-scrollbar]:w-2;
       @apply [&::-webkit-scrollbar]:h-2;
-      @apply [&::-webkit-scrollbar-track]:bg-surface2;
-      @apply [&::-webkit-scrollbar-thumb]:bg-surface0;
+      @apply [&::-webkit-scrollbar-track]:bg-ctp-surface2;
+      @apply [&::-webkit-scrollbar-thumb]:bg-ctp-surface0;
     }
   }
 }
