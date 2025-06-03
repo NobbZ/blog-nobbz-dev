@@ -26,6 +26,7 @@ const funding = z
 
 const social = z
   .object({
+    bsky: z.string(),
     github: z.string(),
     gitlab: z.string(),
     linkedin: z.string(),

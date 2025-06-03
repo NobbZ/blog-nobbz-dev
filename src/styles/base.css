@@ -7,8 +7,8 @@
 @import "@catppuccin/tailwindcss/mocha.css";
 
 * {
-  --text-color: rgb(var(--ctp-text));
-  --highlight-color: rgb(var(--ctp-rosewater));
+  --text-color: var(--catppuccin-color-text);
+  --highlight-color: var(--catppuccin-color-rosewater);
 }
 
 body {
@@ -19,7 +19,7 @@ body {
     h1 {
       @apply text-4xl;
       @apply font-extrabold;
-      @apply text-[--text-color];
+      @apply text-(--text-color);
     }
     h2 {
       @apply text-3xl;
@@ -52,7 +52,7 @@ body {
     }
 
     a {
-      @apply text-[rgb(var(--ctp-blue))];
+      @apply text-(--catppuccin-color-blue);
     }
 
     pre {
