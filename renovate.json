@@ -3,7 +3,7 @@
   "extends": ["config:recommended"],
   "assignees": ["Nobbz"],
   "rangeStrategy": "update-lockfile",
-  "schedule": ["* 0-5 * * *"],
+  "schedule": ["0 0 * * 0"],
   "nix": {
     "enabled": true
   }
