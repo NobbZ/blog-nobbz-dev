@@ -1,0 +1,92 @@
+---
+# SPDX-FileCopyrightText: 2018 Norbert Melzer
+# SPDX-FileContributor: Norbert Melzer
+#
+# SPDX-License-Identifier: CC-BY-4.0
+
+title: Switching to Cask
+date: 2026-01-15
+slug: switching-to-cask
+description: "Documenting the transition from manual Emacs package management to using Cask for streamlined dependency handling."
+tags:
+  - cask
+  - emacs
+  - elisp
+author: "nobbz"
+---
+
+import NoteBox from "../../../components/NoteBox.astro";
+import Date from "../../../components/Date.astro";
+
+<NoteBox>
+  This is a repost of a blog post originally published on <Date datetime="2018-01-12" /> on an abandoned blog of mine.
+  The repost is part of my old blog recovery project.
+  It might contain outdated information, and I will very likely lack any context to help with questions about it.
+  I might not even use mentioned software anymore.
+
+|          |                                                                                             |
+| -------- | ------------------------------------------------------------------------------------------- |
+| post URL | https://nobbz.gitlab.io/2018/01/12-cask.html                                                |
+| source   | https://gitlab.com/NobbZ/nobbz.gitlab.io/-/blob/master/articles/2018/01/12-cask.org?plain=1 |
+
+</NoteBox>
+
+Today I've decided to switch to cask to manage my dependencies instead of doing all the hardwork myself.
+The process was pretty easy so far, but its not fully finished yet.
+
+I deleted all the vendored stuff first.
+Then I created a `Cask`-file in the repository.
+
+It starts with a short package description, which I placed there just to have it in place for the case I need it.
+Then I specified which package sources should be used.
+
+```elisp data-filename="Cask"
+(source org)
+(source melpa-stable)
+```
+
+I left of `gnu`-elpa on purpos, since I often got outdated stuff from there anyway.
+
+Next is to actually specify the dependencies.
+
+```elisp data-filename="Cask"
+(depends-on "elixir-mode"      "2.3.1")
+(depends-on "htmlize"          "1.51")
+(depends-on "org-plus-contrib" "9.1.6")
+(depends-on "yaml-mode"        "0.0.13")
+```
+
+Also after this I was able to drop a lot of code in the pre-load-file.
+I do not even need to juggle around with the `'load-path` anymore.
+
+```elisp data-filename="init.el"
+(defun blog-load-package (package &optional version)
+  (message "Loading '%s" package)
+  (require package)
+  (message "Finished loading '%s (Version %s)" package (if version (funcall version) "unknown")))
+
+;; Prepare directory variables
+(setq base-directory   default-directory)
+
+(org-babel-load-file (concat base-directory "blog/init.org"))
+```
+
+The only reason I left the `(blog-load-package)` in that file for now, is for historical reasons.
+I might move around that function in the future.
+
+Now we need to adjust the loading part.
+It is cut down to this:
+
+```elisp data-filename="init.el"
+(setq blog-dep-alist `((htmlize     :version ,(lambda () htmlize-version))
+                       (yaml-mode   :version yaml-mode-version)
+                       (elixir-mode :version elixir-mode-version)))
+
+(dolist (package-info blog-dep-alist)
+  (let* ((name     (car package-info))
+         (props    (cdr package-info))
+         (version  (or (plist-get props :version) nil)))
+    (blog-load-package name version)))
+```
+
+Thats it.
