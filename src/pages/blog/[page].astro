@@ -27,7 +27,9 @@ const blogEntries = page.data;
 ---
 
 <NobbzDev title="Blog">
-  {blogEntries.map((post) => <PostPreview post={post} />)}
+  {blogEntries.map((post) => (
+    <PostPreview post={post} />
+  ))}
 
   <!-- Pagination controls -->
   <div class:list={["flex", "flex-row", "justify-around", "gap-4"]}>

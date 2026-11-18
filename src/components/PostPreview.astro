@@ -28,9 +28,9 @@ const author = await getEntry(post.data.author);
         "text-[--highlight-color]",
       ]}
     >
-      <a class:list={["hover:underline"]} href={postPath(post)}
-        >{post.data.title}</a
-      >
+      <a class:list={["hover:underline"]} href={postPath(post)}>
+        {post.data.title}
+      </a>
     </h2>
     <div
       class:list={[

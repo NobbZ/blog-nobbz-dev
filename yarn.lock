@@ -91,17 +91,12 @@
     "@astrojs/compiler-binding-win32-arm64-msvc" "0.5.3"
     "@astrojs/compiler-binding-win32-x64-msvc" "0.5.3"
 
-"@astrojs/compiler-rs@^0.4.0 || ^0.5.0", "@astrojs/compiler-rs@^0.5.1", "@astrojs/compiler-rs@^0.5.3":
+"@astrojs/compiler-rs@^0.4.0 || ^0.5.0", "@astrojs/compiler-rs@^0.5.1", "@astrojs/compiler-rs@^0.5.2", "@astrojs/compiler-rs@^0.5.3":
   version "0.5.3"
   resolved "https://registry.yarnpkg.com/@astrojs/compiler-rs/-/compiler-rs-0.5.3.tgz#0558c0941b0a9c8ec453d348d20091bbaed7ce30"
   integrity sha512-rNSAYm5IcRJMpNm+cSMaaPNCmzCXIdiz67kcBwC1qN8eTmO48wEJ6hZdlGq60+0HIHwUlncfaMxti1Fk2uJu7w==
   dependencies:
     "@astrojs/compiler-binding" "0.5.3"
-
-"@astrojs/compiler@^2.9.1":
-  version "2.13.1"
-  resolved "https://registry.yarnpkg.com/@astrojs/compiler/-/compiler-2.13.1.tgz#d3cf26ed98e19d3d100cdbeb661ce7b856719ca7"
-  integrity sha512-f3FN83d2G/v32ipNClRKgYv30onQlMZX1vCeZMjPsMMPl1mDpmbl0+N5BYo4S/ofzqJyS5hvwacEo0CCVDn/Qg==
 
 "@astrojs/internal-helpers@0.12.0":
   version "0.12.0"
@@ -941,6 +936,11 @@
   version "0.3.6"
   resolved "https://registry.yarnpkg.com/@pkgr/core/-/core-0.3.6.tgz#3569708bd4be4d8870ba32bf1c456dac81600d97"
   integrity sha512-SEeaJLb3qBNF/OaXnaR1NmmBbFYk1zC0ZH/52fATcRPLFg/p791YrcyFFy44Bo9sLaGuSuLp5Q6axbb/O+v/RA==
+
+"@prettier/parse-srcset@^3.1.0":
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/@prettier/parse-srcset/-/parse-srcset-3.1.0.tgz#10a6785b84812b5ec506c16812fc2e3c6bb10b9e"
+  integrity sha512-FIRv2rZotO9NP/r66taYqD1zICpPiBbrECqjKV/xqNotqDxF7fLzzUeK+1RSRx9Tenk0DajR/GcRmTJ2qtHaKQ==
 
 "@qwik.dev/partytown@^1.0.1":
   version "1.0.5"
@@ -3479,24 +3479,19 @@ prelude-ls@^1.2.1:
   resolved "https://registry.yarnpkg.com/prelude-ls/-/prelude-ls-1.2.1.tgz#debc6489d7a6e6b0e7611888cec880337d316396"
   integrity sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==
 
-prettier-plugin-astro@~0.14.0:
-  version "0.14.1"
-  resolved "https://registry.yarnpkg.com/prettier-plugin-astro/-/prettier-plugin-astro-0.14.1.tgz#50bff8a659f2a6a4ff3b1d7ea73f2de93c95b213"
-  integrity sha512-RiBETaaP9veVstE4vUwSIcdATj6dKmXljouXc/DDNwBSPTp8FRkLGDSGFClKsAFeeg+13SB0Z1JZvbD76bigJw==
+prettier-plugin-astro@~1.1.0:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/prettier-plugin-astro/-/prettier-plugin-astro-1.1.2.tgz#12042eb0b32733f4c2228f92fb0eb0ff5a7c4029"
+  integrity sha512-vKyJW7Bb/QcIPUebEehbG+Tn+3yTIhoJ8ecm6NyJgcOj5T2xP+eF1IxY4zv809YyA69nV4ZFj+H9mdpC5cTaQA==
   dependencies:
-    "@astrojs/compiler" "^2.9.1"
-    prettier "^3.0.0"
-    sass-formatter "^0.7.6"
+    "@astrojs/compiler-rs" "^0.5.2"
+    "@prettier/parse-srcset" "^3.1.0"
+    sass-formatter "^0.8.0"
 
-prettier@^3.0.0, prettier@^3.8.1:
+prettier@^3.8.1, prettier@~3.10.0:
   version "3.10.1"
   resolved "https://registry.yarnpkg.com/prettier/-/prettier-3.10.1.tgz#00b1c1872f9650ec22093d5bdafdca0fe6760f77"
   integrity sha512-70vp3ZUYoPlFbF9uiTdXHUUCGEIp7d4+6p+8DYbkm2jP7x/3i/paXVF6dopSI3zd/CEitrZN1rc4i85xWmmXlg==
-
-prettier@~3.7.0:
-  version "3.7.4"
-  resolved "https://registry.yarnpkg.com/prettier/-/prettier-3.7.4.tgz#d2f8335d4b1cec47e1c8098645411b0c9dff9c0f"
-  integrity sha512-v6UNi1+3hSlVvv8fSaoUbggEM5VErKmmpGA7Pl3HF8V6uKY7rvClBOJlH6yNwQtfTueNkGVpOv/mtWL9L4bgRA==
 
 prismjs@^1.30.0:
   version "1.30.0"
@@ -3692,10 +3687,10 @@ s.color@0.0.15:
   resolved "https://registry.yarnpkg.com/s.color/-/s.color-0.0.15.tgz#6b32cd22d8dba95703a5122ddede2020a1560186"
   integrity sha512-AUNrbEUHeKY8XsYr/DYpl+qk5+aM+DChopnWOPEzn8YKzOhv4l2zH6LzZms3tOZP3wwdOyc0RmTciyi46HLIuA==
 
-sass-formatter@^0.7.6:
-  version "0.7.9"
-  resolved "https://registry.yarnpkg.com/sass-formatter/-/sass-formatter-0.7.9.tgz#cf77e02e98f81daabd91b185192144d29fc04ca5"
-  integrity sha512-CWZ8XiSim+fJVG0cFLStwDvft1VI7uvXdCNJYXhDvowiv+DsbD1nXLiQ4zrE5UBvj5DWZJ93cwN0NX5PMsr1Pw==
+sass-formatter@^0.8.0:
+  version "0.8.0"
+  resolved "https://registry.yarnpkg.com/sass-formatter/-/sass-formatter-0.8.0.tgz#bd1df0d141e628c567194a28b283ede3fed80987"
+  integrity sha512-Nf4eMGE2O5vnJG7KPCRyksWS9gVKSYoUWtPeMXRRxwZSPVQhSGtL602xVYS65LvMkHmkvKa7xpauF0+/5pPwrg==
   dependencies:
     suf-log "^2.5.3"
 
