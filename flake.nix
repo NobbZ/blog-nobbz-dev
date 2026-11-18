@@ -34,14 +34,16 @@
 
         devShells.default = pkgs.mkShell {
           packages = let
+            nodejs = pkgs.nodejs_22;
             astro-ls = pkgs.writeShellScriptBin "astro-ls" ''exec yarn run astro-ls "$@"'';
             mdx-language-server = pkgs.writeShellScriptBin "mdx-language-server" ''exec yarn run mdx-language-server "$@"'';
+            yarn = pkgs.yarn.override {inherit nodejs;};
+            ts_ls = pkgs.typescript-language-server.override {inherit nodejs;};
           in
             builtins.attrValues {
-              inherit (pkgs) nodejs_22 yarn2nix nil tailwindcss-language-server;
+              inherit (pkgs) nil tailwindcss-language-server;
               inherit (pkgs) pre-commit alejandra reuse;
-              inherit (pkgs.nodejs_22.pkgs) yarn typescript-language-server;
-              inherit astro-ls mdx-language-server;
+              inherit astro-ls mdx-language-server nodejs yarn ts_ls;
             };
         };
       };
