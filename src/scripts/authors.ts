@@ -16,7 +16,7 @@ export const withPosts = async <T extends Author>(
 ): Promise<WithPosts<T>> => {
   const posts = await getCollection(
     "blog",
-    ({ data: { author: postAuthor } }) => author.slug == postAuthor.slug,
+    ({ data: { author: postAuthor } }) => author.id == postAuthor.id,
   );
 
   return { ...author, posts };
