@@ -18,7 +18,6 @@ const tailwindIntegration = tailwindcss({
 export default defineConfig({
   vite: { plugins: [tailwindIntegration] },
   integrations: [mdx()],
-  legacy: { collections: true },
   markdown: {
     shikiConfig: {
       theme: "catppuccin-mocha",

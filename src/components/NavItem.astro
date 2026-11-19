@@ -21,17 +21,15 @@ if (spacer) {
 ---
 
 <li class:list={["text-center", "p-2", ...classes]}>
-  {
-    enabled ? (
-      <a href={href}>
+  {enabled ? (
+    <a href={href}>
+      <slot />
+    </a>
+  ) : (
+    <a>
+      <s>
         <slot />
-      </a>
-    ) : (
-      <a>
-        <s>
-          <slot />
-        </s>
-      </a>
-    )
-  }
+      </s>
+    </a>
+  )}
 </li>

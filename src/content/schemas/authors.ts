@@ -3,7 +3,7 @@
 //
 // SPDX-License-Identifier: MIT
 
-import { defineCollection, z } from "astro:content";
+import { z } from "zod";
 
 const catchall = z
   .object({
@@ -42,7 +42,7 @@ const web = z
   .catchall(catchall)
   .partial();
 
-const schema = z
+export const schema = z
   .object({
     first_name: z.string(),
     last_name: z.string(),
@@ -53,8 +53,3 @@ const schema = z
   })
   .partial()
   .required({ nick_name: true });
-
-export const authors = defineCollection({
-  type: "content",
-  schema,
-});
